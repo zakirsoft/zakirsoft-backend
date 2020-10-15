@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,9 @@ Route::get('/option', function () {
 });
 
 Route::resource('portfolio', PortfolioController::class);
+
+Route::resource('testimonial', TestimonialController::class);
+
+// Route::get('/testimonial', function () {
+//     return view('main-admin.testimonial.create');
+// });
