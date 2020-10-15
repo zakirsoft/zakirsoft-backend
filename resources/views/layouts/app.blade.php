@@ -192,7 +192,7 @@
                                     </li>
                                     <li class="pcoded-hasmenu @yield('testimonial')">
                                         <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
+                                            <span class="pcoded-micon"><i class="far fa-file-word"></i></span>
                                             <span class="pcoded-mtext">Testimonial</span>
                                         </a>
                                         <ul class="pcoded-submenu">
@@ -210,7 +210,7 @@
                                     </li>
                                     <li class="pcoded-hasmenu @yield('contact')">
                                         <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
+                                            <span class="pcoded-micon"><i class="far fa-address-card"></i></span>
                                             <span class="pcoded-mtext">Contact</span>
                                         </a>
                                         <ul class="pcoded-submenu">
