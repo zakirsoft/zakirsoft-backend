@@ -21,7 +21,7 @@
                 <div class="page-header-title">
                     <i class="fas fa-tachometer-alt bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>Dashboard</h5>
+                        <h5>Main Dashboard</h5>
                         <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                     </div>
                 </div>
