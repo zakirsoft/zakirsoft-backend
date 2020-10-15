@@ -44,11 +44,10 @@
     <div class="pcoded-inner-content">
         <div class="main-body">
             <div class="page-wrapper">
-
+        {{-- session --}}
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
-
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Default Table</h5>
@@ -78,10 +77,10 @@
                                                 <td>{{ $contact->subject }}</td>
                                                 <td>{{ $contact->message }}</td>
                                                 <td class="text-center">
-                                                    <form action="" method="POST">
+                                                <form action="{{ route('contact.destroy', $contact->id ) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button class="btn btn-danger" type="submit"><i class="far fa-trash-alt"></i> Remove</button>
+                                                        <button class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i> Remove</button>
                                                     </form>
                                                 </tr>
                                                 @endforeach
