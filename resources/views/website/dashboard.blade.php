@@ -19,7 +19,7 @@
                                     <div class="row align-items-center m-b-30">
                                         <div class="col">
                                             <h6 class="m-b-5 text-white">Total Profit</h6>
-                                            <h3 class="m-b-0 f-w-700 text-white">$1,783</h3>
+                                            <h3 class="m-b-0 f-w-700 text-white">$1000</h3>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-money-bill-alt text-c-red f-18"></i>
@@ -36,7 +36,7 @@
                                     <div class="row align-items-center m-b-30">
                                         <div class="col">
                                             <h6 class="m-b-5 text-white">Total Orders</h6>
-                                            <h3 class="m-b-0 f-w-700 text-white">15,830</h3>
+                                            <h3 class="m-b-0 f-w-700 text-white">129</h3>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-database text-c-blue f-18"></i>
@@ -53,7 +53,7 @@
                                     <div class="row align-items-center m-b-30">
                                         <div class="col">
                                             <h6 class="m-b-5 text-white">Average Price</h6>
-                                            <h3 class="m-b-0 f-w-700 text-white">$6,780</h3>
+                                            <h3 class="m-b-0 f-w-700 text-white">$7.75</h3>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign text-c-green f-18"></i>
@@ -70,7 +70,7 @@
                                     <div class="row align-items-center m-b-30">
                                         <div class="col">
                                             <h6 class="m-b-5 text-white">Product Sold</h6>
-                                            <h3 class="m-b-0 f-w-700 text-white">6,784</h3>
+                                            <h3 class="m-b-0 f-w-700 text-white">345</h3>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-tags text-c-yellow f-18"></i>
