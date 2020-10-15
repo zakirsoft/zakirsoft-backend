@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/dashboard', function () {
     return view('website.dashboard');
 });
-
-// Route::resource('', 'UserController');
+Route::get('/option', function () {
+    return view('website.option');
+});
 

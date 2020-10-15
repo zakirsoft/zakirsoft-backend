@@ -1,95 +1,92 @@
-b:
 @extends('layouts.app')
+
 @section('content')
 
-<div id="loading" class="dark-back">
-    <div class="loading-bar"></div>
-    <span class="loading-text opacity-0">So Excited ?</span>
+    <div class="loader-bg">
+        <div class="loader-bar"></div>
     </div>
 
-    <div id="particles-js"></div>
+<div class="pcoded-content">
 
-    <div class="info-bar bar-intro opacity-0">
-    <div class="row">
-    <div class="col-xs-12 col-sm-6 col-lg-6 info-bar-left">
-    <p>Grand Opening in <span id="countdown"></span></p>
+<div class="pcoded-inner-content">
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+                    <div class="row">
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card prod-p-card card-red">
+                                <div class="card-body">
+                                    <div class="row align-items-center m-b-30">
+                                        <div class="col">
+                                            <h6 class="m-b-5 text-white">Total Profit</h6>
+                                            <h3 class="m-b-0 f-w-700 text-white">$1000</h3>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-money-bill-alt text-c-red f-18"></i>
+                                        </div>
+                                    </div>
+                                    <p class="m-b-0 text-white"><span class="label label-danger m-r-10">+11%</span>From
+                                        Previous Month</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card prod-p-card card-blue">
+                                <div class="card-body">
+                                    <div class="row align-items-center m-b-30">
+                                        <div class="col">
+                                            <h6 class="m-b-5 text-white">Total Orders</h6>
+                                            <h3 class="m-b-0 f-w-700 text-white">129</h3>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-database text-c-blue f-18"></i>
+                                        </div>
+                                    </div>
+                                    <p class="m-b-0 text-white"><span class="label label-primary m-r-10">+12%</span>From
+                                        Previous Month</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card prod-p-card card-green">
+                                <div class="card-body">
+                                    <div class="row align-items-center m-b-30">
+                                        <div class="col">
+                                            <h6 class="m-b-5 text-white">Average Price</h6>
+                                            <h3 class="m-b-0 f-w-700 text-white">$7.75</h3>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign text-c-green f-18"></i>
+                                        </div>
+                                    </div>
+                                    <p class="m-b-0 text-white"><span class="label label-success m-r-10">+52%</span>From
+                                        Previous Month</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card prod-p-card card-yellow">
+                                <div class="card-body">
+                                    <div class="row align-items-center m-b-30">
+                                        <div class="col">
+                                            <h6 class="m-b-5 text-white">Product Sold</h6>
+                                            <h3 class="m-b-0 f-w-700 text-white">345</h3>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-tags text-c-yellow f-18"></i>
+                                        </div>
+                                    </div>
+                                    <p class="m-b-0 text-white"><span class="label label-warning m-r-10">+52%</span>From
+                                        Previous Month</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-xs-12 col-sm-6 col-lg-6 info-bar-right">
+</div>
 
-
-    <p class="social-icon">
-    <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-    <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
-    <a href="#" target="_blank"><i class="fa fa-youtube"></i></a>
-    <a href="#" target="_blank"><i class="fa fa-dribbble"></i></a>
-    <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
-    </p>
-    </div>
-    </div>
-    </div>
-
-
-    <div id="slider" class="sl-slider-wrapper">
-    <div class="sl-slider">
-
-    <div class="sl-slide bg-1" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
-    <div class="sl-slide-inner">
-    <div class="content-slide">
-    <div class="container">
-    <img src="img/logo.png" alt="" class="brand-logo text-intro opacity-0" />
-    <h1 class="text-intro opacity-0">Comming Soon</h1>
-    <p class="text-intro opacity-0">So Excited !!!<strong> Product Launch</strong> by Codedthemes.
-    <br> Top bar Time countdown - Chill your excitement.
-    </p>
-    <a data-dialog="somedialog" class="action-btn trigger text-intro opacity-0">Click Me !</a>
-    </div>
-    </div>
-    </div>
-    </div>
-    $
-    </div>
-
-    </div>
-
-
-    <div id="somedialog" class="dialog">
-    <div class="dialog__overlay"></div>
-
-    <div class="dialog__content">
-    <div class="header-picture"></div>
-
-    <div class="dialog-inner">
-    <h4>Notify Popup Highlight</h4>
-    <p>Just write the pefect description for your launch product here.... <strong>Codedthemes Product launch in next XX weeks. Enjoy !!!</strong></p>
-
-    <div id="subscribe">
-    <form action="php/notify-me.php" id="notifyMe" method="POST">
-    <div class="form-group">
-    <div class="controls">
-
-    <input type="text" id="mail-sub" name="email" placeholder="Click here to write your email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address'" class="form-control email srequiredField" />
-
-    <i class="fa fa-spinner opacity-0"></i>
-
-    <button class="btn btn-lg submit">Submit</button>
-    <div class="clear"></div>
-    </div>
-    </div>
-    </form>
-
-    <div class="block-message">
-    <div class="message">
-    <p class="notify-valid"></p>
-    </div>
-    </div>
-
-    </div>
-
-    </div>
-
-
-    <button class="close-newsletter" data-dialog-close><i class="icon ion-android-close"></i></button>
-    </div>
-
-    </div>
 @endsection
