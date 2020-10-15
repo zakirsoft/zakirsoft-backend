@@ -90,7 +90,7 @@
                                                         <form action="{{ route('testimonial.destroy', $testimonial->id) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <button class="btn-sm btn-danger m-1"><i class="far fa-trash-alt pr-2"></i>Remove</button>
+                                                            <button class="btn btn-sm btn-danger m-1"><i class="far fa-trash-alt pr-2"></i>Remove</button>
                                                         </form>
                                                     </td>
                                                 </tr>
