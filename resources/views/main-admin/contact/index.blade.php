@@ -67,7 +67,7 @@
                                                     <td>Khayrul Islam Shanto</td>
                                                     <td>khayrulshanto@gmail.com</td>
                                                     <td>New Project</td>
-                                                    <td>lorem ipsum dolor sit amet, consectetur adipisicing elit</td>
+                                                    <td>lorem ipsum dolor sit amet, consectetur adipisicing elit </td>
                                                     <td class="text-center"><a href="#" class="btn-sm btn-danger"><i class="far fa-trash-alt"></i> Remove</a></td>
                                                 </tr>
                                                 <tr>
