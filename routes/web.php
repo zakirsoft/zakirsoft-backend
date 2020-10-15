@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+// Route::resource('portfolio', PortfolioController::class);
 
 Route::resource('dashboard', DashboardController::class);
 // Route::resource('portfolio', PortfolioController::class);

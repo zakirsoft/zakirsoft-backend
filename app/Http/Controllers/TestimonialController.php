@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Testimonial;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class TestimonialController extends Controller
@@ -14,7 +15,8 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        return view('main-admin.testimonial.index');
+        $testimonials = Testimonial::paginate(10);
+        return view('main-admin.testimonial.index', compact('testimonials'));
     }
 
     /**
@@ -35,7 +37,15 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Testimonial::insert([
+            'purpose' => $request->purpose,
+            'content' => $request->content,
+            'name' => $request->name,
+            'position' => $request->position,
+            'created_at' => Carbon::now()
+        ]);
+
+        return back()->with('insert', 'Testimonial added Successfully');
     }
 
     /**
@@ -78,8 +88,11 @@ class TestimonialController extends Controller
      * @param  \App\Models\Testimonial  $testimonial
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Testimonial $testimonial)
+    public function destroy($id)
     {
-        //
+       $test = Testimonial::find($id);
+       $test->delete();
+
+       return redirect()->back()->with('delete', 'Testimonial Successfully Delete');
     }
 }

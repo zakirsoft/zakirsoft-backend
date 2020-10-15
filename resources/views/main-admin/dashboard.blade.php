@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('title')
+    Dashboard - ZakirSoft
+@endsection
+
+@section('dashboard')
+    active
+@endsection
+
 @section('content')
 
     <div class="loader-bg">
