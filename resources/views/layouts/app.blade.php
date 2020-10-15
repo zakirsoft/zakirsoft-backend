@@ -183,15 +183,11 @@
                                                 </a>
                                             </li>
                                             <li class="">
-                                            <a href="{{ route('portfolio.index') }}" class="waves-effect waves-dark">
+                                            <a href="#" class="waves-effect waves-dark">
                                                     <span class="pcoded-mtext">Portfolio List</span>
                                                 </a>
                                             </li>
-                                            <li class="">
-                                                <a href="#" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Trash Data</span>
-                                                </a>
-                                            </li>
+
                                         </ul>
                                     </li>
                                     <li class="pcoded-hasmenu">
