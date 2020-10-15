@@ -4,7 +4,7 @@
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
-    <title>Admindek | Admin Template</title>
+    <title>Admindek | Dashboard</title>
 
     <!--[if lt IE 10]>
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -26,15 +26,10 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand:500,700" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('website') }}/css/bootstrap.min.css">
-
     <link rel="stylesheet" href="{{ asset('website') }}/css/waves.min.css" type="text/css" media="all">
-
     <link rel="stylesheet" type="text/css" href="{{ asset('website') }}/css/feather.css">
-
     <link rel="stylesheet" type="text/css" href="{{ asset('website') }}/css/font-awesome-n.min.css">
-
     <link rel="stylesheet" href="{{ asset('website') }}/css/chartist.css" type="text/css" media="all">
-
     <link rel="stylesheet" type="text/css" href="{{ asset('website') }}/css/style.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('website') }}/css/widget.css">
 </head>
@@ -50,7 +45,8 @@
                 <div class="navbar-wrapper">
                     <div class="navbar-logo">
                         <a href="index.html">
-                            <img class="img-fluid" src="{{asset('website')}}/png/logo.png" alt="Theme-Logo" />
+                            Brand Logo
+                            <!-- <img class="img-fluid" src="{{asset('website')}}/png/logo.png" alt="Theme-Logo" /> -->
                         </a>
                         <a class="mobile-menu" id="mobile-collapse" href="#!">
                             <i class="feather icon-menu icon-toggle-right"></i>
@@ -171,6 +167,60 @@
                                             <span class="pcoded-mtext">Dashboard</span>
                                         </a>
                                     </li>
+                                </ul>
+
+                                <div class="pcoded-navigation-label">Website</div>
+                                <ul class="pcoded-item pcoded-left-item">
+                                    <li class="pcoded-hasmenu">
+                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
+                                            <span class="pcoded-mtext">Portfolio</span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class="">
+                                                <a href="#" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">New Portfolio</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="#" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Portfolio List</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="#" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Trash Data</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="pcoded-hasmenu">
+                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
+                                            <span class="pcoded-mtext">Testimonial</span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class="">
+                                                <a href="#" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Add One</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="#" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Testimonials</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="#" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Trash Data</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                                <div class="pcoded-navigation-label">Example</div>
+                                <ul class="pcoded-item pcoded-left-item">
                                     <li class="pcoded-hasmenu">
                                         <a href="javascript:void(0)" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
@@ -188,8 +238,7 @@
                                                         </a>
                                                     </li>
                                                     <li class="">
-                                                        <a href="#"
-                                                            class="waves-effect waves-dark">
+                                                        <a href="#" class="waves-effect waves-dark">
                                                             <span class="pcoded-mtext">Option 2</span>
                                                         </a>
                                                     </li>
@@ -212,57 +261,6 @@
                                     </li>
                                 </ul>
 
-                                <div class="pcoded-navigation-label">Website</div>
-                                <ul class="pcoded-item pcoded-left-item">
-                                    <li class="">
-                                        <a href="{{ url('/dashboard') }}" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon">
-                                                <i class="feather icon-menu"></i>
-                                            </span>
-                                            <span class="pcoded-mtext">Frontend</span>
-                                        </a>
-                                    </li>
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
-                                            <span class="pcoded-mtext">Dropdown</span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class=" pcoded-hasmenu">
-                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Dropdown</span>
-                                                </a>
-                                                <ul class="pcoded-submenu">
-                                                    <li class="">
-                                                        <a href="#" class="waves-effect waves-dark">
-                                                            <span class="pcoded-mtext">Option 1</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="">
-                                                        <a href="#"
-                                                            class="waves-effect waves-dark">
-                                                            <span class="pcoded-mtext">Option 2</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="">
-                                                <a href="#" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Option 1</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="">
-                                        <a href="#" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon">
-                                                <i class="feather icon-menu"></i>
-                                            </span>
-                                            <span class="pcoded-mtext">Option</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                                
                             </div>
                         </div>
                     </nav>
@@ -286,40 +284,28 @@
         </div>
     </div>
 
-    <script src="{{asset('website')}}/js/jquery.min.js" type="2d8d78e876b340f9029c575b-text/javascript"></script>
-    <script src="{{asset('website')}}/js/jquery-ui.min.js" type="2d8d78e876b340f9029c575b-text/javascript"></script>
-    <script src="{{asset('website')}}/js/popper.min.js" type="2d8d78e876b340f9029c575b-text/javascript"></script>
-    <script src="{{asset('website')}}/js/bootstrap.min.js" type="2d8d78e876b340f9029c575b-text/javascript"></script>
-
-    <script src="{{asset('website')}}/js/waves.min.js" type="2d8d78e876b340f9029c575b-text/javascript"></script>
-
-    <script src="{{asset('website')}}/js/jquery.slimscroll.js" type="2d8d78e876b340f9029c575b-text/javascript"></script>
-
-    <script src="{{asset('website')}}/js/jquery.flot.js" type="2d8d78e876b340f9029c575b-text/javascript"></script>
-    <script src="{{asset('website')}}/js/jquery.flot.categories.js" type="2d8d78e876b340f9029c575b-text/javascript">
-    </script>
-    <script src="{{asset('website')}}/js/curvedlines.js" type="2d8d78e876b340f9029c575b-text/javascript"></script>
-    <script src="{{asset('website')}}/js/jquery.flot.tooltip.min.js" type="2d8d78e876b340f9029c575b-text/javascript">
-    </script>
-
-    <script src="{{asset('website')}}/js/amcharts.js" type="2d8d78e876b340f9029c575b-text/javascript"></script>
-    <script src="{{asset('website')}}/js/serial.js" type="2d8d78e876b340f9029c575b-text/javascript"></script>
-    <script src="{{asset('website')}}/js/light.js" type="2d8d78e876b340f9029c575b-text/javascript"></script>
-
-    <script src="{{asset('website')}}/js/markerclusterer.js" type="2d8d78e876b340f9029c575b-text/javascript"></script>
-    <script src="https://maps.google.com/maps/api/js?sensor=true" type="2d8d78e876b340f9029c575b-text/javascript">
-    </script>
-    <script src="{{asset('website')}}/js/gmaps.js" type="2d8d78e876b340f9029c575b-text/javascript"></script>
-
-    <script src="{{asset('website')}}/js/pcoded.min.js" type="2d8d78e876b340f9029c575b-text/javascript"></script>
-    <script src="{{asset('website')}}/js/vertical-layout.min.js" type="2d8d78e876b340f9029c575b-text/javascript">
-    </script>
-    <script src="{{asset('website')}}/js/crm-dashboard.min.js" type="2d8d78e876b340f9029c575b-text/javascript"></script>
-    <script src="{{asset('website')}}/js/script.min.js" type="2d8d78e876b340f9029c575b-text/javascript"></script>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"
-        type="2d8d78e876b340f9029c575b-text/javascript"></script>
-    <script type="2d8d78e876b340f9029c575b-text/javascript">
+    <script src="{{asset('website')}}/js/jquery.min.js"></script>
+    <script src="{{asset('website')}}/js/jquery-ui.min.js"></script>
+    <script src="{{asset('website')}}/js/popper.min.js"></script>
+    <script src="{{asset('website')}}/js/bootstrap.min.js"></script>
+    <script src="{{asset('website')}}/js/waves.min.js"></script>
+    <script src="{{asset('website')}}/js/jquery.slimscroll.js"></script>
+    <script src="{{asset('website')}}/js/jquery.flot.js"></script>
+    <script src="{{asset('website')}}/js/jquery.flot.categories.js"></script>
+    <script src="{{asset('website')}}/js/curvedlines.js"></script>
+    <script src="{{asset('website')}}/js/jquery.flot.tooltip.min.js"></script>
+    <script src="{{asset('website')}}/js/amcharts.js"></script>
+    <script src="{{asset('website')}}/js/serial.js"></script>
+    <script src="{{asset('website')}}/js/light.js"></script>
+    <script src="{{asset('website')}}/js/markerclusterer.js"></script>
+    <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
+    <script src="{{asset('website')}}/js/gmaps.js"></script>
+    <script src="{{asset('website')}}/js/pcoded.min.js"></script>
+    <script src="{{asset('website')}}/js/vertical-layout.min.js"></script>
+    <script src="{{asset('website')}}/js/crm-dashboard.min.js"></script>
+    <script src="{{asset('website')}}/js/script.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
         window.dataLayer = window.dataLayer || [];
 
         function gtag() {
