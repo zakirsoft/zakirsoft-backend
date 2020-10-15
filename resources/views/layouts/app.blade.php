@@ -178,7 +178,7 @@
                                         </a>
                                         <ul class="pcoded-submenu">
                                             <li class="">
-                                                <a href="#" class="waves-effect waves-dark">
+                                            <a href="{{ route('portfolio.create') }}" class="waves-effect waves-dark">
                                                     <span class="pcoded-mtext">New Portfolio</span>
                                                 </a>
                                             </li>

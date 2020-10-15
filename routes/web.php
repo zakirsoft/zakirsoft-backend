@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PortfolioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/dashboard', function () {
-    return view('website.dashboard');
+    return view('main-admin.dashboard');
 });
 Route::get('/option', function () {
-    return view('website.option');
+    return view('main-admin.option');
 });
 
+Route::resource('portfolio', PortfolioController::class);
