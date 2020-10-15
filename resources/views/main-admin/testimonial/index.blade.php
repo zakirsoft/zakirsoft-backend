@@ -53,7 +53,7 @@
                                         <table class="table table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>SL</th>
+                                                    <th>ID</th>
                                                     <th>Name</th>
                                                     <th>Position</th>
                                                     <th>Purpose</th>
@@ -62,14 +62,25 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @forelse ($testimonials as $key => $testimonial)
                                                 <tr>
-                                                    <th scope="row">1SL</th>
-                                                    <td>Name</td>
-                                                    <td>Position</td>
-                                                    <td>Purpose</td>
-                                                    <td>Testimonial Content</td>
-                                                    <td class="text-center"><a href="#" class="btn-sm btn-danger">Remove</a></td>
+                                                    <th scope="row">{{ $testimonial->id }}</th>
+                                                    <td>{{ $testimonial->name }}</td>
+                                                    <td>{{ $testimonial->position }}</td>
+                                                    <td>{{ $testimonial->purpose }}</td>
+                                                    <td>{{ $testimonial->content }}</td>
+                                                    <td class="text-center"><a href="{{ route('testimonial.destroy', $testimonial->id) }}" class="btn-sm btn-danger">Remove</a></td>
                                                 </tr>
+                                                @empty
+                                                <tr>
+                                                    <td>None</td>
+                                                    <td>No Data Found</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                @endforelse
                                             </tbody>
                                         </table>
                                     </div>
