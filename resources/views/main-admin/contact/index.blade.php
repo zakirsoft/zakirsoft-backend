@@ -23,7 +23,7 @@
                 <div class="page-header-breadcrumb">
                     <ul class=" breadcrumb breadcrumb-title">
                         <li class="breadcrumb-item">
-                            <a href="index.html"><i class="feather icon-home"></i></a>
+                        <a href="#"><i class="feather icon-home"></i></a>
                         </li>
                         <li class="breadcrumb-item"><a href="#!">Message</a>
                         </li>
@@ -57,27 +57,27 @@
                                                     <th>Name</th>
                                                     <th>Email</th>
                                                     <th>Subject</th>
-                                                    <th>Message</th>
-                                                    <th class="text-center">Remove</th>
+                                                    <th class="text-center">Message</th>
+                                                    <th class="text-center">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach ($contacts as $contact)
                                                 <tr>
-                                                    <th scope="row">1SL</th>
-                                                    <td>Khayrul Islam Shanto</td>
-                                                    <td>khayrulshanto@gmail.com</td>
-                                                    <td>New Project</td>
-                                                    <td>lorem ipsum dolor sit amet, consectetur adipisicing elit </td>
-                                                    <td class="text-center"><a href="#" class="btn-sm btn-danger"><i class="far fa-trash-alt"></i> Remove</a></td>
+                                                <th scope="row">{{$contact->id }}L</th>
+                                                <td>{{ $contact->name }}</td>
+                                                <td>{{ $contact->email }}</td>
+                                                <td>{{ $contact->subject }}</td>
+                                                <td>{{ $contact->message }}</td>
+                                                <td class="text-center">
+                                                    <form action="" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn btn-danger" type="submit"><i class="far fa-trash-alt"></i> Remove</button>
+                                                    </form>
                                                 </tr>
-                                                <tr>
-                                                    <th scope="row">1SL</th>
-                                                    <td>MURSHALIN DEVAPLEX</td>
-                                                    <td>MURSHALIN@gmail.com</td>
-                                                    <td>New Project</td>
-                                                    <td>lorem ipsum dolor sit amet, consectetur adipisicing elit</td>
-                                                    <td class="text-center"><a href="#" class="btn-sm btn-danger"><i class="far fa-trash-alt"></i> Remove</a></td>
-                                                </tr>
+                                                @endforeach
+
                                             </tbody>
                                         </table>
                                     </div>
