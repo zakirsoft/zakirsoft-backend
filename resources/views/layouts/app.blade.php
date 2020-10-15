@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from colorlib.com/polygon/admindek/default/dashboard-crm.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Dec 2019 16:08:30 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
     <title>Admindek | Admin Template</title>
-
 
     <!--[if lt IE 10]>
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -335,99 +332,41 @@
                             <div class="pcoded-inner-navbar main-menu">
                                 <div class="pcoded-navigation-label">Navigation</div>
                                 <ul class="pcoded-item pcoded-left-item">
-                                    <li class="pcoded-hasmenu active pcoded-trigger">
-                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                    <li class="">
+                                        <a href="{{ url('/dashboard') }}" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon">
+                                                <i class="feather icon-home"></i>
+                                            </span>
                                             <span class="pcoded-mtext">Dashboard</span>
                                         </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class="">
-                                                <a href="index.html" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Default</span>
-                                                </a>
-                                            </li>
-                                            <li class="active">
-                                                <a href="dashboard-crm.html" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">CRM</span>
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="dashboard-analytics.html" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Analytics</span>
-                                                    <span class="pcoded-badge label label-info ">NEW</span>
-                                                </a>
-                                            </li>
-                                        </ul>
                                     </li>
                                     <li class="pcoded-hasmenu">
                                         <a href="javascript:void(0)" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
-                                            <span class="pcoded-mtext">Page layouts</span>
-                                            <span class="pcoded-badge label label-warning">NEW</span>
+                                            <span class="pcoded-mtext">Dropdown</span>
                                         </a>
                                         <ul class="pcoded-submenu">
                                             <li class=" pcoded-hasmenu">
                                                 <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Vertical</span>
+                                                    <span class="pcoded-mtext">Dropdown</span>
                                                 </a>
                                                 <ul class="pcoded-submenu">
                                                     <li class="">
                                                         <a href="menu-static.html" class="waves-effect waves-dark">
-                                                            <span class="pcoded-mtext">Static Layout</span>
+                                                            <span class="pcoded-mtext">Option 1</span>
                                                         </a>
                                                     </li>
                                                     <li class="">
                                                         <a href="menu-header-fixed.html"
                                                             class="waves-effect waves-dark">
-                                                            <span class="pcoded-mtext">Header Fixed</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="">
-                                                        <a href="menu-compact.html" class="waves-effect waves-dark">
-                                                            <span class="pcoded-mtext">Compact</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="">
-                                                        <a href="menu-sidebar.html" class="waves-effect waves-dark">
-                                                            <span class="pcoded-mtext">Sidebar Fixed</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class=" pcoded-hasmenu">
-                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Horizontal</span>
-                                                </a>
-                                                <ul class="pcoded-submenu">
-                                                    <li class="">
-                                                        <a href="menu-horizontal-static.html" target="_blank"
-                                                            class="waves-effect waves-dark">
-                                                            <span class="pcoded-mtext">Static Layout</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="">
-                                                        <a href="menu-horizontal-fixed.html" target="_blank"
-                                                            class="waves-effect waves-dark">
-                                                            <span class="pcoded-mtext">Fixed layout</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="">
-                                                        <a href="menu-horizontal-icon.html" target="_blank"
-                                                            class="waves-effect waves-dark">
-                                                            <span class="pcoded-mtext">Static With Icon</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="">
-                                                        <a href="menu-horizontal-icon-fixed.html" target="_blank"
-                                                            class="waves-effect waves-dark">
-                                                            <span class="pcoded-mtext">Fixed With Icon</span>
+                                                            <span class="pcoded-mtext">Option 2</span>
                                                         </a>
                                                     </li>
                                                 </ul>
                                             </li>
                                             <li class="">
                                                 <a href="menu-bottom.html" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Bottom Menu</span>
+                                                    <span class="pcoded-mtext">Option 1</span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -437,34 +376,8 @@
                                             <span class="pcoded-micon">
                                                 <i class="feather icon-menu"></i>
                                             </span>
-                                            <span class="pcoded-mtext">Navigation</span>
+                                            <span class="pcoded-mtext">Option</span>
                                         </a>
-                                    </li>
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon">
-                                                <i class="feather icon-layers"></i>
-                                            </span>
-                                            <span class="pcoded-mtext">Widget</span>
-                                            <span class="pcoded-badge label label-danger">100+</span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class="">
-                                                <a href="widget-statistic.html" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Statistic</span>
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="widget-data.html" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Data</span>
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="widget-chart.html" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Chart Widget</span>
-                                                </a>
-                                            </li>
-                                        </ul>
                                     </li>
                                 </ul>
                                 <div class="pcoded-navigation-label">UI Element</div>
@@ -1361,7 +1274,5 @@
 </body>
 
 </body>
-
-<!-- Mirrored from colorlib.com/polygon/admindek/default/dashboard-crm.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Dec 2019 16:08:32 GMT -->
 
 </html>
