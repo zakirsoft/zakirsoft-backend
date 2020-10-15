@@ -45,6 +45,12 @@
         <div class="main-body">
             <div class="page-wrapper">
         {{-- session --}}
+                @if (session('delete'))
+                <div class="alert alert-danger bg-danger" role="alert">
+                    {{ session('delete') }}
+                </div>
+                @endif
+
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
