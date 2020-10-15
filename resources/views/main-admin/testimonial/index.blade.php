@@ -74,7 +74,7 @@
                                                     <th>Name</th>
                                                     <th>Position</th>
                                                     <th>Purpose</th>
-                                                    <th>Testimonial Content</th>
+                                                    <th style="max-width: 300px">Testimonial Content</th>
                                                     <th class="text-center">Remove</th>
                                                 </tr>
                                             </thead>
@@ -85,7 +85,7 @@
                                                     <td>{{ $testimonial->name }}</td>
                                                     <td>{{ $testimonial->position }}</td>
                                                     <td>{{ $testimonial->purpose }}</td>
-                                                    <td>{{ $testimonial->content }}</td>
+                                                    <td style="max-width: 300px">{{ $testimonial->content }}</td>
                                                     <td class="text-center">
                                                         <form action="{{ route('testimonial.destroy', $testimonial->id) }}" method="POST">
                                                             @method('DELETE')
@@ -96,12 +96,7 @@
                                                 </tr>
                                                 @empty
                                                 <tr>
-                                                    <td>None</td>
-                                                    <td>No Data Found</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td colspan="6" class="text-center">No Data Found</td>
                                                 </tr>
                                                 @endforelse
                                             </tbody>
