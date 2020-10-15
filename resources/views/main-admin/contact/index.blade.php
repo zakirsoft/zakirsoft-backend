@@ -1,6 +1,14 @@
 @extends('layouts.app')
-@section('content')
 
+@section('title')
+    Contact Message - ZakirSoft
+@endsection
+
+@section('contact')
+    active pcoded-trigger
+@endsection
+
+@section('content')
 
 <div class="loader-bg">
     <div class="loader-bar"></div>

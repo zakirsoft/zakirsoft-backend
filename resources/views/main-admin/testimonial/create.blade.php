@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('title')
+    Add Testimonial - ZakirSoft
+@endsection
+
+@section('testimonial')
+    active pcoded-trigger
+@endsection
+
 @section('content')
 
 <div class="loader-bg">

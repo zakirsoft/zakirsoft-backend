@@ -23,7 +23,7 @@ Route::get('/option', function () {
     return view('main-admin.option');
 });
 
-Route::resource('portfolio', PortfolioController::class);
+// Route::resource('portfolio', PortfolioController::class);
 
 Route::resource('contact', ContactController::class);
 

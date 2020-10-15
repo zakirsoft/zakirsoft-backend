@@ -88,8 +88,11 @@ class TestimonialController extends Controller
      * @param  \App\Models\Testimonial  $testimonial
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Testimonial $testimonial)
+    public function destroy($id)
     {
+       $test = Testimonial::find($id);
+       $test->delete();
 
+       return redirect()->back()->with('delete', 'Testimonial Successfully Delete');
     }
 }

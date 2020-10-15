@@ -4,7 +4,7 @@
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
-    <title>Admindek | Dashboard</title>
+    <title>@yield('title', 'Dashboard | ZakirSoft')</title>
 
     <!--[if lt IE 10]>
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -159,7 +159,7 @@
                             <div class="pcoded-inner-navbar main-menu">
                                 <div class="pcoded-navigation-label">System</div>
                                 <ul class="pcoded-item pcoded-left-item">
-                                    <li class="">
+                                    <li class="@yield('dashboard')">
                                         <a href="{{ url('/dashboard') }}" class="waves-effect waves-dark">
                                             <span class="pcoded-micon">
                                                 <i class="feather icon-home"></i>
@@ -178,7 +178,7 @@
                                         </a>
                                         <ul class="pcoded-submenu">
                                             <li class="">
-                                            <a href="{{ route('portfolio.create') }}" class="waves-effect waves-dark">
+                                            <a href="#" class="waves-effect waves-dark">
                                                     <span class="pcoded-mtext">New Portfolio</span>
                                                 </a>
                                             </li>
@@ -190,7 +190,7 @@
 
                                         </ul>
                                     </li>
-                                    <li class="pcoded-hasmenu">
+                                    <li class="pcoded-hasmenu @yield('testimonial')">
                                         <a href="javascript:void(0)" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
                                             <span class="pcoded-mtext">Testimonial</span>
@@ -208,7 +208,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="pcoded-hasmenu">
+                                    <li class="pcoded-hasmenu @yield('contact')">
                                         <a href="javascript:void(0)" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
                                             <span class="pcoded-mtext">Contact</span>
