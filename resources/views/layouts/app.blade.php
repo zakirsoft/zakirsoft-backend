@@ -371,8 +371,8 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="">
-                                        <a href="navbar-light.html" class="waves-effect waves-dark">
+                                <li class="">
+                                        <a href="#" class="waves-effect waves-dark">
                                             <span class="pcoded-micon">
                                                 <i class="feather icon-menu"></i>
                                             </span>
