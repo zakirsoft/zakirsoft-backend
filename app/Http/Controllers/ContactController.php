@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
-class PortfolioController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        return view('main-admin.portfolio.index');
+        return view('main-admin.contact.index');
     }
 
     /**
@@ -23,7 +24,7 @@ class PortfolioController extends Controller
      */
     public function create()
     {
-        return view('main-admin.portfolio.create');
+        //
     }
 
     /**
@@ -40,10 +41,10 @@ class PortfolioController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Contact $contact)
     {
         //
     }
@@ -51,10 +52,10 @@ class PortfolioController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Contact $contact)
     {
         //
     }
@@ -63,10 +64,10 @@ class PortfolioController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Contact $contact)
     {
         //
     }
@@ -74,10 +75,10 @@ class PortfolioController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Contact $contact)
     {
         //
     }

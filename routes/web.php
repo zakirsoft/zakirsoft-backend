@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PortfolioController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,4 @@ Route::get('/option', function () {
 });
 
 Route::resource('portfolio', PortfolioController::class);
+Route::resource('contact', ContactController::class);

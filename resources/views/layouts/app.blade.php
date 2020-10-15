@@ -183,7 +183,7 @@
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="#" class="waves-effect waves-dark">
+                                            <a href="{{ route('portfolio.index') }}" class="waves-effect waves-dark">
                                                     <span class="pcoded-mtext">Portfolio List</span>
                                                 </a>
                                             </li>
@@ -213,6 +213,19 @@
                                             <li class="">
                                                 <a href="#" class="waves-effect waves-dark">
                                                     <span class="pcoded-mtext">Trash Data</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="pcoded-hasmenu">
+                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
+                                            <span class="pcoded-mtext">Contact</span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class="">
+                                                <a href="{{ route('contact.index') }}" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Message</span>
                                                 </a>
                                             </li>
                                         </ul>
