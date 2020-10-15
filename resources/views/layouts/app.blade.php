@@ -201,18 +201,13 @@
                                         </a>
                                         <ul class="pcoded-submenu">
                                             <li class="">
-                                                <a href="#" class="waves-effect waves-dark">
+                                                <a href="{{ route('testimonial.create') }}" class="waves-effect waves-dark">
                                                     <span class="pcoded-mtext">Add One</span>
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="#" class="waves-effect waves-dark">
+                                                <a href="{{ route('testimonial.index') }}" class="waves-effect waves-dark">
                                                     <span class="pcoded-mtext">Testimonials</span>
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="#" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Trash Data</span>
                                                 </a>
                                             </li>
                                         </ul>
