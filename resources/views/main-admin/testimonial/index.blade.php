@@ -81,7 +81,7 @@
                                             <tbody>
                                                 @forelse ($testimonials as $key => $testimonial)
                                                 <tr>
-                                                    <th scope="row">{{ $testimonial->id }}</th>
+                                                    <th scope="row">{{ $testimonials->firstItem() + $key }}</th>
                                                     <td>{{ $testimonial->name }}</td>
                                                     <td>{{ $testimonial->position }}</td>
                                                     <td>{{ $testimonial->purpose }}</td>
