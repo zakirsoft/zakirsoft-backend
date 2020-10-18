@@ -37,9 +37,8 @@
                                 <div class="col-12">
                                     <div class="checkbox-fade fade-in-primary">
                                         <label>
-                                            <input type="checkbox" value="" name="remember" class="form-check-input" id="exampleCheck1">
-                                            <span class="cr"><i
-                                                    class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
+                                            <input type="checkbox" value="" name="remember">
+                                            <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
                                             <span class="text-inverse">Remember me</span>
                                         </label>
                                     </div>

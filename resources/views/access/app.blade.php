@@ -25,8 +25,8 @@
     <link rel="stylesheet" href="{{ asset('website') }}/css/chartist.css" type="text/css" media="all">
     <link rel="stylesheet" type="text/css" href="{{ asset('website') }}/css/style.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('website') }}/css/widget.css">
-    <link rel=" stylesheet" type="text/css" href="{{ asset('website/css/pages.css') }}">
-
+    <link rel=" stylesheet" type="text/css" href="{{ asset('website') }}/css/pages.css">
+    <link rel="stylesheet" href="{{ asset('website') }}/css/icofont.css">
 </head>
 
 <body>
