@@ -25,3 +25,14 @@ Route::resource('contact', ContactController::class);
 
 Route::resource('testimonial', TestimonialController::class);
 
+Route::get('signin', function () {
+    return view('access.signin');
+});
+
+Route::get('signup', function () {
+    return view('access.signup');
+});
+
+Route::get('password/reset', function () {
+    return view('access.forgot');
+});
