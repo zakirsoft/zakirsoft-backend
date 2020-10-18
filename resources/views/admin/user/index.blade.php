@@ -73,14 +73,17 @@ active pcoded-trigger
                                                     <th>User</th>
                                                     <th>E-Mail</th>
                                                     <th>Role</th>
+                                                    <th>Registered</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @forelse ($users as $user)
                                                 <tr>
-                                                    <th scope="row">John Doe <br><small class="text-muted">Registered: 18/10/2020</small></th>
-                                                    <td>jhon.doe351@gmail.com</td>
-                                                    <td>admin</td>
+                                                    <th scope="row">{{ $user->name }} <br></th>
+                                                    <td>{{ $user->email }}</td>
+                                                    <td></td>
+                                                    <td class="text-muted">{{ $user->created_at->format('d/m/Y') }}</td>
                                                     <td class="d-flex">
                                                         <a href="" class="btn btn-sm btn-warning mr-1" title="Edit User"><i class="far fa-edit"></i></a>
                                                         <a href="" class="btn btn-sm btn-primary mr-1" title="Manage Roles"><i class="fas fa-lock"></i></a>
@@ -91,51 +94,13 @@ active pcoded-trigger
                                                         </form>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <th scope="row">John Doe <br><small class="text-muted">Registered: 18/10/2020</small></th>
-                                                    <td>jhon.doe351@gmail.com</td>
-                                                    <td>admin</td>
-                                                    <td class="d-flex">
-                                                        <a href="" class="btn btn-sm btn-warning mr-1" title="Edit User"><i class="far fa-edit"></i></a>
-                                                        <a href="" class="btn btn-sm btn-primary mr-1" title="Manage Roles"><i class="fas fa-lock"></i></a>
-                                                        <form action="" method="POST">
-                                                            @method('DELETE')
-                                                            @csrf
-                                                            <button class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button>
-                                                        </form>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">John Doe <br><small class="text-muted">Registered: 18/10/2020</small></th>
-                                                    <td>jhon.doe351@gmail.com</td>
-                                                    <td>admin</td>
-                                                    <td class="d-flex">
-                                                        <a href="" class="btn btn-sm btn-warning mr-1" title="Edit User"><i class="far fa-edit"></i></a>
-                                                        <a href="" class="btn btn-sm btn-primary mr-1" title="Manage Roles"><i class="fas fa-lock"></i></a>
-                                                        <form action="" method="POST">
-                                                            @method('DELETE')
-                                                            @csrf
-                                                            <button class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button>
-                                                        </form>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">John Doe <br><small class="text-muted">Registered: 18/10/2020</small></th>
-                                                    <td>jhon.doe351@gmail.com</td>
-                                                    <td>admin</td>
-                                                    <td class="d-flex">
-                                                        <a href="" class="btn btn-sm btn-warning mr-1" title="Edit User"><i class="far fa-edit"></i></a>
-                                                        <a href="" class="btn btn-sm btn-primary mr-1" title="Manage Roles"><i class="fas fa-lock"></i></a>
-                                                        <form action="" method="POST">
-                                                            @method('DELETE')
-                                                            @csrf
-                                                            <button class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button>
-                                                        </form>
-                                                    </td>
-                                                </tr>
+                                                @empty
+
+                                                @endforelse
                                             </tbody>
                                         </table>
                                     </div>
+                                    {{ $users->links() }}
                                 </div>
                             </div>
 

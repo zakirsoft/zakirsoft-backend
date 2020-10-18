@@ -6,6 +6,7 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,8 @@ Route::get('role/permission/{id}', [RoleController::class, 'permission_assign'])
 Route::post('role/permission', [RoleController::class, 'permission_assign_post'])->name('PermissionAssignPost');
 
 // Route::resource('role', RoleController::class);
+Route::resource('user', UserController::class);
+
 
 Route::get('signin', function () {
     return view('access.signin');
@@ -50,13 +53,5 @@ Route::get('password/reset', function () {
     return view('access.forgot');
 });
 
-
-
-Route::get('user', function () {
-    return view('admin.user.index');});
-
-Route::get('user/create', function () {
-    return view('admin.user.create');
-});
 
 Route::get('test', [TestController::class, 'index']);
