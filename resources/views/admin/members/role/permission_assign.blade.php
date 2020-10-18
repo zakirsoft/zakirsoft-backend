@@ -9,7 +9,6 @@ active pcoded-trigger
 @endsection
 
 @section('content')
-
 <div class="loader-bg">
     <div class="loader-bar"></div>
 </div>
@@ -75,8 +74,14 @@ active pcoded-trigger
                                             <input type="text" class="form-control" id="name" value="test role" disabled>
                                         </div>
                                         <div class="form-group pb-3">
-                                            <label for="permissions">Permissions</label>
-                                            <input type="text" class="form-control" id="permissions" placeholder="Select roles">
+                                            <label for="name">Role Name</label>
+                                            <select class="js-example-basic-multiple col-10" multiple="multiple">
+                                                <option value="AL">Alabama</option>
+                                                <option value="WY">Wyoming</option>
+                                                <option value="WY">Coming</option>
+                                                <option value="WY">Hanry Die</option>
+                                                <option value="WY">John Doe</option>
+                                            </select>
                                         </div>
 
                                         <button type="submit" class="btn btn-primary"><i
@@ -93,5 +98,16 @@ active pcoded-trigger
         </div>
     </div>
 </div>
+@endsection
 
+
+@section('style')
+<link rel="stylesheet" href="{{ asset('admin') }}/css/select2.min.css" />
+@endsection
+
+@section('script')
+<script src="{{ asset('admin') }}/js/select2.full.min.js"></script>
+<script>
+    $(".js-example-basic-multiple").select2();
+</script>
 @endsection

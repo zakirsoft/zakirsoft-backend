@@ -25,6 +25,8 @@ Route::resource('contact', ContactController::class);
 
 Route::resource('testimonial', TestimonialController::class);
 
+
+
 Route::get('signin', function () {
     return view('access.signin');
 });
@@ -37,22 +39,24 @@ Route::get('password/reset', function () {
     return view('access.forgot');
 });
 
-Route::get('management/users', function () {
-    return view('main-admin.members.users');
+
+
+Route::get('management/user', function () {
+    return view('admin.members.users.users');
 });
 
 Route::get('management/user/create', function () {
-    return view('main-admin.members.user_create');
+    return view('admin.members.users.user_create');
 });
 
 Route::get('management/role', function () {
-    return view('main-admin.members.role');
+    return view('admin.members.role.role');
 });
 
 Route::get('management/role/create', function () {
-    return view('main-admin.members.role_create');
+    return view('admin.members.role.role_create');
 });
 
 Route::get('management/role/permission-assign', function () {
-    return view('main-admin.members.permission_assign');
+    return view('admin.members.role.permission_assign');
 });

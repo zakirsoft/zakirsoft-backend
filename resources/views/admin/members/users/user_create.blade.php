@@ -47,14 +47,16 @@ active pcoded-trigger
         <div class="main-body">
             <div class="page-wrapper">
 
-                @if (session('delete'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('delete') }}
+
+                @if (session('insert'))
+                <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                    {{ session('insert') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 @endif
+
 
                 <div class="page-body">
                     <div class="row">
@@ -63,7 +65,7 @@ active pcoded-trigger
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between">
                                     <h5>Create User</h5>
-                                    <a href="{{ url('management/users') }}" class="btn btn-sm btn-primary mr-1"
+                                    <a href="{{ url('management/user') }}" class="btn btn-sm btn-primary mr-1"
                                         title="Return Back"><i class="fas fa-arrow-alt-circle-left pr-1"></i>Back</a>
                                 </div>
                                 <div class="card-block col-md-6 col-sm-12 pb-5">

@@ -47,9 +47,25 @@ active pcoded-trigger
         <div class="main-body">
             <div class="page-wrapper">
 
-                @if (session('delete'))
+                @if (session('update'))
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('delete') }}
+                    {{ session('update') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @endif
+                @if (session('update'))
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    {{ session('update') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @endif
+                @if (session('permission'))
+                <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                    {{ session('permission') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
