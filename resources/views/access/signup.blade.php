@@ -1,4 +1,4 @@
-@extends('access.app')
+@extends('layouts.access')
 
 @section('title')
     Registration - ZakirSoft

@@ -25,13 +25,13 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand:500,700" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('website') }}/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('website') }}/css/waves.min.css" type="text/css" media="all">
-    <link rel="stylesheet" type="text/css" href="{{ asset('website') }}/css/feather.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('website') }}/css/font-awesome-n.min.css">
-    <link rel="stylesheet" href="{{ asset('website') }}/css/chartist.css" type="text/css" media="all">
-    <link rel="stylesheet" type="text/css" href="{{ asset('website') }}/css/style.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('website') }}/css/widget.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('admin') }}/css/waves.min.css" type="text/css" media="all">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/css/feather.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/css/font-awesome-n.min.css">
+    <link rel="stylesheet" href="{{ asset('admin') }}/css/chartist.css" type="text/css" media="all">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/css/widget.css">
 </head>
 
 <body>
@@ -46,7 +46,7 @@
                     <div class="navbar-logo">
                         <a href="index.html">
                             Brand Logo
-                            <!-- <img class="img-fluid" src="{{asset('website')}}/png/logo.png" alt="Theme-Logo" /> -->
+                            <!-- <img class="img-fluid" src="{{asset('admin')}}/png/logo.png" alt="Theme-Logo" /> -->
                         </a>
                         <a class="mobile-menu" id="mobile-collapse" href="#!">
                             <i class="feather icon-menu icon-toggle-right"></i>
@@ -93,7 +93,7 @@
                                         </li>
                                         <li>
                                             <div class="media">
-                                                <img class="img-radius" src="{{ asset('website') }}/jpg/avatar-1.jpg"
+                                                <img class="img-radius" src="{{ asset('admin') }}/jpg/avatar-1.jpg"
                                                     alt="Generic placeholder image">
                                                 <div class="media-body">
                                                     <h5 class="notification-user">John Doe</h5>
@@ -105,7 +105,7 @@
                                         </li>
                                         <li>
                                             <div class="media">
-                                                <img class="img-radius" src="{{ asset('website') }}/jpg/avatar-2.jpg"
+                                                <img class="img-radius" src="{{ asset('admin') }}/jpg/avatar-2.jpg"
                                                     alt="Generic placeholder image">
                                                 <div class="media-body">
                                                     <h5 class="notification-user">Sara Soudein</h5>
@@ -121,7 +121,7 @@
                             <li class="user-profile header-notification">
                                 <div class="dropdown-primary dropdown">
                                     <div class="dropdown-toggle" data-toggle="dropdown">
-                                        <img src="{{ asset('website') }}/jpg/avatar-4.jpg" class="img-radius"
+                                        <img src="{{ asset('admin') }}/jpg/avatar-4.jpg" class="img-radius"
                                             alt="User-Profile-Image">
                                         <span>John Doe</span>
                                         <i class="feather icon-chevron-down"></i>
@@ -169,7 +169,7 @@
                                     </li>
                                 </ul>
 
-                                <div class="pcoded-navigation-label">Website</div>
+                                <div class="pcoded-navigation-label">admin</div>
                                 <ul class="pcoded-item pcoded-left-item">
                                     <li class="pcoded-hasmenu">
                                         <a href="javascript:void(0)" class="waves-effect waves-dark">
@@ -288,26 +288,26 @@
         </div>
     </div>
 
-    <script src="{{asset('website')}}/js/jquery.min.js"></script>
-    <script src="{{asset('website')}}/js/jquery-ui.min.js"></script>
-    <script src="{{asset('website')}}/js/popper.min.js"></script>
-    <script src="{{asset('website')}}/js/bootstrap.min.js"></script>
-    <script src="{{asset('website')}}/js/waves.min.js"></script>
-    <script src="{{asset('website')}}/js/jquery.slimscroll.js"></script>
-    <script src="{{asset('website')}}/js/jquery.flot.js"></script>
-    <script src="{{asset('website')}}/js/jquery.flot.categories.js"></script>
-    <script src="{{asset('website')}}/js/curvedlines.js"></script>
-    <script src="{{asset('website')}}/js/jquery.flot.tooltip.min.js"></script>
-    <script src="{{asset('website')}}/js/amcharts.js"></script>
-    <script src="{{asset('website')}}/js/serial.js"></script>
-    <script src="{{asset('website')}}/js/light.js"></script>
-    <script src="{{asset('website')}}/js/markerclusterer.js"></script>
+    <script src="{{asset('admin')}}/js/jquery.min.js"></script>
+    <script src="{{asset('admin')}}/js/jquery-ui.min.js"></script>
+    <script src="{{asset('admin')}}/js/popper.min.js"></script>
+    <script src="{{asset('admin')}}/js/bootstrap.min.js"></script>
+    <script src="{{asset('admin')}}/js/waves.min.js"></script>
+    <script src="{{asset('admin')}}/js/jquery.slimscroll.js"></script>
+    <script src="{{asset('admin')}}/js/jquery.flot.js"></script>
+    <script src="{{asset('admin')}}/js/jquery.flot.categories.js"></script>
+    <script src="{{asset('admin')}}/js/curvedlines.js"></script>
+    <script src="{{asset('admin')}}/js/jquery.flot.tooltip.min.js"></script>
+    <script src="{{asset('admin')}}/js/amcharts.js"></script>
+    <script src="{{asset('admin')}}/js/serial.js"></script>
+    <script src="{{asset('admin')}}/js/light.js"></script>
+    <script src="{{asset('admin')}}/js/markerclusterer.js"></script>
     <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
-    <script src="{{asset('website')}}/js/gmaps.js"></script>
-    <script src="{{asset('website')}}/js/pcoded.min.js"></script>
-    <script src="{{asset('website')}}/js/vertical-layout.min.js"></script>
-    <script src="{{asset('website')}}/js/crm-dashboard.min.js"></script>
-    <script src="{{asset('website')}}/js/script.min.js"></script>
+    <script src="{{asset('admin')}}/js/gmaps.js"></script>
+    <script src="{{asset('admin')}}/js/pcoded.min.js"></script>
+    <script src="{{asset('admin')}}/js/vertical-layout.min.js"></script>
+    <script src="{{asset('admin')}}/js/crm-dashboard.min.js"></script>
+    <script src="{{asset('admin')}}/js/script.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -320,7 +320,7 @@
         gtag('config', 'UA-23581568-13');
 
     </script>
-    <script src="{{asset('website')}}/js/rocket-loader.min.js" data-cf-settings="2d8d78e876b340f9029c575b-|49" defer="">
+    <script src="{{asset('admin')}}/js/rocket-loader.min.js" data-cf-settings="2d8d78e876b340f9029c575b-|49" defer="">
     </script>
 </body>
 
