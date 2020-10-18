@@ -92,30 +92,19 @@
                                             <h6>Messages</h6>
                                             <label class="label label-danger">New</label>
                                         </li>
+                                        {{-- @foreach ($contacts as $contact) --}}
                                         <li>
                                             <div class="media">
                                                 <img class="img-radius" src="{{ asset('admin') }}/jpg/avatar-1.jpg"
                                                     alt="Generic placeholder image">
                                                 <div class="media-body">
-                                                    <h5 class="notification-user">John Doe</h5>
-                                                    <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer
-                                                        elit.</p>
-                                                    <span class="notification-time">30 minutes ago</span>
+                                                <h5 class="notification-user">Zakir Hossen</h5>
+                                                <p class="notification-msg">Hello There !</p>
+                                                <span class="notification-time">2 Minutes</span>
                                                 </div>
                                             </div>
                                         </li>
-                                        <li>
-                                            <div class="media">
-                                                <img class="img-radius" src="{{ asset('admin') }}/jpg/avatar-2.jpg"
-                                                    alt="Generic placeholder image">
-                                                <div class="media-body">
-                                                    <h5 class="notification-user">Sara Soudein</h5>
-                                                    <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer
-                                                        elit.</p>
-                                                    <span class="notification-time">30 minutes ago</span>
-                                                </div>
-                                            </div>
-                                        </li>
+                                        {{-- @endforeach --}}
                                     </ul>
                                 </div>
                             </li>
@@ -179,12 +168,12 @@
                                         </a>
                                         <ul class="pcoded-submenu">
                                             <li class="">
-                                            <a href="#" class="waves-effect waves-dark">
+                                                <a href="#" class="waves-effect waves-dark">
                                                     <span class="pcoded-mtext">New Portfolio</span>
                                                 </a>
                                             </li>
                                             <li class="">
-                                            <a href="#" class="waves-effect waves-dark">
+                                                <a href="#" class="waves-effect waves-dark">
                                                     <span class="pcoded-mtext">Portfolio List</span>
                                                 </a>
                                             </li>
@@ -198,12 +187,14 @@
                                         </a>
                                         <ul class="pcoded-submenu">
                                             <li class="">
-                                                <a href="{{ route('testimonial.create') }}" class="waves-effect waves-dark">
+                                                <a href="{{ route('testimonial.create') }}"
+                                                    class="waves-effect waves-dark">
                                                     <span class="pcoded-mtext">Add One</span>
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="{{ route('testimonial.index') }}" class="waves-effect waves-dark">
+                                                <a href="{{ route('testimonial.index') }}"
+                                                    class="waves-effect waves-dark">
                                                     <span class="pcoded-mtext">Testimonials</span>
                                                 </a>
                                             </li>
@@ -334,13 +325,16 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
+
         function gtag() {
             dataLayer.push(arguments);
         }
         gtag('js', new Date());
         gtag('config', 'UA-23581568-13');
+
     </script>
-    <script src="{{asset('admin')}}/js/rocket-loader.min.js" data-cf-settings="2d8d78e876b340f9029c575b-|49" defer=""> </script>
+    <script src="{{asset('admin')}}/js/rocket-loader.min.js" data-cf-settings="2d8d78e876b340f9029c575b-|49" defer="">
+    </script>
     @yield('script')
 </body>
 
