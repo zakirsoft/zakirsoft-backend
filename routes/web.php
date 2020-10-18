@@ -36,3 +36,23 @@ Route::get('signup', function () {
 Route::get('password/reset', function () {
     return view('access.forgot');
 });
+
+Route::get('management/users', function () {
+    return view('main-admin.members.users');
+});
+
+Route::get('management/user/create', function () {
+    return view('main-admin.members.user_create');
+});
+
+Route::get('management/role', function () {
+    return view('main-admin.members.role');
+});
+
+Route::get('management/role/create', function () {
+    return view('main-admin.members.role_create');
+});
+
+Route::get('management/role/permission-assign', function () {
+    return view('main-admin.members.permission_assign');
+});

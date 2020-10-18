@@ -37,6 +37,7 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
+
         Testimonial::insert([
             'purpose' => $request->purpose,
             'content' => $request->content,
@@ -91,7 +92,10 @@ class TestimonialController extends Controller
     public function destroy($id)
     {
        $test = Testimonial::find($id);
-       $test->delete();
+
+        if($test){
+            $test->delete();
+        }
 
        return redirect()->back()->with('delete', 'Testimonial Successfully Delete');
     }

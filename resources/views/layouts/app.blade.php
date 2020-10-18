@@ -223,6 +223,28 @@
                                     </li>
                                 </ul>
 
+                                <div class="pcoded-navigation-label">Management</div>
+                                <ul class="pcoded-item pcoded-left-item">
+                                    <li class="pcoded-hasmenu">
+                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
+                                            <span class="pcoded-mtext">Members</span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class="">
+                                                <a href="#" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Users</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="#" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Role</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
                                 <div class="pcoded-navigation-label">Example</div>
                                 <ul class="pcoded-item pcoded-left-item">
                                     <li class="pcoded-hasmenu">

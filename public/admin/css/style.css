@@ -12811,3 +12811,7 @@ td, th {
     /* white-space: nowrap; */
     white-space: normal !important;
 }
+
+.btn-sm{
+    font-size: 13px !important;
+}
