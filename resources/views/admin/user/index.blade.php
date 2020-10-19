@@ -62,7 +62,7 @@ active pcoded-trigger
 
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between">
-                                    <h5>All Users</h5>
+                                    <h5>All Users ({{ $user_count }})</h5>
                                     <a href="{{ url('user/create') }}" class="btn btn-sm btn-primary mr-1" title="Create a User"><i class="fas fa-plus-square pr-1"></i>Create</a>
                                 </div>
                                 <div class="card-block">
@@ -87,7 +87,7 @@ active pcoded-trigger
                                                     <td class="d-flex">
                                                         <a href="" class="btn btn-sm btn-warning mr-1" title="Edit User"><i class="far fa-edit"></i></a>
                                                         <a href="" class="btn btn-sm btn-primary mr-1" title="Manage Roles"><i class="fas fa-lock"></i></a>
-                                                        <form action="" method="POST">
+                                                        <form action="{{ route('user.destroy', $user->id) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf
                                                             <button class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button>

@@ -15,8 +15,8 @@ class UserController extends Controller
     public function index()
     {
         $users = User::latest()->simplepaginate(10);
-
-        return view('admin.user.index', compact('users'));
+        $user_count = User::all()->count();
+        return view('admin.user.index', compact('users', 'user_count'));
     }
 
     /**
@@ -82,6 +82,12 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        if($user){
+            $user->delete();
+        }
+
+       return redirect()->back()->with('delete', 'An User has been Deleted Successfully');
     }
 }
