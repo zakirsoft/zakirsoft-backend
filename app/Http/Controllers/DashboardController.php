@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\dashboard;
 use Illuminate\Http\Request;
-use App\Http\Controllers\notify;
 
  class DashboardController extends Controller
 {
