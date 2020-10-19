@@ -88,7 +88,7 @@
                                             </ul>
                                         </div>
                                         @endif
-                                        
+
                                     <form id="main" method="POST" action="{{ route('portfolio.store') }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group row">
@@ -193,4 +193,50 @@
 </div>
 
 
+@endsection
+@section('style')
+    <style>
+        .ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
+    border-color: var(--ck-color-base-border);
+    height: 130px;
+}
+.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
+    border-color: var(--ck-color-base-border);
+    height: 130px;
+}
+    </style>
+@endsection
+@section('script')
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+
+</script>
+   <script>
+    ClassicEditor
+        .create( document.querySelector( '#editor2' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+
+</script>
+   <script>
+    ClassicEditor
+        .create( document.querySelector( '#editor3' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+
+</script>
+   <script>
+    ClassicEditor
+        .create( document.querySelector( '#editor4' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+
+</script>
 @endsection

@@ -17,7 +17,8 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        return view('admin.portfolio.index');
+        $portfolio_list = Portfolio::paginate(10);
+        return view('admin.portfolio.index',compact('portfolio_list'));
     }
 
     /**
@@ -99,9 +100,10 @@ class PortfolioController extends Controller
      * @param  \App\Models\Portfolio  $portfolio
      * @return \Illuminate\Http\Response
      */
-    public function edit(Portfolio $portfolio)
+    public function edit($id)
     {
-        //
+        $portfolio = Portfolio::findOrFail($id);
+       return view('admin.portfolio.edit',compact('portfolio'));
     }
 
     /**
@@ -111,9 +113,9 @@ class PortfolioController extends Controller
      * @param  \App\Models\Portfolio  $portfolio
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Portfolio $portfolio)
+    public function update(Request $request,$id)
     {
-        //
+        return $id;
     }
 
     /**
@@ -122,8 +124,16 @@ class PortfolioController extends Controller
      * @param  \App\Models\Portfolio  $portfolio
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Portfolio $portfolio)
+    public function destroy($id)
     {
-        //
+
+        $test = Portfolio::findOrFail($id);
+
+        if($test){
+            unlink(base_path('public/uploads/portfolioimages/'.$test->image));
+            $test->delete();
+        }
+
+       return redirect()->back()->with('delete', 'Testimonial Successfully Delete');
     }
 }

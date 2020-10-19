@@ -22,7 +22,7 @@
                 <div class="page-header-title">
                     <i class="feather icon-credit-card bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>Testimonials</h5>
+                        <h5>Portfolio</h5>
                         <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                         <li class="breadcrumb-item">
                             <a href="index.html"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Testimonial</a>
+                        <li class="breadcrumb-item"><a href="#!">Portfolio</a>
                         </li>
                     </ul>
                 </div>
@@ -60,7 +60,7 @@
 
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Default Testimonials</h5>
+                                    <h5>Default Portfolio</h5>
                                     <span>Example of default table, Add <code>.table-de</code> class to the
                                         <code>.table</code> to create a table with default spacing. Default table all
                                         rows have <code>0.75rem</code> height.</span>
@@ -71,34 +71,56 @@
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Name</th>
-                                                    <th>Position</th>
-                                                    <th>Purpose</th>
-                                                    <th style="max-width: 300px">Testimonial Content</th>
-                                                    <th class="text-center">Remove</th>
+                                                    <th>Project Title</th>
+                                                    <th>Client Name</th>
+                                                    <th>Client Email</th>
+                                                    <th>Description</th>
+                                                    <th>Image</th>
+                                                    <th>Live Link</th>
+                                                    <th>Bahance Link</th>
+                                                    <th>Project Length</th>
+                                                    <th>Our Role</th>
+                                                    <th>Tool Used</th>
+                                                    <th class="text-center">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {{-- @forelse ($testimonials as $key => $testimonial)
+                                                @forelse ($portfolio_list as $key => $portfolio)
                                                 <tr>
-                                                    <th scope="row">{{ $testimonials->firstItem() + $key }}</th>
-                                                    <td>{{ $testimonial->name }}</td>
-                                                    <td>{{ $testimonial->position }}</td>
-                                                    <td>{{ $testimonial->purpose }}</td>
-                                                    <td style="max-width: 300px">{{ $testimonial->content }}</td>
-                                                    <td class="text-center">
-                                                        <form action="{{ route('testimonial.destroy', $testimonial->id) }}" method="POST">
+                                                    <th scope="row">{{ $portfolio_list->firstItem() + $key }}</th>
+                                                    <td>{{ $portfolio->title }}</td>
+                                                    <td>{{ $portfolio->client_name }}</td>
+                                                    <td>{{ $portfolio->client_email }}</td>
+                                                    <td style="max-width: 300px">{{ $portfolio->description }}</td>
+                                                    <td><img width="50px" height="50px" src="{{asset('uploads/portfolioimages') }}/{{ $portfolio->image }}" alt="" srcset=""></td>
+                                                    <td>{{ $portfolio->live_link }}</td>
+                                                    <td>{{ $portfolio->bahance_link }}</td>
+                                                    <td>{{ $portfolio->project_length }}</td>
+                                                    <td>{{ $portfolio->our_role }}</td>
+                                                    <td>{{ $portfolio->tool_used }}</td>
+                                                    <td>
+                                                        <div class="dropdown">
+                                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="fas fa-cog"></i> Action
+                                                        </button>
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                          <a class="dropdown-item text-info btn btn-sm" href="{{ route('portfolio.edit', $portfolio->id) }}"><i class="far fa-edit"></i> Edit</a>
+                                                          <form action="{{ route('portfolio.destroy', $portfolio->id) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <button class="btn btn-sm btn-danger m-1"><i class="far fa-trash-alt pr-2"></i>Remove</button>
+                                                            <button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm text-danger m-1 dropdown-item"></i><i class="far fa-trash-alt"></i> Remove</button>
                                                         </form>
+                                                        </div>
+                                                      </div>
+                                                    </td>
+
                                                     </td>
                                                 </tr>
                                                 @empty
                                                 <tr>
-                                                    <td colspan="6" class="text-center">No Data Found</td>
+                                                    <td colspan="20" class="text-center text-danger"><h2>No Data Found</h2></td>
                                                 </tr>
-                                                @endforelse --}}
+                                                @endforelse
                                             </tbody>
                                         </table>
                                     </div>

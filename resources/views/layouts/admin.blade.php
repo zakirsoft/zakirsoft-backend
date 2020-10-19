@@ -332,22 +332,6 @@
     {{-- Ck editor  --}}
     <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
     <script src="{{asset('admin')}}/js/script.min.js"></script>
-    <script>
-        ClassicEditor
-            .create( document.querySelector( '#editor' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-
-    </script>
-       <script>
-        ClassicEditor
-            .create( document.querySelector( '#editor2' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-
-    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
