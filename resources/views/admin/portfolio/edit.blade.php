@@ -146,7 +146,7 @@
             <div class="col-6">
                 <div class="form-group">
                     <label>Our Role</label>
-                    <textarea style="height: 130px" id="editor4" type="text" class="form-control" name="tool_used" placeholder="Enter role of portfolio"> {{ $portfolio->our_role }} </textarea>
+                    <textarea style="height: 130px" id="editor4" type="text" class="form-control" name="our_role" placeholder="Enter role of portfolio"> {{ $portfolio->our_role }} </textarea>
                 </div>
             </div>
             <div class="col-6">
@@ -176,7 +176,7 @@
             <textarea id="editor3" type="text" class="form-control" name="description"
                 placeholder="Write Portfolio content here.... "> {{  $portfolio->description }} </textarea>
         </div>
-        <button type="submit" class="btn btn-primary m-b-0">Submit</button>
+        <button type="submit" class="btn btn-primary m-b-0"><i class="fas fa-sync"></i> Update Portfolio</button>
     </form>
                                 </div>
 
@@ -195,26 +195,15 @@
 @endsection
 
 @section('style')
-    <style>
-        .ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
-    border-color: var(--ck-color-base-border);
-    height: 130px;
-}
-.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
-    border-color: var(--ck-color-base-border);
-    height: 130px;
-}
-    </style>
+<style>
+    .ck-editor__editable_inline {
+        min-height: 170px;
+    }
+</style>
 @endsection
-@section('script')
-<script>
-    ClassicEditor
-        .create( document.querySelector( '#editor' ) )
-        .catch( error => {
-            console.error( error );
-        } );
 
-</script>
+@section('script')
+
    <script>
     ClassicEditor
         .create( document.querySelector( '#editor2' ) )

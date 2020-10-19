@@ -51,15 +51,15 @@
 
                 @if (session('insert'))
                 <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                    {{ session('insert') }}
+                    {{ session('insert') }} <a href="{{ route('portfolio.index') }}">Click here to go to table</a>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 @endif
                 @if (session('error'))
-                <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                    {{ session('insert') }}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ session('error') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -151,7 +151,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Our Role</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="our_role" id="name"
+                                                <input id="editor5" type="text" class="form-control" name="our_role" id="name"
                                                 placeholder="Enter Role of Portfolio">
                                             </div>
                                         </div>
@@ -176,7 +176,7 @@
                                         <div class="form-group row pt-4">
                                             <label class="col-sm-2"></label>
                                             <div class="col-sm-10">
-                                                <button type="submit" class="btn btn-primary m-b-0">Submit</button>
+                                                <button type="submit" class="btn btn-primary m-b-0"><i class="fas fa-plus"></i> Add Portfolio</button>
                                             </div>
                                         </div>
                                     </form>
@@ -196,14 +196,9 @@
 @endsection
 @section('style')
     <style>
-        .ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
-    border-color: var(--ck-color-base-border);
-    height: 130px;
-}
-.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
-    border-color: var(--ck-color-base-border);
-    height: 130px;
-}
+        .ck-editor__editable_inline {
+            min-height: 170px;
+        }
     </style>
 @endsection
 @section('script')
@@ -215,25 +210,17 @@
         } );
 
 </script>
-   <script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor5' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+
+</script>
+<script>
     ClassicEditor
         .create( document.querySelector( '#editor2' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-
-</script>
-   <script>
-    ClassicEditor
-        .create( document.querySelector( '#editor3' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-
-</script>
-   <script>
-    ClassicEditor
-        .create( document.querySelector( '#editor4' ) )
         .catch( error => {
             console.error( error );
         } );

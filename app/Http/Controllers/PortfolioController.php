@@ -122,7 +122,72 @@ class PortfolioController extends Controller
      */
     public function update(Request $request,$id)
     {
-        return $id;
+
+
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'live_link' => 'required',
+            'bahance_link' => 'required',
+            'project_length' => 'required',
+            'our_role' => 'required',
+            'tool_used' => 'required',
+            'client_name' => 'required',
+            'client_email' => 'required',
+        ]);
+
+        if($request->has('image')) {
+
+            // old image delete
+            $old_image = Portfolio::findOrFail($id);
+            unlink(base_path('public/'.$old_image->image));
+
+
+            $image = $request->image;
+            $imageName = time() . '_' . uniqid() .'.'. $image->getClientOriginalExtension();
+            Storage::putFileAs('/portfolio', $image, $imageName);
+            $image_address = 'storage/portfolio/'. $imageName;
+
+           Portfolio::findOrFail($id)->update([
+                'title' => $request->title,
+                'image' =>$image_address,
+                'title_slug' =>Str::slug($request->title),
+                'description' => $request->description,
+                'live_link' => $request->live_link,
+                'bahance_link' => $request->bahance_link,
+                'project_length' => $request->project_length,
+                'our_role' => $request->our_role,
+                'tool_used' => $request->tool_used,
+                'client_name' => $request->client_email,
+                'client_email' => $request->client_email,
+                'updated_at' => Carbon::now()
+            ]);
+
+
+            return redirect('/portfolio')->with('update', 'Portfolio Updated Successfully With Image');
+
+        }else {
+
+            Portfolio::findOrFail($id)->update([
+                'title' => $request->title,
+                'title_slug' =>Str::slug($request->title),
+                'description' => $request->description,
+                'live_link' => $request->live_link,
+                'bahance_link' => $request->bahance_link,
+                'project_length' => $request->project_length,
+                'our_role' => $request->our_role,
+                'tool_used' => $request->tool_used,
+                'client_name' => $request->client_email,
+                'client_email' => $request->client_email,
+                'created_at' => Carbon::now()
+            ]);
+
+            return  redirect('/portfolio')->with('update', 'Portfolio Updated Successfully Without Image');
+
+
+        }
+
+
     }
 
     /**
@@ -134,11 +199,11 @@ class PortfolioController extends Controller
     public function destroy($id)
     {
 
-        $test = Portfolio::findOrFail($id);
+        $old_image = Portfolio::findOrFail($id);
 
-        if($test){
-            unlink(base_path('public/'.$test->image));
-            $test->delete();
+        if($old_image){
+            unlink(base_path('public/'.$old_image->image));
+            $old_image->delete();
         }
 
        return redirect()->back()->with('delete', 'Testimonial Successfully Delete');

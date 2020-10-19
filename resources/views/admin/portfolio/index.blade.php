@@ -53,6 +53,14 @@
                     </button>
                 </div>
                 @endif
+                @if (session('update'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('update') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @endif
 
                 <div class="page-body">
                     <div class="row">
@@ -64,7 +72,7 @@
                                     <span>Example of default table, Add <code>.table-de</code> class to the
                                         <code>.table</code> to create a table with default spacing. Default table all
                                         rows have <code>0.75rem</code> height.</span>
-                                       <a href="{{ route('portfolio.index') }}"> <button class="btn btn-primary float-right"><i class="fa fa-plus"></i> Add Portfolio</button></a>
+                                       <a href="{{ route('portfolio.create') }}"> <button class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add Portfolio</button></a>
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive">
