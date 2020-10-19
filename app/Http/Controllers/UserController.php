@@ -43,6 +43,13 @@ class UserController extends Controller
             'email' => ['required','email','unique:users,email'],
             'password' => ['required','min:8'],
             'image' => ['required']
+        ],[
+            'name.required' => 'Full Name is Required.',
+            'email.required' => 'Enter E-Mail is Required.',
+            'email.email' => 'Enter a Valid E-Mail address.',
+            'email.unique' => 'E-Mail already exist in Our System, Choose Another!',
+            'password.required' => 'Password field is Required.',
+            'image.required' => 'Choose a Profile Image.'
         ]);
 
         $user = User::create([
@@ -84,7 +91,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('admin.user.edit', compact('user'));
     }
 
     /**
@@ -96,7 +104,31 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => ['required'],
+            'email' => ['required','email','unique:users,email'],
+            'password' => ['required','min:8'],
+        ],[
+            'name.required' => 'Full Name is Required.',
+            'email.required' => 'Enter E-Mail is Required.',
+            'email.email' => 'Enter a Valid E-Mail address.',
+            'email.unique' => 'E-Mail already exist in Our System, Choose Another!',
+            'password.required' => 'Password field is Required.',
+        ]);
+
+        $img = User::findOrFail($id);
+
+        if (file_exists($img->image)) {
+            unlink($img->image);
+        }
+
+        /// Nxt day
+
+        User::findOrFail($id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
     }
 
     /**

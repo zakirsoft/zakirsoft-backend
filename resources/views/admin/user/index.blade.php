@@ -89,7 +89,7 @@ active pcoded-trigger
                                                     <td></td>
                                                     <td class="text-muted">{{ $user->created_at->format('d/m/Y') }}</td>
                                                     <td class="d-flex">
-                                                        <a href="" class="btn btn-sm btn-warning mr-1" title="Edit User"><i class="far fa-edit"></i></a>
+                                                        <a href="{{ route('user.edit', $user->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit User"><i class="far fa-edit"></i></a>
                                                         <a href="" class="btn btn-sm btn-primary mr-1" title="Manage Roles"><i class="fas fa-lock"></i></a>
                                                         <form action="{{ route('user.destroy', $user->id) }}" method="POST">
                                                             @method('DELETE')
