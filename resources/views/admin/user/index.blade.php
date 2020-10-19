@@ -63,7 +63,7 @@ active pcoded-trigger
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between">
                                     <h5>All Users</h5>
-                                    <a href="{{ url('management/user/create') }}" class="btn btn-sm btn-primary mr-1" title="Create a User"><i class="fas fa-plus-square pr-1"></i>Create</a>
+                                    <a href="{{ url('user/create') }}" class="btn btn-sm btn-primary mr-1" title="Create a User"><i class="fas fa-plus-square pr-1"></i>Create</a>
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive">
@@ -83,7 +83,7 @@ active pcoded-trigger
                                                     <td>admin</td>
                                                     <td class="d-flex">
                                                         <a href="" class="btn btn-sm btn-warning mr-1" title="Edit User"><i class="far fa-edit"></i></a>
-                                                        <a href="" class="btn btn-sm btn-primary mr-1" title="Manage Roles"><i class="far fa-hand-paper"></i></a>
+                                                        <a href="" class="btn btn-sm btn-primary mr-1" title="Manage Roles"><i class="fas fa-lock"></i></a>
                                                         <form action="" method="POST">
                                                             @method('DELETE')
                                                             @csrf
@@ -97,7 +97,7 @@ active pcoded-trigger
                                                     <td>admin</td>
                                                     <td class="d-flex">
                                                         <a href="" class="btn btn-sm btn-warning mr-1" title="Edit User"><i class="far fa-edit"></i></a>
-                                                        <a href="" class="btn btn-sm btn-primary mr-1" title="Manage Roles"><i class="far fa-hand-paper"></i></a>
+                                                        <a href="" class="btn btn-sm btn-primary mr-1" title="Manage Roles"><i class="fas fa-lock"></i></a>
                                                         <form action="" method="POST">
                                                             @method('DELETE')
                                                             @csrf
@@ -111,7 +111,7 @@ active pcoded-trigger
                                                     <td>admin</td>
                                                     <td class="d-flex">
                                                         <a href="" class="btn btn-sm btn-warning mr-1" title="Edit User"><i class="far fa-edit"></i></a>
-                                                        <a href="" class="btn btn-sm btn-primary mr-1" title="Manage Roles"><i class="far fa-hand-paper"></i></a>
+                                                        <a href="" class="btn btn-sm btn-primary mr-1" title="Manage Roles"><i class="fas fa-lock"></i></a>
                                                         <form action="" method="POST">
                                                             @method('DELETE')
                                                             @csrf
@@ -125,7 +125,7 @@ active pcoded-trigger
                                                     <td>admin</td>
                                                     <td class="d-flex">
                                                         <a href="" class="btn btn-sm btn-warning mr-1" title="Edit User"><i class="far fa-edit"></i></a>
-                                                        <a href="" class="btn btn-sm btn-primary mr-1" title="Manage Roles"><i class="far fa-hand-paper"></i></a>
+                                                        <a href="" class="btn btn-sm btn-primary mr-1" title="Manage Roles"><i class="fas fa-lock"></i></a>
                                                         <form action="" method="POST">
                                                             @method('DELETE')
                                                             @csrf

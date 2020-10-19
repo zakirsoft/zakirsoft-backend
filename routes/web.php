@@ -3,6 +3,8 @@
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +27,16 @@ Route::resource('contact', ContactController::class);
 
 Route::resource('testimonial', TestimonialController::class);
 
+Route::get('role', [RoleController::class, 'index'])->name('RoleIndex');
+Route::get('role/create', [RoleController::class, 'create'])->name('RoleCreate');
+Route::post('role/create', [RoleController::class, 'role_create'])->name('RoleCreate');
+Route::get('role/edit/{id}', [RoleController::class, 'role_edit'])->name('RoleEdit');
+Route::post('role/update', [RoleController::class, 'role_update'])->name('RoleUpdate');
+Route::get('role/delete/{id}', [RoleController::class, 'role_delete'])->name('RoleDelete');
+Route::get('role/permission/{id}', [RoleController::class, 'permission_assign'])->name('PermissionAssign');
+Route::post('role/permission', [RoleController::class, 'permission_assign_post'])->name('PermissionAssignPost');
 
+// Route::resource('role', RoleController::class);
 
 Route::get('signin', function () {
     return view('access.signin');
@@ -41,22 +52,11 @@ Route::get('password/reset', function () {
 
 
 
-Route::get('management/user', function () {
-    return view('admin.members.users.users');
+Route::get('user', function () {
+    return view('admin.user.index');});
+
+Route::get('user/create', function () {
+    return view('admin.user.create');
 });
 
-Route::get('management/user/create', function () {
-    return view('admin.members.users.user_create');
-});
-
-Route::get('management/role', function () {
-    return view('admin.members.role.role');
-});
-
-Route::get('management/role/create', function () {
-    return view('admin.members.role.role_create');
-});
-
-Route::get('management/role/permission-assign', function () {
-    return view('admin.members.role.permission_assign');
-});
+Route::get('test', [TestController::class, 'index']);

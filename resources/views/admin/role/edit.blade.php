@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('title')
-Users View - ZakirSoft
+    Role Edit - ZakirSoft
 @endsection
 
 @section('users')
-active pcoded-trigger
+    active pcoded-trigger
 @endsection
 
 @section('content')
@@ -22,7 +22,7 @@ active pcoded-trigger
                 <div class="page-header-title">
                     <i class="feather icon-credit-card bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>Memebers</h5>
+                        <h5>Edit Role</h5>
                         <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                     </div>
                 </div>
@@ -33,9 +33,11 @@ active pcoded-trigger
                         <li class="breadcrumb-item">
                             <a href="index.html"><i class="feather icon-home"></i></a>
                         </li>
+                        <li class="breadcrumb-item"><a href="#!">Role</a>
+                        </li>
                         <li class="breadcrumb-item"><a href="#!">Management</a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Memebers</a>
+                        <li class="breadcrumb-item"><a href="#!">Update</a>
                         </li>
                     </ul>
                 </div>
@@ -47,47 +49,33 @@ active pcoded-trigger
         <div class="main-body">
             <div class="page-wrapper">
 
-
-                @if (session('insert'))
-                <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                    {{ session('insert') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                @endif
-
-
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
 
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between">
-                                    <h5>Create User</h5>
-                                    <a href="{{ url('management/user') }}" class="btn btn-sm btn-primary mr-1"
+                                    <h5>Update Role</h5>
+                                    <a href="{{ route('RoleIndex') }}" class="btn btn-sm btn-primary mr-1"
                                         title="Return Back"><i class="fas fa-arrow-alt-circle-left pr-1"></i>Back</a>
                                 </div>
-                                <div class="card-block col-md-6 col-sm-12 pb-5">
-                                    <form action="" method="">
-                                        <div class="form-group">
-                                            <label for="name">Name</label>
-                                            <input type="text" class="form-control" id="name">
+                                <div class="card-block col-md-6 offset-3 col-sm-12 pb-5">
+                                    <form action="{{ route('RoleUpdate') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="role_id" value="{{ $roles->id }}">
+                                        <div class="form-group pb-3">
+                                            <label for="name">Role Name</label>
+                                            <input type="text" name="role_name" class="form-control @error('role_name') is-invalid @enderror" id="name" value="{{ $roles->name }}">
+
+                                            @error('role_name')
+                                                <span class="invalid-feedback" role="alert">
+                                                    {{ $message }}
+                                                </span>
+                                            @enderror
                                         </div>
-                                        <div class="form-group">
-                                            <label for="email">E-Mail</label>
-                                            <input type="text" class="form-control" id="email">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="picture">Profile Picture</label>
-                                            <input type="file" class="form-control" id="picture">
-                                        </div>
-                                        <div class="form-group pb-4">
-                                            <label for="password">Password</label>
-                                            <input type="password" class="form-control" id="password">
-                                        </div>
+
                                         <button type="submit" class="btn btn-primary"><i
-                                                class="fas fa-plus-square pr-1"></i>Save</button>
+                                                class="fas fa-edit pr-1"></i>Update</button>
                                     </form>
                                 </div>
                             </div>

@@ -9,6 +9,7 @@ active pcoded-trigger
 @endsection
 
 @section('content')
+
 <div class="loader-bg">
     <div class="loader-bar"></div>
 </div>
@@ -21,7 +22,7 @@ active pcoded-trigger
                 <div class="page-header-title">
                     <i class="feather icon-credit-card bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>Permission Assign</h5>
+                        <h5>Memebers</h5>
                         <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                     </div>
                 </div>
@@ -34,9 +35,7 @@ active pcoded-trigger
                         </li>
                         <li class="breadcrumb-item"><a href="#!">Management</a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Role</a>
-                        </li>
-                        <li class="breadcrumb-item"><a href="#!">Permission</a>
+                        <li class="breadcrumb-item"><a href="#!">Memebers</a>
                         </li>
                     </ul>
                 </div>
@@ -48,14 +47,16 @@ active pcoded-trigger
         <div class="main-body">
             <div class="page-wrapper">
 
-                @if (session('delete'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('delete') }}
+
+                @if (session('insert'))
+                <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                    {{ session('insert') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 @endif
+
 
                 <div class="page-body">
                     <div class="row">
@@ -63,29 +64,30 @@ active pcoded-trigger
 
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between">
-                                    <h5>Permission assign to Role</h5>
-                                    <a href="{{ url('management/role') }}" class="btn btn-sm btn-primary mr-1"
+                                    <h5>Create User</h5>
+                                    <a href="{{ url('user') }}" class="btn btn-sm btn-primary mr-1"
                                         title="Return Back"><i class="fas fa-arrow-alt-circle-left pr-1"></i>Back</a>
                                 </div>
-                                <div class="card-block col-md-6 offset-3 col-sm-12 pb-5">
+                                <div class="card-block col-md-6 col-sm-12 pb-5">
                                     <form action="" method="">
                                         <div class="form-group">
-                                            <label for="name">Role Name</label>
-                                            <input type="text" class="form-control" id="name" value="test role" disabled>
+                                            <label for="name">Name</label>
+                                            <input type="text" class="form-control" id="name">
                                         </div>
-                                        <div class="form-group pb-3">
-                                            <label for="name">Role Name</label>
-                                            <select class="js-example-basic-multiple col-10" multiple="multiple">
-                                                <option value="AL">Alabama</option>
-                                                <option value="WY">Wyoming</option>
-                                                <option value="WY">Coming</option>
-                                                <option value="WY">Hanry Die</option>
-                                                <option value="WY">John Doe</option>
-                                            </select>
+                                        <div class="form-group">
+                                            <label for="email">E-Mail</label>
+                                            <input type="text" class="form-control" id="email">
                                         </div>
-
+                                        <div class="form-group">
+                                            <label for="picture">Profile Picture</label>
+                                            <input type="file" class="form-control" id="picture">
+                                        </div>
+                                        <div class="form-group pb-4">
+                                            <label for="password">Password</label>
+                                            <input type="password" class="form-control" id="password">
+                                        </div>
                                         <button type="submit" class="btn btn-primary"><i
-                                                class="fas fa-plus-square pr-1"></i>Assign</button>
+                                                class="fas fa-plus-square pr-1"></i>Save</button>
                                     </form>
                                 </div>
                             </div>
@@ -98,16 +100,5 @@ active pcoded-trigger
         </div>
     </div>
 </div>
-@endsection
 
-
-@section('style')
-<link rel="stylesheet" href="{{ asset('admin') }}/css/select2.min.css" />
-@endsection
-
-@section('script')
-<script src="{{ asset('admin') }}/js/select2.full.min.js"></script>
-<script>
-    $(".js-example-basic-multiple").select2();
-</script>
 @endsection
