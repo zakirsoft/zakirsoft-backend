@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title')
-Users View - ZakirSoft
+    Permission Assign - ZakirSoft
 @endsection
 
 @section('users')
@@ -9,7 +9,6 @@ active pcoded-trigger
 @endsection
 
 @section('content')
-
 <div class="loader-bg">
     <div class="loader-bar"></div>
 </div>
@@ -22,7 +21,7 @@ active pcoded-trigger
                 <div class="page-header-title">
                     <i class="feather icon-credit-card bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>Memebers</h5>
+                        <h5>Permission Assign</h5>
                         <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                     </div>
                 </div>
@@ -35,7 +34,9 @@ active pcoded-trigger
                         </li>
                         <li class="breadcrumb-item"><a href="#!">Management</a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Memebers</a>
+                        <li class="breadcrumb-item"><a href="#!">Role</a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="#!">Permission</a>
                         </li>
                     </ul>
                 </div>
@@ -47,34 +48,38 @@ active pcoded-trigger
         <div class="main-body">
             <div class="page-wrapper">
 
-                @if (session('delete'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('delete') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                @endif
-
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
 
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between">
-                                    <h5>Create Role</h5>
-                                    <a href="{{ url('management/role') }}" class="btn btn-sm btn-primary mr-1"
+                                    <h5>Permission assign to Role</h5>
+                                    <a href="{{ route('RoleIndex') }}" class="btn btn-sm btn-primary mr-1"
                                         title="Return Back"><i class="fas fa-arrow-alt-circle-left pr-1"></i>Back</a>
                                 </div>
                                 <div class="card-block col-md-6 offset-3 col-sm-12 pb-5">
-                                    <form action="" method="">
+                                    <form action="{{ route('PermissionAssignPost') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" value="{{ $role->id }}" name="role_id">
+                                        <div class="form-group">
+                                            <label for="name">Role Name</label>
+                                            <input type="text" class="form-control" id="name" value="{{ $role->name }}" disabled>
+                                        </div>
                                         <div class="form-group pb-3">
-                                            <label for="name">Name</label>
-                                            <input type="text" class="form-control" id="name">
+                                            <label for="name">Permission</label>
+                                            <select class="js-example-basic-multiple col-10" name="permissions[]" multiple>
+                                                @foreach ($rolePermissions as $permission)
+                                                    <option value="{{ $permission->id }}" selected>{{ $permission->name }}</option>
+                                                @endforeach
+                                                @foreach ($permissions as $permission)
+                                                    <option value="{{ $permission->id }}">{{ $permission->name }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
 
                                         <button type="submit" class="btn btn-primary"><i
-                                                class="fas fa-plus-square pr-1"></i>Save</button>
+                                                class="fas fa-plus-square pr-1"></i>Assign</button>
                                     </form>
                                 </div>
                             </div>
@@ -87,5 +92,16 @@ active pcoded-trigger
         </div>
     </div>
 </div>
+@endsection
 
+
+@section('style')
+<link rel="stylesheet" href="{{ asset('admin') }}/css/select2.min.css" />
+@endsection
+
+@section('script')
+<script src="{{ asset('admin') }}/js/select2.full.min.js"></script>
+<script>
+    $(".js-example-basic-multiple").select2();
+</script>
 @endsection

@@ -68,7 +68,7 @@ class TestimonialController extends Controller
      */
     public function edit(Testimonial $testimonial)
     {
-        //
+
     }
 
     /**

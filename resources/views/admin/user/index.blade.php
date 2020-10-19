@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('title')
-    Testimonials - ZakirSoft
+Users View - ZakirSoft
 @endsection
 
-@section('testimonial')
-    active pcoded-trigger
+@section('users')
+active pcoded-trigger
 @endsection
 
 @section('content')
@@ -22,7 +22,7 @@
                 <div class="page-header-title">
                     <i class="feather icon-credit-card bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>Testimonials</h5>
+                        <h5>Memebers</h5>
                         <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                     </div>
                 </div>
@@ -33,7 +33,9 @@
                         <li class="breadcrumb-item">
                             <a href="index.html"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Testimonial</a>
+                        <li class="breadcrumb-item"><a href="#!">Management</a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="#!">Memebers</a>
                         </li>
                     </ul>
                 </div>
@@ -59,38 +61,40 @@
                         <div class="col-sm-12">
 
                             <div class="card">
-                                <div class="card-header">
-                                    <h5>Default Testimonials</h5>
-                                    <span>Example of default table, Add <code>.table-de</code> class to the
-                                        <code>.table</code> to create a table with default spacing. Default table all
-                                        rows have <code>0.75rem</code> height.</span>
+                                <div class="card-header d-flex justify-content-between">
+                                    <h5>All Users ({{ $user_count }})</h5>
+                                    <a href="{{ url('user/create') }}" class="btn btn-sm btn-primary mr-1" title="Create a User"><i class="fas fa-plus-square pr-1"></i>Create</a>
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive">
-                                        <table class="table table-bordered table-hover">
+                                        <table class="table table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>Name</th>
-                                                    <th>Position</th>
-                                                    <th>Purpose</th>
-                                                    <th style="max-width: 300px">Testimonial Content</th>
-                                                    <th class="text-center">Remove</th>
+                                                    <th>User</th>
+                                                    <th>E-Mail</th>
+                                                    <th>Image</th>
+                                                    <th>Role</th>
+                                                    <th>Registered</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @forelse ($testimonials as $key => $testimonial)
+                                                @forelse ($users as $user)
                                                 <tr>
-                                                    <th scope="row">{{ $testimonials->firstItem() + $key }}</th>
-                                                    <td>{{ $testimonial->name }}</td>
-                                                    <td>{{ $testimonial->position }}</td>
-                                                    <td>{{ $testimonial->purpose }}</td>
-                                                    <td style="max-width: 300px">{{ $testimonial->content }}</td>
-                                                    <td class="text-center">
-                                                        <form action="{{ route('testimonial.destroy', $testimonial->id) }}" method="POST">
+                                                    <th scope="row">{{ $user->name }} <br></th>
+                                                    <td>{{ $user->email }}</td>
+                                                    <td>
+                                                        <img src="{{ asset($user->image) }}" class="img-thumbnail" style="max-width: 100px; max-height: 100px; overflow:hidden">
+                                                    </td>
+                                                    <td></td>
+                                                    <td class="text-muted">{{ $user->created_at->format('d/m/Y') }}</td>
+                                                    <td class="d-flex">
+                                                        <a href="{{ route('user.edit', $user->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit User"><i class="far fa-edit"></i></a>
+                                                        <a href="" class="btn btn-sm btn-primary mr-1" title="Manage Roles"><i class="fas fa-lock"></i></a>
+                                                        <form action="{{ route('user.destroy', $user->id) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <button class="btn btn-sm btn-danger m-1"><i class="far fa-trash-alt pr-2"></i>Remove</button>
+                                                            <button class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button>
                                                         </form>
                                                     </td>
                                                 </tr>
@@ -102,6 +106,7 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                    {{ $users->links() }}
                                 </div>
                             </div>
 
