@@ -193,19 +193,19 @@
                                 </ul>
 
                                 <ul class="pcoded-item pcoded-left-item">
-                                    <li class="pcoded-hasmenu">
+                                    <li class="pcoded-hasmenu @yield('portfolio')">
                                         <a href="javascript:void(0)" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
                                             <span class="pcoded-mtext">Portfolio</span>
                                         </a>
                                         <ul class="pcoded-submenu">
                                             <li class="">
-                                            <a href="#" class="waves-effect waves-dark">
+                                            <a href="{{ route('portfolio.create') }}" class="waves-effect waves-dark">
                                                     <span class="pcoded-mtext">New Portfolio</span>
                                                 </a>
                                             </li>
                                             <li class="">
-                                            <a href="#" class="waves-effect waves-dark">
+                                            <a href="{{ route('portfolio.index') }}" class="waves-effect waves-dark">
                                                     <span class="pcoded-mtext">Portfolio List</span>
                                                 </a>
                                             </li>
@@ -329,7 +329,25 @@
     <script src="{{asset('admin')}}/js/pcoded.min.js"></script>
     <script src="{{asset('admin')}}/js/vertical-layout.min.js"></script>
     <script src="{{asset('admin')}}/js/crm-dashboard.min.js"></script>
+    {{-- Ck editor  --}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
     <script src="{{asset('admin')}}/js/script.min.js"></script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+
+    </script>
+       <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor2' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+
+    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
