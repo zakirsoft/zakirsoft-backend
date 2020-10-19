@@ -88,7 +88,7 @@ active pcoded-trigger
 
                                         <div class="form-group">
                                             <label for="email">E-Mail</label>
-                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email">
+                                            <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email">
 
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">

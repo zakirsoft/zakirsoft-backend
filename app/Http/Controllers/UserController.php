@@ -38,9 +38,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        // $this->validate($request, [
-
-        // ]);
+        $this->validate($request, [
+            'name' => ['required'],
+            'email' => ['required','email','unique:users,email'],
+            'password' => ['required','min:8'],
+            'image' => ['required']
+        ]);
 
         $user = User::create([
             'name' => $request->name,
@@ -52,11 +55,12 @@ class UserController extends Controller
         if($request->has('image')) {
             $image = $request->image;
             $imageName = time() . '_' . uniqid() .'.'. $image->getClientOriginalExtension();
-            Storage::putFileAs('public/user', $image, $imageName);
+            Storage::putFileAs('/user', $image, $imageName);
 
             $user->image = 'storage/user/'. $imageName;
             $user->save();
         }
+
 
         return redirect()->back()->with('create', 'User created Successfully');
     }
@@ -105,10 +109,14 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
+        if (file_exists($user->image)) {
+            unlink($user->image);
+        }
+
         if($user){
             $user->delete();
         }
 
-       return redirect()->back()->with('delete', 'An User has been Deleted Successfully');
+       return redirect()->back()->with('delete', 'A User has been Deleted Successfully');
     }
 }
