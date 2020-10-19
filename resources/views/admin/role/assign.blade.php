@@ -69,6 +69,9 @@ active pcoded-trigger
                                         <div class="form-group pb-3">
                                             <label for="name">Permission</label>
                                             <select class="js-example-basic-multiple col-10" name="permissions[]" multiple>
+                                                @foreach ($rolePermissions as $permission)
+                                                    <option value="{{ $permission->id }}" selected>{{ $permission->name }}</option>
+                                                @endforeach
                                                 @foreach ($permissions as $permission)
                                                     <option value="{{ $permission->id }}">{{ $permission->name }}</option>
                                                 @endforeach

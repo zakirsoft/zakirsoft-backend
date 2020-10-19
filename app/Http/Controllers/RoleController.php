@@ -43,6 +43,7 @@ class RoleController extends Controller
     public function role_edit($id)
     {
         $roles = Role::findOrFail($id);
+
         return view('admin.role.edit', compact('roles'));
     }
 
@@ -68,8 +69,16 @@ class RoleController extends Controller
     public function permission_assign($id)
     {
         $role = Role::findOrFail($id);
-        $permissions = Permission::all();
-        return view('admin.role.assign', compact('role', 'permissions'));
+        $rolePermissions = $role->permissions;
+
+        $selectedPermissionsIdArray = [];
+        foreach ($rolePermissions as $permission) {
+            array_push($selectedPermissionsIdArray, $permission->id);
+        }
+
+        $permissions = Permission::latest()->get()->except($selectedPermissionsIdArray);
+
+        return view('admin.role.assign', compact('role', 'permissions', 'rolePermissions'));
     }
 
 

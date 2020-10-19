@@ -14,30 +14,30 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-        $permission = Permission::create([ 'name' => 'post list' ]);
-        $permission = Permission::create([ 'name' => 'post show' ]);
-        $permission = Permission::create([ 'name' => 'post create' ]);
-        $permission = Permission::create([ 'name' => 'post edit' ]);
-        $permission = Permission::create([ 'name' => 'post delete' ]);
-        $permission = Permission::create([ 'name' => 'project list' ]);
-        $permission = Permission::create([ 'name' => 'project show' ]);
-        $permission = Permission::create([ 'name' => 'project create' ]);
-        $permission = Permission::create([ 'name' => 'project edit' ]);
-        $permission = Permission::create([ 'name' => 'project delete' ]);
-        $permission = Permission::create([ 'name' => 'user list' ]);
-        $permission = Permission::create([ 'name' => 'user show' ]);
-        $permission = Permission::create([ 'name' => 'user create' ]);
-        $permission = Permission::create([ 'name' => 'user edit' ]);
-        $permission = Permission::create([ 'name' => 'user delete' ]);
-        $permission = Permission::create([ 'name' => 'role list' ]);
-        $permission = Permission::create([ 'name' => 'role show' ]);
-        $permission = Permission::create([ 'name' => 'role create' ]);
-        $permission = Permission::create([ 'name' => 'role edit' ]);
-        $permission = Permission::create([ 'name' => 'role delete' ]);
-        $permission = Permission::create([ 'name' => 'permission list' ]);
-        $permission = Permission::create([ 'name' => 'permission show' ]);
-        $permission = Permission::create([ 'name' => 'permission create' ]);
-        $permission = Permission::create([ 'name' => 'permission edit' ]);
-        $permission = Permission::create([ 'name' => 'permission delete' ]);
+        Permission::create([ 'name' => 'post list' ]);
+        Permission::create([ 'name' => 'post show' ]);
+        Permission::create([ 'name' => 'post create' ]);
+        Permission::create([ 'name' => 'post edit' ]);
+        Permission::create([ 'name' => 'post delete' ]);
+        Permission::create([ 'name' => 'project list' ]);
+        Permission::create([ 'name' => 'project show' ]);
+        Permission::create([ 'name' => 'project create' ]);
+        Permission::create([ 'name' => 'project edit' ]);
+        Permission::create([ 'name' => 'project delete' ]);
+        Permission::create([ 'name' => 'user list' ]);
+        Permission::create([ 'name' => 'user show' ]);
+        Permission::create([ 'name' => 'user create' ]);
+        Permission::create([ 'name' => 'user edit' ]);
+        Permission::create([ 'name' => 'user delete' ]);
+        Permission::create([ 'name' => 'role list' ]);
+        Permission::create([ 'name' => 'role show' ]);
+        Permission::create([ 'name' => 'role create' ]);
+        Permission::create([ 'name' => 'role edit' ]);
+        Permission::create([ 'name' => 'role delete' ]);
+        Permission::create([ 'name' => 'permission list' ]);
+        Permission::create([ 'name' => 'permission show' ]);
+        Permission::create([ 'name' => 'permission create' ]);
+        Permission::create([ 'name' => 'permission edit' ]);
+        Permission::create([ 'name' => 'permission delete' ]);
     }
 }
