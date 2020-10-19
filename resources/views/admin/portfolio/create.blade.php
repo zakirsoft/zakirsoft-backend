@@ -151,8 +151,11 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Our Role</label>
                                             <div class="col-sm-10">
-                                                <input id="editor5" type="text" class="form-control" name="our_role" id="name"
-                                                placeholder="Enter Role of Portfolio">
+                                                <textarea id="editor5" type="text" class="form-control" name="our_role"
+                                                placeholder="Enter Role of Portfolio"
+                                                ></textarea>
+                                                {{-- <input type="text" class="form-control" name="our_role" id="name"
+                                                placeholder="Enter Role of Portfolio"> --}}
                                             </div>
                                         </div>
 

@@ -83,13 +83,9 @@
                                                     <th>Project Title</th>
                                                     <th>Client Name</th>
                                                     <th>Client Email</th>
-                                                    <th>Description</th>
                                                     <th>Image</th>
                                                     <th>Live Link</th>
-                                                    <th>Bahance Link</th>
                                                     <th>Project Length</th>
-                                                    <th>Our Role</th>
-                                                    <th>Tool Used</th>
                                                     <th class="text-center">Action</th>
                                                 </tr>
                                             </thead>
@@ -100,13 +96,11 @@
                                                     <td>{{ $portfolio->title }}</td>
                                                     <td>{{ $portfolio->client_name }}</td>
                                                     <td>{{ $portfolio->client_email }}</td>
-                                                    <td style="max-width: 300px">{{ $portfolio->description }}</td>
-                                                    <td><img width="50px" height="50px" src="{{asset($portfolio->image) }}" alt="" srcset=""></td>
+                                                    <td>
+                                                        <img width="50px" height="50px" src="{{asset($portfolio->image) }}" alt="" srcset="">
+                                                    </td>
                                                     <td>{{ $portfolio->live_link }}</td>
-                                                    <td>{{ $portfolio->bahance_link }}</td>
                                                     <td>{{ $portfolio->project_length }}</td>
-                                                    <td>{{ $portfolio->our_role }}</td>
-                                                    <td>{{ $portfolio->tool_used }}</td>
                                                     <td>
                                                         <div class="dropdown">
                                                         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -127,7 +121,9 @@
                                                 </tr>
                                                 @empty
                                                 <tr>
-                                                    <td colspan="20" class="text-center text-danger"><h2>No Data Found</h2></td>
+                                                    <td colspan="20" class="text-center text-danger">
+                                                        <h5>No Data Found</h5>
+                                                    </td>
                                                 </tr>
                                                 @endforelse
                                             </tbody>
