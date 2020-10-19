@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Portfolio;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 
@@ -53,15 +54,19 @@ class PortfolioController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        if ($request->has('image')) {
+        if($request->has('image')) {
 
-            $imageName = time().'.'.$request->image->extension();
-            $request->image->move(public_path('uploads/portfolioimages'), $imageName);
+
+            $image = $request->image;
+            $imageName = time() . '_' . uniqid() .'.'. $image->getClientOriginalExtension();
+            Storage::putFileAs('/portfolio', $image, $imageName);
+
+            $image_address = 'storage/portfolio/'. $imageName;
 
             Portfolio::insert([
                 'title' => $request->title,
+                'image' =>$image_address,
                 'title_slug' =>Str::slug($request->title),
-                'image' => $imageName,
                 'description' => $request->description,
                 'live_link' => $request->live_link,
                 'bahance_link' => $request->bahance_link,
@@ -76,7 +81,9 @@ class PortfolioController extends Controller
             return back()->with('insert', 'Portfolio added Successfully');
 
         }else {
+
             return back()->with('error', 'Something went wrong!');
+
         }
 
 
@@ -130,7 +137,7 @@ class PortfolioController extends Controller
         $test = Portfolio::findOrFail($id);
 
         if($test){
-            unlink(base_path('public/uploads/portfolioimages/'.$test->image));
+            unlink(base_path('public/'.$test->image));
             $test->delete();
         }
 

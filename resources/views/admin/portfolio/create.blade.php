@@ -112,11 +112,17 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Description </label>
+                                            <label class="col-sm-2 col-form-label">Client Name</label>
                                             <div class="col-sm-10">
-                                                <textarea id="editor" type="text" class="form-control"  name="description"
-                                                    placeholder="Write Portfolio content here.... "
-                                                    ></textarea>
+                                                <input type="text" class="form-control" name="client_name" id="name"
+                                                placeholder="Enter Client Name of Portfolio">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Client Email</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" name="client_email" id="name"
+                                                placeholder="Enter Client Email of Portfolio">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -160,17 +166,11 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Client Name</label>
+                                            <label class="col-sm-2 col-form-label">Description </label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="client_name" id="name"
-                                                placeholder="Enter Client Name of Portfolio">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Client Email</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="client_email" id="name"
-                                                placeholder="Enter Client Email of Portfolio">
+                                                <textarea id="editor" type="text" class="form-control"  name="description"
+                                                    placeholder="Write Portfolio content here.... "
+                                                    ></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row pt-4">

@@ -64,6 +64,7 @@
                                     <span>Example of default table, Add <code>.table-de</code> class to the
                                         <code>.table</code> to create a table with default spacing. Default table all
                                         rows have <code>0.75rem</code> height.</span>
+                                       <a href="{{ route('portfolio.index') }}"> <button class="btn btn-primary float-right"><i class="fa fa-plus"></i> Add Portfolio</button></a>
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive">
@@ -92,7 +93,7 @@
                                                     <td>{{ $portfolio->client_name }}</td>
                                                     <td>{{ $portfolio->client_email }}</td>
                                                     <td style="max-width: 300px">{{ $portfolio->description }}</td>
-                                                    <td><img width="50px" height="50px" src="{{asset('uploads/portfolioimages') }}/{{ $portfolio->image }}" alt="" srcset=""></td>
+                                                    <td><img width="50px" height="50px" src="{{asset($portfolio->image) }}" alt="" srcset=""></td>
                                                     <td>{{ $portfolio->live_link }}</td>
                                                     <td>{{ $portfolio->bahance_link }}</td>
                                                     <td>{{ $portfolio->project_length }}</td>
