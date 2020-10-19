@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -37,7 +38,27 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $this->validate($request, [
+
+        // ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
+
+
+        if($request->has('image')) {
+            $image = $request->image;
+            $imageName = time() . '_' . uniqid() .'.'. $image->getClientOriginalExtension();
+            Storage::putFileAs('public/user', $image, $imageName);
+
+            $user->image = 'storage/user/'. $imageName;
+            $user->save();
+        }
+
+        return redirect()->back()->with('create', 'User created Successfully');
     }
 
     /**

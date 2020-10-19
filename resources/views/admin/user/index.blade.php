@@ -72,6 +72,7 @@ active pcoded-trigger
                                                 <tr>
                                                     <th>User</th>
                                                     <th>E-Mail</th>
+                                                    <th>Image</th>
                                                     <th>Role</th>
                                                     <th>Registered</th>
                                                     <th>Action</th>
@@ -82,6 +83,9 @@ active pcoded-trigger
                                                 <tr>
                                                     <th scope="row">{{ $user->name }} <br></th>
                                                     <td>{{ $user->email }}</td>
+                                                    <td>
+                                                        <img src="{{ asset($user->image) }}" class="img-thumbnail" style="max-width: 100px; max-height: 100px; overflow:hidden">
+                                                    </td>
                                                     <td></td>
                                                     <td class="text-muted">{{ $user->created_at->format('d/m/Y') }}</td>
                                                     <td class="d-flex">
@@ -95,7 +99,9 @@ active pcoded-trigger
                                                     </td>
                                                 </tr>
                                                 @empty
-
+                                                <tr>
+                                                    <td colspan="5" class="text-center">No Data Found</td>
+                                                </tr>
                                                 @endforelse
                                             </tbody>
                                         </table>

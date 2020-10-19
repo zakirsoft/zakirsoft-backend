@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 
 // Route::resource('portfolio', PortfolioController::class);
 
+Route::redirect('home', 'dashboard', 302);
+
 Route::resource('dashboard', DashboardController::class);
 Route::resource('portfolio', PortfolioController::class);
 
