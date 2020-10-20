@@ -51,7 +51,7 @@
 
                 @if (session('insert'))
                 <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                    {{ session('insert') }} <a href="{{ route('portfolio.index') }}">Click here to go to table</a>
+                    {{ session('insert') }} <a href="{{ route('portfolio.index') }}"> Click here to go to table</a>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -94,14 +94,14 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Title</label>
-                                                    <input type="text" class="form-control" name="title" id="name"
+                                                    <input value="{{ old('title') }}" type="text" class="form-control" name="title" id="name"
                                                     placeholder="Enter Title of Portfolio">
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Project Length</label>
-                                                    <input type="text" class="form-control" name="project_length" id="name"
+                                                    <input value="{{ old('project_length') }}" type="text" class="form-control" name="project_length" id="name"
                                                     placeholder="Enter Project Length of Portfolio">
                                                 </div>
                                             </div>
@@ -131,14 +131,14 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Client Name</label>
-                                                    <input type="text" class="form-control" name="client_name" id="name"
+                                                    <input value="{{ old('client_name') }}" type="text" class="form-control" name="client_name" id="name"
                                                 placeholder="Enter Client Name of Portfolio">
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Client Email</label>
-                                                     <input type="text" class="form-control" name="client_email" id="name"
+                                                     <input value="{{ old('client_email') }}" type="text" class="form-control" name="client_email" id="name"
                                                 placeholder="Enter Client Email of Portfolio">
                                                 </div>
                                             </div>
@@ -148,14 +148,14 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Live Link </label>
-                                                   <input type="text" class="form-control" name="live_link" id="name"
+                                                   <input value="{{ old('live_link') }}" type="text" class="form-control" name="live_link" id="name"
                                                 value="https://">
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Bahance Link</label>
-                                                     <input type="text" class="form-control" name="bahance_link" id="name"
+                                                     <input value="{{ old('bahance_link') }}" type="text" class="form-control" name="bahance_link" id="name"
                                                 value="https://">
                                                 </div>
                                             </div>
@@ -166,7 +166,7 @@
                                                     <label>Our Role</label>
                                                     <textarea id="editor5" type="text" class="form-control" name="our_role"
                                                     placeholder="Enter Role of Portfolio"
-                                                    ></textarea>
+                                                    >{{ old('our_role') }}</textarea>
                                                 </div>
                                             </div>
                                             <div class="col-6">
@@ -174,16 +174,16 @@
                                                     <label>Tools Used </label>
                                                     <textarea id="editor2" type="text" class="form-control" name="tool_used"
                                                     placeholder="Write Tool User of Portfolio.... "
-                                                    ></textarea>
+                                                    >{{ old('tool_used') }}</textarea>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Description </label>
-                                            <textarea id="editor" type="text" class="form-control"  name="description"
+                                            <textarea  id="editor" type="text" class="form-control"  name="description"
                                             placeholder="Write Portfolio content here.... "
-                                            ></textarea>
+                                            >{{ old('description') }}</textarea>
                                         </div>
                                         <button type="submit" class="btn btn-primary  m-b-0"><i class="fas fa-plus"></i> Add Portfolio</button>
 

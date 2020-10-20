@@ -23,7 +23,6 @@
                     <i class="feather icon-credit-card bg-c-blue"></i>
                     <div class="d-inline">
                         <h5>Career</h5>
-                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                     </div>
                 </div>
             </div>
@@ -79,7 +78,7 @@
                                 <div class="card-header">
                                     <h5>Edit Career Contentr</h5>
                                         @if ($career_list_count <= 2 )
-                                            <button  type="button" class="btn btn-primary btn-round waves-effect float-right" data-toggle="modal" data-target="#add_career"><i class="fas fa-plus"></i> Add Career</button>
+                                            <button  type="button" class="btn btn-primary waves-effect float-right" data-toggle="modal" data-target="#add_career"><i class="fas fa-plus"></i> Add Career</button>
                                         @endif
                                 </div>
                                 <div class="card-block">
@@ -113,7 +112,7 @@
 
                                                     <td>
                                                         <div class="dropdown">
-                                                        <button class="btn btn-primary btn-round dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                             <i class="fas fa-cog"></i> Action
                                                         </button>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -167,18 +166,18 @@
         <div class="modal-body">
                 <div class="form-group">
                   <label for="title">Title</label>
-                  <input required name="title" type="text" class="form-control" id="title" placeholder="Enter Title of Career">
+                  <input value="{{ old('title') }}" required name="title" type="text" class="form-control" id="title" placeholder="Enter Title of Career">
                 </div>
                 <div class="form-group">
                   <label for="content">Content</label>
-                  <input required name="content" type="text" class="form-control" id="content" placeholder="Enter Content of Career">
+                  <input value="{{ old('content') }}" required name="content" type="text" class="form-control" id="content" placeholder="Enter Content of Career">
                 </div>
 
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-round" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary btn-round">Save changes</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
             </div>
         </form>
       </div>

@@ -16,10 +16,7 @@ class CareerController extends Controller
     public function index()
     {
         $career_list = Career::SimplePaginate(10);
-
         $career_list_count = Career::all()->count();
-        // return $career_list_count;
-
         return view('admin.career.index',compact('career_list','career_list_count'));
     }
 
@@ -45,6 +42,9 @@ class CareerController extends Controller
         $request->validate([
             'title' => 'required',
             'content' => 'required',
+        ],[
+            'title.required' => 'Title field is required.',
+            'content.required' => 'Content field is required.'
         ]);
 
         Career::create([
