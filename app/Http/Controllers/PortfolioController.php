@@ -18,7 +18,7 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        $portfolio_list = Portfolio::paginate(10);
+        $portfolio_list = Portfolio::SimplePaginate(10);
         return view('admin.portfolio.index',compact('portfolio_list'));
     }
 
@@ -198,14 +198,19 @@ class PortfolioController extends Controller
 
         $old_image = Portfolio::findOrFail($id);
 
-        if($old_image){
+        if(file_exists($old_image->image)){
+
             unlink(base_path('public/'.$old_image->image));
+            $old_image->delete();
+            return redirect()->back()->with('delete', 'Portfolio Successfully Delete');
+
+        }else{
+
+            $old_image->delete();
+            return redirect()->back()->with('delete', 'Portfolio Successfully Delete');
         }
 
-        if($old_image){
-            $old_image->delete();
-            return redirect()->back()->with('delete', 'Testimonial Successfully Delete');
-        }
+
 
     }
 }

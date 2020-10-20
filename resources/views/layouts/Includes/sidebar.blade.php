@@ -86,6 +86,14 @@
                         </li>
                     </ul>
                 </li>
+                <li class="@yield('career')">
+                    <a href="{{ route('career.index') }}" class="waves-effect waves-dark">
+                        <span class="pcoded-micon">
+                            <i class="feather icon-home"></i>
+                        </span>
+                        <span class="pcoded-mtext">Career</span>
+                    </a>
+                </li>
             </ul>
 
             <div class="pcoded-navigation-label">Example</div>

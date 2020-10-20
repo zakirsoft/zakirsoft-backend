@@ -29,5 +29,6 @@
     gtag('js', new Date());
     gtag('config', 'UA-23581568-13');
 </script>
+{{-- @notifyJs --}}
 <script src="{{asset('admin')}}/js/rocket-loader.min.js" data-cf-settings="2d8d78e876b340f9029c575b-|49" defer=""> </script>
 @yield('script')

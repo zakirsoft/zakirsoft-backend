@@ -9,5 +9,6 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/css/font-awesome-n.min.css">
 <link rel="stylesheet" href="{{ asset('admin') }}/css/chartist.css" type="text/css" media="all">
 <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/css/style.css">
+{{-- @notifyCss --}}
 <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/css/widget.css">
 @yield('style')
