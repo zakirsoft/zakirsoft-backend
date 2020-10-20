@@ -105,54 +105,31 @@
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <label>Live Link </label>
-                                                    <input type="text" class="form-control" name="live_link" id="name" value="{{  $portfolio->live_link }}">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label>New Image</label>
-                                                    <input type="file" class="form-control" name="image" id="position">
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label>Multiple Image</label>
-                                                    <input multiple type="file" class="form-control" name="multiple_image" id="position">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label>Bahance </label>
-                                                    <input type="text" class="form-control" name="bahance_link" id="name"
-                                                        value="{{ $portfolio->bahance_link }}">
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group">
                                                     <label>Project Length </label>
                                                     <input value="{{ $portfolio->project_length }}" type="text" class="form-control"
                                                         name="project_length" id="name" placeholder="Enter Project Length of Portfolio">
                                                     </>
                                                 </div>
                                             </div>
+
                                         </div>
-                                        <div class="row">
-                                            <div class="col-6">
+                                        <div class="row mb-3 mt-3">
+                                            <div class="col-4">
                                                 <div class="form-group">
-                                                    <label>Our Role</label>
-                                                    <textarea style="height: 130px" id="editor4" type="text" class="form-control" name="our_role" placeholder="Enter role of portfolio"> {{ $portfolio->our_role }} </textarea>
+                                                    <label>Current Thumbnail Image</label><br>
+                                                  <img height="80px" width="80px" src="{{ asset($portfolio->image) }}" alt="">
                                                 </div>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-4">
                                                 <div class="form-group">
-                                                    <label>Tools Used </label>
-                                                    <textarea id="editor2" type="text" class="form-control" name="tool_used" placeholder="Write Tool User of Portfolio.... "> {{ $portfolio->tool_used }} </textarea>
+                                                    <label>Thumbnail Image</label>
+                                                    <input type="file" class="form-control" name="image" id="position">
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label>Multiple Image</label>
+                                                    <input multiple type="file" class="form-control" name="multiple_image" id="position">
                                                 </div>
                                             </div>
                                         </div>
@@ -171,6 +148,37 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label>Live Link </label>
+                                                    <input type="text" class="form-control" name="live_link" id="name" value="{{  $portfolio->live_link }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label>Bahance Link</label>
+                                                    <input type="text" class="form-control" name="bahance_link" id="name"
+                                                        value="{{ $portfolio->bahance_link }}">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label>Our Role</label>
+                                                    <textarea style="height: 130px" id="editor4" type="text" class="form-control" name="our_role" placeholder="Enter role of portfolio"> {{ $portfolio->our_role }} </textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label>Tools Used </label>
+                                                    <textarea id="editor2" type="text" class="form-control" name="tool_used" placeholder="Write Tool User of Portfolio.... "> {{ $portfolio->tool_used }} </textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div class="form-group">
                                             <label>Description </label>
                                             <textarea id="editor3" type="text" class="form-control" name="description"
