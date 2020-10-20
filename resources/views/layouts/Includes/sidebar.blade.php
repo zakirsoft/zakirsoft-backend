@@ -17,7 +17,7 @@
             <ul class="pcoded-item pcoded-left-item">
                 <li class="pcoded-hasmenu">
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
-                        <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
+                        <span class="pcoded-micon"><i class="far fa-user"></i></span>
                         <span class="pcoded-mtext">User</span>
                     </a>
                     <ul class="pcoded-submenu">

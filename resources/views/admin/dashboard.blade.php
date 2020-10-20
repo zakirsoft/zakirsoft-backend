@@ -19,7 +19,7 @@
         <div class="row align-items-end">
             <div class="col-lg-8">
                 <div class="page-header-title">
-                    <i class="fas fa-tachometer-alt bg-c-blue"></i>
+                    <i class="fas fa-tachometer-alt bg-c-green"></i>
                     <div class="d-inline">
                         <h5>Dashboard</h5>
                         <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
@@ -46,7 +46,7 @@
                 <div class="page-body">
                     <div class="row">
                         <div class="col-xl-3 col-md-6">
-                            <div class="card prod-p-card card-red">
+                            <div class="card prod-p-card card-green">
                                 <div class="card-body">
                                     <div class="row align-items-center m-b-30">
                                         <div class="col">
@@ -54,7 +54,7 @@
                                             <h3 class="m-b-0 f-w-700 text-white">{{$user}}</h3>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-money-bill-alt text-c-red f-18"></i>
+                                            <i class="fas fa-money-bill-alt text-c-green f-18"></i>
                                         </div>
                                     </div>
                                     {{-- <p class="m-b-0 text-white"><span class="label label-danger m-r-10">+11%</span>From
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         <div class="col-xl-3 col-md-6">
-                            <div class="card prod-p-card card-blue">
+                            <div class="card prod-p-card card-green">
                                 <div class="card-body">
                                     <div class="row align-items-center m-b-30">
                                         <div class="col">
@@ -71,7 +71,7 @@
                                             <h3 class="m-b-0 f-w-700 text-white">{{$role}}</h3>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-database text-c-blue f-18"></i>
+                                            <i class="fas fa-database text-c-green f-18"></i>
                                         </div>
                                     </div>
                                     {{-- <p class="m-b-0 text-white"><span class="label label-primary m-r-10">+12%</span>From
@@ -97,7 +97,7 @@
                             </div>
                         </div>
                         <div class="col-xl-3 col-md-6">
-                            <div class="card prod-p-card card-yellow">
+                            <div class="card prod-p-card card-green">
                                 <div class="card-body">
                                     <div class="row align-items-center m-b-30">
                                         <div class="col">
@@ -105,7 +105,77 @@
                                             <h3 class="m-b-0 f-w-700 text-white">{{$testimonial}}</h3>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-tags text-c-yellow f-18"></i>
+                                            <i class="fas fa-tags text-c-green f-18"></i>
+                                        </div>
+                                    </div>
+                                    {{-- <p class="m-b-0 text-white"><span class="label label-warning m-r-10">+52%</span>From
+                                        Previous Month</p> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card prod-p-card card-green">
+                                <div class="card-body">
+                                    <div class="row align-items-center m-b-30">
+                                        <div class="col">
+                                            <h6 class="m-b-5 text-white">Career</h6>
+                                            <h3 class="m-b-0 f-w-700 text-white">{{ $career }}</h3>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-graduation-capfas fa-money-bill-alt text-c-green f-18"></i>
+                                        </div>
+                                    </div>
+                                    {{-- <p class="m-b-0 text-white"><span class="label label-danger m-r-10">+11%</span>From
+                                        Previous Month</p> --}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card prod-p-card card-green">
+                                <div class="card-body">
+                                    <div class="row align-items-center m-b-30">
+                                        <div class="col">
+                                            <h6 class="m-b-5 text-white">Example</h6>
+                                            <h3 class="m-b-0 f-w-700 text-white">0</h3>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-database text-c-green f-18"></i>
+                                        </div>
+                                    </div>
+                                    {{-- <p class="m-b-0 text-white"><span class="label label-primary m-r-10">+12%</span>From
+                                        Previous Month</p> --}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card prod-p-card card-green">
+                                <div class="card-body">
+                                    <div class="row align-items-center m-b-30">
+                                        <div class="col">
+                                            <h6 class="m-b-5 text-white">Example</h6>
+                                            <h3 class="m-b-0 f-w-700 text-white">0</h3>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign text-c-green f-18"></i>
+                                        </div>
+                                    </div>
+                                    {{-- <p class="m-b-0 text-white"><span class="label label-success m-r-10">+52%</span>From
+                                        Previous Month</p> --}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card prod-p-card card-green">
+                                <div class="card-body">
+                                    <div class="row align-items-center m-b-30">
+                                        <div class="col">
+                                            <h6 class="m-b-5 text-white">Example</h6>
+                                            <h3 class="m-b-0 f-w-700 text-white">0</h3>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-tags text-c-green f-18"></i>
                                         </div>
                                     </div>
                                     {{-- <p class="m-b-0 text-white"><span class="label label-warning m-r-10">+52%</span>From
