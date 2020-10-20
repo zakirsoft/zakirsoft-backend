@@ -82,11 +82,9 @@ class RoleController extends Controller
     }
 
 
-    public function permission_assign_post(Request $request)
+    public function permission_assign_post(Request $request, Role $role)
     {
-        $role = Role::findOrFail($request->role_id);
-        $role->givePermissionTo($request->permissions);
-
+        $role->syncPermissions($request->permissions);
         return redirect(route('RoleIndex'))->with('assign', 'Permission has been assigned');
     }
 

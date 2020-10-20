@@ -18,17 +18,17 @@
                 <li class="pcoded-hasmenu">
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
-                        <span class="pcoded-mtext">Management</span>
+                        <span class="pcoded-mtext">User</span>
                     </a>
                     <ul class="pcoded-submenu">
                         <li class="">
                             <a href="{{ url('user') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Users</span>
+                                <span class="pcoded-mtext">All User</span>
                             </a>
                         </li>
                         <li class="">
                             <a href="{{ route('RoleIndex') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Role</span>
+                                <span class="pcoded-mtext">User Role</span>
                             </a>
                         </li>
                     </ul>

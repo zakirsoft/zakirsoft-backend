@@ -39,9 +39,11 @@ Route::get('role/edit/{id}', [RoleController::class, 'role_edit'])->name('RoleEd
 Route::post('role/update', [RoleController::class, 'role_update'])->name('RoleUpdate');
 Route::get('role/delete/{id}', [RoleController::class, 'role_delete'])->name('RoleDelete');
 Route::get('role/permission/{id}', [RoleController::class, 'permission_assign'])->name('PermissionAssign');
-Route::post('role/permission', [RoleController::class, 'permission_assign_post'])->name('PermissionAssignPost');
+Route::post('role/permission/{role}', [RoleController::class, 'permission_assign_post'])->name('PermissionAssignPost');
 
 // Route::resource('role', RoleController::class);
+Route::get('user/role-assign/{user}', [UserController::class, 'role_assign'])->name('RoleAssign');
+Route::post('user/role-assign/{user}', [UserController::class, 'role_assign_store'])->name('RoleAssignStore');
 Route::resource('user', UserController::class);
 
 

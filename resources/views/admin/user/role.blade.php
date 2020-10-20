@@ -1,12 +1,13 @@
 @extends('layouts.admin')
 
 @section('title')
-    Permission Assign - ZakirSoft
+    Role Assign - ZakirSoft
 @endsection
 
-@section('users')
-active pcoded-trigger
+@section('role')
+    active pcoded-trigger
 @endsection
+
 
 @section('content')
 <div class="loader-bg">
@@ -21,7 +22,7 @@ active pcoded-trigger
                 <div class="page-header-title">
                     <i class="feather icon-credit-card bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>Permission Assign</h5>
+                        <h5>Role Assign</h5>
                         <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                     </div>
                 </div>
@@ -36,7 +37,7 @@ active pcoded-trigger
                         </li>
                         <li class="breadcrumb-item"><a href="#!">Role</a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Permission</a>
+                        <li class="breadcrumb-item"><a href="#!">Assgin</a>
                         </li>
                     </ul>
                 </div>
@@ -54,26 +55,26 @@ active pcoded-trigger
 
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between">
-                                    <h5>Permission assign to Role</h5>
-                                    <a href="{{ route('RoleIndex') }}" class="btn btn-sm btn-primary mr-1"
+                                    <h5>Role assign to user</h5>
+                                    <a href="{{ route('user.index') }}" class="btn btn-sm btn-primary mr-1"
                                         title="Return Back"><i class="fas fa-arrow-alt-circle-left pr-1"></i>Back</a>
                                 </div>
                                 <div class="card-block col-md-6 offset-3 col-sm-12 pb-5">
-                                    <form action="{{ route('PermissionAssignPost', $role->id) }}" method="POST">
+                                    <form action="{{ route('RoleAssignStore', $user->id) }}" method="POST">
                                         @csrf
-                                        <input type="hidden" value="{{ $role->id }}" name="role_id">
+                                        <input type="hidden" value="{{$user->id}}" name="user_id">
                                         <div class="form-group">
-                                            <label for="name">Role Name</label>
-                                            <input type="text" class="form-control" id="name" value="{{ $role->name }}" disabled>
+                                            <label for="name">User</label>
+                                            <input type="text" class="form-control" id="name" value="{{ $user->name }}" disabled>
                                         </div>
                                         <div class="form-group pb-3">
-                                            <label for="name">Permission</label>
-                                            <select class="js-example-basic-multiple col-10" name="permissions[]" multiple>
-                                                @foreach ($rolePermissions as $permission)
-                                                    <option value="{{ $permission->id }}" selected>{{ $permission->name }}</option>
+                                            <label for="role">Role</label>
+                                            <select class="js-example-basic-multiple col-10" name="roles[]" multiple id="role">
+                                                @foreach ($userRoles as $role)
+                                                    <option value="{{ $role->id }}" selected>{{ $role->name }}</option>
                                                 @endforeach
-                                                @foreach ($permissions as $permission)
-                                                    <option value="{{ $permission->id }}">{{ $permission->name }}</option>
+                                                @foreach ($roles as $role)
+                                                    <option value="{{ $role->id }}">{{ $role->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -96,12 +97,12 @@ active pcoded-trigger
 
 
 @section('style')
-<link rel="stylesheet" href="{{ asset('admin') }}/css/select2.min.css" />
+    <link rel="stylesheet" href="{{ asset('admin') }}/css/select2.min.css" />
 @endsection
 
 @section('script')
-<script src="{{ asset('admin') }}/js/select2.full.min.js"></script>
-<script>
-    $(".js-example-basic-multiple").select2();
-</script>
+    <script src="{{ asset('admin') }}/js/select2.full.min.js"></script>
+    <script>
+        $(".js-example-basic-multiple").select2();
+    </script>
 @endsection
