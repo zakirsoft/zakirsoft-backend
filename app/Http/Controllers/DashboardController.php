@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\dashboard;
+use App\Models\Portfolio;
+use App\Models\Testimonial;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
- class DashboardController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +18,12 @@ use Illuminate\Http\Request;
      */
     public function index()
     {
-        return view('admin.dashboard');
+        return view('admin.dashboard', [
+            'user' => User::count(),
+            'role' => Role::count(),
+            'portfolio' => Portfolio::count(),
+            'testimonial' => Testimonial::count()
+        ]);
     }
 
     /**
