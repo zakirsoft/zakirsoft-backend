@@ -72,10 +72,9 @@ active pcoded-trigger
                         <div class="col-sm-12">
 
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header align-items-center justify-content-between d-flex">
                                     <h5>Paste here Team information</h5>
-                                    <span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code>
-                                        tag</span>
+                                    <a href="{{ route('team.index') }}" class="btn btn-sm btn-primary">Show Member</a>
                                 </div>
                                 <div class="card-block">
 

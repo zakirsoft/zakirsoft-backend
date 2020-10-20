@@ -67,11 +67,9 @@
                         <div class="col-sm-12">
 
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header align-items-center justify-content-between d-flex">
                                     <h5>Default Team</h5>
-                                    <span>Example of default table, Add <code>.table-de</code> class to the
-                                        <code>.table</code> to create a table with default spacing. Default table all
-                                        rows have <code>0.75rem</code> height.</span>
+                                <a href="{{ route('team.create') }}" class="btn btn-sm btn-primary">Add Member</a>
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive text-center">
@@ -90,12 +88,13 @@
                                                 <tr>
                                                 <td>{{ $team->name }}</td>
                                                 <td>{{ $team->position }}</td>
-                                                <td><img width="70px" height="70px" src="{{ asset($team->image) }}" alt=""></td>
-                                                <td>
-                                                    <form action="">
+                                                <td><img width="60px" height="60px" src="{{ asset($team->image) }}" alt=""></td>
+                                                <td class="align-center">
+                                                    <a class="btn btn-sm btn-primary mr-2 float-left" href="">Edit</a>
+                                                <form method="POST" action="{{ route('team.destroy',$team->id)}}">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button class="btn btn-sm btn-danger " type="submit"> <i class="fas fa-user-times"></i> Remove</button>
+                                                        <button class="btn btn-sm btn-danger" type="submit"> <i class="fas fa-user-times"></i> Remove</button>
                                                     </form>
                                                 </td>
                                                 </tr>
