@@ -30,9 +30,9 @@
                 <div class="page-header-breadcrumb">
                     <ul class=" breadcrumb breadcrumb-title">
                         <li class="breadcrumb-item">
-                            <a href="index.html"><i class="feather icon-home"></i></a>
+                            <a href="{{ route('dashboard.index') }}"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Testimonial</a>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Testimonial</a>
                         </li>
                     </ul>
                 </div>
@@ -44,9 +44,9 @@
         <div class="main-body">
             <div class="page-wrapper">
 
-                @if (session('delete'))
+                @if (session('danger'))
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('delete') }}
+                    {{ session('danger') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -86,7 +86,7 @@
                                                         <form action="{{ route('testimonial.destroy', $testimonial->id) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <button class="btn btn-sm btn-danger m-1"><i class="far fa-trash-alt pr-2"></i>Remove</button>
+                                                            <button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm btn-danger m-1"><i class="far fa-trash-alt pr-2"></i>Remove</button>
                                                         </form>
                                                     </td>
                                                 </tr>

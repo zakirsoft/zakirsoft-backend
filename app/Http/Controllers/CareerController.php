@@ -53,9 +53,10 @@ class CareerController extends Controller
             'created_at' => Carbon::now(),
         ]);
 
+        session()->flash('success', 'Career Content Added Successfully!');
+        return redirect()->route('career.index');
+
         // notify()->success('Career Content Added Successfully');
-        return back()->with('insert', 'Career Content Added Successfully');
-        // return back();
 
 
     }
@@ -95,6 +96,9 @@ class CareerController extends Controller
         $request->validate([
             'title' => 'required',
             'content' => 'required',
+        ],[
+            'title.required' => 'Title field is required.',
+            'content.required' => 'Content field is required.'
         ]);
 
         Career::findOrFail($id)->update([
@@ -103,9 +107,9 @@ class CareerController extends Controller
             'updated_at' => Carbon::now(),
         ]);
 
-        // // notify()->success('Career Content Added Successfully');
-        return redirect('/career')->with('insert', 'Career Content Updated Successfully');
-        // // return back();
+        session()->flash('success', 'Career Content Updated Successfully!');
+        return redirect()->route('career.index');
+
     }
 
     /**
@@ -119,10 +123,16 @@ class CareerController extends Controller
         $career = Career::findOrFail($id);
 
         if($career){
+
             $career->delete();
-            return redirect()->back()->with('delete', 'Carrer Content Deleted Successfully');
+
+            session()->flash('danger', 'Carrer Content Deleted Successfully!');
+            return redirect()->route('career.index');
+
         }else{
-            return redirect()->back()->with('error', 'Something Went Wrong!');
+
+            session()->flash('danger', 'Carrer Content Deleted Successfully!');
+            return redirect()->route('career.index');
         }
 
 

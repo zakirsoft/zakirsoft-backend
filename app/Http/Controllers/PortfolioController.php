@@ -44,14 +44,25 @@ class PortfolioController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'live_link' => 'required',
-            'bahance_link' => 'required',
+            'live_link' => 'required|url',
+            'bahance_link' => 'required|url',
             'project_length' => 'required',
             'our_role' => 'required',
             'tool_used' => 'required',
             'client_name' => 'required',
             'client_email' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10048',
+        ],[
+            'title.required' => 'Title field is required!',
+            'description.required' => 'Description field is required!',
+            'live_link.required' => 'Live link field is required!',
+            'bahance_link.required' => 'Bahance link field is required!',
+            'project_length.required' => 'Project length field is required!',
+            'our_role.required' => 'Our role field is required!',
+            'tool_used.required' => 'Tool used field is required!',
+            'client_name.required' => 'Client name field is required!',
+            'client_email.required' => 'Client email field is required!',
+            'image.required' => 'Image field is required!',
         ]);
 
         $portfolio = Portfolio::create([
@@ -78,8 +89,9 @@ class PortfolioController extends Controller
             $portfolio->save();
         }
 
-        // Session::flash('success', '');
-        return back()->with('insert', 'Portfolio added Successfully');
+        session()->flash('success', 'Portfolio added Successfully!');
+        return redirect()->route('portfolio.create');
+
     }
 
     /**
@@ -118,13 +130,25 @@ class PortfolioController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'live_link' => 'required',
-            'bahance_link' => 'required',
+            'live_link' => 'required|url',
+            'bahance_link' => 'required|url',
             'project_length' => 'required',
             'our_role' => 'required',
             'tool_used' => 'required',
             'client_name' => 'required',
             'client_email' => 'required',
+        ],[
+            'title.required' => 'Title field is required!',
+            'description.required' => 'Description field is required!',
+            'live_link.required' => 'Live link field is required!',
+            'bahance_link.required' => 'Bahance link field is required!',
+            'live_link.required' => 'Live link must be link!',
+            'bahance_link.required' => 'Bahance link  must be link!',
+            'project_length.required' => 'Project length field is required!',
+            'our_role.required' => 'Our role field is required!',
+            'tool_used.required' => 'Tool used field is required!',
+            'client_name.required' => 'Client name field is required!',
+            'client_email.required' => 'Client email field is required!',
         ]);
 
         if($request->has('image')) {
@@ -157,11 +181,8 @@ class PortfolioController extends Controller
                     ]);
 
 
-                    return redirect('/portfolio')->with('update', 'Portfolio Updated Successfully With Image');
-
-
-
-
+                    session()->flash('success', 'Portfolio Updated Successfully With Image!');
+                    return redirect()->route('portfolio.index');
 
         }else {
 
@@ -179,8 +200,8 @@ class PortfolioController extends Controller
                 'created_at' => Carbon::now()
             ]);
 
-            return  redirect('/portfolio')->with('update', 'Portfolio Updated Successfully Without Image');
-
+            session()->flash('success', 'Portfolio Updated Successfully Without Image!');
+            return redirect()->route('portfolio.index');
 
         }
 
@@ -202,12 +223,16 @@ class PortfolioController extends Controller
 
             unlink(base_path('public/'.$old_image->image));
             $old_image->delete();
-            return redirect()->back()->with('delete', 'Portfolio Successfully Delete');
+
+            session()->flash('danger', 'Portfolio Deleted Successfully!');
+            return redirect()->route('portfolio.index');
 
         }else{
 
             $old_image->delete();
-            return redirect()->back()->with('delete', 'Portfolio Successfully Delete');
+
+            session()->flash('danger', 'Portfolio Deleted Successfully!');
+            return redirect()->route('portfolio.index');
         }
 
 

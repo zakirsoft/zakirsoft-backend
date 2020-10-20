@@ -21,8 +21,8 @@ class CreatePortfoliosTable extends Migration
             $table->string('title_slug');
             $table->string('image');
             $table->text('description');
-            $table->string('live_link')->nullable();
-            $table->string('bahance_link')->nullable();
+            $table->text('live_link')->nullable();
+            $table->text('bahance_link')->nullable();
             $table->string('project_length');
             $table->text('our_role');
             $table->text('tool_used');

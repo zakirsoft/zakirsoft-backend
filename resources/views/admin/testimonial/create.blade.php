@@ -30,12 +30,12 @@
                 <div class="page-header-breadcrumb">
                     <ul class=" breadcrumb breadcrumb-title">
                         <li class="breadcrumb-item">
-                            <a href="index.html"><i class="feather icon-home"></i></a>
+                            <a href="{{ route('dashboard.index') }}"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Testimonial</a>
+                        <li class="breadcrumb-item"><a href="{{ route('testimonial.index') }}">Testimonial</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="#!">Add Testimonial</a>
+                            <a href="javascript:void(0)">Add Testimonial</a>
                         </li>
                     </ul>
                 </div>
@@ -47,9 +47,9 @@
         <div class="main-body">
             <div class="page-wrapper">
 
-                @if (session('insert'))
-                <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                    {{ session('insert') }}
+                @if (session('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -71,7 +71,7 @@
                                             <label class="col-sm-2 col-form-label">Purpose</label>
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" name="purpose" id="name"
-                                                    placeholder="Enter Purpose of Testimonial (Not visible)">
+                                                    placeholder="Enter Purpose of Testimonial">
                                             </div>
                                         </div>
                                         <div class="form-group row">

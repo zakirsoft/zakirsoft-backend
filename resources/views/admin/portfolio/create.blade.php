@@ -24,7 +24,6 @@
                     <i class="feather icon-clipboard bg-c-blue"></i>
                     <div class="d-inline">
                         <h5>Add Portfolio</h5>
-                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                     </div>
                 </div>
             </div>
@@ -32,12 +31,12 @@
                 <div class="page-header-breadcrumb">
                     <ul class=" breadcrumb breadcrumb-title">
                         <li class="breadcrumb-item">
-                            <a href="index.html"><i class="feather icon-home"></i></a>
+                            <a href="{{ route('dashboard.index') }}"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Portfolio</a>
+                        <li class="breadcrumb-item"><a href="{{ route('portfolio.index') }}">Portfolio</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="#!">Add Portfolio</a>
+                            <a href="javascript:void(0)">Add Portfolio</a>
                         </li>
                     </ul>
                 </div>
@@ -49,9 +48,9 @@
         <div class="main-body">
             <div class="page-wrapper">
 
-                @if (session('insert'))
-                <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                    {{ session('insert') }} <a href="{{ route('portfolio.index') }}"> Click here to go to table</a>
+                @if (session('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }} <a href="{{ route('portfolio.index') }}"> Click here to go to table</a>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -79,11 +78,7 @@
 
                                         @if ($errors->any())
                                         <div class="alert alert-danger">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
+                                           Please provide field required conditions!
                                         </div>
                                         @endif
 
@@ -94,15 +89,15 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Title</label>
-                                                    <input value="{{ old('title') }}" type="text" class="form-control" name="title" id="name"
-                                                    placeholder="Enter Title of Portfolio">
+                                                    <input value="{{ old('title') }}" type="text" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Enter Title of Portfolio">
+                                                    @error('title') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Project Length</label>
-                                                    <input value="{{ old('project_length') }}" type="text" class="form-control" name="project_length" id="name"
-                                                    placeholder="Enter Project Length of Portfolio">
+                                                    <input value="{{ old('project_length') }}" type="text" class="form-control  @error('project_length') is-invalid @enderror" name="project_length" placeholder="Enter Project Length of Portfolio">
+                                                    @error('project_length') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -111,13 +106,14 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Thumbnail Image</label>
-                                                    <input type="file" class="form-control" name="image" id="position">
+                                                    <input type="file" class="form-control  @error('image') is-invalid @enderror" name="image">
+                                                    @error('image') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Multiple Image</label>
-                                                    <input multiple type="file" class="form-control" name="multiple_image" id="position">
+                                                    <input multiple type="file" class="form-control" name="multiple_image">
                                                 </div>
                                             </div>
                                         </div>
@@ -131,15 +127,15 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Client Name</label>
-                                                    <input value="{{ old('client_name') }}" type="text" class="form-control" name="client_name" id="name"
-                                                placeholder="Enter Client Name of Portfolio">
+                                                    <input value="{{ old('client_name') }}" type="text" class="form-control  @error('client_name') is-invalid @enderror" name="client_name" placeholder="Enter Client Name of Portfolio">
+                                                    @error('client_name') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Client Email</label>
-                                                     <input value="{{ old('client_email') }}" type="text" class="form-control" name="client_email" id="name"
-                                                placeholder="Enter Client Email of Portfolio">
+                                                     <input value="{{ old('client_email') }}" type="text" class="form-control @error('client_email') is-invalid @enderror" name="client_email" placeholder="Enter Client Email of Portfolio">
+                                                     @error('client_email') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -147,16 +143,16 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <label>Live Link </label>
-                                                   <input value="{{ old('live_link') }}" type="text" class="form-control" name="live_link" id="name"
-                                                value="https://">
+                                                    <label>Live Link ( <span style="font-size: 11px;" class="text-danger">https://example.com</span> )</label>
+                                                   <input value="{{ old('live_link') }}" type="text" class="form-control @error('live_link') is-invalid @enderror" name="live_link" >
+                                                   @error('live_link') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <label>Bahance Link</label>
-                                                     <input value="{{ old('bahance_link') }}" type="text" class="form-control" name="bahance_link" id="name"
-                                                value="https://">
+                                                    <label>Bahance Link ( <span style="font-size: 11px;" class="text-danger">https://example.com</span> ) </label><br>
+                                                     <input value="{{ old('bahance_link') }}" type="text" class="form-control  @error('bahance_link') is-invalid @enderror" name="bahance_link">
+                                                     @error('bahance_link') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -164,26 +160,23 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Our Role</label>
-                                                    <textarea id="editor5" type="text" class="form-control" name="our_role"
-                                                    placeholder="Enter Role of Portfolio"
-                                                    >{{ old('our_role') }}</textarea>
+                                                    <textarea id="editor5" type="text" class="form-control @error('our_role') is-invalid @enderror" name="our_role" placeholder="Enter Role of Portfolio">{{ old('our_role') }}</textarea>
+                                                    @error('our_role') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Tools Used </label>
-                                                    <textarea id="editor2" type="text" class="form-control" name="tool_used"
-                                                    placeholder="Write Tool User of Portfolio.... "
-                                                    >{{ old('tool_used') }}</textarea>
+                                                    <textarea id="editor2" type="text" class="form-control @error('tool_used') is-invalid @enderror" name="tool_used" placeholder="Write Tool User of Portfolio.... ">{{ old('tool_used') }}</textarea>
+                                                    @error('tool_used') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Description </label>
-                                            <textarea  id="editor" type="text" class="form-control"  name="description"
-                                            placeholder="Write Portfolio content here.... "
-                                            >{{ old('description') }}</textarea>
+                                            <textarea  id="editor" type="text" class="form-control @error('description') is-invalid @enderror"  name="description" placeholder="Write Portfolio content here.... ">{{ old('description') }}</textarea>
+                                            @error('description') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                         </div>
                                         <button type="submit" class="btn btn-primary  m-b-0"><i class="fas fa-plus"></i> Add Portfolio</button>
 
