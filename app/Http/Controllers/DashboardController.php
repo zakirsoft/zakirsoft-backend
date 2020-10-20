@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Career;
 use App\Models\dashboard;
 use App\Models\Portfolio;
 use App\Models\Testimonial;
@@ -22,7 +23,8 @@ class DashboardController extends Controller
             'user' => User::count(),
             'role' => Role::count(),
             'portfolio' => Portfolio::count(),
-            'testimonial' => Testimonial::count()
+            'testimonial' => Testimonial::count(),
+            'career' => Career::count()
         ]);
     }
 

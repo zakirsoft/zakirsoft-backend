@@ -17,6 +17,7 @@
 <script src="{{asset('admin')}}/js/pcoded.min.js"></script>
 <script src="{{asset('admin')}}/js/vertical-layout.min.js"></script>
 <script src="{{asset('admin')}}/js/crm-dashboard.min.js"></script>
+
 {{-- Ck editor  --}}
 <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
 <script src="{{asset('admin')}}/js/script.min.js"></script>

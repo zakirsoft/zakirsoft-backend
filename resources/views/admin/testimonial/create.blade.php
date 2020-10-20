@@ -23,7 +23,6 @@
                     <i class="feather icon-clipboard bg-c-blue"></i>
                     <div class="d-inline">
                         <h5>Add Testimonial</h5>
-                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                     </div>
                 </div>
             </div>
@@ -63,9 +62,7 @@
 
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Paste here new Testimonial information</h5>
-                                    <span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code>
-                                        tag</span>
+                                    <h5>Add Testimonial</h5>
                                 </div>
                                 <div class="card-block">
                                     <form id="main" method="POST" action="{{ route('testimonial.store') }}">
@@ -103,7 +100,7 @@
                                         <div class="form-group row pt-4">
                                             <label class="col-sm-2"></label>
                                             <div class="col-sm-10">
-                                                <button type="submit" class="btn btn-primary m-b-0">Submit</button>
+                                                <button type="submit" class="btn btn-primary m-b-0"><i class="fas fa-plus"></i> Add Testimonial</button>
                                             </div>
                                         </div>
                                     </form>

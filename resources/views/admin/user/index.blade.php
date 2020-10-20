@@ -109,7 +109,7 @@ active pcoded-trigger
                                                         <form action="{{ route('user.destroy', $user->id) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <button class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button>
+                                                            <button onclick="return confirm('Are you sure you want to delete this item?');"  class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button>
                                                         </form>
                                                     </td>
                                                 </tr>

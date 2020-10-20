@@ -86,7 +86,7 @@
                                                 <form action="{{ route('contact.destroy', $contact->id ) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i> Remove</button>
+                                                        <button class="btn btn-sm btn-danger btn-round"><i class="far fa-trash-alt"></i> Remove</button>
                                                     </form>
                                                 </tr>
                                                 @endforeach

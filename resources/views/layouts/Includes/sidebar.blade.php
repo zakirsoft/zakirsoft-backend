@@ -17,7 +17,7 @@
             <ul class="pcoded-item pcoded-left-item">
                 <li class="pcoded-hasmenu">
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
-                        <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
+                        <span class="pcoded-micon"><i class="far fa-user"></i></span>
                         <span class="pcoded-mtext">User</span>
                     </a>
                     <ul class="pcoded-submenu">
@@ -38,7 +38,7 @@
             <ul class="pcoded-item pcoded-left-item">
                 <li class="pcoded-hasmenu @yield('portfolio')">
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
-                        <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
+                        <span class="pcoded-micon"><i class="far fa-window-restore"></i></span>
                         <span class="pcoded-mtext">Portfolio</span>
                     </a>
                     <ul class="pcoded-submenu">
@@ -89,7 +89,7 @@
                 <li class="@yield('career')">
                     <a href="{{ route('career.index') }}" class="waves-effect waves-dark">
                         <span class="pcoded-micon">
-                            <i class="feather icon-home"></i>
+                            <i class="fas fa-graduation-cap"></i>
                         </span>
                         <span class="pcoded-mtext">Career</span>
                     </a>

@@ -23,7 +23,6 @@
                     <i class="feather icon-credit-card bg-c-blue"></i>
                     <div class="d-inline">
                         <h5>Career</h5>
-                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                     </div>
                 </div>
             </div>
@@ -167,17 +166,17 @@
         <div class="modal-body">
                 <div class="form-group">
                   <label for="title">Title</label>
-                  <input required name="title" type="text" class="form-control" id="title" placeholder="Enter Title of Career">
+                  <input value="{{ old('title') }}" required name="title" type="text" class="form-control" id="title" placeholder="Enter Title of Career">
                 </div>
                 <div class="form-group">
                   <label for="content">Content</label>
-                  <input required name="content" type="text" class="form-control" id="content" placeholder="Enter Content of Career">
+                  <input value="{{ old('content') }}" required name="content" type="text" class="form-control" id="content" placeholder="Enter Content of Career">
                 </div>
 
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Save changes</button>
             </div>
         </form>

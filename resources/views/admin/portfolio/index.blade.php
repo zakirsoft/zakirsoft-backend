@@ -23,7 +23,7 @@
                     <i class="feather icon-credit-card bg-c-blue"></i>
                     <div class="d-inline">
                         <h5>Portfolio</h5>
-                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+
                     </div>
                 </div>
             </div>
@@ -68,10 +68,7 @@
 
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Default Portfolio</h5>
-                                    <span>Example of default table, Add <code>.table-de</code> class to the
-                                        <code>.table</code> to create a table with default spacing. Default table all
-                                        rows have <code>0.75rem</code> height.</span>
+                                    <h5>Portfolio Table</h5>
                                        <a href="{{ route('portfolio.create') }}"> <button class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add Portfolio</button></a>
                                 </div>
                                 <div class="card-block">

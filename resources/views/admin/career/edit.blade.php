@@ -79,7 +79,7 @@
                                           </div>
 
 
-                                        <button type="submit" class="btn btn-primary m-b-0"><i class="fas fa-sync"></i> Update Career</button>
+                                        <button type="submit" class="btn btn-primary btn-round m-b-0"><i class="fas fa-sync"></i> Update Career</button>
                                     </form>
                                 </div>
                             </div>
