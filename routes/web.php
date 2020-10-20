@@ -3,6 +3,7 @@
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\CareerController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\TestimonialController;
@@ -10,28 +11,27 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 // Route::resource('portfolio', PortfolioController::class);
-
+// =====================Portfolio =====================
 Route::redirect('home', 'dashboard', 302);
 
+// =====================Portfolio =====================
 Route::resource('dashboard', DashboardController::class);
+
+// =====================Portfolio =====================
 Route::resource('portfolio', PortfolioController::class);
 
+// =====================Career =====================
+Route::resource('career', CareerController::class);
+
+// =====================Contact =====================
 Route::resource('contact', ContactController::class);
 
+// =====================Testimonail =====================
 Route::resource('testimonial', TestimonialController::class);
 
+// =====================Role =====================
 Route::get('role', [RoleController::class, 'index'])->name('RoleIndex');
 Route::get('role/create', [RoleController::class, 'create'])->name('RoleCreate');
 Route::post('role/create', [RoleController::class, 'role_create'])->name('RoleCreate');

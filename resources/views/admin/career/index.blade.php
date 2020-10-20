@@ -1,15 +1,15 @@
 @extends('layouts.admin')
 
 @section('title')
-    Portfolio - ZakirSoft
+    Career - ZakirSoft
 @endsection
 
-@section('portfolio')
+@section('career')
     active pcoded-trigger
 @endsection
 
 @section('content')
-
+@include('notify::messages')
 <div class="loader-bg">
     <div class="loader-bar"></div>
 </div>
@@ -22,7 +22,7 @@
                 <div class="page-header-title">
                     <i class="feather icon-credit-card bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>Portfolio</h5>
+                        <h5>Career</h5>
                         <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                         <li class="breadcrumb-item">
                             <a href="index.html"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Portfolio</a>
+                        <li class="breadcrumb-item"><a href="#!">Career</a>
                         </li>
                     </ul>
                 </div>
@@ -45,6 +45,15 @@
         <div class="main-body">
             <div class="page-wrapper">
 
+
+                @if (session('insert'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('insert') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @endif
                 @if (session('delete'))
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     {{ session('delete') }}
@@ -53,9 +62,9 @@
                     </button>
                 </div>
                 @endif
-                @if (session('update'))
+                @if (session('error'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ session('update') }}
+                    {{ session('error') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -68,47 +77,48 @@
 
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Default Portfolio</h5>
-                                    <span>Example of default table, Add <code>.table-de</code> class to the
-                                        <code>.table</code> to create a table with default spacing. Default table all
-                                        rows have <code>0.75rem</code> height.</span>
-                                       <a href="{{ route('portfolio.create') }}"> <button class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add Portfolio</button></a>
+                                    <h5>Edit Career Contentr</h5>
+                                        @if ($career_list_count <= 2 )
+                                            <button  type="button" class="btn btn-primary waves-effect float-right" data-toggle="modal" data-target="#add_career"><i class="fas fa-plus"></i> Add Career</button>
+                                        @endif
                                 </div>
                                 <div class="card-block">
+                                    @include('notify::messages')
                                     <div class="table-responsive">
+                                        @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                        @endif
                                         <table class="table table-bordered table-hover">
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Project Title</th>
-                                                    <th>Client Name</th>
-                                                    <th>Client Email</th>
-                                                    <th>Image</th>
-                                                    <th>Live Link</th>
-                                                    <th>Project Length</th>
+                                                    <th>Career Title</th>
+                                                    <th>Career Content</th>
+
                                                     <th class="text-center">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @forelse ($portfolio_list as $key => $portfolio)
+                                                @forelse ($career_list as $key => $career)
                                                 <tr>
-                                                    <th scope="row">{{ $portfolio_list->firstItem() + $key }}</th>
-                                                    <td>{{ $portfolio->title }}</td>
-                                                    <td>{{ $portfolio->client_name }}</td>
-                                                    <td>{{ $portfolio->client_email }}</td>
-                                                    <td>
-                                                        <img width="50px" height="50px" src="{{asset($portfolio->image) }}" alt="" srcset="">
-                                                    </td>
-                                                    <td>{{ $portfolio->live_link }}</td>
-                                                    <td>{{ $portfolio->project_length }}</td>
+                                                    <th scope="row">{{ $career_list->firstItem() + $key }}</th>
+                                                    <td>{{ $career->title }}</td>
+                                                    <td>{{ $career->content }}</td>
+
                                                     <td>
                                                         <div class="dropdown">
                                                         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                             <i class="fas fa-cog"></i> Action
                                                         </button>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                          <a class="dropdown-item text-info btn btn-sm" href="{{ route('portfolio.edit', $portfolio->id) }}"><i class="far fa-edit"></i> Edit</a>
-                                                          <form action="{{ route('portfolio.destroy', $portfolio->id) }}" method="POST">
+                                                          <a class="dropdown-item text-info btn btn-sm" href="{{ route('career.edit', $career->id) }}"><i class="far fa-edit"></i> Edit</a>
+                                                          <form action="{{ route('career.destroy', $career->id) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf
                                                             <button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm text-danger m-1 dropdown-item"></i><i class="far fa-trash-alt"></i> Remove</button>
@@ -128,8 +138,8 @@
                                                 @endforelse
                                             </tbody>
                                         </table>
-                                        {{ $portfolio_list->links()  }}
-                                    </div>
+                                        {{ $career_list->links()  }}
+
                                 </div>
                             </div>
 
@@ -139,8 +149,41 @@
 
             </div>
         </div>
+        </div>
     </div>
 </div>
+
+<div class="modal fade" id="add_career" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-dark text-light">
+          <h5 class="modal-title" id="exampleModal3Label">Add Carrer</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="{{ route('career.store') }}" method="POST">
+            @csrf
+        <div class="modal-body">
+                <div class="form-group">
+                  <label for="title">Title</label>
+                  <input required name="title" type="text" class="form-control" id="title" placeholder="Enter Title of Career">
+                </div>
+                <div class="form-group">
+                  <label for="content">Content</label>
+                  <input required name="content" type="text" class="form-control" id="content" placeholder="Enter Content of Career">
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
 
 @endsection
