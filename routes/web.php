@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TestController;
@@ -63,3 +64,5 @@ Route::get('test', [TestController::class, 'index']);
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('team', TeamController::class );

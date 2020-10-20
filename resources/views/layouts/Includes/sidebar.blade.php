@@ -80,7 +80,7 @@
                     </a>
                     <ul class="pcoded-submenu">
                         <li class="">
-                            <a href="{{ route('contact.index') }}" class="waves-effect waves-dark">
+                            <a href="#" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Message</span>
                             </a>
                         </li>
@@ -88,27 +88,63 @@
                 </li>
             </ul>
 
-            <div class="pcoded-navigation-label">Example</div>
+            <div class="pcoded-navigation-label">Other</div>
             <ul class="pcoded-item pcoded-left-item">
+                </li>
                 <li class="pcoded-hasmenu">
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
-                        <span class="pcoded-mtext">Dropdown</span>
+                        <span class="pcoded-mtext">About</span>
                     </a>
                     <ul class="pcoded-submenu">
                         <li class=" pcoded-hasmenu">
                             <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Dropdown</span>
+                                <span class="pcoded-mtext">OurTeam</span>
+                            </a>
+                            <ul class="pcoded-submenu">
+                                <li class="">
+                                <a href="{{ route('team.create') }}" class="waves-effect waves-dark">
+                                        <span class="pcoded-mtext">Add Member</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                <a href="{{ route('team.index') }}" class="waves-effect waves-dark">
+                                        <span class="pcoded-mtext">List Member</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a href="#" class="waves-effect waves-dark">
+                                <span class="pcoded-mtext">Who We Are</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="waves-effect waves-dark">
+                                <span class="pcoded-mtext">About Zakirsoft</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="pcoded-hasmenu">
+                    <a href="javascript:void(0)" class="waves-effect waves-dark">
+                        <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
+                        <span class="pcoded-mtext">Example</span>
+                    </a>
+                    <ul class="pcoded-submenu">
+                        <li class=" pcoded-hasmenu">
+                            <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                <span class="pcoded-mtext">option</span>
                             </a>
                             <ul class="pcoded-submenu">
                                 <li class="">
                                     <a href="#" class="waves-effect waves-dark">
-                                        <span class="pcoded-mtext">Option 1</span>
+                                        <span class="pcoded-mtext">option-2</span>
                                     </a>
                                 </li>
                                 <li class="">
                                     <a href="#" class="waves-effect waves-dark">
-                                        <span class="pcoded-mtext">Option 2</span>
+                                        <span class="pcoded-mtext">Option-3</span>
                                     </a>
                                 </li>
                             </ul>
