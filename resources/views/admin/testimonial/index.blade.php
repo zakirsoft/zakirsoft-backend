@@ -101,6 +101,7 @@
                                                 @endforelse
                                             </tbody>
                                         </table>
+                                        {{ $testimonials->links()  }}
                                     </div>
                                 </div>
                             </div>

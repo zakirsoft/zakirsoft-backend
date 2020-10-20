@@ -56,6 +56,15 @@ active pcoded-trigger
                 </div>
                 @endif
 
+                @if (session('success'))
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @endif
+
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
@@ -86,11 +95,17 @@ active pcoded-trigger
                                                     <td>
                                                         <img src="{{ asset($user->image) }}" class="img-thumbnail" style="max-width: 100px; max-height: 100px; overflow:hidden">
                                                     </td>
-                                                    <td></td>
+                                                    <td>
+                                                        @foreach ($user->roles as $role)
+                                                            <div class="badge badge-primary">
+                                                                {{ $role->name }}
+                                                            </div>
+                                                        @endforeach
+                                                    </td>
                                                     <td class="text-muted">{{ $user->created_at->format('d/m/Y') }}</td>
                                                     <td class="d-flex">
                                                         <a href="{{ route('user.edit', $user->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit User"><i class="far fa-edit"></i></a>
-                                                        <a href="" class="btn btn-sm btn-primary mr-1" title="Manage Roles"><i class="fas fa-lock"></i></a>
+                                                        <a href="{{ route('RoleAssign', $user->id) }}" class="btn btn-sm btn-primary mr-1" title="Manage Role"><i class="fas fa-lock"></i></a>
                                                         <form action="{{ route('user.destroy', $user->id) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf

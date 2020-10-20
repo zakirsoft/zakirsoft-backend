@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use Laravel\Ui\Presets\React;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -17,6 +20,7 @@ class UserController extends Controller
     {
         $users = User::latest()->simplepaginate(10);
         $user_count = User::all()->count();
+
         return view('admin.user.index', compact('users', 'user_count'));
     }
 
@@ -80,7 +84,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        // dd($id);
     }
 
     /**
@@ -151,4 +155,29 @@ class UserController extends Controller
 
        return redirect()->back()->with('delete', 'A User has been Deleted Successfully');
     }
+
+
+    // Assign Role Area
+
+    public function role_assign(User $user)
+    {
+        $userRoles = $user->roles;
+        $selectedRolesIdArray = [];
+        foreach ($userRoles as $role) {
+            array_push($selectedRolesIdArray, $role->id);
+        }
+        $roles = Role::latest()->get()->except($selectedRolesIdArray);
+
+        return view('admin.user.role', compact('user', 'roles', 'userRoles'));
+    }
+
+
+    public function role_assign_store(Request $request, User $user)
+    {
+        $user->syncRoles($request->roles);
+
+        Session::flash('success', 'User role updated successfully');
+        return redirect()->route('user.index');
+    }
+
 }

@@ -23,7 +23,12 @@
    {{-- Style File  Here--}}
 
    @include('layouts.Includes.style')
-   
+
+   <style>
+       /* .leading-5{
+           visibility: hidden;
+       } */
+   </style>
     {{-- Style File  Here--}}
 
 </head>
