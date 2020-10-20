@@ -13,7 +13,7 @@
                 </li>
             </ul>
 
-            <div class="pcoded-navigation-label">admin</div>
+            <div class="pcoded-navigation-label">Admin</div>
             <ul class="pcoded-item pcoded-left-item">
                 <li class="pcoded-hasmenu">
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
@@ -44,7 +44,7 @@
                     <ul class="pcoded-submenu">
                         <li class="">
                         <a href="{{ route('portfolio.create') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">New Portfolio</span>
+                                <span class="pcoded-mtext">Add Portfolio</span>
                             </a>
                         </li>
                         <li class="">
@@ -63,15 +63,23 @@
                     <ul class="pcoded-submenu">
                         <li class="">
                             <a href="{{ route('testimonial.create') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Add One</span>
+                                <span class="pcoded-mtext">Add Testimonial</span>
                             </a>
                         </li>
                         <li class="">
                             <a href="{{ route('testimonial.index') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Testimonials</span>
+                                <span class="pcoded-mtext">Testimonials List</span>
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li class="@yield('career')">
+                    <a href="{{ route('career.index') }}" class="waves-effect waves-dark">
+                        <span class="pcoded-micon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </span>
+                        <span class="pcoded-mtext">Career</span>
+                    </a>
                 </li>
                 <li class="pcoded-hasmenu @yield('contact')">
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
@@ -85,14 +93,6 @@
                             </a>
                         </li>
                     </ul>
-                </li>
-                <li class="@yield('career')">
-                    <a href="{{ route('career.index') }}" class="waves-effect waves-dark">
-                        <span class="pcoded-micon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </span>
-                        <span class="pcoded-mtext">Career</span>
-                    </a>
                 </li>
             </ul>
 

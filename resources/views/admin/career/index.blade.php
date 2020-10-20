@@ -30,9 +30,9 @@
                 <div class="page-header-breadcrumb">
                     <ul class=" breadcrumb breadcrumb-title">
                         <li class="breadcrumb-item">
-                            <a href="index.html"><i class="feather icon-home"></i></a>
+                            <a href="{{ route('dashboard.index') }}"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Career</a>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Career</a>
                         </li>
                     </ul>
                 </div>
@@ -45,22 +45,24 @@
             <div class="page-wrapper">
 
 
-                @if (session('insert'))
+                @if (session('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ session('insert') }}
+                    {{ session('success') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 @endif
-                @if (session('delete'))
+
+                @if (session('danger'))
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('delete') }}
+                    {{ session('danger') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 @endif
+
                 @if (session('error'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ session('error') }}
@@ -96,21 +98,20 @@
                                         <table class="table table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>Career Title</th>
-                                                    <th>Career Content</th>
-
+                                                    <th class="text-center">SL</th>
+                                                    <th class="text-center">Career Title</th>
+                                                    <th class="text-center">Career Content</th>
                                                     <th class="text-center">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @forelse ($career_list as $key => $career)
                                                 <tr>
-                                                    <th scope="row">{{ $career_list->firstItem() + $key }}</th>
-                                                    <td>{{ $career->title }}</td>
-                                                    <td>{{ $career->content }}</td>
+                                                    <th class="text-center" scope="row">{{ $career_list->firstItem() + $key }}</th>
+                                                    <td class="text-center">{{ $career->title }}</td>
+                                                    <td class="text-center">{{ $career->content }}</td>
 
-                                                    <td>
+                                                    <td class="text-center">
                                                         <div class="dropdown">
                                                         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                             <i class="fas fa-cog"></i> Action

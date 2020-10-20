@@ -32,12 +32,12 @@
                 <div class="page-header-breadcrumb">
                     <ul class=" breadcrumb breadcrumb-title">
                         <li class="breadcrumb-item">
-                            <a href="index.html"><i class="feather icon-home"></i></a>
+                            <a href="{{ route('dashboard.index') }}"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Portfolio</a>
+                        <li class="breadcrumb-item"><a href="{{ route('portfolio.index') }}">Portfolio</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="#!">Edit Portfolio</a>
+                            <a href="javascript:void(0)">Edit Portfolio</a>
                         </li>
                     </ul>
                 </div>
@@ -97,7 +97,7 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Title</label>
-                                                    <input value="{{  $portfolio->title }}" type="text" class="form-control" name="title" id="name"
+                                                    <input value="{{ $portfolio->title }}" type="text" class="form-control" name="title" id="name"
                                                         placeholder="Enter Title of Portfolio">
                                                 </div>
                                             </div>
@@ -135,14 +135,14 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Client Name</label>
-                                                    <input type="text" class="form-control" name="client_name" id="name" value="{{  $portfolio->client_name }}" placeholder="Enter Client Name of Portfolio">
+                                                    <input type="text" class="form-control" name="client_name" id="name" value="{{ $portfolio->client_name }}" placeholder="Enter Client Name of Portfolio">
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Client Email</label>
                                                     <input type="text" class="form-control" name="client_email" id="name"
-                                                        placeholder="Enter Client Email of Portfolio" value="{{  $portfolio->client_email }}">
+                                                        placeholder="Enter Client Email of Portfolio" value="https://{{ $portfolio->client_email }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -150,7 +150,7 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Live Link </label>
-                                                    <input type="text" class="form-control" name="live_link" id="name" value="{{  $portfolio->live_link }}">
+                                                    <input type="text" class="form-control" name="live_link" id="name" value="https://{{ $portfolio->live_link }}">
                                                 </div>
                                             </div>
                                             <div class="col-6">
@@ -180,7 +180,7 @@
                                         <div class="form-group">
                                             <label>Description </label>
                                             <textarea id="editor3" type="text" class="form-control" name="description"
-                                                placeholder="Write Portfolio content here.... "> {{  $portfolio->description }} </textarea>
+                                                placeholder="Write Portfolio content here.... "> {{ $portfolio->description }} </textarea>
                                         </div>
                                         <button type="submit" class="btn btn-primary m-b-0"><i class="fas fa-sync"></i> Update Portfolio</button>
                                     </form>

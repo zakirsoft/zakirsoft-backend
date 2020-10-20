@@ -31,9 +31,9 @@
                 <div class="page-header-breadcrumb">
                     <ul class=" breadcrumb breadcrumb-title">
                         <li class="breadcrumb-item">
-                            <a href="index.html"><i class="feather icon-home"></i></a>
+                            <a href="{{ route('dashboard.index') }}"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Portfolio</a>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Portfolio</a>
                         </li>
                     </ul>
                 </div>
@@ -45,17 +45,18 @@
         <div class="main-body">
             <div class="page-wrapper">
 
-                @if (session('delete'))
+                @if (session('danger'))
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('delete') }}
+                    {{ session('danger') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 @endif
-                @if (session('update'))
+
+                @if (session('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ session('update') }}
+                    {{ session('success') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -98,7 +99,7 @@
                                                     </td>
                                                     <td>{{ $portfolio->live_link }}</td>
                                                     <td>{{ $portfolio->project_length }}</td>
-                                                    <td>
+                                                    <td class="text-center">
                                                         <div class="dropdown">
                                                         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                             <i class="fas fa-cog"></i> Action

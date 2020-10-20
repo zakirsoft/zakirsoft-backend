@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Ui\Presets\React;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
 {
@@ -31,7 +32,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.user.create');
+        $roles = Role::all();
+        return view('admin.user.create', compact('roles'));
     }
 
     /**
@@ -46,14 +48,16 @@ class UserController extends Controller
             'name' => ['required'],
             'email' => ['required','email','unique:users,email'],
             'password' => ['required','min:8'],
-            'image' => ['required']
+            'image' => ['required'],
+            'roles' => ['required']
         ],[
             'name.required' => 'Full Name is Required.',
             'email.required' => 'Enter E-Mail is Required.',
             'email.email' => 'Enter a Valid E-Mail address.',
             'email.unique' => 'E-Mail already exist in Our System, Choose Another!',
             'password.required' => 'Password field is Required.',
-            'image.required' => 'Choose a Profile Image.'
+            'image.required' => 'Choose a Profile Image.',
+            'roles.required' => 'Please assign a user Role.'
         ]);
 
         $user = User::create([
@@ -72,6 +76,7 @@ class UserController extends Controller
             $user->save();
         }
 
+        $user->assignRole($request->roles);
 
         return redirect()->back()->with('create', 'User created Successfully');
     }
