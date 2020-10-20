@@ -37,6 +37,17 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'purpose' => ['required'],
+            'content' => ['required'],
+            'name' => ['required'],
+            'position' => ['required']
+        ],[
+            'purpose.required' => 'Purpose field Required.',
+            'content.required' => 'Testimonial Content is Required.',
+            'name.required' => 'Client name is Required.',
+            'position.required' => 'Position is Required.'
+        ]);
 
         $request->validate([
             'purpose' => 'required',

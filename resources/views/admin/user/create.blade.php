@@ -75,8 +75,25 @@ active pcoded-trigger
                                         @csrf
 
                                         <div class="form-group">
+                                            <div class="form-group pb-3">
+                                                <label for="roles">Role</label>
+                                                <select class="js-example-basic-multiple col-10 @error('roles') is-invalid @enderror" name="roles[]" multiple id="roles">
+                                                    @foreach ($roles as $role)
+                                                        <option value="{{$role->id}}">{{$role->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                            @error('roles')
+                                                <span class="invalid-feedback" role="alert">
+                                                    {{ $message }}
+                                                </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group">
                                             <label for="name">Name</label>
-                                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
+                                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name">
 
                                             @error('name')
                                                 <span class="invalid-feedback" role="alert">
@@ -131,4 +148,15 @@ active pcoded-trigger
     </div>
 </div>
 
+@endsection
+
+@section('style')
+<link rel="stylesheet" href="{{ asset('admin') }}/css/select2.min.css" />
+@endsection
+
+@section('script')
+<script src="{{ asset('admin') }}/js/select2.full.min.js"></script>
+<script>
+    $(".js-example-basic-multiple").select2();
+</script>
 @endsection

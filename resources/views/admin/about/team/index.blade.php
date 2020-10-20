@@ -74,7 +74,7 @@
                                         rows have <code>0.75rem</code> height.</span>
                                 </div>
                                 <div class="card-block">
-                                    <div class="table-responsive">
+                                    <div class="table-responsive text-center">
                                         <table class="table table-bordered table-hover">
                                             <thead>
                                                 <tr>
@@ -85,14 +85,22 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach ($teams as $team)
 
                                                 <tr>
-                                                <td>Zakir</td>
-                                                    <td></td>
-                                                <td><img src="" alt=""></td>
-                                                    <td></td>
+                                                <td>{{ $team->name }}</td>
+                                                <td>{{ $team->position }}</td>
+                                                <td><img width="70px" height="70px" src="{{ asset($team->image) }}" alt=""></td>
+                                                <td>
+                                                    <form action="">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn btn-sm btn-danger " type="submit"> <i class="fas fa-user-times"></i> Remove</button>
+                                                    </form>
+                                                </td>
                                                 </tr>
 
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>

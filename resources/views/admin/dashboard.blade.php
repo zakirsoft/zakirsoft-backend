@@ -54,7 +54,7 @@
                                             <h3 class="m-b-0 f-w-700 text-white">{{$user}}</h3>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-money-bill-alt text-c-green f-18"></i>
+                                            <i class="fas far fa-user text-c-green f-18"></i>
                                         </div>
                                     </div>
                                     {{-- <p class="m-b-0 text-white"><span class="label label-danger m-r-10">+11%</span>From
@@ -71,7 +71,7 @@
                                             <h3 class="m-b-0 f-w-700 text-white">{{$role}}</h3>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-database text-c-green f-18"></i>
+                                            <i class="fas fa-lock text-c-green f-18"></i>
                                         </div>
                                     </div>
                                     {{-- <p class="m-b-0 text-white"><span class="label label-primary m-r-10">+12%</span>From
@@ -88,7 +88,7 @@
                                             <h3 class="m-b-0 f-w-700 text-white">{{$portfolio}}</h3>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign text-c-green f-18"></i>
+                                            <i class="far fa-window-restore text-c-green f-18"></i>
                                         </div>
                                     </div>
                                     {{-- <p class="m-b-0 text-white"><span class="label label-success m-r-10">+52%</span>From
@@ -105,7 +105,7 @@
                                             <h3 class="m-b-0 f-w-700 text-white">{{$testimonial}}</h3>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-tags text-c-green f-18"></i>
+                                            <i class="far fa-file-word text-c-green f-18"></i>
                                         </div>
                                     </div>
                                     {{-- <p class="m-b-0 text-white"><span class="label label-warning m-r-10">+52%</span>From
@@ -124,7 +124,7 @@
                                             <h3 class="m-b-0 f-w-700 text-white">{{ $career }}</h3>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-graduation-capfas fa-money-bill-alt text-c-green f-18"></i>
+                                            <i class="fas fa-graduation-cap text-c-green f-18"></i>
                                         </div>
                                     </div>
                                     {{-- <p class="m-b-0 text-white"><span class="label label-danger m-r-10">+11%</span>From
@@ -141,7 +141,7 @@
                                             <h3 class="m-b-0 f-w-700 text-white">0</h3>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-database text-c-green f-18"></i>
+                                            <i class="fas fa-desktop text-c-green f-18"></i>
                                         </div>
                                     </div>
                                     {{-- <p class="m-b-0 text-white"><span class="label label-primary m-r-10">+12%</span>From
@@ -158,7 +158,7 @@
                                             <h3 class="m-b-0 f-w-700 text-white">0</h3>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign text-c-green f-18"></i>
+                                            <i class="fas fa-desktop text-c-green f-18"></i>
                                         </div>
                                     </div>
                                     {{-- <p class="m-b-0 text-white"><span class="label label-success m-r-10">+52%</span>From
@@ -175,7 +175,7 @@
                                             <h3 class="m-b-0 f-w-700 text-white">0</h3>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-tags text-c-green f-18"></i>
+                                            <i class="fas fa-desktop text-c-green f-18"></i>
                                         </div>
                                     </div>
                                     {{-- <p class="m-b-0 text-white"><span class="label label-warning m-r-10">+52%</span>From

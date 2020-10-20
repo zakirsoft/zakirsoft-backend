@@ -13,10 +13,10 @@ class TeamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Team $team)
+    public function index()
     {
-        $team->all();
-        return view('admin.about.team.index')->with('team',$team);
+        $team = Team::all();
+        return view('admin.about.team.index')->with('teams', $team);
     }
 
     /**

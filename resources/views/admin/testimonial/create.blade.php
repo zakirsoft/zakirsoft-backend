@@ -70,30 +70,55 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Purpose</label>
                                             <div class="col-sm-10">
+<<<<<<< HEAD
                                                 <input type="text" class="form-control" name="purpose" id="name"
                                                     placeholder="Enter Purpose of Testimonial">
+=======
+                                                <input type="text" class="form-control @error('purpose') is-invalid @enderror" name="purpose" id="name" placeholder="Enter Purpose of Testimonial (Not visible)">
+
+                                            @error('purpose')
+                                                <span class="invalid-feedback" role="alert">
+                                                    {{ $message }}
+                                                </span>
+                                            @enderror
+>>>>>>> 494550d9ef06802e270a2a86287e27e87b8b1fe0
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Content</label>
                                             <div class="col-sm-10">
-                                                <textarea type="text" class="form-control" name="content" id="content"
-                                                    placeholder="Write Testimonial content here.... "
-                                                    rows="5"></textarea>
+                                                <textarea type="text" class="form-control @error('content') is-invalid @enderror" name="content" id="content"
+                                                placeholder="Write Testimonial content here.... " rows="5"></textarea>
+
+                                            @error('content')
+                                                <span class="invalid-feedback" role="alert">
+                                                    {{ $message }}
+                                                </span>
+                                            @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Name</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="name" id="name"
-                                                    placeholder="Enter name">
+                                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Enter name">
+
+                                            @error('name')
+                                                <span class="invalid-feedback" role="alert">
+                                                    {{ $message }}
+                                                </span>
+                                            @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Position</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="position" id="position"
-                                                    placeholder="Enter position">
+                                                <input type="text" class="form-control @error('position') is-invalid @enderror name="position" id="position" placeholder="Enter position">
+
+                                            @error('position')
+                                                <span class="invalid-feedback" role="alert">
+                                                    {{ $message }}
+                                                </span>
+                                            @enderror
                                             </div>
                                         </div>
 
