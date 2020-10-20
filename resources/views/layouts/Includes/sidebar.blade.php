@@ -101,7 +101,7 @@
                 </li>
                 <li class="pcoded-hasmenu">
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
-                        <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
+                        <span class="pcoded-micon"><i class="fas fa-info-circle"></i></span>
                         <span class="pcoded-mtext">About</span>
                     </a>
                     <ul class="pcoded-submenu">
