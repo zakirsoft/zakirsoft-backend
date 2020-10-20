@@ -77,7 +77,7 @@ active pcoded-trigger
                                         <div class="form-group">
                                             <div class="form-group pb-3">
                                                 <label for="roles">Role</label>
-                                                <select class="js-example-basic-multiple col-10" name="roles[]" multiple id="roles">
+                                                <select class="js-example-basic-multiple col-10 @error('roles') is-invalid @enderror" name="roles[]" multiple id="roles">
                                                     @foreach ($roles as $role)
                                                         <option value="{{$role->id}}">{{$role->name}}</option>
                                                     @endforeach
