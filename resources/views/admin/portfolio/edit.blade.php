@@ -23,8 +23,8 @@
                 <div class="page-header-title">
                     <i class="feather icon-clipboard bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>Add Portfolio</h5>
-                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+                        <h5>Edit Portfolio</h5>
+
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                         <li class="breadcrumb-item"><a href="#!">Portfolio</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="#!">Add Portfolio</a>
+                            <a href="#!">Edit Portfolio</a>
                         </li>
                     </ul>
                 </div>
@@ -73,9 +73,7 @@
 
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Paste here new Portfolio information</h5>
-                                    <span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code>
-                                        tag</span>
+                                    <h5>Edit Portfolio</h5>
                                 </div>
                                 <div class="card-block">
                                     <form id="main" method="POST" action="{{ route('portfolio.update', $portfolio->id) }}"

@@ -73,9 +73,7 @@
 
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Paste here new Portfolio information</h5>
-                                    <span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code>
-                                        tag</span>
+                                    <h5>Add Portfolio</h5>
                                 </div>
                                 <div class="card-block">
 
@@ -123,6 +121,11 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        {{-- <form action="/file-upload" class="dropzone">
+                                            <div class="fallback">
+                                                <input name="file" type="file" multiple />
+                                            </div>
+                                        </form> --}}
 
                                         <div class="row">
                                             <div class="col-6">
@@ -182,7 +185,7 @@
                                             placeholder="Write Portfolio content here.... "
                                             ></textarea>
                                         </div>
-                                        <button type="submit" class="btn btn-primary m-b-0"><i class="fas fa-plus"></i> Add Portfolio</button>
+                                        <button type="submit" class="btn btn-primary  m-b-0"><i class="fas fa-plus"></i> Add Portfolio</button>
 
 
 
@@ -202,30 +205,27 @@
 
 @endsection
 @section('style')
-    <style>
-        .ck-editor__editable_inline {
-            min-height: 170px;
-        }
-    </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.css">
+<style>
+    .ck-editor__editable_inline {
+        min-height: 170px;
+    }
+</style>
 @endsection
 @section('script')
+{{-- Dropzone  --}}
+<script src="{{ asset('admin') }}/js/dropzone-amd-module.min.js"></script>
 <script>
     ClassicEditor
         .create( document.querySelector( '#editor' ) )
         .catch( error => {
             console.error( error );
         } );
-
-</script>
-<script>
     ClassicEditor
         .create( document.querySelector( '#editor5' ) )
         .catch( error => {
             console.error( error );
         } );
-
-</script>
-<script>
     ClassicEditor
         .create( document.querySelector( '#editor2' ) )
         .catch( error => {

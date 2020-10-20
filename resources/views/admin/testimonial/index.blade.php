@@ -23,7 +23,6 @@
                     <i class="feather icon-credit-card bg-c-blue"></i>
                     <div class="d-inline">
                         <h5>Testimonials</h5>
-                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                     </div>
                 </div>
             </div>
@@ -60,10 +59,7 @@
 
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Default Testimonials</h5>
-                                    <span>Example of default table, Add <code>.table-de</code> class to the
-                                        <code>.table</code> to create a table with default spacing. Default table all
-                                        rows have <code>0.75rem</code> height.</span>
+                                    <h5>Testimonials Table</h5>
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive">
