@@ -59,9 +59,9 @@
                         @can('portfolio list')
                         <li class="">
                             <a href="{{ route('portfolio.index') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Portfolio List</span>
-                            </a>
-                        </li>
+                                    <span class="pcoded-mtext">Portfolio List</span>
+                                </a>
+                            </li>
                         @endcan
                         @can('portfolio create')
                         <li class="">
@@ -137,8 +137,8 @@
                         <span class="pcoded-mtext">Footer Content</span>
                     </a>
                 </li>
-                <li class="@yield('footer')">
-                    <a href="" class="waves-effect waves-dark">
+                <li class="@yield('about')">
+                    <a href="#" class="waves-effect waves-dark">
                         <span class="pcoded-micon">
                             <i class="fas fa-info-circle"></i>
                         </span>
