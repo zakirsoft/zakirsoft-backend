@@ -79,20 +79,22 @@ active pcoded-trigger
                                         <table class="table table-hover">
                                             <thead>
                                                 <tr>
+                                                    <th>SL</th>
                                                     <th>User</th>
                                                     <th>E-Mail</th>
-                                                    <th>Image</th>
+                                                    <th class="text-center">Image</th>
                                                     <th>Role</th>
                                                     <th>Registered</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @forelse ($users as $user)
+                                                @forelse ($users as $key => $user)
                                                 <tr>
+                                                    <td>{{ $users->firstItem() + $key }}</td>
                                                     <th scope="row">{{ $user->name }} <br></th>
                                                     <td>{{ $user->email }}</td>
-                                                    <td>
+                                                    <td class="text-center">
                                                         <img src="{{ asset($user->image) }}" class="img-thumbnail" style="max-width: 100px; max-height: 100px; overflow:hidden">
                                                     </td>
                                                     <td>

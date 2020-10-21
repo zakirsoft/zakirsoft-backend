@@ -87,16 +87,16 @@ active pcoded-trigger
                                         <table class="table table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>ID</th>
+                                                    <th>SL</th>
                                                     <th>Title</th>
                                                     <th>Permission</th>
-                                                    <th>Action</th>
+                                                    <th class="text-center">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @forelse ($roles as $key => $role)
                                                 <tr>
-                                                    <th scope="row">{{ $role->id }}</th>
+                                                    <th scope="row">{{ $roles->firstItem() + $key }}</th>
                                                     <td>{{ $role->name }}</td>
                                                     <td>
                                                         @foreach($role->permissions as $permission)

@@ -94,6 +94,14 @@
                         </li>
                     </ul>
                 </li>
+                <li class="@yield('footer')">
+                    <a href="" class="waves-effect waves-dark">
+                        <span class="pcoded-micon">
+                            <i class="fas fa-th-list"></i>
+                        </span>
+                        <span class="pcoded-mtext">Footer Content</span>
+                    </a>
+                </li>
             </ul>
 
             <div class="pcoded-navigation-label">Other</div>
