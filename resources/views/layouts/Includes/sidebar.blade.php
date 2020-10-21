@@ -49,39 +49,27 @@
                         <span class="pcoded-mtext">Portfolio</span>
                     </a>
                     <ul class="pcoded-submenu">
+                        @can('project create')
                         <li class="">
-<<<<<<< HEAD
-                            @can('project create')
-=======
-<<<<<<< HEAD
                             <a href="{{ route('portfolio.category.index') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Portfolio Category List</span>
-=======
->>>>>>> 31157df19e1a129a6653bc53b6cd76743e4df20f
-                            <a href="{{ route('portfolio.create') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Add Portfolio</span>
->>>>>>> b58ba4b15ff434ea6aef0f068a379066352a001b
                             </a>
-                            @endcan
                         </li>
+                        @endcan
+                        @can('project list')
                         <li class="">
-                            @can('project list')
                             <a href="{{ route('portfolio.index') }}" class="waves-effect waves-dark">
-<<<<<<< HEAD
-                                    <span class="pcoded-mtext">Portfolio List</span>
-                                </a>
-                            </li>
+                                <span class="pcoded-mtext">Portfolio List</span>
+                            </a>
+                        </li>
+                        @endcan
+                        @can('project list')
                         <li class="">
                             <a href="{{ route('portfolio.create') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Add Portfolio</span>
-=======
-                                <span class="pcoded-mtext">Portfolio List</span>
->>>>>>> b58ba4b15ff434ea6aef0f068a379066352a001b
                             </a>
-                            @endcan
                         </li>
-
-
+                        @endcan
                     </ul>
                     @endcan
                 </li>
