@@ -63,8 +63,11 @@ Route::resource('contact', ContactController::class);
 // =====================Testimonail =====================
 Route::resource('testimonial', TestimonialController::class);
 
-// Team resource route
+// =====================Team Route =====================
 Route::resource('team', TeamController::class );
+
+// =====================About Us Route =====================
+
 
 // =====================Role =====================
 Route::get('role', [RoleController::class, 'index'])->name('RoleIndex');
