@@ -63,6 +63,9 @@ Route::resource('contact', ContactController::class);
 // =====================Testimonail =====================
 Route::resource('testimonial', TestimonialController::class);
 
+// Team resource route
+Route::resource('team', TeamController::class );
+
 // =====================Role =====================
 Route::get('role', [RoleController::class, 'index'])->name('RoleIndex');
 Route::get('role/create', [RoleController::class, 'create'])->name('RoleCreate');
@@ -97,5 +100,3 @@ Route::get('test', [TestController::class, 'index']);
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::resource('team', TeamController::class );
