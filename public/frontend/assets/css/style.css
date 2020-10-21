@@ -1333,6 +1333,10 @@ header .container .head_content .menu .m_bar li:first-child {
   text-transform: capitalize;
 }
 
+#footer_area .footer_menu ul li a.footer_active {
+    color: #5787FF;
+}
+
 @media (max-width: 767px) {
   #footer_area .footer_menu ul li a {
     font-size: 18px;
@@ -1395,7 +1399,7 @@ header .container .head_content .menu .m_bar li:first-child {
 }
 
 /*----------------------------------------*/
-/*  RESPONSIVE CSS START 
+/*  RESPONSIVE CSS START
 /*----------------------------------------*/
 @media (max-width: 991px) {
   #about .about_content .col-lg-6:first-child {

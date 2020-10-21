@@ -86,14 +86,26 @@
                                         @csrf
 
                                         <div class="row">
-                                            <div class="col-6">
+                                            <div class="col-4">
                                                 <div class="form-group">
                                                     <label>Title</label>
                                                     <input value="{{ old('title') }}" type="text" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Enter Title of Portfolio">
                                                     @error('title') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
-                                            <div class="col-6">
+                                            {{-- <div class="col-4">
+                                                <div class="form-group">
+                                                    <label>Work Type</label>
+                                                    <select name="work_type" class="form-control @error('work_type') is-invalid @enderror">
+                                                        <option value="">Select Work Type</option>
+                                                        <option value="1">Design</option>
+                                                        <option value="2">Development</option>
+                                                        <option value="3">UI/UX</option>
+                                                    </select>
+                                                    @error('work_type') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                </div>
+                                            </div> --}}
+                                            <div class="col-4">
                                                 <div class="form-group">
                                                     <label>Project Length</label>
                                                     <input value="{{ old('project_length') }}" type="text" class="form-control  @error('project_length') is-invalid @enderror" name="project_length" placeholder="Enter Project Length of Portfolio">
@@ -117,12 +129,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- <form action="/file-upload" class="dropzone">
-                                            <div class="fallback">
-                                                <input name="file" type="file" multiple />
-                                            </div>
-                                        </form> --}}
-
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="form-group">
