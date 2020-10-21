@@ -69,6 +69,7 @@ Route::resource('testimonial', TestimonialController::class);
 
 // ===================== Footer =====================
 Route::resource('footer', FooterController::class);
+
 // =====================Team Route =====================
 Route::resource('team', TeamController::class );
 
