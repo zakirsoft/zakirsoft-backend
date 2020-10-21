@@ -82,6 +82,7 @@
                                                     <td>{{ $testimonial->position }}</td>
                                                     <td>{{ $testimonial->purpose }}</td>
                                                     <td style="max-width: 300px">{{ $testimonial->content }}</td>
+                                                    @can('testimonial delete')
                                                     <td class="text-center">
                                                         <form action="{{ route('testimonial.destroy', $testimonial->id) }}" method="POST">
                                                             @method('DELETE')
@@ -89,6 +90,7 @@
                                                             <button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm btn-danger m-1"><i class="far fa-trash-alt pr-2"></i>Remove</button>
                                                         </form>
                                                     </td>
+                                                    @endcan
                                                 </tr>
                                                 @empty
                                                 <tr>

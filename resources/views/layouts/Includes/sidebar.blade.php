@@ -49,7 +49,7 @@
                         <span class="pcoded-mtext">Portfolio</span>
                     </a>
                     <ul class="pcoded-submenu">
-                        @can('portfolio create')
+                        @can('portfolio list')
                         <li class="">
                             <a href="{{ route('portfolio.category.index') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Category List</span>
@@ -109,23 +109,23 @@
                     @can('team show')
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="fas fa-users"></i></span>
-                        <span class="pcoded-mtext">Our Team</span>
+                        <span class="pcoded-mtext">Team</span>
                     </a>
                     <ul class="pcoded-submenu">
+                        @can('team create')
                         <li class="">
-                            @can('team create')
                             <a href="{{ route('team.create') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Add Member</span>
                             </a>
-                            @endcan
                         </li>
+                        @endcan
+                        @can('team list')
                         <li class="">
-                            @can('team list')
                             <a href="{{ route('team.index') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">List Member</span>
                             </a>
-                            @endcan
                         </li>
+                        @endcan
                     </ul>
                     @endcan
                 </li>

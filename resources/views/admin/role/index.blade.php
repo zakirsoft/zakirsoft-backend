@@ -79,8 +79,10 @@ active pcoded-trigger
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between">
                                     <h5>All Role</h5>
+                                    @can('role create')
                                     <a href="{{ route('RoleCreate') }}" class="btn btn-sm btn-primary mr-1"
-                                        title="Create a User"><i class="fas fa-plus-square pr-1"></i>Create</a>
+                                    title="Create a User"><i class="fas fa-plus-square pr-1"></i>Create</a>
+                                    @endcan
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive">
@@ -104,15 +106,21 @@ active pcoded-trigger
                                                         @endforeach
                                                     </td>
                                                     <td class="d-flex">
+                                                        @can('role edit')
                                                         <a href="{{ route('RoleEdit', $role->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit Role">
                                                             <i class="far fa-edit"></i>
                                                         </a>
+                                                        @endcan
+                                                        @can('role create')
                                                         <a href="{{ route('PermissionAssign', $role->id) }}" class="btn btn-sm btn-primary mr-1" title="Assign Permission">
                                                             <i class="fas fa-lock"></i>
                                                         </a>
+                                                        @endcan
+                                                        @can('role delete')
                                                         <a href="{{ route('RoleDelete', $role->id) }}" class="btn btn-sm btn-danger text-light">
                                                             <i class="far fa-trash-alt"></i>
                                                         </a>
+                                                        @endcan
                                                     </td>
                                                 </tr>
                                                 @empty
