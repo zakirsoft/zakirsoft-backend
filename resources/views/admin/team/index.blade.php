@@ -69,7 +69,7 @@
                             <div class="card">
                                 <div class="card-header align-items-center justify-content-between d-flex">
                                     <h5>Default Team</h5>
-                                <a href="{{ route('team.create') }}" class="btn btn-sm btn-primary">Add Member</a>
+                                    <a href="" type="button" class="btn btn-primary text-light btn-sm waves-effect float-right" data-toggle="modal" data-target="#add_career"><i class="fas fa-plus"></i> Add Career</a>
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive text-center">
@@ -128,6 +128,43 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="add_career" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-dark text-light">
+          <h5 class="modal-title" id="exampleModal3Label">Add Member</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="{{ route('team.store') }}" method="POST">
+            @csrf
+        <div class="modal-body">
+                <div class="form-group">
+                  <label for="title">Name</label>
+                  <input required name="name" type="text" class="form-control" id="title" placeholder="Enter Title of Career">
+                </div>
+                <div class="form-group">
+                  <label for="content">Position</label>
+                  <input  required name="position" type="text" class="form-control" id="content" placeholder="Enter Content of Career">
+                </div>
+                <div class="form-group">
+                  <label for="content">Image</label>
+                  <input type="file" class="form-control" name="image" id="position">
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
 
 
 @endsection
