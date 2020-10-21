@@ -17,6 +17,7 @@ class CreatePortfoliosTable extends Migration
             // multiple_image
 
             $table->id();
+            $table->unsignedBigInteger('category_id');
             $table->string('title');
             $table->string('title_slug');
             $table->string('image');
@@ -28,8 +29,9 @@ class CreatePortfoliosTable extends Migration
             $table->text('tool_used');
             $table->string('client_name');
             $table->string('client_email');
-            $table->integer('work_type');
             $table->timestamps();
+
+            $table->foreign('category_id')->references('id')->on('portfolio_categories')->onDelete('cascade');
         });
     }
 

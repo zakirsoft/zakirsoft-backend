@@ -21,12 +21,19 @@ class PermissionSeeder extends Seeder
         Permission::create([ 'name' => 'portfolio edit' ]);
         Permission::create([ 'name' => 'portfolio delete' ]);
 
-        // portfolio permission
+        // testimonial permission
         Permission::create([ 'name' => 'testimonial list' ]);
         Permission::create([ 'name' => 'testimonial show' ]);
         Permission::create([ 'name' => 'testimonial create' ]);
         Permission::create([ 'name' => 'testimonial edit' ]);
         Permission::create([ 'name' => 'testimonial delete' ]);
+
+        // testimonial permission
+        Permission::create([ 'name' => 'career list' ]);
+        Permission::create([ 'name' => 'career show' ]);
+        Permission::create([ 'name' => 'career create' ]);
+        Permission::create([ 'name' => 'career edit' ]);
+        Permission::create([ 'name' => 'career delete' ]);
 
         // user permission
         Permission::create([ 'name' => 'user list' ]);
@@ -48,5 +55,6 @@ class PermissionSeeder extends Seeder
         Permission::create([ 'name' => 'team create' ]);
         Permission::create([ 'name' => 'team edit' ]);
         Permission::create([ 'name' => 'team delete' ]);
+
     }
 }

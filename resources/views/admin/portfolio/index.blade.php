@@ -78,6 +78,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
+                                                    <th>Category Name</th>
                                                     <th>Project Title</th>
                                                     <th>Client Name</th>
                                                     <th>Client Email</th>
@@ -91,6 +92,7 @@
                                                 @forelse ($portfolio_list as $key => $portfolio)
                                                 <tr>
                                                     <th scope="row">{{ $portfolio_list->firstItem() + $key }}</th>
+                                                    <td>{{ $portfolio->category->name }}</td>
                                                     <td>{{ $portfolio->title }}</td>
                                                     <td>{{ $portfolio->client_name }}</td>
                                                     <td>{{ $portfolio->client_email }}</td>

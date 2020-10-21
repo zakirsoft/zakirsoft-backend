@@ -41,10 +41,12 @@ class TestimonialController extends Controller
             'purpose' => 'required',
             'content' => 'required',
             'name' => 'required',
+            'position' => 'required'
         ],[
             'purpose.required' => 'Purpose field is required.',
             'content.required' => 'Content field is required.',
             'name.required' => 'Name field is required.',
+            'position.required' => 'Position field is required.',
         ]);
 
         Testimonial::insert([

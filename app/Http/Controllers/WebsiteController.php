@@ -6,6 +6,7 @@ use App\Models\Career;
 use App\Models\Team;
 use Illuminate\Http\Request;
 use App\Models\Portfolio;
+use App\Models\PortfolioCategory;
 
 class WebsiteController extends Controller
 {
@@ -20,7 +21,8 @@ class WebsiteController extends Controller
 
     function work(){
         $portfolio = Portfolio::latest()->get();
-        return view('frontend.Pages.work',compact('portfolio'));
+        $category_list = PortfolioCategory::where('status',1)->get();
+        return view('frontend.Pages.work',compact('portfolio','category_list'));
     }
 
     function career(){
