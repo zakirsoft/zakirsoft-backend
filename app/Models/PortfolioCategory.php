@@ -5,12 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Career extends Model
+class PortfolioCategory extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'title',
-        'content',
+        'p_category_name',
+        'status',
     ];
-   
 }

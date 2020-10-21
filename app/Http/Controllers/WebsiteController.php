@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Career;
+use App\Models\Portfolio;
 
 class WebsiteController extends Controller
 {
@@ -15,11 +17,13 @@ class WebsiteController extends Controller
     }
 
     function work(){
-        return view('frontend.Pages.work');
+        $portfolio = Portfolio::latest()->get();
+        return view('frontend.Pages.work',compact('portfolio'));
     }
 
     function career(){
-        return view('frontend.Pages.career');
+        $career = Career::get();
+        return view('frontend.Pages.career',compact('career'));
     }
 
     function contact(){

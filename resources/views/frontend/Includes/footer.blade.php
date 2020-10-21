@@ -5,11 +5,11 @@
           <div class="footer_menu">
             <span>Quick Link</span>
             <ul class="nav_links">
-              <li class="nav_items"><a href="{{ route('home_website') }}">Home</a></li>
-              <li class="nav_items"><a href="{{ route('about_website') }}">About</a></li>
-              <li class="nav_items"><a href="{{ route('work_website') }}">work</a></li>
-              <li class="nav_items"><a href="{{ route('career_website') }}">Career</a></li>
-              <li class="nav_items"><a href="{{ route('contact_website') }}">Contact</a></li>
+              <li class="nav_items"><a href="{{ route('home_website') }}" class="@yield('home_footer')" >Home</a></li>
+              <li class="nav_items"><a href="{{ route('about_website') }}" class="@yield('about_footer')" >About</a></li>
+              <li class="nav_items"><a href="{{ route('work_website') }}" class="@yield('work_footer')" @yield('_footer')>work</a></li>
+              <li class="nav_items"><a href="{{ route('career_website') }}" class="@yield('career_footer')" >Career</a></li>
+              <li class="nav_items"><a href="{{ route('contact_website') }}" class="@yield('contact_footer')" >Contact</a></li>
             </ul>
           </div>
           <div class="connect_info">

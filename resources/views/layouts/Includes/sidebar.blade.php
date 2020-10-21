@@ -43,15 +43,21 @@
                     </a>
                     <ul class="pcoded-submenu">
                         <li class="">
-                        <a href="{{ route('portfolio.create') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Add Portfolio</span>
+                            <a href="{{ route('portfolio.category.index') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-mtext">Portfolio Category List</span>
                             </a>
                         </li>
                         <li class="">
-                        <a href="{{ route('portfolio.index') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Portfolio List</span>
+                            <a href="{{ route('portfolio.index') }}" class="waves-effect waves-dark">
+                                    <span class="pcoded-mtext">Portfolio List</span>
+                                </a>
+                            </li>
+                        <li class="">
+                            <a href="{{ route('portfolio.create') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-mtext">Add Portfolio</span>
                             </a>
                         </li>
+
 
                     </ul>
                 </li>

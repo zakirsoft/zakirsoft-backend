@@ -51,6 +51,7 @@ class PortfolioController extends Controller
             'tool_used' => 'required',
             'client_name' => 'required',
             'client_email' => 'required',
+            'work_type' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10048',
         ],[
             'title.required' => 'Title field is required!',
@@ -62,6 +63,7 @@ class PortfolioController extends Controller
             'tool_used.required' => 'Tool used field is required!',
             'client_name.required' => 'Client name field is required!',
             'client_email.required' => 'Client email field is required!',
+            'work_type.required' => 'Work type field is required!',
             'image.required' => 'Image field is required!',
         ]);
 
@@ -77,6 +79,7 @@ class PortfolioController extends Controller
             'tool_used' => $request->tool_used,
             'client_name' => $request->client_email,
             'client_email' => $request->client_email,
+            'work_type' => $request->work_type,
             'created_at' => Carbon::now(),
         ]);
 
@@ -177,6 +180,7 @@ class PortfolioController extends Controller
                         'tool_used' => $request->tool_used,
                         'client_name' => $request->client_email,
                         'client_email' => $request->client_email,
+                        'work_type' => $request->work_type,
                         'updated_at' => Carbon::now()
                     ]);
 
@@ -197,6 +201,7 @@ class PortfolioController extends Controller
                 'tool_used' => $request->tool_used,
                 'client_name' => $request->client_email,
                 'client_email' => $request->client_email,
+                'work_type' => $request->work_type,
                 'created_at' => Carbon::now()
             ]);
 
