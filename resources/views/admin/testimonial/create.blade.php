@@ -70,10 +70,6 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Purpose</label>
                                             <div class="col-sm-10">
-<<<<<<< HEAD
-                                                <input type="text" class="form-control" name="purpose" id="name"
-                                                    placeholder="Enter Purpose of Testimonial">
-=======
                                                 <input type="text" class="form-control @error('purpose') is-invalid @enderror" name="purpose" id="name" placeholder="Enter Purpose of Testimonial (Not visible)">
 
                                             @error('purpose')
@@ -81,7 +77,6 @@
                                                     {{ $message }}
                                                 </span>
                                             @enderror
->>>>>>> 494550d9ef06802e270a2a86287e27e87b8b1fe0
                                             </div>
                                         </div>
                                         <div class="form-group row">
