@@ -98,12 +98,14 @@
                     @endcan
                 </li>
                 <li class="@yield('career')">
+                    @can('career show')
                     <a href="{{ route('career.index') }}" class="waves-effect waves-dark">
                         <span class="pcoded-micon">
                             <i class="fas fa-graduation-cap"></i>
                         </span>
                         <span class="pcoded-mtext">Career</span>
                     </a>
+                    @endcan
                 </li>
                 <li class="pcoded-hasmenu @yield('contact')">
                     @can('team show')

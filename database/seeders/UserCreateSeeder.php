@@ -15,6 +15,6 @@ class UserCreateSeeder extends Seeder
      */
     public function run()
     {
-        User::create(['name'=>Str::random(5).' name','email'=>Str::random(4).'_demo@mail.com','password'=>'password@123']);
+        User::create(['name'=>'Developer','email'=>'developer@mail.com','password'=>'password']);
     }
 }
