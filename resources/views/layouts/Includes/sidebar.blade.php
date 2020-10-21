@@ -16,93 +16,133 @@
             <div class="pcoded-navigation-label">Admin</div>
             <ul class="pcoded-item pcoded-left-item">
                 <li class="pcoded-hasmenu">
+                    @can('user show')
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="far fa-user"></i></span>
                         <span class="pcoded-mtext">User</span>
                     </a>
                     <ul class="pcoded-submenu">
+                        @can('user list')
                         <li class="">
                             <a href="{{ route('user.index') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">All User</span>
                             </a>
                         </li>
+                        @endcan
+                        @can('role list')
                         <li class="">
                             <a href="{{ route('RoleIndex') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">User Role</span>
                             </a>
                         </li>
+                        @endcan
                     </ul>
+                    @endcan
                 </li>
             </ul>
 
             <ul class="pcoded-item pcoded-left-item">
                 <li class="pcoded-hasmenu @yield('portfolio')">
+                    @can('portfolio show')
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="far fa-window-restore"></i></span>
                         <span class="pcoded-mtext">Portfolio</span>
                     </a>
                     <ul class="pcoded-submenu">
+                        @can('portfolio list')
                         <li class="">
                             <a href="{{ route('portfolio.category.index') }}" class="waves-effect waves-dark">
+<<<<<<< HEAD
                                     <span class="pcoded-mtext">Portfolio Category List</span>
                                 </a>
+=======
+                                <span class="pcoded-mtext">Category List</span>
+                            </a>
+>>>>>>> bf91885ba03e2bf58d05953121f2a11e01dcc6dc
                         </li>
+                        @endcan
+                        @can('portfolio list')
                         <li class="">
                             <a href="{{ route('portfolio.index') }}" class="waves-effect waves-dark">
                                     <span class="pcoded-mtext">Portfolio List</span>
                                 </a>
+<<<<<<< HEAD
                         </li>
+=======
+                            </li>
+                        @endcan
+                        @can('portfolio create')
+>>>>>>> bf91885ba03e2bf58d05953121f2a11e01dcc6dc
                         <li class="">
                             <a href="{{ route('portfolio.create') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Add Portfolio</span>
                             </a>
                         </li>
+<<<<<<< HEAD
 
+=======
+                        @endcan
+>>>>>>> bf91885ba03e2bf58d05953121f2a11e01dcc6dc
                     </ul>
+                    @endcan
                 </li>
                 <li class="pcoded-hasmenu @yield('testimonial')">
+                    @can('testimonial show')
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="far fa-file-word"></i></span>
                         <span class="pcoded-mtext">Testimonial</span>
                     </a>
                     <ul class="pcoded-submenu">
+                        @can('testimonial create')
                         <li class="">
                             <a href="{{ route('testimonial.create') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Add Testimonial</span>
                             </a>
                         </li>
+                        @endcan
+                        @can('testimonial list')
                         <li class="">
                             <a href="{{ route('testimonial.index') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Testimonials List</span>
                             </a>
                         </li>
+                        @endcan
                     </ul>
+                    @endcan
                 </li>
                 <li class="@yield('career')">
+                    @can('career show')
                     <a href="{{ route('career.index') }}" class="waves-effect waves-dark">
                         <span class="pcoded-micon">
                             <i class="fas fa-graduation-cap"></i>
                         </span>
                         <span class="pcoded-mtext">Career</span>
                     </a>
+                    @endcan
                 </li>
                 <li class="pcoded-hasmenu @yield('contact')">
+                    @can('team show')
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="fas fa-users"></i></span>
-                        <span class="pcoded-mtext">Our Team</span>
+                        <span class="pcoded-mtext">Team</span>
                     </a>
                     <ul class="pcoded-submenu">
+                        @can('team create')
                         <li class="">
                             <a href="{{ route('team.create') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Add Member</span>
                             </a>
                         </li>
+                        @endcan
+                        @can('team list')
                         <li class="">
                             <a href="{{ route('team.index') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">List Member</span>
                             </a>
                         </li>
+                        @endcan
                     </ul>
+                    @endcan
                 </li>
                 <li class="@yield('footer')">
                     <a href="{{ route('footer.index') }}" class="waves-effect waves-dark">
@@ -112,8 +152,8 @@
                         <span class="pcoded-mtext">Footer Content</span>
                     </a>
                 </li>
-                <li class="@yield('footer')">
-                    <a href="" class="waves-effect waves-dark">
+                <li class="@yield('about')">
+                    <a href="#" class="waves-effect waves-dark">
                         <span class="pcoded-micon">
                             <i class="fas fa-info-circle"></i>
                         </span>

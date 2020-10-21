@@ -121,7 +121,7 @@ active pcoded-trigger
                                             <label class="col-sm-2"></label>
                                             <div class="col-sm-10">
                                                 <button type="submit" class="btn btn-primary m-b-0"><i
-                                                        class="fas fa-plus"></i> Add Team</button>
+                                                        class="fas fa-plus"></i> Update Member</button>
                                             </div>
                                         </div>
                                     </form>

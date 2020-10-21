@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Career;
+use App\Models\Team;
+use Illuminate\Http\Request;
 use App\Models\Portfolio;
 use App\Models\PortfolioCategory;
 
@@ -14,7 +15,8 @@ class WebsiteController extends Controller
     }
 
     function about(){
-        return view('frontend.Pages.about');
+        $team = Team::all();
+        return view('frontend.Pages.about')->with('teams', $team);
     }
 
     function work(){

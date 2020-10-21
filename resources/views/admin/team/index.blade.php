@@ -83,24 +83,37 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($teams as $team)
-
+                                                @forelse ($teams as $team)
                                                 <tr>
-                                                <td>{{ $team->name }}</td>
-                                                <td>{{ $team->position }}</td>
-                                                <td><img width="60px" height="60px" src="{{ asset($team->image) }}" alt=""></td>
-                                                <td>
-                                                <a class="btn btn-sm btn-primary mr-2 float-left" href="{{ route('team.edit', $team->id) }}"><i class="far fa-edit"></i> Edit</a>
-                                                    <form method="POST" action="{{ route('team.destroy',$team->id)}}">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button class="btn btn-sm btn-danger" type="submit"> <i class="fas fa-user-times"></i> Remove</button>
-                                                    </form>
-                                                </div>
-                                                </td>
-                                                </tr>
+                                                    <td class="text-center">{{ $team->name }}</td>
+                                                    <td class="text-center">{{ $team->position }}</td>
+                                                <td class="text-center"><img width="100px" src="{{ asset($team->image) }}" alt=""></td>
 
-                                                @endforeach
+                                                    <td class="text-center">
+                                                        <div class="dropdown">
+                                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="fas fa-cog"></i> Action
+                                                        </button>
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                          <a class="dropdown-item text-info btn btn-sm" href="{{ route('team.edit', $team->id) }}"><i class="far fa-edit"></i> Edit</a>
+                                                          <form action="{{ route('career.destroy', $team->id) }}" method="POST">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm text-danger m-1 dropdown-item"></i><i class="far fa-trash-alt"></i> Remove</button>
+                                                        </form>
+                                                        </div>
+                                                      </div>
+                                                    </td>
+
+                                                    </td>
+                                                </tr>
+                                                @empty
+                                                <tr>
+                                                    <td colspan="20" class="text-center text-danger">
+                                                        <h5>No Data Found</h5>
+                                                    </td>
+                                                </tr>
+                                                @endforelse
                                             </tbody>
                                         </table>
                                     </div>
