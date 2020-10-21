@@ -22,7 +22,7 @@
                     </a>
                     <ul class="pcoded-submenu">
                         <li class="">
-                            <a href="{{ url('user') }}" class="waves-effect waves-dark">
+                            <a href="{{ route('user.index') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">All User</span>
                             </a>
                         </li>
@@ -43,15 +43,30 @@
                     </a>
                     <ul class="pcoded-submenu">
                         <li class="">
+<<<<<<< HEAD
+                            <a href="{{ route('portfolio.category.index') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-mtext">Portfolio Category List</span>
+=======
                             <a href="{{ route('portfolio.create') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Add Portfolio</span>
+>>>>>>> b58ba4b15ff434ea6aef0f068a379066352a001b
                             </a>
                         </li>
                         <li class="">
                             <a href="{{ route('portfolio.index') }}" class="waves-effect waves-dark">
+<<<<<<< HEAD
+                                    <span class="pcoded-mtext">Portfolio List</span>
+                                </a>
+                            </li>
+                        <li class="">
+                            <a href="{{ route('portfolio.create') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-mtext">Add Portfolio</span>
+=======
                                 <span class="pcoded-mtext">Portfolio List</span>
+>>>>>>> b58ba4b15ff434ea6aef0f068a379066352a001b
                             </a>
                         </li>
+
 
                     </ul>
                 </li>
@@ -100,7 +115,7 @@
                     </ul>
                 </li>
                 <li class="@yield('footer')">
-                    <a href="" class="waves-effect waves-dark">
+                    <a href="{{ route('footer.index') }}" class="waves-effect waves-dark">
                         <span class="pcoded-micon">
                             <i class="fas fa-th-list"></i>
                         </span>

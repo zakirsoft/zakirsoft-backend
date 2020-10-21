@@ -1,5 +1,8 @@
 @extends('frontend.master')
 
+@section('home') active @endsection
+@section('home_footer') footer_active @endsection
+
 @section('content')
           <!-- banner section start -->
           <section id="banner" class="none">

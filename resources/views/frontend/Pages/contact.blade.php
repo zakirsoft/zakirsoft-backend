@@ -1,5 +1,8 @@
 @extends('frontend.master')
 
+@section('contact') active @endsection
+@section('contact_footer') footer_active @endsection
+
 @section('content')
     <!-- joinus section start -->
     <section id="joinus-contact_area" class="none">

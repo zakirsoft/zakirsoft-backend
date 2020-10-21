@@ -1,5 +1,8 @@
 @extends('frontend.master')
 
+@section('about') active @endsection
+@section('about_footer') footer_active @endsection
+
 @section('content')
       <!-- about-us section start -->
     <section id="about" class="none">

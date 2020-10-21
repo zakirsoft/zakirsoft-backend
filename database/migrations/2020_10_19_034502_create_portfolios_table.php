@@ -28,6 +28,7 @@ class CreatePortfoliosTable extends Migration
             $table->text('tool_used');
             $table->string('client_name');
             $table->string('client_email');
+            $table->integer('work_type');
             $table->timestamps();
         });
     }

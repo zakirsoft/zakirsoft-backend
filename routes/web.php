@@ -7,11 +7,13 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\PortfolioCategoryController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FooterController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -24,10 +26,7 @@ Route::get('/about', [WebsiteController::class, 'about'])->name('about_website')
 Route::get('/works', [WebsiteController::class, 'work'])->name('work_website');
 Route::get('/careers', [WebsiteController::class, 'career'])->name('career_website');
 Route::get('/contacts', [WebsiteController::class, 'contact'])->name('contact_website');
-// Route::get('/about', [FrontendController::class, 'about'])->name('about');
-// Route::get('/work', [FrontendController::class, 'work'])->name('work');
-// Route::get('/career', [FrontendController::class, 'career'])->name('Career');
-// Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
+
 
 
 
@@ -53,6 +52,11 @@ Route::resource('dashboard', DashboardController::class);
 
 // =====================Portfolio =====================
 Route::resource('portfolio', PortfolioController::class);
+Route::get('portfolio/category/index', [PortfolioCategoryController::class, 'index'])->name('portfolio.category.index');
+Route::post('portfolio/category/create', [PortfolioCategoryController::class, 'create'])->name('portfolio.category.create');
+Route::get('portfolio/category/inactive/{id}', [PortfolioCategoryController::class, 'inactive'])->name('portfolio.category.inactive');
+Route::get('portfolio/category/active/{id}', [PortfolioCategoryController::class, 'active'])->name('portfolio.category.active');
+Route::delete('portfolio/category/destroy/{id}', [PortfolioCategoryController::class, 'destroy'])->name('portfolio.category.destroy');
 
 // =====================Career =====================
 Route::resource('career', CareerController::class);
@@ -63,6 +67,8 @@ Route::resource('contact', ContactController::class);
 // =====================Testimonail =====================
 Route::resource('testimonial', TestimonialController::class);
 
+// ===================== Footer =====================
+Route::resource('footer', FooterController::class);
 // =====================Team Route =====================
 Route::resource('team', TeamController::class );
 
