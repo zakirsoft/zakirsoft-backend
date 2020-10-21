@@ -21,6 +21,13 @@ class PermissionSeeder extends Seeder
         Permission::create([ 'name' => 'portfolio edit' ]);
         Permission::create([ 'name' => 'portfolio delete' ]);
 
+        // portfolio permission
+        Permission::create([ 'name' => 'testimonial list' ]);
+        Permission::create([ 'name' => 'testimonial show' ]);
+        Permission::create([ 'name' => 'testimonial create' ]);
+        Permission::create([ 'name' => 'testimonial edit' ]);
+        Permission::create([ 'name' => 'testimonial delete' ]);
+
         // user permission
         Permission::create([ 'name' => 'user list' ]);
         Permission::create([ 'name' => 'user show' ]);
