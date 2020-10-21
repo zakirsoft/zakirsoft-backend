@@ -9,6 +9,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FooterController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,9 @@ Route::resource('contact', ContactController::class);
 
 // =====================Testimonail =====================
 Route::resource('testimonial', TestimonialController::class);
+
+// ===================== Footer =====================
+Route::resource('footer', FooterController::class);
 
 // =====================Role =====================
 Route::get('role', [RoleController::class, 'index'])->name('RoleIndex');
