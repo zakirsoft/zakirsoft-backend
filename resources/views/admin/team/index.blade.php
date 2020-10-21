@@ -95,7 +95,7 @@
                                                             <i class="fas fa-cog"></i> Action
                                                         </button>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                          <a class="dropdown-item text-info btn btn-sm" href="{{ route('career.edit', $team->id) }}"><i class="far fa-edit"></i> Edit</a>
+                                                          <a class="dropdown-item text-info btn btn-sm" href="{{ route('team.edit', $team->id) }}"><i class="far fa-edit"></i> Edit</a>
                                                           <form action="{{ route('career.destroy', $team->id) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf
