@@ -81,32 +81,30 @@
                                         @method('PUT')
                                         @csrf
                                         <div class="row">
+
                                             <div class="col-6 offset-3">
                                                 @if ($errors->any())
                                                 <div class="alert alert-danger">
-                                                    <ul>
-                                                        @foreach ($errors->all() as $error)
-                                                        <li>{{ $error }}</li>
-                                                        @endforeach
-                                                    </ul>
+                                                Please provide field required conditions!
                                                 </div>
                                                 @endif
                                             </div>
+
                                         </div>
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Title</label>
-                                                    <input value="{{ $portfolio->title }}" type="text" class="form-control" name="title" id="name"
-                                                        placeholder="Enter Title of Portfolio">
+                                                    <input value="{{ $portfolio->title }}" type="text" class="form-control  @error('title') is-invalid @enderror" name="title" id="name"placeholder="Enter Title of Portfolio">
+                                                    @error('title') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Project Length </label>
-                                                    <input value="{{ $portfolio->project_length }}" type="text" class="form-control"
-                                                        name="project_length" id="name" placeholder="Enter Project Length of Portfolio">
-                                                    </>
+                                                    <input value="{{ $portfolio->project_length }}" type="text" class="form-control  @error('project_length') is-invalid @enderror" name="project_length" id="name" placeholder="Enter Project Length of Portfolio">
+                                                    @error('project_length') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+
                                                 </div>
                                             </div>
 
@@ -121,7 +119,8 @@
                                             <div class="col-4">
                                                 <div class="form-group">
                                                     <label>Thumbnail Image</label>
-                                                    <input type="file" class="form-control" name="image" id="position">
+                                                    <input type="file" class="form-control  @error('image') is-invalid @enderror" name="image" id="position">
+                                                    @error('image') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                             <div class="col-4">
@@ -135,29 +134,32 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Client Name</label>
-                                                    <input type="text" class="form-control" name="client_name" id="name" value="{{ $portfolio->client_name }}" placeholder="Enter Client Name of Portfolio">
+                                                    <input type="text" class="form-control @error('client_name') is-invalid @enderror" name="client_name" id="name" value="{{ $portfolio->client_name }}" placeholder="Enter Client Name of Portfolio">
+                                                    @error('client_name') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Client Email</label>
-                                                    <input type="text" class="form-control" name="client_email" id="name"
-                                                        placeholder="Enter Client Email of Portfolio" value="https://{{ $portfolio->client_email }}">
+                                                    <input type="text" class="form-control  @error('client_email') is-invalid @enderror" name="client_email" id="name" placeholder="Enter Client Email of Portfolio" value="https://{{ $portfolio->client_email }}">
+                                                     @error('client_email') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
+
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Live Link </label>
-                                                    <input type="text" class="form-control" name="live_link" id="name" value="https://{{ $portfolio->live_link }}">
+                                                    <input type="text" class="form-control @error('live_link') is-invalid @enderror" name="live_link" id="name" value="https://{{ $portfolio->live_link }}">
+                                                     @error('live_link') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Bahance Link</label>
-                                                    <input type="text" class="form-control" name="bahance_link" id="name"
-                                                        value="{{ $portfolio->bahance_link }}">
+                                                    <input type="text" class="form-control @error('bahance_link') is-invalid @enderror" name="bahance_link" id="name" value="{{ $portfolio->bahance_link }}">
+                                                    @error('bahance_link') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
 
@@ -167,21 +169,24 @@
                                                 <div class="form-group">
                                                     <label>Our Role</label>
                                                     <textarea style="height: 130px" id="editor4" type="text" class="form-control" name="our_role" placeholder="Enter role of portfolio"> {{ $portfolio->our_role }} </textarea>
+                                                    @error('our_role') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Tools Used </label>
                                                     <textarea id="editor2" type="text" class="form-control" name="tool_used" placeholder="Write Tool User of Portfolio.... "> {{ $portfolio->tool_used }} </textarea>
+                                                    @error('tool_used') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Description </label>
-                                            <textarea id="editor3" type="text" class="form-control" name="description"
-                                                placeholder="Write Portfolio content here.... "> {{ $portfolio->description }} </textarea>
+                                            <textarea id="editor3" type="text" class="form-control" name="description" placeholder="Write Portfolio content here.... "> {{ $portfolio->description }} </textarea>
+                                            @error('description') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                         </div>
+
                                         <button type="submit" class="btn btn-primary m-b-0"><i class="fas fa-sync"></i> Update Portfolio</button>
                                     </form>
                                 </div>

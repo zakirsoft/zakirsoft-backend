@@ -1,0 +1,122 @@
+#about {
+    margin-top: 25px;
+    padding-bottom: 100px;
+
+    .about_content {
+
+        .about_contect_img {
+            margin-bottom: 30px;
+        }
+        .about_content_img_1{
+            img{
+                width: 200px;
+                height: 354px;
+                object-fit: contain;
+            }
+        }
+
+        .play_video {
+            margin-top: -4px;
+
+            span {
+                font-size: 16;
+                line-height: 38px;
+                color: $black;
+            }
+        }
+    }
+
+    .about_content_wrapper {
+        padding-left: 40px;
+
+        h3 {
+            color: $black;
+            font-size: 46px;
+            font-weight: $semi_bold;
+            font-family: $oswald;
+            padding-bottom: 20px;
+            line-height: 55px;
+        }
+
+        p {
+            color: $gray;
+            font-size: 20px;
+            line-height: 44px;
+            margin-right: 18px;
+        }
+    }
+}
+
+#about_content_2 {
+    padding-top: 100px;
+    padding-bottom: 190px;
+    .office_content_wrapper {
+        h3 {
+            color: $black;
+            font-size: 46px;
+            font-weight: $semi_bold;
+            font-family: $oswald;
+            padding-bottom: 20px;
+            line-height: 55px;
+        }
+
+        p {
+            color: $gray;
+            font-size: 20px;
+            line-height: 44px;
+            margin-right: 18px;
+            padding-bottom: 20px;
+            margin-right: 75px;
+        }
+    }
+    .about_content_2_img {
+        img{
+            padding-top: 34px;
+        }
+    }
+
+    // remove space for img
+    .container{
+        .row{
+            // remove space from img
+        .r_space{
+            padding-left: 0px;
+        }
+      }
+       }
+}
+
+#team {
+    padding-top: 178px;
+    padding-bottom: 100px;
+    background-color: #F9F9F9;
+    .section_title{
+        h2{
+            // display: none;
+            padding-bottom: 74px;
+        }
+    }
+    .team_card {
+        margin-top: 22px;
+        .member_position {
+            margin-bottom: 105px;
+
+            h3 {
+                color: $black;
+                font-size: 62px;
+                font-weight: $semi_bold;
+                font-family: $oswald;
+                padding-top: 35px;
+                line-height: 74px;
+            }
+
+            span {
+                font-size: 20px;
+                line-height: 20px;
+                color: $gray;
+                margin-top: 12px;
+                display: block;
+            }
+        }
+    }
+}

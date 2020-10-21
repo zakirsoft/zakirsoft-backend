@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\WebsiteController;
+// use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TeamController;
@@ -12,8 +14,36 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+// ==========================================================
+//  =====================Frontend Routes =====================
+// ==========================================================
 
-// Route::resource('portfolio', PortfolioController::class);
+Route::get('/', [WebsiteController::class, 'home'])->name('home_website');
+Route::get('/about', [WebsiteController::class, 'about'])->name('about_website');
+Route::get('/works', [WebsiteController::class, 'work'])->name('work_website');
+Route::get('/careers', [WebsiteController::class, 'career'])->name('career_website');
+Route::get('/contacts', [WebsiteController::class, 'contact'])->name('contact_website');
+// Route::get('/about', [FrontendController::class, 'about'])->name('about');
+// Route::get('/work', [FrontendController::class, 'work'])->name('work');
+// Route::get('/career', [FrontendController::class, 'career'])->name('Career');
+// Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
+
+
+
+
+
+
+
+
+
+
+
+// ==========================================================
+//  ===================== Backend Routes =====================
+// ==========================================================
+
+
+
 // =====================Portfolio =====================
 Route::redirect('home', 'dashboard', 302);
 
