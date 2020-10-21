@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AACA,OAAO,CAAC,sCAAI;AAEZ;;;;;;GAMG;AACH,SAAS,CAAT,IAAS;AAET;;GAEG;AACH,SAAS,CAAT,UAAS;AAET;;;;;;;;;GASG;AAEH;;;GAGG;AACH,SAAS,CAAT,SAAS;AAET;;;;;;;;GAQG",
+    "sources": [
+        "../../vendor/mckenziearts/laravel-notify/resources/sass/notify.scss"
+    ],
+    "names": [],
+    "file": "notify.css"
+}

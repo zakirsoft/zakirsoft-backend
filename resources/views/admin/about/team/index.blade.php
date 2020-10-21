@@ -89,13 +89,14 @@
                                                 <td>{{ $team->name }}</td>
                                                 <td>{{ $team->position }}</td>
                                                 <td><img width="60px" height="60px" src="{{ asset($team->image) }}" alt=""></td>
-                                                <td class="align-center">
-                                                    <a class="btn btn-sm btn-primary mr-2 float-left" href="">Edit</a>
-                                                <form method="POST" action="{{ route('team.destroy',$team->id)}}">
+                                                <td>
+                                                <a class="btn btn-sm btn-primary mr-2 float-left" href="{{ route('team.edit', $team->id) }}"><i class="far fa-edit"></i> Edit</a>
+                                                    <form method="POST" action="{{ route('team.destroy',$team->id)}}">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button class="btn btn-sm btn-danger" type="submit"> <i class="fas fa-user-times"></i> Remove</button>
                                                     </form>
+                                                </div>
                                                 </td>
                                                 </tr>
 

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA;;;;;;;GAOG;AAQH,OAAO,CAAP,oGAAO;AAPP,SAAS,CAAT,IAAS;AAET;;GAEG;AACH,SAAS,CAAT,UAAS;AAIT,AAAA,GAAG,CAAA,AAAA,KAAC,EAAO,WAAW,AAAlB,EAAoB;EACtB,MAAM,EAAE,IAAI;EACZ,UAAU,EAAE,CAAC;CACd;;AAED;;;GAGG;AACH,SAAS,CAAT,SAAS",
+    "sources": [
+        "../../vendor/mckenziearts/laravel-notify/resources/sass/app.scss"
+    ],
+    "names": [],
+    "file": "app.css"
+}
