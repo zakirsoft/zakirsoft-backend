@@ -72,7 +72,9 @@ active pcoded-trigger
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between">
                                     <h5>All Users ({{ $user_count }})</h5>
+                                    @can('user create')
                                     <a href="{{ url('user/create') }}" class="btn btn-sm btn-primary mr-1" title="Create a User"><i class="fas fa-plus-square pr-1"></i>Create</a>
+                                    @endcan
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive">
@@ -106,13 +108,19 @@ active pcoded-trigger
                                                     </td>
                                                     <td class="text-muted">{{ $user->created_at->format('d/m/Y') }}</td>
                                                     <td class="d-flex">
+                                                        @can('user edit')
                                                         <a href="{{ route('user.edit', $user->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit User"><i class="far fa-edit"></i></a>
+                                                        @endcan
+                                                        @can('role edit')
                                                         <a href="{{ route('RoleAssign', $user->id) }}" class="btn btn-sm btn-primary mr-1" title="Manage Role"><i class="fas fa-lock"></i></a>
+                                                        @endcan
+                                                        @can('user delete')
                                                         <form action="{{ route('user.destroy', $user->id) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf
                                                             <button onclick="return confirm('Are you sure you want to delete this item?');"  class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button>
                                                         </form>
+                                                        @endcan
                                                     </td>
                                                 </tr>
                                                 @empty
