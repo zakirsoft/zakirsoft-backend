@@ -70,11 +70,6 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Purpose</label>
                                             <div class="col-sm-10">
-<<<<<<< HEAD
-                                                <input type="text" class="form-control" name="purpose" id="name"
-                                                    placeholder="Enter Purpose of Testimonial">
-=======
->>>>>>> 1ed82a55b42673072c1b43cba7404343e17bc9b3
                                                 <input type="text" class="form-control @error('purpose') is-invalid @enderror" name="purpose" id="name" placeholder="Enter Purpose of Testimonial (Not visible)">
 
                                             @error('purpose')
@@ -112,7 +107,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Position</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control @error('position') is-invalid @enderror name="position" id="position" placeholder="Enter position">
+                                                <input type="text" class="form-control @error('position') is-invalid @enderror" name="position" id="position" placeholder="Enter position">
 
                                             @error('position')
                                                 <span class="invalid-feedback" role="alert">
