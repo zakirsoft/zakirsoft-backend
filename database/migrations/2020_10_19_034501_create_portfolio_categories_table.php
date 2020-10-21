@@ -15,7 +15,7 @@ class CreatePortfolioCategoriesTable extends Migration
     {
         Schema::create('portfolio_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('p_category_name');
+            $table->string('name');
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

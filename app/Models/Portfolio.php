@@ -21,6 +21,12 @@ class Portfolio extends Model
         'tool_used',
         'client_name',
         'client_email',
-        'work_type',
+        'category_id',
     ];
+
+    public function category(){
+        return $this->belongsTo(PortfolioCategory::class,'category_id');
+    }
+
+
 }

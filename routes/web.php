@@ -57,6 +57,8 @@ Route::post('portfolio/category/create', [PortfolioCategoryController::class, 'c
 Route::get('portfolio/category/inactive/{id}', [PortfolioCategoryController::class, 'inactive'])->name('portfolio.category.inactive');
 Route::get('portfolio/category/active/{id}', [PortfolioCategoryController::class, 'active'])->name('portfolio.category.active');
 Route::delete('portfolio/category/destroy/{id}', [PortfolioCategoryController::class, 'destroy'])->name('portfolio.category.destroy');
+Route::get('portfolio/category/edit/{id}', [PortfolioCategoryController::class, 'edit'])->name('portfolio.category.edit');
+Route::put('portfolio/category/update/{id}', [PortfolioCategoryController::class, 'update'])->name('portfolio.category.update');
 
 // =====================Career =====================
 Route::resource('career', CareerController::class);

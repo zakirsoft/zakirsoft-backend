@@ -94,19 +94,19 @@
                                         <div class="row">
                                             <div class="col-4">
                                                 <div class="form-group">
-                                                    <label>Title</label>
-                                                    <input value="{{ $portfolio->title }}" type="text" class="form-control  @error('title') is-invalid @enderror" name="title" id="name"placeholder="Enter Title of Portfolio">
-                                                    @error('title') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                    <label>Category Name Type</label>
+                                                    <select name="category_id" class="form-control">
+                                                        @foreach ($category_list as $item)
+                                                        <option {{ $portfolio->category_id == $item->id ? 'selected' : '' }} value="{{ $item->id }}">{{ $item->name }}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-4">
                                                 <div class="form-group">
-                                                    <label>Work Type</label>
-                                                    <select name="work_type" class="form-control">
-                                                        <option {{ $portfolio->title == 1  ? 'selected' : '' }} value="1">Design</option>
-                                                        <option {{ $portfolio->title == 2  ? 'selected' : '' }} value="2">Development</option>
-                                                        <option {{ $portfolio->title == 3  ? 'selected' : '' }} value="3">UI/UX</option>
-                                                    </select>
+                                                    <label>Title</label>
+                                                    <input value="{{ $portfolio->title }}" type="text" class="form-control  @error('title') is-invalid @enderror" name="title" id="name"placeholder="Enter Title of Portfolio">
+                                                    @error('title') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                             <div class="col-4">

@@ -26,19 +26,15 @@
                                         <a class="nav-link   active" id="pills-all-tab" data-toggle="pill" href="#pills-all"
                                             role="tab" aria-controls="pills-all" aria-selected="true">all</a>
                                     </li>
+                                    @foreach ($category_list as $item)
                                     <li class="nav-item">
                                         <a class="nav-link" id="pills-frontend-tab" data-toggle="pill"
-                                            href="#pills-frontend" role="tab" aria-controls="pills-frontend"
-                                            aria-selected="false">frontend</a>
+                                        href="#pills-frontend" role="tab" aria-controls="pills-frontend"
+                                        aria-selected="false">{{  $item->name }}</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="pills-backend-tab" data-toggle="pill" href="#pills-backend"
-                                            role="tab" aria-controls="pills-backend" aria-selected="false">backend</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="pills-ui-tab" data-toggle="pill" href="#pills-ui" role="tab"
-                                            aria-controls="pills-ui" aria-selected="false">UI/UX</a>
-                                    </li>
+                                    @endforeach
+
+
                                 </ul>
                             </div>
                         </div>
@@ -52,9 +48,8 @@
                             <div class="row align-items-center mb-100">
                                 <div class="col-4">
                                     <div class="project_info">
-                                        {{-- {{ $portfolio->title == 1  ? 'selected' : '' }} --}}
-                                        <span class="p_type">a</span>
-                                        <h3 class="project_name">Project Name</h3>
+                                        <span class="p_type">{{ $item->category->name }}</span>
+                                        <h3 class="project_name">{{ $item->title }}</h3>
                                         <a href="#" class="v_project">
                                             view more
                                             <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="arrow_icon">
@@ -63,7 +58,7 @@
                                 </div>
                                 <div class="col-8">
                                     <div class="project_img">
-                                        <img src="{{ asset('frontend') }}/assets/images/project-img/img-1.png" alt="Project_img">
+                                        <img src="{{ asset($item->image) }}" alt="Project_img">
                                     </div>
                                 </div>
                             </div>
