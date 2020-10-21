@@ -64,16 +64,14 @@ Route::resource('contact', ContactController::class);
 // =====================Testimonail =====================
 Route::resource('testimonial', TestimonialController::class);
 
-<<<<<<< HEAD
 // ===================== Footer =====================
 Route::resource('footer', FooterController::class);
-=======
+
 // =====================Team Route =====================
 Route::resource('team', TeamController::class );
 
 // =====================About Us Route =====================
 
->>>>>>> fa110af7123102991a32c98e3245770baa3d7ce6
 
 // =====================Role =====================
 Route::get('role', [RoleController::class, 'index'])->name('RoleIndex');
