@@ -23,7 +23,7 @@
                 <div class="page-header-title">
                     <i class="feather icon-credit-card bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>Portfolio Category</h5>
+                        <h5>Category</h5>
                     </div>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                         <li class="breadcrumb-item">
                             <a href="{{ route('dashboard.index') }}"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Portfolio Category</a>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Category</a>
                         </li>
                     </ul>
                 </div>
@@ -83,16 +83,17 @@
                 @endif
 
                 <div class="page-body">
+
                     <div class="row">
                         <div class="col-sm-12">
 
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Add Portfolio Category</h5>
-                                        <button  type="button" class="btn btn-primary waves-effect float-right" data-toggle="modal" data-target="#add_career"><i class="fas fa-plus"></i> Add Portfolio Category</button>
+                                    <h5>Add Category</h5>
+                                        <button  type="button" class="btn btn-primary waves-effect float-right" data-toggle="modal" data-target="#add_career"><i class="fas fa-plus"></i> Add Category</button>
                                 </div>
                                 <div class="card-block">
-                                    @include('notify::messages')
+
                                     <div class="table-responsive">
                                         @if ($errors->any())
                                         <div class="alert alert-danger">
@@ -114,10 +115,11 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+
                                                 @forelse ($portfolio_category as $key => $category)
                                                 <tr>
                                                     <th class="text-center" scope="row">{{ $portfolio_category->firstItem() + $key }}</th>
-                                                    <td class="text-center">{{ $category->p_category_name }}</td>
+                                                    <td class="text-center">{{ $category->name }}</td>
                                                     @if ($category->status == 1)
                                                         <td class="text-center"><span class="badge badge-success">Active</span></td>
                                                     @else
@@ -136,7 +138,7 @@
                                                             <i class="fas fa-cog"></i> Action
                                                         </button>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                          <a class="dropdown-item text-info btn btn-sm" href="{{ route('career.edit', $category->id) }}"><i class="far fa-edit"></i> Edit</a>
+                                                          <a role="button" class="dropdown-item text-info btn btn-sm" href="{{ route('portfolio.category.edit', $category->id) }}"><i class="far fa-edit"></i> Edit</a>
                                                           <form action="{{ route('portfolio.category.destroy', $category->id) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf
@@ -158,7 +160,6 @@
                                             </tbody>
                                         </table>
                                         {{ $portfolio_category->links()  }}
-
                                 </div>
                             </div>
 
@@ -176,7 +177,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header bg-dark text-light">
-          <h5 class="modal-title" id="exampleModal3Label">Add Portfolio Category</h5>
+          <h5 class="modal-title" id="exampleModal3Label">Add Category</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -186,17 +187,16 @@
         <div class="modal-body">
                 <div class="form-group">
                   <label for="title">Category Name</label>
-                  <input required name="p_category_name" type="text" class="form-control" id="title" placeholder="Enter portfolio category name">
+                  <input required name="name" type="text" class="form-control" id="title" placeholder="Enter portfolio category name">
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Add Category</button>
             </div>
         </form>
       </div>
     </div>
   </div>
-
 
 @endsection

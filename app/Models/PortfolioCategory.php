@@ -9,7 +9,7 @@ class PortfolioCategory extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'p_category_name',
+        'name',
         'status',
     ];
 }

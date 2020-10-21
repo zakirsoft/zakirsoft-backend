@@ -12,21 +12,21 @@ class PortfolioCategoryController extends Controller
 
 
 
-  function index(){
-    $portfolio_category = PortfolioCategory::latest()->SimplePaginate(10);
-    return view('admin.portfolio.category.index',compact('portfolio_category'));
-  }
+        function index(){
+            $portfolio_category = PortfolioCategory::latest()->SimplePaginate(10);
+            return view('admin.portfolio.category.index',compact('portfolio_category'));
+        }
 
-  function create(Request $request){
+        function create(Request $request){
 
-      $request->validate([
-          'p_category_name' => 'required',
-    ],[
-        'p_category_name.required' => 'Portfolio category field is required.',
-        ]);
+            $request->validate([
+                'name' => 'required',
+            ],[
+                'name.required' => 'Portfolio category field is required.',
+            ]);
 
-        PortfolioCategory::create([
-            'p_category_name' => $request->p_category_name,
+            PortfolioCategory::create([
+                'name' => $request->name,
             ]);
 
             session()->flash('success', 'Portfolio Category Added Successfully!');
@@ -65,6 +65,24 @@ class PortfolioCategoryController extends Controller
                  session()->flash('danger', 'Portfolio Category Deleted Successfully!');
                  return redirect()->route('portfolio.category.index');
             }
+        }
+
+        function edit($id){
+            $p_category_edit = PortfolioCategory::findOrFail($id);
+            return view('admin.portfolio.category.edit',compact('p_category_edit'));
+        }
+
+        function update(Request $request,$id){
+
+            $request->validate([
+                'name' => 'required',
+          ],[
+              'name.required' => 'Portfolio category field is required.',
+              ]);
+
+            PortfolioCategory::findOrFail($id)->update(['name' => $request->name]);
+            session()->flash('success', 'Portfolio Category Updated Successfully!');
+            return redirect()->route('portfolio.category.index');
         }
 
 
