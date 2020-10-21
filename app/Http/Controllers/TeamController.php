@@ -19,7 +19,7 @@ class TeamController extends Controller
     public function index()
     {
         $team = Team::all();
-        return view('admin.about.team.index')->with('teams', $team);
+        return view('admin.team.index')->with('teams', $team);
     }
 
     /**
@@ -29,7 +29,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        return view('admin.about.team.create');
+        return view('admin.team.create');
     }
 
     /**
@@ -82,7 +82,7 @@ class TeamController extends Controller
     public function edit($id)
     {
         $team = Team::findOrFail($id);
-        return view('admin.about.team.edit')->with('teams',$team);
+        return view('admin.team.edit')->with('teams',$team);
     }
 
     /**
@@ -113,8 +113,7 @@ class TeamController extends Controller
             $team->image = 'storage/image/' . $imageName;
             $team->save();
         }
-
-        session()->flash('success', 'Portfolio Deleted Successfully!');
+        session()->flash('success', 'Member Update Successfully!');
         return redirect()->back();
     }
 
@@ -126,11 +125,13 @@ class TeamController extends Controller
      */
     public function destroy($id)
     {
-        $old_image = Team::find($id);
-        if(file_exists($old_image->image)){
-            unlink(base_path('public/'.$old_image->image));
-            $old_image->delete();
+        $team = Team::find($id);
+
+        if(file_exists($team->image)){
+            unlink(base_path('public/'.$team->image));
+            $team->delete();
         }
+        $team->delete();
         session()->flash('delete', 'Member Deleted Successfully!');
         return back();
     }

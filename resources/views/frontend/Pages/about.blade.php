@@ -104,127 +104,26 @@
             <h2>Our Team</h2>
           </div>
           <div class="row team_content">
+
+            @foreach ($teams as $team)
             <div class="col-md-6">
-              <div class="team_card text-center">
-                <div class="members_img">
-                  <img
-                    src="{{ asset('frontend') }}/assets/images/team/1.png"
-                    alt="team-members"
-                    class="img-fluid"
-                  />
-                </div>
-                <div class="member_position">
-                  <h3 class="name">Jerry Vargas</h3>
-                  <span class="position">CEO & Developer</span>
+                <div class="team_card text-center">
+                  <div class="members_img">
+                    <img
+                  src="{{asset($team->image)}}"
+                      alt="team-members"
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="member_position">
+                  <h3 class="name">{{ $team->name }}</h3>
+                  <span class="position">{{ $team->position }}</span>
+                  </div>
                 </div>
               </div>
+              @endforeach
+
             </div>
-            <div class="col-md-6">
-              <div class="team_card text-center">
-                <div class="members_img">
-                  <img
-                    src="{{ asset('frontend') }}/assets/images/team/2.png"
-                    alt="team-members"
-                    class="img-fluid"
-                  />
-                </div>
-                <div class="member_position">
-                  <h3 class="name">Keanu Mendez</h3>
-                  <span class="position">Senior Frontend Developer</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="team_card text-center">
-                <div class="members_img">
-                  <img
-                    src="{{ asset('frontend') }}/assets/images/team/3.png"
-                    alt="team-members"
-                    class="img-fluid"
-                  />
-                </div>
-                <div class="member_position">
-                  <h3 class="name">Tom Evans</h3>
-                  <span class="position">Senior Backend Developer</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="team_card text-center">
-                <div class="members_img">
-                  <img
-                    src="{{ asset('frontend') }}/assets/images/team/4.png"
-                    alt="team-members"
-                    class="img-fluid"
-                  />
-                </div>
-                <div class="member_position">
-                  <h3 class="name">Ronald Nelson</h3>
-                  <span class="position">Fronted Developer</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="team_card text-center">
-                <div class="members_img">
-                  <img
-                    src="{{ asset('frontend') }}/assets/images/team/5.png"
-                    alt="team-members"
-                    class="img-fluid"
-                  />
-                </div>
-                <div class="member_position">
-                  <h3 class="name">Aaron James</h3>
-                  <span class="position">Back end Developer</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="team_card text-center">
-                <div class="members_img">
-                  <img
-                    src="{{ asset('frontend') }}/assets/images/team/6.png"
-                    alt="team-members"
-                    class="img-fluid"
-                  />
-                </div>
-                <div class="member_position">
-                  <h3 class="name">Alex Lee</h3>
-                  <span class="position">Web Designer (UI/UX)</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="team_card text-center">
-                <div class="members_img">
-                  <img
-                    src="{{ asset('frontend') }}/assets/images/team/7.png"
-                    alt="team-members"
-                    class="img-fluid"
-                  />
-                </div>
-                <div class="member_position">
-                  <h3 class="name">Anthony Carrol</h3>
-                  <span class="position">Android</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="team_card text-center">
-                <div class="members_img">
-                  <img
-                    src="{{ asset('frontend') }}/assets/images/team/8.png"
-                    alt="team-members"
-                    class="img-fluid"
-                  />
-                </div>
-                <div class="member_position">
-                  <h3 class="name">Chris Elliot</h3>
-                  <span class="position">Senior Motion Designer</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
       <!-- Team section end -->

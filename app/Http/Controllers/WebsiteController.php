@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Career;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
@@ -11,7 +13,8 @@ class WebsiteController extends Controller
     }
 
     function about(){
-        return view('frontend.Pages.about');
+        $team = Team::all();
+        return view('frontend.Pages.about')->with('teams', $team);
     }
 
     function work(){
@@ -19,6 +22,7 @@ class WebsiteController extends Controller
     }
 
     function career(){
+        $career = Career::all();
         return view('frontend.Pages.career');
     }
 
