@@ -43,27 +43,27 @@
 
             <ul class="pcoded-item pcoded-left-item">
                 <li class="pcoded-hasmenu @yield('portfolio')">
-                    @can('project show')
+                    @can('portfolio show')
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="far fa-window-restore"></i></span>
                         <span class="pcoded-mtext">Portfolio</span>
                     </a>
                     <ul class="pcoded-submenu">
-                        @can('project create')
+                        @can('portfolio create')
                         <li class="">
                             <a href="{{ route('portfolio.category.index') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Portfolio Category List</span>
                             </a>
                         </li>
                         @endcan
-                        @can('project list')
+                        @can('portfolio list')
                         <li class="">
                             <a href="{{ route('portfolio.index') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Portfolio List</span>
                             </a>
                         </li>
                         @endcan
-                        @can('project list')
+                        @can('portfolio list')
                         <li class="">
                             <a href="{{ route('portfolio.create') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Add Portfolio</span>
