@@ -29,13 +29,13 @@
                             </a>
                         </li>
                         @endcan
+                        @can('role list')
                         <li class="">
-                            @can('role list')
                             <a href="{{ route('RoleIndex') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">User Role</span>
                             </a>
-                            @endcan
                         </li>
+                        @endcan
                     </ul>
                     @endcan
                 </li>
@@ -43,27 +43,27 @@
 
             <ul class="pcoded-item pcoded-left-item">
                 <li class="pcoded-hasmenu @yield('portfolio')">
-                    @can('project show')
+                    @can('portfolio show')
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="far fa-window-restore"></i></span>
                         <span class="pcoded-mtext">Portfolio</span>
                     </a>
                     <ul class="pcoded-submenu">
-                        @can('project create')
+                        @can('portfolio create')
                         <li class="">
                             <a href="{{ route('portfolio.category.index') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Portfolio Category List</span>
+                                <span class="pcoded-mtext">Category List</span>
                             </a>
                         </li>
                         @endcan
-                        @can('project list')
+                        @can('portfolio list')
                         <li class="">
                             <a href="{{ route('portfolio.index') }}" class="waves-effect waves-dark">
                                     <span class="pcoded-mtext">Portfolio List</span>
                                 </a>
                             </li>
                         @endcan
-                        @can('project list')
+                        @can('portfolio create')
                         <li class="">
                             <a href="{{ route('portfolio.create') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Add Portfolio</span>
@@ -74,22 +74,28 @@
                     @endcan
                 </li>
                 <li class="pcoded-hasmenu @yield('testimonial')">
+                    @can('testimonial show')
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="far fa-file-word"></i></span>
                         <span class="pcoded-mtext">Testimonial</span>
                     </a>
                     <ul class="pcoded-submenu">
+                        @can('testimonial create')
                         <li class="">
                             <a href="{{ route('testimonial.create') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Add Testimonial</span>
                             </a>
                         </li>
+                        @endcan
+                        @can('testimonial list')
                         <li class="">
                             <a href="{{ route('testimonial.index') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Testimonials List</span>
                             </a>
                         </li>
+                        @endcan
                     </ul>
+                    @endcan
                 </li>
                 <li class="@yield('career')">
                     <a href="{{ route('career.index') }}" class="waves-effect waves-dark">
