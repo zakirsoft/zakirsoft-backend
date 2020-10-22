@@ -14,6 +14,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FooterController;
+use App\Http\Controllers\SocialController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -65,6 +66,8 @@ Route::resource('testimonial', TestimonialController::class);
 
 // ===================== Footer =====================
 Route::resource('footer', FooterController::class);
+// ===================== Social =====================
+Route::resource('social', SocialController::class);
 
 // =====================Team Route =====================
 Route::resource('team', TeamController::class );

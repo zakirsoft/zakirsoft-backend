@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Career;
 use App\Models\Footer;
+use App\Models\Social;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,8 @@ class FooterController extends Controller
     {
         $footers = Footer::all();
         $ContentCount = Footer::all()->count();
-        return view('admin.footer.index', compact('footers', 'ContentCount'));
+        $socials = Social::all();
+        return view('admin.footer.index', compact('footers', 'ContentCount', 'socials'));
     }
 
     /**
@@ -39,6 +41,16 @@ class FooterController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'email' => ['required', 'email', 'unique:footers,email'],
+            'content' => ['required']
+        ],[
+            'email.required' => 'Email field is Required',
+            'email.email' => 'Valid Email is Required',
+            'email.unique' => 'This Email already exists, Enter another.',
+            'content.required' => 'Email field is Required',
+        ]);
+
         Footer::insert([
             'email' => $request->email,
             'content' => $request->content,

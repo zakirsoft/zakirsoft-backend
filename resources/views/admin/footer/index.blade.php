@@ -163,7 +163,7 @@ active pcoded-trigger
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive">
-                                        <table class="table table-bordered">
+                                        <table class="table table-bordered table-hover">
                                             <thead>
                                                 <tr>
                                                     <th>Social Media</th>
@@ -173,16 +173,15 @@ active pcoded-trigger
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @forelse ($socials as $social)
                                                 <tr>
-                                                    <td>Facebook</td>
-                                                    <td>Zakir Soft</td>
-                                                    <td>http://127.0.0.1:8000/footer</td>
+                                                    <td>{{ $social->social_media }}</td>
+                                                    <td>{{ $social->profile_name }}</td>
+                                                    <td>{{ $social->profile_link }}</td>
                                                     <td class="d-flex">
-                                                        <a href="#" class="btn btn-sm btn-warning mr-1"
-                                                            title="Edit User"><i class="far fa-edit"></i></a>
-                                                        <a href="#" class="btn btn-sm btn-primary mr-1"
-                                                            title="Manage Role"><i class="fas fa-lock"></i></a>
-                                                        <form action="#" method="POST">
+                                                        <a href="" class="btn btn-sm btn-warning mr-1"
+                                                            title="Edit User" data-toggle="modal" data-target="#edit_social{{$social->id}}"><i class="far fa-edit"></i></a>
+                                                        <form action="{{ route('social.destroy', $social->id) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf
                                                             <button
@@ -192,6 +191,59 @@ active pcoded-trigger
                                                         </form>
                                                     </td>
                                                 </tr>
+                                                {{-- Social Profile Update --}}
+                                                <div class="modal fade" id="edit_social{{$social->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModal3Label">Add Social Media</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <form action="{{ route('social.update', $social->id) }}" method="POST">
+                                                            @method('PUT')
+                                                            @csrf
+                                                            <input type="hidden" value="{{$social->id}}" name="social_id">
+                                                            <div class="modal-body">
+                                                                <div class="form-group">
+                                                                    <select class="form-control" id="social_name" value="{{ $social->social_name ?? old('social_name') }}" required name="social_name">
+                                                                    <option value="">Social Media</option>
+                                                                    <option value="fab fa-behance">Behance</option>
+                                                                    <option value="fab fa-dribbble">Dribbble</option>
+                                                                    <option value="fab fa-github">Github</option>
+                                                                    <option value="fab fa-facebook-f">Facebook</option>
+                                                                    <option value="fab fa-twitter">Twitter</option>
+                                                                    <option value="fab fa-instagram">Instagram</option>
+                                                                    <option value="fab fa-linkedin-in">Linkedin</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="profile_name">Profile Name</label>
+                                                                    <input value="{{ $social->profile_name ?? old('profile_name') }}" required name="profile_name" type="text" class="form-control"
+                                                                        id="profile_name" placeholder="Zakir Soft">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="social_link">Social Link</label>
+                                                                    <input value="{{ $social->social_link ?? old('social_link') }}" required name="social_link" type="text" class="form-control"
+                                                                        id="social_link" placeholder="http://127.0.0.1/me">
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-primary">Save</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                {{-- Social Profile Update --}}
+                                                @empty
+                                                <tr>
+                                                    <td class="text-center" colspan="5">Social profile not Found</td>
+                                                </tr>
+                                                @endforelse
                                             </tbody>
                                         </table>
                                     </div>
@@ -252,23 +304,30 @@ active pcoded-trigger
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="" method="">
+            <form action="{{ route('social.store') }}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="title">Social Name</label>
-                        <input value="{{ old('title') }}" required name="title" type="text" class="form-control"
-                            id="title" placeholder="Ex: Facebook">
+                        <select class="form-control" id="social_name" value="{{ old('social_name') }}" required name="social_name">
+                          <option value="">Social Media</option>
+                          <option value="fab fa-behance">Behance</option>
+                          <option value="fab fa-dribbble">Dribbble</option>
+                          <option value="fab fa-github">Github</option>
+                          <option value="fab fa-facebook-f">Facebook</option>
+                          <option value="fab fa-twitter">Twitter</option>
+                          <option value="fab fa-instagram">Instagram</option>
+                          <option value="fab fa-linkedin-in">Linkedin</option>
+                        </select>
+                      </div>
+                    <div class="form-group">
+                        <label for="profile_name">Profile Name</label>
+                        <input value="{{ old('profile_name') }}" required name="profile_name" type="text" class="form-control"
+                            id="profile_name" placeholder="Zakir Soft">
                     </div>
                     <div class="form-group">
-                        <label for="title">Profile Name</label>
-                        <input value="{{ old('title') }}" required name="title" type="text" class="form-control"
-                            id="title" placeholder="Zakir Soft">
-                    </div>
-                    <div class="form-group">
-                        <label for="title">Social Link</label>
-                        <input value="{{ old('title') }}" required name="title" type="text" class="form-control"
-                            id="title" placeholder="http://127.0.0.1/me">
+                        <label for="social_link">Social Link</label>
+                        <input value="{{ old('social_link') }}" required name="social_link" type="text" class="form-control"
+                            id="social_link" placeholder="http://127.0.0.1/me">
                     </div>
                 </div>
                 <div class="modal-footer">
