@@ -20,6 +20,26 @@ menuClose.addEventListener('click', e => {
     });
 });
 
+
+
+
+
+// header menubar [ full-height]
+    // vars
+        // const menu = document.querySelector('.menu');
+
+
+        // menu.addEventListener('click',(e)=>{
+
+        //    menu.classList.toggle('active');
+
+        //     // stop default behavior
+        //     e.preventDefault()
+        // });
+
+
+
+
 // @ts-ignore
 $(document).ready(function () {
     //brand_slider
@@ -58,7 +78,13 @@ $(document).ready(function () {
     });
     //details_slider
     // @ts-ignore
-    $('.details-slider-active').slick();
+    $('.details-slider-active').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: false,
+    });
 
     // Projects slider
     // @ts-ignore
@@ -67,7 +93,7 @@ $(document).ready(function () {
         dots: true,
         centerMode: true,
         infinite: true,
-        centerPadding: '60px',
+        centerPadding: '180px',
         // autoplay: true,
         // autoplaySpeed: 1000,
         responsive: [{
@@ -84,5 +110,10 @@ $(document).ready(function () {
             },
 
         ],
+    });
+
+    // magnificPopup video view
+    $('.popup-video').magnificPopup({
+        type: 'iframe'
     });
 });

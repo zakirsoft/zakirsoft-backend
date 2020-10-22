@@ -54,7 +54,7 @@
                                     <div class="project_info">
                                         <span class="p_type">{{ $item->category->name }}</span>
                                         <h3 class="project_name">{{ $item->title }}</h3>
-                                        <a href="#" class="v_project">
+                                        <a href="{{ route('work_details_website', $item->id) }}" class="v_project">
                                             view more
                                             <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="arrow_icon">
                                         </a>

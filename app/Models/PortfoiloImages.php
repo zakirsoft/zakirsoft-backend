@@ -12,4 +12,7 @@ class PortfoiloImages extends Model
         'portfolio_id',
         'm_image',
     ];
+
+
+
 }

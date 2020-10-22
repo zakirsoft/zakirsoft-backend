@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [WebsiteController::class, 'home'])->name('home_website');
 Route::get('/about', [WebsiteController::class, 'about'])->name('about_website');
 Route::get('/works', [WebsiteController::class, 'work'])->name('work_website');
+Route::get('/works/{id}/details', [WebsiteController::class, 'workDetails'])->name('work_details_website');
 Route::get('/careers', [WebsiteController::class, 'career'])->name('career_website');
 Route::get('/contacts', [WebsiteController::class, 'contact'])->name('contact_website');
 
