@@ -30,7 +30,7 @@
                             </div>
                             {{-- <p class="text-muted text-center p-b-5">Session Notifications</p> --}}
                             <div class="form-group form-primary">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                                 <span class="form-bar"></span>
                                 <label class="float-label">Your E-Mail Address</label>
 

@@ -25,7 +25,7 @@
                             </div>
                             {{-- <p class="text-muted text-center p-b-5">Session Notifications</p> --}}
                             <div class="form-group form-primary">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name">
                                 <span class="form-bar"></span>
                                 <label class="float-label">Name</label>
 
