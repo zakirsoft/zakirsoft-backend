@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
-class UserCreateSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,10 @@ class UserCreateSeeder extends Seeder
      */
     public function run()
     {
-        User::create(['name'=>'Developer','email'=>'developer@mail.com','password'=>'password']);
+        User::create([
+            'name'=>'Developer',
+            'email'=>'developer@mail.com',
+            'password'=>'password'
+        ]);
     }
 }
