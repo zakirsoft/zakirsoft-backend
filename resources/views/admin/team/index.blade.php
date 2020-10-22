@@ -31,7 +31,7 @@
                 <div class="page-header-breadcrumb">
                     <ul class=" breadcrumb breadcrumb-title">
                         <li class="breadcrumb-item">
-                            <a href="index.html"><i class="feather icon-home"></i></a>
+                        <a href="{{ url('/dashboard') }}"><i class="feather icon-home"></i></a>
                         </li>
                         <li class="breadcrumb-item"><a href="#!">OurTeam</a>
                         </li>
@@ -69,7 +69,7 @@
                             <div class="card">
                                 <div class="card-header align-items-center justify-content-between d-flex">
                                     <h5>Default Team</h5>
-                                    <a href="" type="button" class="btn btn-primary text-light btn-sm waves-effect float-right" data-toggle="modal" data-target="#add_career"><i class="fas fa-plus"></i> Add Career</a>
+                                <a href="{{ route('team.create') }}" type="button" class="btn btn-primary text-light btn-sm waves-effect float-right" data-toggle="modal" data-target="#add_career"><i class="fas fa-plus"></i> Add Member</a>
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive text-center">
@@ -96,7 +96,7 @@
                                                         </button>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                           <a class="dropdown-item text-info btn btn-sm" href="{{ route('team.edit', $team->id) }}"><i class="far fa-edit"></i> Edit</a>
-                                                          <form action="{{ route('career.destroy', $team->id) }}" method="POST">
+                                                          <form action="{{ route('team.destroy', $team->id) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf
                                                             <button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm text-danger m-1 dropdown-item"></i><i class="far fa-trash-alt"></i> Remove</button>
@@ -133,25 +133,25 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header bg-dark text-light">
-          <h5 class="modal-title" id="exampleModal3Label">Add Member</h5>
+          <h5 class="modal-title" id="exampleModal3Label">Team Member</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form action="{{ route('team.store') }}" method="POST">
+        <form action="{{ route('team.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
         <div class="modal-body">
                 <div class="form-group">
                   <label for="title">Name</label>
-                  <input required name="name" type="text" class="form-control" id="title" placeholder="Enter Title of Career">
+                  <input name="name" type="text" class="form-control" id="title" placeholder="Enter Your Name" required>
                 </div>
                 <div class="form-group">
                   <label for="content">Position</label>
-                  <input  required name="position" type="text" class="form-control" id="content" placeholder="Enter Content of Career">
+                  <input name="position" type="text" class="form-control" id="content" placeholder="Enter Your Position" required>
                 </div>
                 <div class="form-group">
                   <label for="content">Image</label>
-                  <input type="file" class="form-control" name="image" id="position">
+                  <input type="file" class="form-control" name="image" id="position" required>
                 </div>
 
 

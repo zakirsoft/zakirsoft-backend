@@ -109,30 +109,15 @@
                     </a>
                     @endcan
                 </li>
-                <li class="pcoded-hasmenu @yield('contact')">
-                    @can('team show')
-                    <a href="javascript:void(0)" class="waves-effect waves-dark">
-                        <span class="pcoded-micon"><i class="fas fa-users"></i></span>
+                <li class="@yield('team')">
+                    <a href="{{ route('team.index') }}" class="waves-effect waves-dark">
+                        <span class="pcoded-micon">
+                            <i class="fas fa-users"></i>
+                        </span>
                         <span class="pcoded-mtext">Team</span>
                     </a>
-                    <ul class="pcoded-submenu">
-                        @can('team create')
-                        <li class="">
-                            <a href="{{ route('team.create') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Add Member</span>
-                            </a>
-                        </li>
-                        @endcan
-                        @can('team list')
-                        <li class="">
-                            <a href="{{ route('team.index') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">List Member</span>
-                            </a>
-                        </li>
-                        @endcan
-                    </ul>
-                    @endcan
                 </li>
+
                 <li class="@yield('footer')">
                     <a href="{{ route('footer.index') }}" class="waves-effect waves-dark">
                         <span class="pcoded-micon">
