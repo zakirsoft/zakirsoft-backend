@@ -115,7 +115,7 @@
                     <img
                   src="{{asset($team->image)}}"
                       alt="team-members"
-                      class="img-fluid"
+                      class="img-fluid w-50"
                     />
                   </div>
                   <div class="member_position">
