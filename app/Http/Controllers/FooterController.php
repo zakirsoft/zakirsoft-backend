@@ -17,7 +17,8 @@ class FooterController extends Controller
     public function index()
     {
         $footers = Footer::all();
-        return view('admin.footer.index', compact('footers'));
+        $ContentCount = Footer::all()->count();
+        return view('admin.footer.index', compact('footers', 'ContentCount'));
     }
 
     /**
@@ -76,9 +77,14 @@ class FooterController extends Controller
      * @param  \App\Models\Footer  $footer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Footer $footer)
+    public function update(Request $request, $id)
     {
+        $update = Footer::findOrFail($id);
+        $update->email = $request->email;
+        $update->content = $request->content;
+        $update->save();
 
+        return redirect()->back()->with('success', 'Footer content has been Updated.');
     }
 
     /**

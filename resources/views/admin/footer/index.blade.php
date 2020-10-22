@@ -79,8 +79,10 @@ active pcoded-trigger
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Footer Content</h5>
-                                    <button type="button" class="btn btn-primary waves-effect float-right"
+                                    @if ($ContentCount < 1)
+                                        <button type="button" class="btn btn-primary waves-effect float-right"
                                         data-toggle="modal" data-target="#add_content">Add</button>
+                                    @endif
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive">
@@ -121,7 +123,9 @@ active pcoded-trigger
                                                                 </button>
                                                             </div>
                                                             <form action="{{ route('footer.update', $footer->id) }}" method="POST">
+                                                                @method('PUT')
                                                                 @csrf
+                                                                <input type="hidden" value="{{$footer->id}}" name="footer_id">
                                                                 <div class="modal-body">
                                                                     <div class="form-group">
                                                                         <label for="email">E-Mail</label>
@@ -133,8 +137,8 @@ active pcoded-trigger
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Awesome</button>
                                                                     <button type="submit" class="btn btn-primary">Save</button>
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
                                                                 </div>
                                                             </form>
                                                         </div>
