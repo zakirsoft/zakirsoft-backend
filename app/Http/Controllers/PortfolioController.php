@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Portfolio;
 use App\Models\PortfolioCategory;
+use App\Models\PortfoiloImages;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -42,7 +43,6 @@ class PortfolioController extends Controller
      */
     public function store(Request $request)
     {
-        // return request('our_role');
         $request->validate([
             'title' => 'required',
             'description' => 'required',
@@ -54,7 +54,7 @@ class PortfolioController extends Controller
             'client_name' => 'required',
             'client_email' => 'required',
             'category_id' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:10048',
         ],[
             'title.required' => 'Title field is required!',
             'description.required' => 'Description field is required!',
@@ -66,7 +66,7 @@ class PortfolioController extends Controller
             'client_name.required' => 'Client name field is required!',
             'client_email.required' => 'Client email field is required!',
             'category_id.required' => 'Work type field is required!',
-            'image.required' => 'Image field is required!',
+            'image.required' => 'image field is required!',
         ]);
 
         $portfolio = Portfolio::create([
@@ -92,6 +92,17 @@ class PortfolioController extends Controller
             Storage::putFileAs('portfolio', $image, $imageName);
             $portfolio->image = 'storage/portfolio/'. $imageName;
             $portfolio->save();
+        }
+
+        $multiple_image = $request->file('m_image');
+        foreach ($multiple_image as $multi_img) {
+            $imageName = time() . '_' . uniqid() .'.'. $multi_img->getClientOriginalExtension();
+            Storage::putFileAs('portfolio/multiple', $multi_img, $imageName);
+            $db_image_name = 'storage/portfolio/multiple/'. $imageName;
+            PortfoiloImages::create([
+                'portfolio_id' => $portfolio->id,
+                'm_image' =>  $db_image_name,
+            ]);
         }
 
         session()->flash('success', 'Portfolio added Successfully!');

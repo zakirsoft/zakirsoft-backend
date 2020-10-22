@@ -78,10 +78,18 @@
                                 <div class="card-block">
 
                                         @if ($errors->any())
-                                        <div class="alert alert-danger">
-                                           Please provide field required conditions!
+                                        <div class="alert alert-danger alert-dismissible fade show">
+                                           Please provide required field conditions!
+                                        </div>
+                                        <div class="alert alert-danger alert-dismissible fade show">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
                                         </div>
                                         @endif
+
 
                                     <form id="main" method="POST" action="{{ route('portfolio.store') }}" enctype="multipart/form-data">
                                         @csrf
@@ -120,15 +128,36 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <label>Thumbnail Image</label>
-                                                    <input type="file" class="form-control  @error('image') is-invalid @enderror" name="image">
-                                                    @error('image') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                    <label>Thumbnail Image</label><br>
+                                                    <img class="my-2" id="single_image_preview"/>
+                                                    {{-- <button id="single_image_preview_remove" type="button" onclick="reset_single()" class="btn btn-danger btn-sm">x</button> --}}
+                                                    <div class="input-group">
+                                                      <input type="text" class="form-control" readonly>
+                                                        <div class="input-group-btn">
+                                                            <span class="fileUpload btn btn-primary">
+                                                                <span class="upl" id="upload">Upload single file</span>
+                                                                <input onchange="readURL(this)" name="image" type="file" class="upload up" id="single_image"/>
+                                                            </span>
+                                                        </div>
+                                                    </div>
                                                 </div>
+
                                             </div>
+                                            {{-- @error('image') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror --}}
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <label>Multiple Image</label>
-                                                    <input multiple type="file" class="form-control" name="multiple_image">
+                                                    <label>Multiple Image</label><br>
+                                                    <div id="multiple_image_preview"></div>
+                                                    {{-- <button id="" type="button" onclick="reset_multiple_images()" class="btn btn-danger btn-sm">Reset</button> --}}
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" readonly>
+                                                          <div class="input-group-btn">
+                                                              <span class="fileUpload btn btn-primary">
+                                                                  <span class="upl" id="upload">Upload multiple files</span>
+                                                                  <input multiple onchange="preview_image()" id="upload_file" name="m_image[]" type="file" class="upload up"/>
+                                                              </span>
+                                                          </div>
+                                                      </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -212,8 +241,65 @@
     .ck-editor__editable_inline {
         min-height: 170px;
     }
+
+    /* Image Style  */
+
+
+        img{
+            max-width:80px;
+        }
+        input[type=file]{
+          padding:10px;
+        }
+
+
+
+          /* image 2 */
+
+          .it .btn-orange
+          {
+              background-color: blue;
+              border-color: #777!important;
+              color: #777;
+              text-align: left;
+            width:100%;
+          }
+          .it input.form-control
+          {
+
+              border:none;
+            margin-bottom:0px;
+              border-radius: 0px;
+              border-bottom: 1px solid #ddd;
+              box-shadow: none;
+          }
+          .it .form-control:focus
+          {
+              border-color: #ff4d0d;
+              box-shadow: none;
+              outline: none;
+          }
+          .fileUpload {
+              position: relative;
+              overflow: hidden;
+          }
+          .fileUpload input.upload {
+              position: absolute;
+              top: 0;
+              right: 0;
+              margin: 0;
+              padding: 0;
+              font-size: 20px;
+              cursor: pointer;
+              opacity: 0;
+              filter: alpha(opacity=0);
+          }
+
+
 </style>
 @endsection
+
+
 @section('script')
 {{-- Dropzone  --}}
 <script src="{{ asset('admin') }}/js/dropzone-amd-module.min.js"></script>
@@ -233,6 +319,78 @@
         .catch( error => {
             console.error( error );
         } );
+
+
+
+
+
+
+
+
+
+         /* image 1 */
+    $('#single_image_preview').hide();
+    // $('#single_image_preview_remove').hide();
+    $('#reaset_multiple').hide();
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        $('#single_image_preview').show();
+        // $('#single_image_preview_remove').show();
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+              $('#single_image_preview').attr('src', e.target.result);
+          };
+
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+
+
+
+/* image 2 */
+
+
+  $(document).on('change','.up', function(){
+            var names = [];
+            var length = $(this).get(0).files.length;
+                for (var i = 0; i < $(this).get(0).files.length; ++i) {
+                    names.push($(this).get(0).files[i].name);
+                }
+
+                if(length>2){
+                  var fileName = names.join(', ');
+                  $(this).closest('.form-group').find('.form-control').attr("value",length+" files selected");
+                }
+                else{
+                    $(this).closest('.form-group').find('.form-control').attr("value",names);
+                }
+       });
+
+
+// multiple image
+
+function preview_image() {
+    var total_file=document.getElementById("upload_file").files.length;
+    for(var i=0;i<total_file;i++){
+        $('#multiple_image_preview').append("<img class='my-2' src='"+URL.createObjectURL(event.target.files[i])+"'>&nbsp;&nbsp;");
+    }
+}
+
+function reset_multiple_images(){
+//     var input = $("#upload_file");
+
+// function clearInput() {
+//     input = input.val('').clone(true);
+// };
+
+$('#upload_file :input').val('');
+    // $('#upload_file').val();
+// document.getElementById('upload_file').reset();
+// $('#upload_file').attr('value', '');
+}
+
+
 
 </script>
 @endsection
