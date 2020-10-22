@@ -175,7 +175,7 @@ active pcoded-trigger
                                             <tbody>
                                                 @forelse ($socials as $social)
                                                 <tr>
-                                                    <td>{{ $social->social_media }}</td>
+                                                    <td><i class="{{ $social->social_media }} pr-2"></i>{{ $social->social_media }}</td>
                                                     <td>{{ $social->profile_name }}</td>
                                                     <td>{{ $social->profile_link }}</td>
                                                     <td class="d-flex">

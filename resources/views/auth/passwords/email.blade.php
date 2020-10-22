@@ -19,18 +19,19 @@
                     <div class="auth-box card">
                         <div class="card-block">
                             <div class="row m-b-20">
-                                <div class="col-md-12">
-                                    <h3 class="text-center txt-primary">Recover your password</h3>
-                                </div>
-                                @if (session('status'))
+                                <div class="col-md-12 text-center">
+                                    <h3 class="txt-primary pb-4">Recover your password</h3>
+
+                                    @if (session('status'))
                                     <div class="alert alert-success" role="alert">
                                         {{ session('status') }}
                                     </div>
                                 @endif
+                                </div>
                             </div>
                             {{-- <p class="text-muted text-center p-b-5">Session Notifications</p> --}}
                             <div class="form-group form-primary">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                                 <span class="form-bar"></span>
                                 <label class="float-label">Your E-Mail Address</label>
 

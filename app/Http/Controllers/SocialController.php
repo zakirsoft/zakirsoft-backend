@@ -37,14 +37,14 @@ class SocialController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'social_media' => 'required',
+            'social_name' => 'required',
             'profile_name' => 'required',
-            'profile_link' => 'required|url'
+            'social_link' => 'required|url'
         ],[
-            'social_media.required' => 'Social media selection is Required.',
+            'social_name.required' => 'Social media selection is Required.',
             'profile_name.unique' => 'Profile name field is Required.',
-            'profile_link.required' => 'Profile link field is Required.',
-            'profile_link.url' => 'Profile link Must be a Valid Link.',
+            'social_link.required' => 'Profile link field is Required.',
+            'social_link.url' => 'Profile link Must be a Valid Link.',
         ]);
 
         $insert = new Social;
@@ -87,6 +87,17 @@ class SocialController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request,[
+            'social_name' => 'required',
+            'profile_name' => 'required',
+            'social_link' => 'required|url'
+        ],[
+            'social_name.required' => 'Social media selection is Required.',
+            'profile_name.unique' => 'Profile name field is Required.',
+            'social_link.required' => 'Profile link field is Required.',
+            'social_link.url' => 'Profile link Must be a Valid Link.',
+        ]);
+
         $update = Social::findOrFail($id);
         $update->social_media = $request->social_name;
         $update->profile_name = $request->profile_name;
