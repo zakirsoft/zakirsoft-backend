@@ -78,7 +78,7 @@ class UserController extends Controller
 
         $user->assignRole($request->roles);
 
-        return redirect()->back()->with('create', 'User created Successfully');
+        return redirect()->back()->with('success', 'User created Successfully');
     }
 
     /**
@@ -131,13 +131,22 @@ class UserController extends Controller
             unlink($img->image);
         }
 
-        /// Nxt day
+        if($request->has('image')) {
+            $image = $request->image;
+            $imageName = time() . '_' . uniqid() .'.'. $image->getClientOriginalExtension();
+            Storage::putFileAs('/user', $image, $imageName);
+
+            $img->image = 'storage/user/'. $imageName;
+            $img->save();
+        }
 
         User::findOrFail($id)->update([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
+
+        return redirect(route('user.index'))->with('create', 'User updated Successfully');
     }
 
     /**
