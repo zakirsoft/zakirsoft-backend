@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Career;
 use App\Models\Footer;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class FooterController extends Controller
@@ -14,7 +16,8 @@ class FooterController extends Controller
      */
     public function index()
     {
-        return view('admin.footer.index');
+        $footers = Footer::all();
+        return view('admin.footer.index', compact('footers'));
     }
 
     /**
@@ -35,7 +38,13 @@ class FooterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Footer::insert([
+            'email' => $request->email,
+            'content' => $request->content,
+            'created_at' => Carbon::now()
+        ]);
+
+        return redirect()->back()->with('success', 'Footer content added Successfully');
     }
 
     /**
@@ -69,7 +78,7 @@ class FooterController extends Controller
      */
     public function update(Request $request, Footer $footer)
     {
-        //
+
     }
 
     /**
@@ -78,8 +87,14 @@ class FooterController extends Controller
      * @param  \App\Models\Footer  $footer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Footer $footer)
+    public function destroy($id)
     {
-        //
+        $content = Footer::find($id);
+
+        if($content){
+            $content->delete();
+        }
+
+        return redirect()->back()->with('danger', 'Footer content has been Deleted.');
     }
 }
