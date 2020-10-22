@@ -48,10 +48,11 @@
 
     .project_img {
         img {
-            max-width: 100%;
+           width: 800px;
+           height: 400px;
+           object-fit: cover;
         }
     }
-
     .project_info {
         span {
             font-size: 12px;

@@ -9,10 +9,33 @@
       <!-- all style link goes here -->
         @include('frontend.Includes.style')
 
+        <style>
+            #toast-container>:hover {
+  
+    opacity: 1;
+
+}
+
+
+#toast-container>div {
+    position: relative;
+    pointer-events: auto;
+    overflow: hidden;
+    margin: 0 0 6px;
+    padding: 15px 15px 15px 50px;
+    width: 300px;
+    border-radius: 3px;
+    background-position: 15px center;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 12px #999;
+    color: #fff;
+
+}
+        </style>
   </head>
 
   <body>
-      
+
     <!-- header section start -->
 
         @include('frontend.Includes.header')

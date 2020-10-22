@@ -1,15 +1,22 @@
 /*----------------------------------------*/
-/*  RESPONSIVE CSS START 
+/*  RESPONSIVE CSS START
 /*----------------------------------------*/
 
 
 
 
 // for common device size
+
+@media(max-width: 1200px) {
+    .project_img img {
+        max-width: 100%;
+        object-fit: contain;
+    }
+}
 @media(max-width: 991px) {
     #about{
         .about_content{
-            
+
          .col-lg-6{
              &:first-child{
                  margin-left: 30px;
@@ -19,7 +26,7 @@
                margin-top: 32px;
              }
          }
-         
+
         }
     }
 }
@@ -47,17 +54,17 @@
     /* ?? section start */
      /* ?? section end */
 }
-      
+
 
 /* Medium devices 768 - 991 */
 
 @include md {
-    // About page 
+    // About page
 
     /* about section start */
        #about{
            .about_content{
-               
+
             .col-lg-6{
                 &:first-child{
                     margin-left: 30px;
@@ -67,7 +74,7 @@
                   margin-top: 32px;
                 }
             }
-            
+
            }
        }
      /* about section end */
@@ -76,7 +83,7 @@
     /* ?? section start */
      /* ?? section end */
 }
-       
+
 
 /* Small devices 576 - 767 */
 
@@ -85,14 +92,14 @@
     /* about section start */
     #about{
         .about_content{
-            
+
          .col-lg-6{
-            
+
              .play_video{
                margin-top: -22px;
              }
          }
-         
+
         }
     }
 
@@ -110,7 +117,7 @@
 
 // social links
 .social_links {
-    
+
     margin-bottom: 20px !important;
 }
 
@@ -127,14 +134,14 @@ section{
     /* About section start */
     #about{
         .about_content{
-            
+
          .col-lg-6{
              .play_video{
                margin-top: -15px;
                white-space: nowrap;
              }
          }
-         
+
         }
     }
 

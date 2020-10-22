@@ -67,7 +67,7 @@ $(document).ready(function () {
         dots: true,
         centerMode: true,
         infinite: true,
-        centerPadding: '290px',
+        centerPadding: '60px',
         // autoplay: true,
         // autoplaySpeed: 1000,
         responsive: [{

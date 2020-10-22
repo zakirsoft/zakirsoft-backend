@@ -11,7 +11,8 @@ use App\Models\PortfolioCategory;
 class WebsiteController extends Controller
 {
     function home(){
-        return view('frontend.index');
+        $portfolio = Portfolio::latest()->get();
+        return view('frontend.index',compact('portfolio'));
     }
 
     function about(){

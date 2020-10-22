@@ -38,132 +38,32 @@
                 <h2>our Work</h2>
               </div>
               <div class="row project_slider">
+
+                @foreach ($portfolio as $item)
                 <div class="slide_item col-12">
-                  <div class="col-4">
-                    <div class="slide_info">
-                      <span class="p_type">Project type</span>
-                      <h3 class="p_title">Project name</h3>
+                    <div class="col-4">
+                        <div class="slide_info">
+                      <span class="p_type">{{ $item->category->name }}</span>
+                      <h3 class="p_title">{{ Str::words($item->title,3) }}</h3>
+                      {{-- <h3 class="p_title">{{ str_limit($item->title,10,'&raquo;') }}</h3> --}}
                       <a class="v_project" href="#">
-                        <span>View Project</span>
-                        <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="" />
-                      </a>
+                          <span>View Project</span>
+                          <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="" />
+                        </a>
                     </div>
-                  </div>
-                  <div class="col-8">
-                    <div class="project_img">
-                      <img
-                        src="{{ asset('frontend') }}/assets/images/project-img/img-7.png"
-                        alt="project-img"
-                        class="img-fluid"
-                      />
-                    </div>
-                  </div>
                 </div>
-                <div class="slide_item col-12">
-                  <div class="col-4">
-                    <div class="slide_info">
-                      <span class="p_type">Project type</span>
-                      <h3 class="p_title">Project name</h3>
-                      <a class="v_project" href="#">
-                        <span>View Project</span>
-                        <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="" />
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col-8">
+                <div class="col-8">
                     <div class="project_img">
-                      <img
-                        src="{{ asset('frontend') }}/assets/images/project-img/img-7.png"
+                        <img
+                        src="{{ asset($item->image) }}"
                         alt="project-img"
-                        class="img-fluid"
-                      />
+                        />
                     </div>
-                  </div>
                 </div>
-                <div class="slide_item col-12">
-                  <div class="col-4">
-                    <div class="slide_info">
-                      <span class="p_type">Project type</span>
-                      <h3 class="p_title">Project name</h3>
-                      <a class="v_project" href="#">
-                        <span>View Project</span>
-                        <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="" />
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col-8">
-                    <div class="project_img">
-                      <img
-                        src="{{ asset('frontend') }}/assets/images/project-img/img-7.png"
-                        alt="project-img"
-                        class="img-fluid"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="slide_item col-12">
-                  <div class="col-4">
-                    <div class="slide_info">
-                      <span class="p_type">Project type</span>
-                      <h3 class="p_title">Project name</h3>
-                      <a class="v_project" href="#">
-                        <span>View Project</span>
-                        <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="" />
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col-8">
-                    <div class="project_img">
-                      <img
-                        src="{{ asset('frontend') }}/assets/images/project-img/img-7.png"
-                        alt="project-img"
-                        class="img-fluid"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="slide_item col-12">
-                  <div class="col-4">
-                    <div class="slide_info">
-                      <span class="p_type">Project type</span>
-                      <h3 class="p_title">Project name</h3>
-                      <a class="v_project" href="#">
-                        <span>View Project</span>
-                        <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="" />
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col-8">
-                    <div class="project_img">
-                      <img
-                        src="{{ asset('frontend') }}/assets/images/project-img/img-7.png"
-                        alt="project-img"
-                        class="img-fluid"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="slide_item col-12">
-                  <div class="col-4">
-                    <div class="slide_info">
-                      <span class="p_type">Project type</span>
-                      <h3 class="p_title">Project name</h3>
-                      <a class="v_project" href="#">
-                        <span>View Project</span>
-                        <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="" />
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col-8">
-                    <div class="project_img">
-                      <img
-                        src="{{ asset('frontend') }}/assets/images/project-img/img-7.png"
-                        alt="project-img"
-                        class="img-fluid"
-                      />
-                    </div>
-                  </div>
-                </div>
+            </div>
+            @endforeach
+
+
               </div>
               <h4 class="drag_text">Drag</h4>
             </div>
