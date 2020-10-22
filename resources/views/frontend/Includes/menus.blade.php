@@ -32,7 +32,7 @@
           <li><a href="#"> <i  class="fab fa-linkedin-in"></i> </a></li>
         </ul>
         <div class="copyright-text">
-          <p>Copyright © {{ date('Y') }} ZakirSoft. All rights Reserved.</h5>
+          <p>Copyright © {{ date('Y') }} ZakirSoft. All rights Reserved.</p>
         </div>
       </div>
     </div>
