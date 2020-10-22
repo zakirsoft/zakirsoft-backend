@@ -113,6 +113,6 @@ class FooterController extends Controller
             $content->delete();
         }
 
-        return redirect()->back()->with('danger', 'Footer content has been Deleted.');
+        return redirect()->back()->with('success', 'Footer content has been Deleted.');
     }
 }

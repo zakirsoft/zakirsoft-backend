@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('title')
-Users View - ZakirSoft
+    Users View - ZakirSoft
 @endsection
 
 @section('users')
-active pcoded-trigger
+    active pcoded-trigger
 @endsection
 
 @section('content')

@@ -83,6 +83,6 @@ class ContactController extends Controller
     {
         $contact = Contact::find($id);
         $contact->delete();
-        return redirect()->back()->with('delete','Message Delete Successfully!');
+        return redirect()->back()->with('success','Message Delete Successfully!');
     }
 }

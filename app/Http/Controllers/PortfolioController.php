@@ -243,14 +243,14 @@ class PortfolioController extends Controller
             unlink(base_path('public/'.$old_image->image));
             $old_image->delete();
 
-            session()->flash('danger', 'Portfolio Deleted Successfully!');
+            session()->flash('success', 'Portfolio Deleted Successfully!');
             return redirect()->route('portfolio.index');
 
         }else{
 
             $old_image->delete();
 
-            session()->flash('danger', 'Portfolio Deleted Successfully!');
+            session()->flash('warning', 'Portfolio Deleted Successfully!');
             return redirect()->route('portfolio.index');
         }
 

@@ -38,7 +38,6 @@ class CareerController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
             'title' => 'required',
             'content' => 'required',
@@ -55,10 +54,6 @@ class CareerController extends Controller
 
         session()->flash('success', 'Career Content Added Successfully!');
         return redirect()->route('career.index');
-
-        // notify()->success('Career Content Added Successfully');
-
-
     }
 
     /**
@@ -126,12 +121,12 @@ class CareerController extends Controller
 
             $career->delete();
 
-            session()->flash('danger', 'Carrer Content Deleted Successfully!');
+            session()->flash('success', 'Carrer Content Deleted Successfully!');
             return redirect()->route('career.index');
 
         }else{
 
-            session()->flash('danger', 'Carrer Content Deleted Successfully!');
+            session()->flash('success', 'Carrer Content Deleted Successfully!');
             return redirect()->route('career.index');
         }
 
