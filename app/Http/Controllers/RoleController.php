@@ -36,7 +36,7 @@ class RoleController extends Controller
             'name' => $request->role_name,
         ]);
 
-        return back()->with('create', 'Role created Successfully');
+        return back()->with('success', 'Role created Successfully');
     }
 
 
@@ -62,7 +62,7 @@ class RoleController extends Controller
         $update->name = $request->role_name;
         $update->save();
 
-        return redirect(route('RoleIndex'))->with('update', 'Role name Updated Successfully');
+        return redirect(route('RoleIndex'))->with('success', 'Role name Updated Successfully');
     }
 
 
@@ -85,7 +85,7 @@ class RoleController extends Controller
     public function permission_assign_post(Request $request, Role $role)
     {
         $role->syncPermissions($request->permissions);
-        return redirect(route('RoleIndex'))->with('assign', 'Permission has been assigned');
+        return redirect(route('RoleIndex'))->with('success', 'Permission has been assigned');
     }
 
 
@@ -97,7 +97,7 @@ class RoleController extends Controller
             $role->delete();
         }
 
-        return back()->with('delete', 'Role has been Deleted.');
+        return back()->with('success', 'Role has been Deleted.');
     }
 
 }

@@ -132,7 +132,7 @@ class TeamController extends Controller
             $team->delete();
         }
         $team->delete();
-        session()->flash('delete', 'Member Deleted Successfully!');
+        session()->flash('success', 'Member Deleted Successfully!');
         return back();
     }
 }

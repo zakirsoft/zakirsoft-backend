@@ -111,7 +111,7 @@ class TestimonialController extends Controller
             $test->delete();
         }
 
-        session()->flash('danger', 'Testimonial Deleted Successfully!');
+        session()->flash('success', 'Testimonial Deleted Successfully!');
         return redirect()->route('testimonial.index');
 
     }

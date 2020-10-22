@@ -110,6 +110,6 @@ class SocialController extends Controller
             $social->delete();
         }
 
-        return redirect()->back()->with('danger', 'Social Profile has been Deleted.');
+        return redirect()->back()->with('success', 'Social Profile has been Deleted.');
     }
 }

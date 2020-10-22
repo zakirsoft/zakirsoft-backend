@@ -20,26 +20,28 @@
 
 {{-- Ck editor  --}}
 <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
-<script src="{{asset('admin')}}/js/script.min.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'UA-23581568-13');
-</script>
-{{-- @notifyJs --}}
-<script src="{{asset('admin')}}/js/rocket-loader.min.js" data-cf-settings="2d8d78e876b340f9029c575b-|49" defer=""> </script>
+{{-- toastr notification --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"> </script>
+<script src="{{asset('admin')}}/js/script.min.js"></script>
+
+<script>
+    @if(Session::has('success'))
+        toastr.success("{{ Session::get('success') }}", 'Success!')
+    @elseif(Session::has('warning'))
+        toastr.warning("{{ Session::get('warning') }}", 'Warning!')
+    @elseif(Session::has('error'))
+        toastr.error("{{ Session::get('error') }}", 'Error!')
+    @endif
+</script>
+
+{{-- <script src="{{asset('admin')}}/js/rocket-loader.min.js" data-cf-settings="2d8d78e876b340f9029c575b-|49" defer=""> </script> --}}
 @yield('script')
 
 <script>
 toastr.options = {
-  "closeButton": true,
+  "closeButton": false,
   "debug": false,
-  "newestOnTop": false,
+  "newestOnTop": true,
   "progressBar": true,
   "positionClass": "toast-top-right",
   "preventDuplicates": true,
@@ -50,8 +52,6 @@ toastr.options = {
   "extendedTimeOut": "1000",
   "showEasing": "swing",
   "hideEasing": "linear",
-  "showMethod": "fadeIn",
   "hideMethod": "fadeOut"
 }
-toastr.success('Are you the 6 fingered man?')
 </script>

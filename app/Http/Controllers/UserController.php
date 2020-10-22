@@ -78,7 +78,7 @@ class UserController extends Controller
 
         $user->assignRole($request->roles);
 
-        return redirect()->back()->with('create', 'User created Successfully');
+        return redirect()->back()->with('success', 'User created Successfully');
     }
 
     /**
@@ -158,7 +158,7 @@ class UserController extends Controller
             $user->delete();
         }
 
-       return redirect()->back()->with('delete', 'A User has been Deleted Successfully');
+       return redirect()->back()->with('success', 'A User has been Deleted Successfully');
     }
 
 

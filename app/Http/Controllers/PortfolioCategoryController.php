@@ -62,7 +62,7 @@ class PortfolioCategoryController extends Controller
 
             if ($p_category) {
                  $p_category->delete();
-                 session()->flash('danger', 'Portfolio Category Deleted Successfully!');
+                 session()->flash('success', 'Portfolio Category Deleted Successfully!');
                  return redirect()->route('portfolio.category.index');
             }
         }
