@@ -11,10 +11,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="details-slider-active">
+
                         @foreach ($work_details_imgages as $item)
                         <div class="single-slider">
-                            <p>{{  $item->portfolio_images->id }}</p>
-                            <img src="assets/images/project-img/img-1.png" alt="project-img">
+                            {{-- <p>{{  $item->portfolio_images->id }}</p> --}}
+                            <img src="{{ asset($item->m_image) }}" alt="project-img">
                         </div>
                         @endforeach
 

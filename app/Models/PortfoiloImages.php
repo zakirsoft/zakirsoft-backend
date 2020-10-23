@@ -13,6 +13,8 @@ class PortfoiloImages extends Model
         'm_image',
     ];
 
-
+    public function portfolio_images(){
+        return $this->belongsTo(Portfolio::class,'portfolio_id');
+    }
 
 }

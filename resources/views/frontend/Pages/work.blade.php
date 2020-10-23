@@ -24,6 +24,7 @@
                             <div class="col-md-6">
                                 <div class="work_tab">
                                     <ul class="nav nav-pills mr-auto" id="pills-tab" role="tablist">
+
                                         <li class="nav-item">
                                             <a class="nav-link   active" id="pills-all-tab" data-toggle="pill"
                                                 href="#pills-all" role="tab" aria-controls="pills-all"
@@ -33,7 +34,7 @@
                                         @foreach ($category_list as $item)
                                         <li class="nav-item">
                                             <a class="nav-link" id="pills-frontend-tab" data-toggle="pill"
-                                            href="#pills-frontend" role="tab" aria-controls="pills-frontend"
+                                            href="#pills{{ $item->id }}" role="tab" aria-controls="pills-frontend"
                                             aria-selected="false">{{ $item->name }}</a>
                                         </li>
                                         @endforeach
@@ -47,116 +48,59 @@
                     <div class="tab-content pt-5" id="pills-tabContent">
 
                         @foreach ($portfolio as $item)
-                        <div class="tab-pane fade show active" id="pills-all" role="tabpanel"
-                            aria-labelledby="pills-all-tab">
-                            <div class="row align-items-center mb-100">
-                                <div class="col-4">
-                                    <div class="project_info">
-                                        <span class="p_type">{{ $item->category->name }}</span>
-                                        <h3 class="project_name">{{ $item->title }}</h3>
-                                        <a href="{{ route('work_details_website', $item->id) }}" class="v_project">
-                                            view more
-                                            <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="arrow_icon">
-                                        </a>
+                            <div class="tab-pane fade show active" id="pills-all" role="tabpanel"
+                                aria-labelledby="pills-all-tab">
+                                <div class="row align-items-center mb-100">
+                                    <div class="col-4">
+                                        <div class="project_info">
+                                            <span class="p_type">{{ $item->category->name }}</span>
+                                            <h3 class="project_name">{{ $item->title }}</h3>
+                                            <a href="{{ route('work_details_website', $item->id) }}" class="v_project">
+                                                view more
+                                                <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="arrow_icon">
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-8">
-                                    <div class="project_img">
-                                        <img src="{{ asset($item->image) }}" alt="Project_img">
+                                    <div class="col-8">
+                                        <div class="project_img">
+                                            <img src="{{ asset($item->image) }}" alt="Project_img">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
 
-                        <div class="tab-pane fade" id="pills-frontend" role="tabpanel"
-                        aria-labelledby="pills-frontend-tab">
-                        <div class="row align-items-center mb-100">
-                            <div class="col-4">
-                                <div class="project_info">
-                                    <span class="p_type">Project Type</span>
-                                    <h3 class="project_name">Project Name</h3>
-                                    <a href="#" class="v_project">
-                                        view more
-                                        <img src="assets/images/Arrow-icon.png" alt="arrow_icon">
-                                    </a>
+                    @foreach ($category_list as $item)
+
+                        @php
+                            $work_item = App\Models\Portfolio::where('category_id', $item->id)->latest()->get();
+                        @endphp
+
+                        @foreach ($work_item as $item)
+                            <div class="tab-pane fade" id="pills{{ $item->id }}" role="tabpanel"
+                                aria-labelledby="pills-frontend-tab">
+
+                                <div class="row align-items-center mb-100">
+                                    <div class="col-4">
+                                        <div class="project_info">
+                                            <span class="p_type">{{ $item->category->name }}</span>
+                                            <h3 class="project_name">{{ $item->title }}</h3>
+                                            <a href="{{ route('work_details_website', $item->id) }}" class="v_project">
+                                                view more
+                                                <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="arrow_icon">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="project_img">
+                                            <img src="{{ asset($item->image) }}" alt="Project_img">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-8">
-                                <div class="project_img">
-                                    <img src="assets/images/project-img/img-1.png" alt="Project_img">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row align-items-center mb-100">
-                            <div class="col-4">
-                                <div class="project_info">
-                                    <span class="p_type">Project Type</span>
-                                    <h3 class="project_name">Project Name</h3>
-                                    <a href="#" class="v_project">
-                                        view more
-                                        <img src="assets/images/Arrow-icon.png" alt="arrow_icon">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-8">
-                                <div class="project_img">
-                                    <img src="assets/images/project-img/img-2.png" alt="Project_img">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row align-items-center mb-100">
-                            <div class="col-4">
-                                <div class="project_info">
-                                    <span class="p_type">Project Type</span>
-                                    <h3 class="project_name">Project Name</h3>
-                                    <a href="#" class="v_project">
-                                        view more
-                                        <img src="assets/images/Arrow-icon.png" alt="arrow_icon">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-8">
-                                <div class="project_img">
-                                    <img src="assets/images/project-img/img-3.png" alt="Project_img">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row align-items-center mb-100">
-                            <div class="col-4">
-                                <div class="project_info">
-                                    <span class="p_type">Project Type</span>
-                                    <h3 class="project_name">Project Name</h3>
-                                    <a href="#" class="v_project">
-                                        view more
-                                        <img src="assets/images/Arrow-icon.png" alt="arrow_icon">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-8">
-                                <div class="project_img">
-                                    <img src="assets/images/project-img/img-4.png" alt="Project_img">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row align-items-center">
-                            <div class="col-4">
-                                <div class="project_info">
-                                    <span class="p_type">Project Type</span>
-                                    <h3 class="project_name">Project Name</h3>
-                                    <a href="#" class="v_project">
-                                        view more
-                                        <img src="assets/images/Arrow-icon.png" alt="arrow_icon">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-8">
-                                <div class="project_img">
-                                    <img src="assets/images/project-img/img-5.png" alt="Project_img">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        @endforeach
+
+                     @endforeach
 
 
                     </div>
