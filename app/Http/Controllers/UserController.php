@@ -14,7 +14,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['permission:user show|user create|user list|user edit|role assign|user delete']);
     }
 
     /**

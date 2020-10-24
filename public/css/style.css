@@ -1,3 +1,9 @@
 .navbar-logo a {
     margin: 0 !important;
 }
+
+@media (min-width: 300px) and (max-width: 576px){
+    #responsive___none{
+        display: none !important;
+    }
+}

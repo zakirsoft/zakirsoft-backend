@@ -10,7 +10,7 @@ class RoleController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['permission:role show|role list|role create|permission assign|role edit|role delete']);
     }
 
     public function index()

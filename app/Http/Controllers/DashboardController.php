@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Career;
 use App\Models\dashboard;
 use App\Models\Portfolio;
+use App\Models\Social;
+use App\Models\Team;
 use App\Models\Testimonial;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -29,7 +31,9 @@ class DashboardController extends Controller
             'role' => Role::count(),
             'portfolio' => Portfolio::count(),
             'testimonial' => Testimonial::count(),
-            'career' => Career::count()
+            'career' => Career::count(),
+            'social' => Social::count(),
+            'team' => Team::count()
         ]);
     }
 
