@@ -10,7 +10,7 @@ class CareerController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['permission:career show|career create|career edit|career delete']);
     }
 
     /**

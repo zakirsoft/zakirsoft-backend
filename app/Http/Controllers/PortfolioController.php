@@ -15,7 +15,7 @@ class PortfolioController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['permission:portfolio show|portfolio list|portfolio create|portfolio edit|portfolio delete']);
     }
 
     /**

@@ -13,7 +13,7 @@ class TeamController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['permission:team show|team create|team edit|team delete']);
     }
 
     /**

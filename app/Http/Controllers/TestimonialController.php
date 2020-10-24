@@ -10,7 +10,7 @@ class TestimonialController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['permission:testimonial show|testimonial create|testimonial list|testimonial delete']);
     }
 
     /**
