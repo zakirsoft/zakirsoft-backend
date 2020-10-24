@@ -22,7 +22,7 @@ class RoleController extends Controller
     }
 
 
-    public function role_create(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'role_name' => ['required', 'min:2', 'unique:roles,name']
@@ -40,15 +40,14 @@ class RoleController extends Controller
     }
 
 
-    public function role_edit($id)
+    public function edit($id)
     {
         $roles = Role::findOrFail($id);
-
         return view('admin.role.edit', compact('roles'));
     }
 
 
-    public function role_update(Request $request)
+    public function update(Request $request)
     {
         $request->validate([
             'role_name' => ['required', 'min:2', 'unique:roles,name']
@@ -62,7 +61,7 @@ class RoleController extends Controller
         $update->name = $request->role_name;
         $update->save();
 
-        return redirect(route('RoleIndex'))->with('success', 'Role name Updated Successfully');
+        return redirect(route('role.index'))->with('success', 'Role name Updated Successfully');
     }
 
 
@@ -85,11 +84,11 @@ class RoleController extends Controller
     public function permission_assign_post(Request $request, Role $role)
     {
         $role->syncPermissions($request->permissions);
-        return redirect(route('RoleIndex'))->with('success', 'Permission has been assigned');
+        return redirect(route('role.index'))->with('success', 'Permission has been assigned');
     }
 
 
-    public function role_delete($id)
+    public function destroy($id)
     {
         $role = Role::findOrFail($id);
 

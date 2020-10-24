@@ -31,7 +31,7 @@
                         @endcan
                         @can('role list')
                         <li class="">
-                            <a href="{{ route('RoleIndex') }}" class="waves-effect waves-dark">
+                            <a href="{{ route('role.index') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">User Role</span>
                             </a>
                         </li>

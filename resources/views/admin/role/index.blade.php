@@ -80,7 +80,7 @@ active pcoded-trigger
                                 <div class="card-header d-flex justify-content-between">
                                     <h5>All Role</h5>
                                     @can('role create')
-                                    <a href="{{ route('RoleCreate') }}" class="btn btn-sm btn-primary mr-1"
+                                    <a href="{{ route('role.create') }}" class="btn btn-sm btn-primary mr-1"
                                     title="Create a User"><i class="fas fa-plus-square pr-1"></i>Create</a>
                                     @endcan
                                 </div>
@@ -107,7 +107,7 @@ active pcoded-trigger
                                                     </td>
                                                     <td class="d-flex">
                                                         @can('role edit')
-                                                        <a href="{{ route('RoleEdit', $role->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit Role">
+                                                        <a href="{{ route('role.edit', $role->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit Role">
                                                             <i class="far fa-edit"></i>
                                                         </a>
                                                         @endcan
@@ -117,9 +117,11 @@ active pcoded-trigger
                                                         </a>
                                                         @endcan
                                                         @can('role delete')
-                                                        <a href="{{ route('RoleDelete', $role->id) }}" class="btn btn-sm btn-danger text-light">
-                                                            <i class="far fa-trash-alt"></i>
-                                                        </a>
+                                                        <form action="{{ route('role.destroy', $role->id) }}" method="POST">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button onclick="return confirm('Are you sure delete {{$role->name}} Role ?');"  class="btn btn-sm btn-danger text-light"><i class="far fa-trash-alt"></i></button>
+                                                        </form>
                                                         @endcan
                                                     </td>
                                                 </tr>
