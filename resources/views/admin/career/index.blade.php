@@ -43,28 +43,6 @@
     <div class="pcoded-inner-content">
         <div class="main-body">
             <div class="page-wrapper">
-
-
-
-
-                {{-- @if (session('danger'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('danger') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                @endif
-
-                @if (session('error'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ session('error') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                @endif --}}
-
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
@@ -150,7 +128,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header bg-dark text-light">
-          <h5 class="modal-title" id="exampleModal3Label">Add Carrer</h5>
+          <h5 class="modal-title" id="exampleModal3Label">Add Career</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -170,8 +148,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add Career</button>
             </div>
         </form>
       </div>
