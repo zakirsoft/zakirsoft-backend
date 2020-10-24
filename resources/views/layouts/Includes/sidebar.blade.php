@@ -16,28 +16,28 @@
             <div class="pcoded-navigation-label">Admin</div>
             <ul class="pcoded-item pcoded-left-item">
                 <li class="pcoded-hasmenu">
-                    {{-- @can('user show') --}}
+                    @can('user show')
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="far fa-user"></i></span>
                         <span class="pcoded-mtext">User</span>
                     </a>
                     <ul class="pcoded-submenu">
-                        {{-- @can('user list') --}}
+                        @can('user list')
                         <li class="">
                             <a href="{{ route('user.index') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">All User</span>
                             </a>
                         </li>
-                        {{-- @endcan --}}
-                        {{-- @can('role list') --}}
+                        @endcan
+                        @can('role list')
                         <li class="">
                             <a href="{{ route('role.index') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">User Role</span>
                             </a>
                         </li>
-                        {{-- @endcan --}}
+                        @endcan
                     </ul>
-                    {{-- @endcan --}}
+                    @endcan
                 </li>
             </ul>
 
@@ -76,28 +76,28 @@
                     @endcan
                 </li>
                 <li class="pcoded-hasmenu @yield('testimonial')">
-                    {{-- @can('testimonial show') --}}
+                    @can('testimonial show')
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="far fa-file-word"></i></span>
                         <span class="pcoded-mtext">Testimonial</span>
                     </a>
                     <ul class="pcoded-submenu">
-                        {{-- @can('testimonial create') --}}
+                        @can('testimonial create')
                         <li class="">
                             <a href="{{ route('testimonial.create') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Add Testimonial</span>
                             </a>
                         </li>
-                        {{-- @endcan --}}
-                        {{-- @can('testimonial list') --}}
+                        @endcan
+                        @can('testimonial list')
                         <li class="">
                             <a href="{{ route('testimonial.index') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Testimonials List</span>
                             </a>
                         </li>
-                        {{-- @endcan --}}
+                        @endcan
                     </ul>
-                    {{-- @endcan --}}
+                    @endcan
                 </li>
                 <li class="@yield('career')">
                     @can('career show')
@@ -135,49 +135,6 @@
                     </a>
                 </li>
             </ul>
-
-            {{-- <div class="pcoded-navigation-label">Other</div> --}}
-            {{-- <ul class="pcoded-item pcoded-left-item">
-                </li>
-                <li class="pcoded-hasmenu">
-                    <a href="javascript:void(0)" class="waves-effect waves-dark">
-                        <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
-                        <span class="pcoded-mtext">Example</span>
-                    </a>
-                    <ul class="pcoded-submenu">
-                        <li class=" pcoded-hasmenu">
-                            <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">option</span>
-                            </a>
-                            <ul class="pcoded-submenu">
-                                <li class="">
-                                    <a href="#" class="waves-effect waves-dark">
-                                        <span class="pcoded-mtext">option-2</span>
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a href="#" class="waves-effect waves-dark">
-                                        <span class="pcoded-mtext">Option-3</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="">
-                            <a href="#" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Option 1</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="">
-                    <a href="#" class="waves-effect waves-dark">
-                        <span class="pcoded-micon">
-                            <i class="feather icon-menu"></i>
-                        </span>
-                        <span class="pcoded-mtext">Option</span>
-                    </a>
-                </li>
-            </ul> --}}
 
         </div>
     </div>

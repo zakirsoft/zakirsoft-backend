@@ -14,27 +14,6 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-        // portfolio permission
-        Permission::create([ 'name' => 'portfolio list' ]);
-        Permission::create([ 'name' => 'portfolio show' ]);
-        Permission::create([ 'name' => 'portfolio create' ]);
-        Permission::create([ 'name' => 'portfolio edit' ]);
-        Permission::create([ 'name' => 'portfolio delete' ]);
-
-        // testimonial permission
-        Permission::create([ 'name' => 'testimonial list' ]);
-        Permission::create([ 'name' => 'testimonial show' ]);
-        Permission::create([ 'name' => 'testimonial create' ]);
-        Permission::create([ 'name' => 'testimonial edit' ]);
-        Permission::create([ 'name' => 'testimonial delete' ]);
-
-        // testimonial permission
-        Permission::create([ 'name' => 'career list' ]);
-        Permission::create([ 'name' => 'career show' ]);
-        Permission::create([ 'name' => 'career create' ]);
-        Permission::create([ 'name' => 'career edit' ]);
-        Permission::create([ 'name' => 'career delete' ]);
-
         // user permission
         Permission::create([ 'name' => 'user list' ]);
         Permission::create([ 'name' => 'user show' ]);
@@ -49,12 +28,36 @@ class PermissionSeeder extends Seeder
         Permission::create([ 'name' => 'role edit' ]);
         Permission::create([ 'name' => 'role delete' ]);
 
+        // portfolio permission
+        Permission::create([ 'name' => 'portfolio list' ]);
+        Permission::create([ 'name' => 'portfolio show' ]);
+        Permission::create([ 'name' => 'portfolio create' ]);
+        Permission::create([ 'name' => 'portfolio edit' ]);
+        Permission::create([ 'name' => 'portfolio delete' ]);
+
+        // testimonial permission
+        Permission::create([ 'name' => 'testimonial show' ]);
+        Permission::create([ 'name' => 'testimonial create' ]);
+        Permission::create([ 'name' => 'testimonial list' ]);
+        Permission::create([ 'name' => 'testimonial edit' ]);
+        Permission::create([ 'name' => 'testimonial delete' ]);
+
+        // career permission
+        Permission::create([ 'name' => 'career show' ]);
+        Permission::create([ 'name' => 'career create' ]);
+        Permission::create([ 'name' => 'career edit' ]);
+        Permission::create([ 'name' => 'career delete' ]);
+
         // team permission
-        Permission::create([ 'name' => 'team list' ]);
         Permission::create([ 'name' => 'team show' ]);
         Permission::create([ 'name' => 'team create' ]);
         Permission::create([ 'name' => 'team edit' ]);
         Permission::create([ 'name' => 'team delete' ]);
 
+        // footer permission
+        Permission::create([ 'name' => 'footer show' ]);
+        Permission::create([ 'name' => 'footer create' ]);
+        Permission::create([ 'name' => 'footer edit' ]);
+        Permission::create([ 'name' => 'footer delete' ]);
     }
 }
