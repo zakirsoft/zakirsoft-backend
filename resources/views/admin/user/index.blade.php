@@ -72,9 +72,9 @@
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between">
                                     <h5>All Users ({{ $user_count }})</h5>
-                                    @can('user create')
+                                    {{-- @can('user create') --}}
                                     <a href="{{ url('user/create') }}" class="btn btn-sm btn-primary mr-1" title="Create a User"><i class="fas fa-plus-square pr-1"></i>Create</a>
-                                    @endcan
+                                    {{-- @endcan --}}
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive">

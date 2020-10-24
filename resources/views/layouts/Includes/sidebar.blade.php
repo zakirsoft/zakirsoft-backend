@@ -16,28 +16,28 @@
             <div class="pcoded-navigation-label">Admin</div>
             <ul class="pcoded-item pcoded-left-item">
                 <li class="pcoded-hasmenu">
-                    @can('user show')
+                    {{-- @can('user show') --}}
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="far fa-user"></i></span>
                         <span class="pcoded-mtext">User</span>
                     </a>
                     <ul class="pcoded-submenu">
-                        @can('user list')
+                        {{-- @can('user list') --}}
                         <li class="">
                             <a href="{{ route('user.index') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">All User</span>
                             </a>
                         </li>
-                        @endcan
-                        @can('role list')
+                        {{-- @endcan --}}
+                        {{-- @can('role list') --}}
                         <li class="">
                             <a href="{{ route('role.index') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">User Role</span>
                             </a>
                         </li>
-                        @endcan
+                        {{-- @endcan --}}
                     </ul>
-                    @endcan
+                    {{-- @endcan --}}
                 </li>
             </ul>
 
