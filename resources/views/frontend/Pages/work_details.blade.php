@@ -14,7 +14,6 @@
 
                         @foreach ($work_details_imgages as $item)
                         <div class="single-slider">
-                            {{-- <p>{{  $item->portfolio_images->id }}</p> --}}
                             <img src="{{ asset($item->m_image) }}" alt="project-img">
                         </div>
                         @endforeach
@@ -41,19 +40,11 @@
                     </div>
                     <div class="project_wrapper">
                         <div class="project_text">
-                            <p>Duis porta, ligula rhoncus euismod pretium, nisi tellus eleifend odio, luctus viverra sem
-                                dolor id sem. Maecenas a venenatis enim, quis porttitor magna. Etiam nec rhoncus neque.
-                                Sed quis ultrices eros. Curabitur sit amet eros eu arcu consectetur pulvinar. Aliquam
-                                sodales, turpis eget tristique tempor, sapien lacus facilisis diam, molestie efficitur
-                                sapien velit nec magna. Maecenas interdum efficitur tempor. Quisque scelerisque id odio
-                                nec dictum. Donec sed pulvinar tortor.
-                                <br> <br>
-                                mattis est. Nullam mattis mauris quis massa consectetur dapibus. Nam ac
-                                iaculis magna. Sed eget diam mi. Sed id quam et purus luctus pretium.</p>
+                            <p>{!! $work_details_content->description !!}</p>
                         </div>
                         <div class="project_button">
                             <a class="button" href="#">View Project on live</a>
-                            <a href="#">View Project on live <img src="assets/images/Arrow-icon.png" alt="arrow_icon"></a>
+                            <a href="#">View Project on live <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="arrow_icon"></a>
                         </div>
                     </div>
                 </div>
@@ -79,14 +70,14 @@
                     </div>
                     <div class="our_role">
                         <ul>
-                            <h4>project length</h4>
-                            <li>11 Month</li>
+                            <h4>Project Length</h4>
+                            <li>{{ $work_details_content->project_length }}</li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="our_role_img">
-                        <img src="assets/images/ww.jpg" alt="images">
+                        <img src="{{ asset($work_details_content->image) }}" alt="images">
                     </div>
                 </div>
             </div>
