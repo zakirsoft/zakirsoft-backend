@@ -23,7 +23,7 @@
                 <div class="page-header-title">
                     <i class="feather icon-clipboard bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>Edit Portfolio</h5>
+                        <h5>Show Portfolio</h5>
 
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                         <li class="breadcrumb-item"><a href="{{ route('portfolio.index') }}">Portfolio</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="javascript:void(0)">Edit Portfolio</a>
+                            <a href="javascript:void(0)">Show Portfolio</a>
                         </li>
                     </ul>
                 </div>
@@ -54,49 +54,62 @@
 
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Edit Portfolio</h5>
+                                    <h5>Show Portfolio</h5>
                                     <a href="{{ url()->previous() }}" class="btn btn-sm btn-primary float-right"><i class="fa fa-arrow-left"></i> Portfolio</a>
                                 </div>
                                 <div class="card-block">
-                                    <form id="main" method="POST" action="{{ route('portfolio.update', $portfolio->id) }}"
-                                        enctype="multipart/form-data">
-                                        @method('PUT')
-                                        @csrf
-                                        <div class="row">
+                                    <table id="datatable-responsive"
+                                        class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0"
+                                        width="100%">
+                                        <tbody>
+                                            <tr>
+                                                <th width="25%">Student Class</th>
+                                                <td width="25%">One</td>
+                                                <th width="25%">Student Roll</th>
+                                                <td width="25%">123456</td>
+                                            </tr>
+                                            <tr style="font-size: 16px;">
+                                                <th class="text-info" width="25%">Bangla</th>
+                                                <td width="25%">
+                                                    <span class="text-success font-weight-bold">79</span> Out Of 100
+                                                </td>
+                                                <th class="text-info" width="25%">English</th>
+                                                <td width="25%">
+                                                    <span class="text-danger font-weight-bold"> 32</span> Out Of 100
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size: 16px;">
+                                                <th class="text-info" width="25%">Math</th>
+                                                <td width="25%">
+                                                    <span class="text-success font-weight-bold">88</span> Out Of 100
+                                                </td>
+                                                <th class="text-info" width="25%">Religion</th>
+                                                <td width="25%">
+                                                    <span class="text-success font-weight-bold">50</span> Out Of 100
 
-                                            <div class="col-6 offset-3">
-                                                @if ($errors->any())
-                                                <div class="alert alert-danger">
-                                                Please provide field required conditions!
-                                                </div>
-                                                @endif
-                                            </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
 
-                                        </div>
+                                    {{-- <form id="main">
                                         <div class="row">
                                             <div class="col-4">
                                                 <div class="form-group">
                                                     <label>Category Name Type</label>
-                                                    <select name="category_id" class="form-control">
-                                                        @foreach ($category_list as $item)
-                                                        <option {{ $portfolio->category_id == $item->id ? 'selected' : '' }} value="{{ $item->id }}">{{ $item->name }}</option>
-                                                        @endforeach
-                                                    </select>
+
                                                 </div>
                                             </div>
                                             <div class="col-4">
                                                 <div class="form-group">
                                                     <label>Title</label>
-                                                    <input value="{{ $portfolio->title }}" type="text" class="form-control  @error('title') is-invalid @enderror" name="title" id="name"placeholder="Enter Title of Portfolio">
-                                                    @error('title') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                    <input value="{{ $portfolio->title }}" type="text" class="form-control" name="title" id="name"placeholder="Enter Title of Portfolio">
                                                 </div>
                                             </div>
                                             <div class="col-4">
                                                 <div class="form-group">
                                                     <label>Project Length </label>
-                                                    <input value="{{ $portfolio->project_length }}" type="text" class="form-control  @error('project_length') is-invalid @enderror" name="project_length" id="name" placeholder="Enter Project Length of Portfolio">
-                                                    @error('project_length') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
-
+                                                    <input value="{{ $portfolio->project_length }}" type="text" class="form-control" name="project_length" id="name" placeholder="Enter Project Length of Portfolio">
                                                 </div>
                                             </div>
 
@@ -111,8 +124,8 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Multiple Image</label>
-                                                    <img class="my-2" id="single_image_preview"/>
-                                                    <input onchange="readURL(this)" type="file" class="form-control" name="image" id="single_image">
+
+
                                                 </div>
                                             </div>
                                         </div>
@@ -121,15 +134,13 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Client Name</label>
-                                                    <input type="text" class="form-control @error('client_name') is-invalid @enderror" name="client_name" id="name" value="{{ $portfolio->client_name }}" placeholder="Enter Client Name of Portfolio">
-                                                    @error('client_name') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                    <input type="text" class="form-control" name="client_name" id="name" value="{{ $portfolio->client_name }}" placeholder="Enter Client Name of Portfolio">
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Client Email</label>
-                                                    <input type="text" class="form-control  @error('client_email') is-invalid @enderror" name="client_email" id="name" placeholder="Enter Client Email of Portfolio" value="{{ $portfolio->client_email }}">
-                                                     @error('client_email') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                    <input type="text" class="form-control" name="client_email" id="name" placeholder="Enter Client Email of Portfolio" value="{{ $portfolio->client_email }}">
                                                 </div>
 
                                             </div>
@@ -138,15 +149,13 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Live Link </label>
-                                                    <input type="text" class="form-control @error('live_link') is-invalid @enderror" name="live_link" id="name" value="{{ $portfolio->live_link }}">
-                                                     @error('live_link') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                    <input type="text" class="form-control" name="live_link" id="name" value="{{ $portfolio->live_link }}">
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Bahance Link</label>
-                                                    <input type="text" class="form-control @error('bahance_link') is-invalid @enderror" name="bahance_link" id="name" value="{{ $portfolio->bahance_link }}">
-                                                    @error('bahance_link') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                    <input type="text" class="form-control" name="bahance_link" id="name" value="{{ $portfolio->bahance_link }}">
                                                 </div>
                                             </div>
 
@@ -155,28 +164,25 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Our Role</label>
-                                                    <textarea style="height: 130px" id="editor4" type="text" class="form-control" name="our_role" placeholder="Enter role of portfolio"> {{ $portfolio->our_role }} </textarea>
-                                                    @error('our_role') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                    <textarea style="height: 130px" type="text" class="form-control" name="our_role" placeholder="Enter role of portfolio"> {{ $portfolio->our_role }} </textarea>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Tools Used </label>
-                                                    <textarea id="editor2" type="text" class="form-control" name="tool_used" placeholder="Write Tool User of Portfolio.... "> {{ $portfolio->tool_used }} </textarea>
-                                                    @error('tool_used') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                    <textarea type="text" class="form-control" name="tool_used" placeholder="Write Tool User of Portfolio.... "> {{ $portfolio->tool_used }} </textarea>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Description </label>
-                                            <textarea id="editor3" type="text" class="form-control" name="description" placeholder="Write Portfolio content here.... "> {{ $portfolio->description }} </textarea>
-                                            @error('description') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                            <textarea type="text" class="form-control" name="description" placeholder="Write Portfolio content here.... "> {{ $portfolio->description }} </textarea>
                                         </div>
 
                                         <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-sync"></i> Update Portfolio</button>
                                         </div>
-                                    </form>
+                                    </form> --}}
                                 </div>
                             </div>
                         </div>
@@ -188,58 +194,3 @@
     </div>
 </div>
 @endsection
-
-@section('style')
-<style>
-    .ck-editor__editable_inline {
-        min-height: 170px;
-    }
-
-    /* Image Style  */
-    img{
-        max-width:80px;
-    }
-    input[type=file]{
-        padding:10px;
-    }
-
-</style>
-@endsection
-
-
-@section('script')
-<script>
-    ClassicEditor
-        .create( document.querySelector( '#editor4' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-    ClassicEditor
-        .create( document.querySelector( '#editor2' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-    ClassicEditor
-        .create( document.querySelector( '#editor3' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-
-    /* image 1 */
-
-    $('#single_image_preview').hide();
-    $('#reaset_multiple').hide();
-    function readURL(input) {
-      if (input.files && input.files[0]) {
-        $('#single_image_preview').show();
-          var reader = new FileReader();
-          reader.onload = function (e) {
-              $('#single_image_preview').attr('src', e.target.result);
-          };
-          reader.readAsDataURL(input.files[0]);
-      }
-  }
-
-</script>
-@endsection
-

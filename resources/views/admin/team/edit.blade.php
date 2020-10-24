@@ -67,13 +67,13 @@ active pcoded-trigger
 
 
                 <div class="page-body">
-                    <div class="row">
-                        <div class="col-sm-12">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-8">
 
                             <div class="card">
                                 <div class="card-header align-items-center justify-content-between d-flex">
                                     <h5>Edit Team</h5>
-                                    <a href="{{ route('team.index') }}" class="btn btn-sm btn-primary"><i class="fa fa-arrow-left"></i> Show Member</a>
+                                    <a href="{{ url()->previous() }}" class="btn btn-sm btn-primary"><i class="fa fa-arrow-left"></i> Team</a>
                                 </div>
                                 <div class="card-block">
 
@@ -103,7 +103,6 @@ active pcoded-trigger
                                             <div class="col-sm-10">
                                                 <img class="my-2" id="single_image_preview"/>
                                                 <input onchange="readURL(this)" type="file" class="form-control" name="image" id="position" id="single_image">
-                                                {{-- <input type="file" class="form-control" name="image" id="position"> --}}
                                             </div>
                                         </div>
 
@@ -125,7 +124,7 @@ active pcoded-trigger
                                         <div class="form-group row pt-4">
                                             <label class="col-sm-2"></label>
                                             <div class="col-sm-10">
-                                                <button type="submit" class="btn btn-primary m-b-0"><i class="fas fa-plus"></i> Update</button>
+                                                <button type="submit" class="btn btn-primary m-b-0"><i class="fas fa-sync"></i> Update</button>
                                             </div>
                                         </div>
                                     </form>

@@ -125,9 +125,13 @@ class PortfolioController extends Controller
      * @param  \App\Models\Portfolio  $portfolio
      * @return \Illuminate\Http\Response
      */
-    public function show(Portfolio $portfolio)
+    public function show($id)
     {
-        //
+        $portfolio = Portfolio::findOrFail($id);
+        $category_list = PortfolioCategory::where('status',1)->get();
+        // return $category_list;
+
+        return view('admin.portfolio.show',compact('portfolio','category_list'));
     }
 
     /**
@@ -140,7 +144,7 @@ class PortfolioController extends Controller
     {
         $portfolio = Portfolio::findOrFail($id);
         $category_list = PortfolioCategory::where('status',1)->get();
-       return view('admin.portfolio.edit',compact('portfolio','category_list'));
+        return view('admin.portfolio.edit',compact('portfolio','category_list'));
     }
 
     /**
