@@ -77,7 +77,7 @@
                                         <div class="row">
                                             <div class="col-4">
                                                 <div class="form-group">
-                                                    <label>Seletc Work Category</label>
+                                                    <label>Seletct Category</label>
                                                     <select name="category_id" class="form-control @error('category_id') is-invalid @enderror">
                                                         <option value="">Select Work Type</option>
                                                         @foreach ($category_list as $item)
@@ -157,14 +157,14 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <label>Live Link ( <span style="font-size: 11px;" class="text-danger">https://example.com</span> )</label>
+                                                    <label>Live Link  <span style="font-size: 11px;" class="text-danger">https://example.com</span> </label>
                                                    <input value="{{ old('live_link') }}" type="text" class="form-control @error('live_link') is-invalid @enderror" name="live_link" >
                                                    @error('live_link') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <label>Bahance Link ( <span style="font-size: 11px;" class="text-danger">https://example.com</span> ) </label><br>
+                                                    <label>Bahance Link <span style="font-size: 11px;" class="text-danger">https://example.com</span>  </label><br>
                                                      <input value="{{ old('bahance_link') }}" type="text" class="form-control  @error('bahance_link') is-invalid @enderror" name="bahance_link">
                                                      @error('bahance_link') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
@@ -192,7 +192,7 @@
                                             <textarea  id="editor" type="text" class="form-control @error('description') is-invalid @enderror"  name="description" placeholder="Write Portfolio content here.... ">{{ old('description') }}</textarea>
                                             @error('description') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                         </div>
-                                        <button type="submit" class="btn btn-primary  m-b-0"><i class="fas fa-plus"></i> Add Portfolio</button>
+                                        <button type="submit" class="btn btn-primary  m-b-0"><i class="fas fa-plus"></i> Add</button>
                                     </form>
                                 </div>
                             </div>
@@ -210,23 +210,18 @@
 @endsection
 
 @section('style')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.css">
 <style>
     .ck-editor__editable_inline {
         min-height: 170px;
     }
 
     /* Image Style  */
-
-
         img{
             max-width:80px;
         }
         input[type=file]{
           padding:10px;
         }
-
-
 
           /* image 2 */
 
@@ -269,14 +264,11 @@
               filter: alpha(opacity=0);
           }
 
-
 </style>
 @endsection
 
 
 @section('script')
-{{-- Dropzone  --}}
-<script src="{{ asset('admin') }}/js/dropzone-amd-module.min.js"></script>
 <script>
     ClassicEditor
         .create( document.querySelector( '#editor' ) )
@@ -294,37 +286,21 @@
             console.error( error );
         } );
 
-
-
-
-
-
-
-
-
-         /* image 1 */
+    /* image 1 */
     $('#single_image_preview').hide();
-    // $('#single_image_preview_remove').hide();
     $('#reaset_multiple').hide();
     function readURL(input) {
       if (input.files && input.files[0]) {
         $('#single_image_preview').show();
-        // $('#single_image_preview_remove').show();
           var reader = new FileReader();
-
           reader.onload = function (e) {
               $('#single_image_preview').attr('src', e.target.result);
           };
-
           reader.readAsDataURL(input.files[0]);
       }
   }
 
-
-
 /* image 2 */
-
-
   $(document).on('change','.up', function(){
             var names = [];
             var length = $(this).get(0).files.length;
@@ -341,30 +317,13 @@
                 }
        });
 
-
 // multiple image
-
 function preview_image() {
     var total_file=document.getElementById("upload_file").files.length;
     for(var i=0;i<total_file;i++){
         $('#multiple_image_preview').append("<img class='my-2' src='"+URL.createObjectURL(event.target.files[i])+"'>&nbsp;&nbsp;");
     }
 }
-
-function reset_multiple_images(){
-//     var input = $("#upload_file");
-
-// function clearInput() {
-//     input = input.val('').clone(true);
-// };
-
-$('#upload_file :input').val('');
-    // $('#upload_file').val();
-// document.getElementById('upload_file').reset();
-// $('#upload_file').attr('value', '');
-}
-
-
 
 </script>
 @endsection

@@ -72,7 +72,7 @@
                                             <input value="{{ $p_category_edit->name }}" name="name" type="text" class="form-control  @error('name') is-invalid @enderror" id="title" placeholder="Enter portfolio category name">
                                                @error('name')<span class="invalid-feedback" role="alert">{{ $message }}</span>@enderror
                                           </div>
-                                        <button type="submit" class="btn btn-primary m-b-0"><i class="fas fa-sync"></i> Update Category</button>
+                                        <button type="submit" class="btn btn-primary m-b-0"><i class="fas fa-sync"></i> Update</button>
                                     </form>
                                 </div>
                             </div>

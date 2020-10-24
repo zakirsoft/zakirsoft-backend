@@ -120,26 +120,21 @@
 
                                         </div>
                                         <div class="row mb-3 mt-3">
-                                            <div class="col-4">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Current Thumbnail Image</label><br>
-                                                  <img height="80px" width="80px" src="{{ asset($portfolio->image) }}" alt="">
+                                                  <img height="80px" width="150px" src="{{ asset($portfolio->image) }}" alt="">
                                                 </div>
                                             </div>
-                                            <div class="col-4">
-                                                <div class="form-group">
-                                                    <label>Thumbnail Image</label>
-                                                    <input type="file" class="form-control  @error('image') is-invalid @enderror" name="image" id="position">
-                                                    @error('image') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Multiple Image</label>
-                                                    <input multiple type="file" class="form-control" name="multiple_image" id="position">
+                                                    <img class="my-2" id="single_image_preview"/>
+                                                    <input onchange="readURL(this)" type="file" class="form-control" name="image" id="single_image">
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="form-group">
@@ -197,7 +192,8 @@
                                             @error('description') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                         </div>
 
-                                        <button type="submit" class="btn btn-primary m-b-0"><i class="fas fa-sync"></i> Update Portfolio</button>
+                                        <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-sync"></i> Update Portfolio</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -216,19 +212,52 @@
     .ck-editor__editable_inline {
         min-height: 170px;
     }
+
+    /* Image Style  */
+    img{
+        max-width:80px;
+    }
+    input[type=file]{
+        padding:10px;
+    }
+
 </style>
 @endsection
 
+
 @section('script')
 <script>
-    ClassicEditor.create( document.querySelector( '#editor2' )).catch( error => {
-        console.error( error );
-    });
-    ClassicEditor.create( document.querySelector( '#editor3' )).catch( error => {
-        console.error( error );
-    });
-    ClassicEditor.create( document.querySelector( '#editor4' )).catch( error => {
-        console.error( error );
-    });
+    ClassicEditor
+        .create( document.querySelector( '#editor4' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+    ClassicEditor
+        .create( document.querySelector( '#editor2' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+    ClassicEditor
+        .create( document.querySelector( '#editor3' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+
+    /* image 1 */
+
+    $('#single_image_preview').hide();
+    $('#reaset_multiple').hide();
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        $('#single_image_preview').show();
+          var reader = new FileReader();
+          reader.onload = function (e) {
+              $('#single_image_preview').attr('src', e.target.result);
+          };
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+
 </script>
 @endsection
+

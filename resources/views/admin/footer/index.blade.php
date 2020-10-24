@@ -23,7 +23,6 @@ active pcoded-trigger
                     <i class="feather icon-credit-card bg-c-blue"></i>
                     <div class="d-inline">
                         <h5>Footer Section</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, voluptate.</p>
                     </div>
                 </div>
             </div>
@@ -55,7 +54,7 @@ active pcoded-trigger
                                     @can('footer create')
                                     @if ($ContentCount < 1) <button type="button"
                                         class="btn btn-primary waves-effect float-right" data-toggle="modal"
-                                        data-target="#add_content">Add</button>
+                                        data-target="#add_content"><i class="fas fa-plus"></i></button>
                                         @endif
                                         @endcan
                                 </div>
@@ -158,7 +157,7 @@ active pcoded-trigger
                                     <h5>Social Profile's</h5>
                                     @can('footer create')
                                     <button type="button" class="btn btn-primary waves-effect float-right mr-2"
-                                        data-toggle="modal" data-target="#add_social">Add</button>
+                                        data-toggle="modal" data-target="#add_social"><i class="fas fa-plus"></i></button>
                                     @endcan
                                 </div>
                                 <div class="card-block">

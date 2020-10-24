@@ -51,7 +51,7 @@
                                 <div class="card-header">
                                     <h5>Edit Career Contentr</h5>
                                         @if ($career_list_count <= 2 )
-                                            <button  type="button" class="btn btn-primary waves-effect float-right" data-toggle="modal" data-target="#add_career"><i class="fas fa-plus"></i> Add Career</button>
+                                            <button  type="button" class="btn btn-primary waves-effect float-right" data-toggle="modal" data-target="#add_career"><i class="fas fa-plus"></i></button>
                                         @endif
                                 </div>
                                 <div class="card-block">
@@ -81,8 +81,17 @@
                                                     <th class="text-center" scope="row">{{ $career_list->firstItem() + $key }}</th>
                                                     <td class="text-center">{{ $career->title }}</td>
                                                     <td class="text-center">{{ $career->content }}</td>
-
                                                     <td class="text-center">
+                                                        <a href="{{ route('career.edit', $career->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit Role">
+                                                            <i class="far fa-edit"></i>
+                                                        </a>
+                                                        <form action="{{ route('career.destroy', $career->id) }}" method="POST" class="d-inline">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button onclick="return confirm('Are you sure you want to delete this item?');"  class="btn btn-sm btn-danger text-light"><i class="far fa-trash-alt"></i></button>
+                                                        </form>
+                                                    </td>
+                                                    {{-- <td class="text-center">
                                                         <div class="dropdown">
                                                         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                             <i class="fas fa-cog"></i> Action
@@ -100,7 +109,7 @@
                                                           @endcan
                                                         </div>
                                                       </div>
-                                                    </td>
+                                                    </td> --}}
 
                                                     </td>
                                                 </tr>
@@ -153,7 +162,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add Career</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add</button>
             </div>
         </form>
       </div>
