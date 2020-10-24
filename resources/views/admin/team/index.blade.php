@@ -22,8 +22,7 @@
                 <div class="page-header-title">
                     <i class="feather icon-credit-card bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>OurTeam</h5>
-                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+                        <h5>Team</h5>
                     </div>
                 </div>
             </div>
@@ -33,7 +32,7 @@
                         <li class="breadcrumb-item">
                         <a href="{{ url('/dashboard') }}"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">OurTeam</a>
+                        <li class="breadcrumb-item"><a href="#!">Team</a>
                         </li>
                     </ul>
                 </div>
@@ -68,9 +67,9 @@
 
                             <div class="card">
                                 <div class="card-header align-items-center justify-content-between d-flex">
-                                    <h5>Default Team</h5>
+                                    <h5>Team</h5>
                                 @can('team create')
-                                <a href="{{ route('team.create') }}" type="button" class="btn btn-primary text-light btn-sm waves-effect float-right" data-toggle="modal" data-target="#add_career"><i class="fas fa-plus"></i> Add Member</a>
+                                <a href="{{ route('team.create') }}" type="button" class="btn btn-primary text-light btn-sm waves-effect float-right" data-toggle="modal" data-target="#add_career"><i class="fas fa-plus"></i></a>
                                 @endcan
                                 </div>
                                 <div class="card-block">
@@ -90,27 +89,16 @@
                                                     <td class="text-center">{{ $team->name }}</td>
                                                     <td class="text-center">{{ $team->position }}</td>
                                                 <td class="text-center"><img width="100px" src="{{ asset($team->image) }}" alt=""></td>
-
-                                                    <td class="text-center">
-                                                        <div class="dropdown">
-                                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <i class="fas fa-cog"></i> Action
-                                                        </button>
-                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                          @can('team edit')
-                                                          <a class="dropdown-item text-info btn btn-sm" href="{{ route('team.edit', $team->id) }}"><i class="far fa-edit"></i> Edit</a>
-                                                          @endcan
-                                                          @can('team delete')
-                                                          <form action="{{ route('team.destroy', $team->id) }}" method="POST">
-                                                            @method('DELETE')
-                                                            @csrf
-                                                            <button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm text-danger m-1 dropdown-item"></i><i class="far fa-trash-alt"></i> Remove</button>
-                                                        </form>
-                                                          @endcan
-                                                        </div>
-                                                      </div>
-                                                    </td>
-
+                                                <td class="text-center">
+                                                    <a href="{{ route('team.edit', $team->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit Role">
+                                                        <i class="far fa-edit"></i>
+                                                    </a>
+                                                    <form action="{{ route('team.destroy', $team->id) }}" method="POST" class="d-inline">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <button onclick="return confirm('Are you sure you want to delete this item?');"  class="btn btn-sm btn-danger text-light"><i class="far fa-trash-alt"></i></button>
+                                                    </form>
+                                                </td>
                                                     </td>
                                                 </tr>
                                                 @empty
@@ -137,7 +125,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header bg-dark text-light">
-          <h5 class="modal-title" id="exampleModal3Label">Team Member</h5>
+          <h5 class="modal-title" id="exampleModal3Label">Add Team</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -162,7 +150,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add Team Content</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add</button>
             </div>
         </form>
       </div>

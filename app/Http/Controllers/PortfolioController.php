@@ -100,15 +100,19 @@ class PortfolioController extends Controller
         }
 
         $multiple_image = $request->file('m_image');
-        foreach ($multiple_image as $multi_img) {
-            $imageName = time() . '_' . uniqid() .'.'. $multi_img->getClientOriginalExtension();
-            Storage::putFileAs('portfolio/multiple', $multi_img, $imageName);
-            $db_image_name = 'storage/portfolio/multiple/'. $imageName;
-            PortfoiloImages::create([
-                'portfolio_id' => $portfolio->id,
-                'm_image' =>  $db_image_name,
-            ]);
+        if ($multiple_image) {
+            foreach ($multiple_image as $multi_img) {
+                $imageName = time() . '_' . uniqid() .'.'. $multi_img->getClientOriginalExtension();
+                Storage::putFileAs('portfolio/multiple', $multi_img, $imageName);
+                $db_image_name = 'storage/portfolio/multiple/'. $imageName;
+                PortfoiloImages::create([
+                    'portfolio_id' => $portfolio->id,
+                    'm_image' =>  $db_image_name,
+                ]);
+            }
         }
+
+
 
         session()->flash('success', 'Portfolio added Successfully!');
         return redirect()->route('portfolio.create');

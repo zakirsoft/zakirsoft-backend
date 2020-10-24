@@ -48,7 +48,7 @@
         <div class="main-body">
             <div class="page-wrapper">
                 <div class="page-body">
-                    <div class="row">
+                    <div class="row justify-content-center">
                         <div class="col-sm-6">
                             @if ($errors->any())
                             <div class="alert alert-danger">
@@ -78,7 +78,7 @@
                                           </div>
 
 
-                                        <button type="submit" class="btn btn-primary m-b-0"><i class="fas fa-sync"></i> Update Career</button>
+                                        <button type="submit" class="btn btn-primary m-b-0"><i class="fas fa-sync"></i> Update</button>
                                     </form>
                                 </div>
                             </div>

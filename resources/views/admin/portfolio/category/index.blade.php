@@ -54,8 +54,7 @@ active pcoded-trigger
                                     <h5>Portfolio Category</h5>
                                     @can('category create')
                                     <button type="button" class="btn btn-primary waves-effect float-right"
-                                        data-toggle="modal" data-target="#add_career"><i class="fas fa-plus"></i> Add
-                                        Category</button>
+                                        data-toggle="modal" data-target="#add_career"><i class="fas fa-plus"></i></button>
                                     @endcan
                                 </div>
                                 <div class="card-block">
@@ -109,38 +108,15 @@ active pcoded-trigger
                                                                     class="fa fa-arrow-up"></i></button></a></td>
                                                     @endif
                                                     @endcan
-
                                                     <td class="text-center">
-                                                        <div class="dropdown">
-                                                            <button class="btn btn-primary dropdown-toggle"
-                                                                type="button" id="dropdownMenuButton"
-                                                                data-toggle="dropdown" aria-haspopup="true"
-                                                                aria-expanded="false">
-                                                                <i class="fas fa-cog"></i> Action
-                                                            </button>
-                                                            <div class="dropdown-menu"
-                                                                aria-labelledby="dropdownMenuButton">
-                                                                @can('category edit')
-                                                                <a role="button"
-                                                                class="dropdown-item text-info btn btn-sm"
-                                                                href="{{ route('portfolio.category.edit', $category->id) }}"><i
-                                                                    class="far fa-edit"></i> Edit</a>
-                                                                @endcan
-                                                                @can('category delete')
-                                                                <form
-                                                                action="{{ route('portfolio.category.destroy', $category->id) }}"
-                                                                method="POST">
-                                                                @method('DELETE')
-                                                                @csrf
-                                                                <button
-                                                                    onclick="return confirm('Are you sure you want to delete this item?');"
-                                                                    class="btn btn-sm text-danger m-1 dropdown-item"></i><i
-                                                                        class="far fa-trash-alt"></i>
-                                                                    Remove</button>
-                                                            </form>
-                                                                @endcan
-                                                            </div>
-                                                        </div>
+                                                        <a href="{{ route('portfolio.category.edit', $category->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit Role">
+                                                            <i class="far fa-edit"></i>
+                                                        </a>
+                                                        <form action="{{ route('portfolio.category.destroy', $category->id) }}" method="POST" class="d-inline">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button onclick="return confirm('Are you sure you want to delete this item?');"  class="btn btn-sm btn-danger text-light"><i class="far fa-trash-alt"></i></button>
+                                                        </form>
                                                     </td>
 
                                                     </td>
@@ -190,7 +166,7 @@ active pcoded-trigger
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-times"></i>
                         Close</button>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Add Category</button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Add</button>
                 </div>
             </form>
         </div>

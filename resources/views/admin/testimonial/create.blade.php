@@ -88,7 +88,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary  m-b-0"><i class="fas fa-plus"></i> Add Testimonial</button>
+                                        <button type="submit" class="btn btn-primary  m-b-0"><i class="fas fa-plus"></i> Add</button>
                                     </form>
 
                                 </div>

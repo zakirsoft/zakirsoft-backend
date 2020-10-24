@@ -52,7 +52,7 @@
                                 <div class="card-header">
                                     <h5>Portfolio</h5>
                                     @can('portfolio create')
-                                    <a href="{{ route('portfolio.create') }}"> <button class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add Portfolio</button></a>
+                                    <a href="{{ route('portfolio.create') }}"> <button class="btn btn-primary float-right"><i class="fas fa-plus"></i></button></a>
                                     @endcan
                                     @can('category create')
                                     <a href="{{ route('portfolio.category.index') }}"> <button class="btn btn-primary float-right mr-2"><i class="fas fa-arrow-left"></i> Category List</button></a>
@@ -88,25 +88,14 @@
                                                     <td>{{ $portfolio->live_link }}</td>
                                                     <td>{{ $portfolio->project_length }}</td>
                                                     <td class="text-center">
-                                                        <div class="dropdown">
-                                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <i class="fas fa-cog"></i> Action
-                                                        </button>
-                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                          @can('portfolio edit')
-                                                          <a class="dropdown-item text-info btn btn-sm" href="{{ route('portfolio.edit', $portfolio->id) }}"><i class="far fa-edit"></i> Edit</a>
-                                                          @endcan
-                                                          @can('portfolio delete')
-                                                          <form action="{{ route('portfolio.destroy', $portfolio->id) }}" method="POST">
+                                                        <a href="{{ route('portfolio.edit', $portfolio->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit Role">
+                                                            <i class="far fa-edit"></i>
+                                                        </a>
+                                                        <form action="{{ route('portfolio.destroy', $portfolio->id) }}" method="POST" class="d-inline">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm text-danger m-1 dropdown-item"></i><i class="far fa-trash-alt"></i> Remove</button>
+                                                            <button onclick="return confirm('Are you sure you want to delete this item?');"  class="btn btn-sm btn-danger text-light"><i class="far fa-trash-alt"></i></button>
                                                         </form>
-                                                          @endcan
-                                                        </div>
-                                                      </div>
-                                                    </td>
-
                                                     </td>
                                                 </tr>
                                                 @empty
