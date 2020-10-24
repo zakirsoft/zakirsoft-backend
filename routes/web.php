@@ -77,6 +77,8 @@ Route::resource('team', TeamController::class );
 
 
 // =====================Role =====================
+Route::resource('role', RoleController::class );
+
 Route::get('role', [RoleController::class, 'index'])->name('RoleIndex');
 Route::get('role/create', [RoleController::class, 'create'])->name('RoleCreate');
 Route::post('role/create', [RoleController::class, 'role_create'])->name('RoleCreate');

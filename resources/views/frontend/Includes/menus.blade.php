@@ -23,13 +23,11 @@
     <div class="menu-footer">
       <div class="container">
         <ul class="footer-social">
-          <li><a href="#"> <i class="fab fa-behance"></i> </a></li>
-          <li><a href="#"> <i class="fab fa-dribbble"></i> </a></li>
-          <li><a href="#"> <i class="fab fa-github"></i> </a></li>
-          <li><a href="#"> <i  class="fab fa-facebook-f"></i> </a></li>
-          <li><a href="#"> <i class="fab fa-twitter"></i> </a></li>
-          <li><a href="#"> <i class="fab fa-instagram"></i> </a></li>
-          <li><a href="#"> <i  class="fab fa-linkedin-in"></i> </a></li>
+            @foreach ($socials as $social)
+            <li>
+              <a href="{{$social->profile_link}}"><i class="{{$social->social_media}}"></i></a>
+            </li>
+            @endforeach
         </ul>
         <div class="copyright-text">
           <p>Copyright © {{ date('Y') }} ZakirSoft. All rights Reserved.</p>
