@@ -14,8 +14,8 @@
           </div>
           <div class="connect_info">
             <h4>Connect With us</h4>
-            <p>{{$content->content}}</p>
-            <span class="email">{{$content->email}}</span>
+            <p>{{$content->content ?? ''}}</p>
+            <span class="email">{{$content->email ?? ''}}</span>
           </div>
           <div>
             <ul class="social_links">
