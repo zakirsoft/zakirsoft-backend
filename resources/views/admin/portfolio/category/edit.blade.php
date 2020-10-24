@@ -4,7 +4,7 @@
     Portfolio - ZakirSoft
 @endsection
 
-@section('career')
+@section('portfolio')
     active pcoded-trigger
 @endsection
 
@@ -23,7 +23,7 @@
                 <div class="page-header-title">
                     <i class="feather icon-clipboard bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>Edit Career</h5>
+                        <h5>Edit Category</h5>
                     </div>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                         <li class="breadcrumb-item">
                             <a href="{{ route('dashboard.index') }}"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="{{ route('career.index') }}">Portfolio Category</a>
+                        <li class="breadcrumb-item"><a href="{{ route('portfolio.category.index') }}">Portfolio Category</a>
                         </li>
                         <li class="breadcrumb-item">
                             <a href="javascript:void(0)">Edit Portfolio Category</a>
@@ -61,7 +61,7 @@
                             @endif
                             <div class="card">
                                 <div class="card-header bg-dark text-light">
-                                   Edit Career Content
+                                   Edit Category
                                 </div>
                                 <div class="card-block">
                                     <form id="main" method="POST" action="{{ route('portfolio.category.update', $p_category_edit->id) }}">
