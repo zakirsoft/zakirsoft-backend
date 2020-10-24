@@ -1,7 +1,7 @@
 @extends('frontend.master')
 
 @section('career') active @endsection
-@section('career_footer') footer_active @endsection
+@section('career_footer') active @endsection
 
 @section('content')
 
@@ -13,17 +13,16 @@
             </div>
             <div class="row">
                 <div class="col-12">
-
                     @foreach ($career as $item)
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="join-designer mb-70">
-                                <h2>{{ $item->title }}</h2>
-                                <p>{{ $item->content }}</p>
+                    <div class="row join_team">
+                        <div class="col-lg-6 col-12">
+                            <div class="join-designer">
+                                <h2>Front End Developer</h2>
+                                <p>You design website or mobile application.</p>
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="join-designer-button text-right">
+                        <div class="col-lg-6 col-12">
+                            <div class="join-designer-button text-lg-right">
                                 <a class="button" href="{{ route('contact_website') }}">I want this position</a>
                             </div>
                         </div>

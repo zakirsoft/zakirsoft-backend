@@ -3,6 +3,7 @@
   padding-top: 178px;
   padding-bottom: 310px;
   position: relative;
+  z-index: 1;
   .tes-title {
     h2 {
       text-transform: capitalize;
@@ -19,15 +20,15 @@
         line-height: 55px;
         font-weight: 300;
         padding-bottom: 30px;
-        @media(max-width: 767px) {
+        @media (max-width: 767px) {
           font-size: 18px;
           line-height: 38px;
         }
-        @media(max-width: 575px) {
+        @media (max-width: 575px) {
           font-size: 14px;
         }
       }
-      .client_name{
+      .client_name {
         font-size: 20px;
         line-height: 44px;
         margin-bottom: 0px;
@@ -40,43 +41,38 @@
         margin-top: -10px;
       }
     }
-    .slick-dots{
-      transform: translate(-55%,-12px);
-      li{
+    .slick-dots {
+      transform: translate(-55%, -12px);
+      li {
         border: 1px solid $white;
-        &.slick-active{
+        &.slick-active {
           background-color: $white;
         }
       }
     }
-    .slick-arrow{
-    font-size: 0px;
-    background: transparent;
-    position: absolute;
-    bottom: 0px;
-    @media(max-width:1024px) {
-      bottom: 50px;
-    }
-    &.slick-prev{
-      // left: 0px;
-      transform: translate(400px, 116px);
-      @media(max-width:1024px) {
-      transform: translate(-195px, 113px);
-
+    .slick-arrow {
+      font-size: 0px;
+      background: transparent;
+      position: absolute;
+      bottom: 0px;
+      @media (max-width: 1024px) {
+        bottom: 50px;
       }
-      @media(max-width: 480px ) {
-        transform: translate(-155px,113px);
+      &.slick-prev {
+        // left: 0px;
+        transform: translate(400px, 116px);
+       
+        @media(max-width: 380px ) {
+          transform: translate(35px, 118px);
+        }
       }
-    }
-    &.slick-next{
-      transform: translate(633px, 116px);
-      @media(max-width: 1024px) {
-        transform: translate(65px,113px);
+      &.slick-next {
+        transform: translate(633px, 116px);
+       
+        @media(max-width: 380px ) {
+          transform: translate(245px, 118px);
+        }
       }
-      @media(max-width: 480px ) {
-        transform: translate(55px,113px);
-      }
-    }
     }
     .slick-prev:before,
     .slick-next:before {
@@ -84,25 +80,19 @@
       font-size: 16px;
       outline: none;
       text-transform: capitalize;
-      @media(max-width: 480px) {
-        font-size: 12px;
-
-      }
     }
-    
+
     .slick-prev:before {
-     content: 'Previous Clients';
+      content: 'Previous Clients';
     }
     .slick-next:before {
       content: 'Next Clients';
-     
     }
-    
   }
-  .qoute_img{
+  .qoute_img {
     position: absolute;
-    content: "";
-    top: 34%;
-    left: 7%;
+    content: '';
+    top: 35%;
+    left: 13%;
   }
 }

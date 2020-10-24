@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Carbon\Carbon;
 use App\Models\ContatMessage;
+use Illuminate\Support\Facades\Mail;
 
 class Contact extends Component
 {
@@ -52,17 +53,14 @@ class Contact extends Component
             'message.required' => 'Please Provide Message Field',
         ]);
 
-        // ContatMessage::create([
-        //     'name' =>  $this->name,
-        //     'email' => $this->email,
-        //     'subject' => $this->subject,
-        //     'message' => $this->message,
-        //     'created_at' => Carbon::now(),
-        // ]);
+        ContatMessage::create([
+            'name' =>  $this->name,
+            'email' => $this->email,
+            'subject' => $this->subject,
+            'message' => $this->message,
+            'created_at' => Carbon::now(),
+        ]);
 
-
-
-        ContatMessage::create($savecontact);
         session()->flash('success', 'Your Message Successfully Sent!');
         $this->cleanevars();
 

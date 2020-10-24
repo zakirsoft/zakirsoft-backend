@@ -1,8 +1,10 @@
-<header>
+
+  <header>
     <div class="container">
       <nav class="head_content">
         <div class="logo">
-          <a href="{{ route('home_website') }}"> Zakir <span>Soft</span> </a>
+          <!-- <a href="index.html"> Zakir <span>Soft</span> </a> -->
+          <img src="{{ asset('frontend') }}/assets/images/logo/1.png" alt="Zakir Soft">
         </div>
         <div class="menu">
           <ul class="m_bar">
@@ -13,3 +15,4 @@
       </nav>
     </div>
   </header>
+
