@@ -51,8 +51,12 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Portfolio</h5>
+                                    @can('portfolio create')
                                     <a href="{{ route('portfolio.create') }}"> <button class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add Portfolio</button></a>
+                                    @endcan
+                                    @can('category create')
                                     <a href="{{ route('portfolio.category.index') }}"> <button class="btn btn-primary float-right mr-2"><i class="fas fa-arrow-left"></i> Category List</button></a>
+                                    @endcan
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive">
@@ -89,12 +93,16 @@
                                                             <i class="fas fa-cog"></i> Action
                                                         </button>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                          @can('portfolio edit')
                                                           <a class="dropdown-item text-info btn btn-sm" href="{{ route('portfolio.edit', $portfolio->id) }}"><i class="far fa-edit"></i> Edit</a>
+                                                          @endcan
+                                                          @can('portfolio delete')
                                                           <form action="{{ route('portfolio.destroy', $portfolio->id) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf
                                                             <button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm text-danger m-1 dropdown-item"></i><i class="far fa-trash-alt"></i> Remove</button>
                                                         </form>
+                                                          @endcan
                                                         </div>
                                                       </div>
                                                     </td>

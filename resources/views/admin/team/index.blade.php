@@ -69,7 +69,9 @@
                             <div class="card">
                                 <div class="card-header align-items-center justify-content-between d-flex">
                                     <h5>Default Team</h5>
+                                @can('team create')
                                 <a href="{{ route('team.create') }}" type="button" class="btn btn-primary text-light btn-sm waves-effect float-right" data-toggle="modal" data-target="#add_career"><i class="fas fa-plus"></i> Add Member</a>
+                                @endcan
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive text-center">
@@ -95,12 +97,16 @@
                                                             <i class="fas fa-cog"></i> Action
                                                         </button>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                          @can('team edit')
                                                           <a class="dropdown-item text-info btn btn-sm" href="{{ route('team.edit', $team->id) }}"><i class="far fa-edit"></i> Edit</a>
+                                                          @endcan
+                                                          @can('team delete')
                                                           <form action="{{ route('team.destroy', $team->id) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf
                                                             <button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm text-danger m-1 dropdown-item"></i><i class="far fa-trash-alt"></i> Remove</button>
                                                         </form>
+                                                          @endcan
                                                         </div>
                                                       </div>
                                                     </td>

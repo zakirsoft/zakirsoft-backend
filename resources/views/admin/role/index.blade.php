@@ -111,7 +111,7 @@ active pcoded-trigger
                                                             <i class="far fa-edit"></i>
                                                         </a>
                                                         @endcan
-                                                        @can('role create')
+                                                        @can('permission assign')
                                                         <a href="{{ route('PermissionAssign', $role->id) }}" class="btn btn-sm btn-primary mr-1" title="Assign Permission">
                                                             <i class="fas fa-lock"></i>
                                                         </a>

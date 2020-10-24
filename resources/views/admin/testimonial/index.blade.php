@@ -52,7 +52,9 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Testimonial Table</h5>
+                                    @can('testimonial create')
                                     <a href="{{ route('testimonial.create') }}"> <button class="btn btn-primary float-right"><i class="fas fa-plus"></i></button></a>
+                                    @endcan
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive">

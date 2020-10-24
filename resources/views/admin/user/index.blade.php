@@ -111,7 +111,7 @@
                                                         @can('user edit')
                                                         <a href="{{ route('user.edit', $user->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit User"><i class="far fa-edit"></i></a>
                                                         @endcan
-                                                        @can('role edit')
+                                                        @can('role assign')
                                                         <a href="{{ route('RoleAssign', $user->id) }}" class="btn btn-sm btn-primary mr-1" title="Manage Role"><i class="fas fa-lock"></i></a>
                                                         @endcan
                                                         @can('user delete')

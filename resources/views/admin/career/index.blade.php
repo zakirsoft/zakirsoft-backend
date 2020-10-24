@@ -88,12 +88,16 @@
                                                             <i class="fas fa-cog"></i> Action
                                                         </button>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                          @can('career edit')
                                                           <a class="dropdown-item text-info btn btn-sm" href="{{ route('career.edit', $career->id) }}"><i class="far fa-edit"></i> Edit</a>
+                                                          @endcan
+                                                          @can('career delete')
                                                           <form action="{{ route('career.destroy', $career->id) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf
                                                             <button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm text-danger m-1 dropdown-item"></i><i class="far fa-trash-alt"></i> Remove</button>
                                                         </form>
+                                                          @endcan
                                                         </div>
                                                       </div>
                                                     </td>
