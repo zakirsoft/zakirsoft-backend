@@ -47,25 +47,6 @@
     <div class="pcoded-inner-content">
         <div class="main-body">
             <div class="page-wrapper">
-
-                @if (session('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ session('success') }} <a href="{{ route('portfolio.index') }}"> Click here to go to table</a>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                @endif
-                @if (session('error'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('error') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                @endif
-
-
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
@@ -89,7 +70,6 @@
                                             </ul>
                                         </div>
                                         @endif
-
 
                                     <form id="main" method="POST" action="{{ route('portfolio.store') }}" enctype="multipart/form-data">
                                         @csrf
@@ -145,7 +125,6 @@
                                                 <div class="form-group">
                                                     <label>Multiple Image</label><br>
                                                     <div id="multiple_image_preview"></div>
-                                                    {{-- <button id="" type="button" onclick="reset_multiple_images()" class="btn btn-danger btn-sm">Reset</button> --}}
                                                     <div class="input-group">
                                                         <input type="text" class="form-control" readonly>
                                                           <div class="input-group-btn">
