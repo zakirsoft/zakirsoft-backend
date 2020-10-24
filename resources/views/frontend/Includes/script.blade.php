@@ -4,3 +4,5 @@
 <script src="{{ asset('frontend') }}/assets/js/slick.min.js"></script>
 <script src="{{ asset('frontend') }}/assets/js/app.js"></script>
 <script></script>
+@yield('website_script')
+
