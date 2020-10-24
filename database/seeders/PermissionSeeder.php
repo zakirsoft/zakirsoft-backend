@@ -15,22 +15,31 @@ class PermissionSeeder extends Seeder
     public function run()
     {
         // user permission
-        Permission::create([ 'name' => 'user list' ]);
         Permission::create([ 'name' => 'user show' ]);
         Permission::create([ 'name' => 'user create' ]);
+        Permission::create([ 'name' => 'user list' ]);
         Permission::create([ 'name' => 'user edit' ]);
+        Permission::create([ 'name' => 'role assign' ]);
         Permission::create([ 'name' => 'user delete' ]);
 
         // role permission
-        Permission::create([ 'name' => 'role list' ]);
         Permission::create([ 'name' => 'role show' ]);
+        Permission::create([ 'name' => 'role list' ]);
         Permission::create([ 'name' => 'role create' ]);
+        Permission::create([ 'name' => 'permission assign' ]);
         Permission::create([ 'name' => 'role edit' ]);
         Permission::create([ 'name' => 'role delete' ]);
 
         // portfolio permission
-        Permission::create([ 'name' => 'portfolio list' ]);
+        Permission::create([ 'name' => 'category show' ]);
+        Permission::create([ 'name' => 'category create' ]);
+        Permission::create([ 'name' => 'category list' ]);
+        Permission::create([ 'name' => 'category status' ]);
+        Permission::create([ 'name' => 'category edit' ]);
+        Permission::create([ 'name' => 'category delete' ]);
+        //
         Permission::create([ 'name' => 'portfolio show' ]);
+        Permission::create([ 'name' => 'portfolio list' ]);
         Permission::create([ 'name' => 'portfolio create' ]);
         Permission::create([ 'name' => 'portfolio edit' ]);
         Permission::create([ 'name' => 'portfolio delete' ]);
@@ -39,7 +48,6 @@ class PermissionSeeder extends Seeder
         Permission::create([ 'name' => 'testimonial show' ]);
         Permission::create([ 'name' => 'testimonial create' ]);
         Permission::create([ 'name' => 'testimonial list' ]);
-        Permission::create([ 'name' => 'testimonial edit' ]);
         Permission::create([ 'name' => 'testimonial delete' ]);
 
         // career permission
