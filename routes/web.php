@@ -77,16 +77,9 @@ Route::resource('team', TeamController::class );
 
 
 // =====================Role =====================
-Route::resource('role', RoleController::class );
-
-Route::get('role', [RoleController::class, 'index'])->name('RoleIndex');
-Route::get('role/create', [RoleController::class, 'create'])->name('RoleCreate');
-Route::post('role/create', [RoleController::class, 'role_create'])->name('RoleCreate');
-Route::get('role/edit/{id}', [RoleController::class, 'role_edit'])->name('RoleEdit');
-Route::post('role/update', [RoleController::class, 'role_update'])->name('RoleUpdate');
-Route::get('role/delete/{id}', [RoleController::class, 'role_delete'])->name('RoleDelete');
 Route::get('role/permission/{id}', [RoleController::class, 'permission_assign'])->name('PermissionAssign');
 Route::post('role/permission/{role}', [RoleController::class, 'permission_assign_post'])->name('PermissionAssignPost');
+Route::resource('role', RoleController::class );
 
 // Route::resource('role', RoleController::class);
 Route::get('user/role-assign/{user}', [UserController::class, 'role_assign'])->name('RoleAssign');

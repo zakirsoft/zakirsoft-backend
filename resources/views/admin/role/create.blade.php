@@ -49,7 +49,7 @@ active pcoded-trigger
 
                 @if (session('create'))
                 <div class="alert alert-info alert-dismissible fade show" role="alert">
-                    {{ session('create') }} <a href="{{ route('RoleIndex') }}" class="alert-link">Check Here</a>.
+                    {{ session('create') }} <a href="{{ route('role.index') }}" class="alert-link">Check Here</a>.
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -63,11 +63,11 @@ active pcoded-trigger
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between">
                                     <h5>Create Role</h5>
-                                    <a href="{{ route('RoleIndex') }}" class="btn btn-sm btn-primary mr-1"
+                                    <a href="{{ route('role.index') }}" class="btn btn-sm btn-primary mr-1"
                                         title="Return Back"><i class="fas fa-arrow-alt-circle-left pr-1"></i>Back</a>
                                 </div>
                                 <div class="card-block col-md-6 offset-3 col-sm-12 pb-5">
-                                    <form action="{{ route('RoleCreate') }}" method="POST">
+                                    <form action="{{ route('role.store') }}" method="POST">
                                         @csrf
                                         <div class="form-group pb-3">
                                             <label for="name">Role Name</label>
