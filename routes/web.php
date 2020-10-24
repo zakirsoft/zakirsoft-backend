@@ -25,7 +25,8 @@ Route::get('/careers', [WebsiteController::class, 'career'])->name('career_websi
 Route::get('/contacts', [WebsiteController::class, 'contact'])->name('contact_website');
 
 //  =====================Backend Routes =====================
-Auth::routes();
+
+Auth::routes(['verify' => true]);
 Route::redirect('home', 'dashboard', 302);
 
 
