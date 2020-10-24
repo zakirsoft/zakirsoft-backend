@@ -47,8 +47,8 @@
         <div class="main-body">
             <div class="page-wrapper">
                 <div class="page-body">
-                    <div class="row">
-                        <div class="col-sm-12">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-8">
 
                             <div class="card">
                                 <div class="card-header">
@@ -56,93 +56,41 @@
                                 </div>
                                 <div class="card-block">
 
-
                                     <form id="main"  method="POST" action="{{ route('testimonial.store') }}">
                                         @csrf
-                                        <div class="row">
+                                        <div class="row justify-content-center">
                                             <div class="col-12">
                                                 <div class="form-group">
                                                     <label class="col-sm-2 col-form-label">Purpose</label>
-                                                    <input type="text" class="form-control @error('purpose') is-invalid @enderror" name="purpose" id="name" placeholder="Enter Purpose of Testimonial (Not visible)">                                                    @error('client_name') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                    <input type="text" class="form-control @error('purpose') is-invalid @enderror" name="purpose" id="name" placeholder="Enter purpose of testimonial">
                                                     @error('purpose') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-group">
-                                                    <label>Client Email</label>
-                                                     <input value="{{ old('client_email') }}" type="text" class="form-control @error('client_email') is-invalid @enderror" name="client_email" placeholder="Enter Client Email of Portfolio">
-                                                     @error('client_email') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                    <label class="col-sm-2 col-form-label">Name</label>
+                                                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Enter name">
+                                                     @error('name') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 col-form-label">Position</label>
+                                                    <input type="text" class="form-control @error('position') is-invalid @enderror" name="position" id="position" placeholder="Enter position">
+                                                     @error('position') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 col-form-label">Content</label>
+                                                    <textarea type="text" class="form-control @error('content') is-invalid @enderror" name="content" id="content" placeholder="Write testimonial content here.... " rows="5"></textarea>
+                                                     @error('content') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                         </div>
-
-
-                                        <button type="submit" class="btn btn-primary  m-b-0"><i class="fas fa-plus"></i> Add Portfolio</button>
-
-
-
+                                        <button type="submit" class="btn btn-primary  m-b-0"><i class="fas fa-plus"></i> Add Testimonial</button>
                                     </form>
 
-
-                                    {{-- <form id="main" method="POST" action="{{ route('testimonial.store') }}">
-                                        @csrf
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Purpose</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control @error('purpose') is-invalid @enderror" name="purpose" id="name" placeholder="Enter Purpose of Testimonial (Not visible)">
-
-                                            @error('purpose')
-                                                <span class="invalid-feedback" role="alert">
-                                                    {{ $message }}
-                                                </span>
-                                            @enderror
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Content</label>
-                                            <div class="col-sm-10">
-                                                <textarea type="text" class="form-control @error('content') is-invalid @enderror" name="content" id="content"
-                                                placeholder="Write Testimonial content here.... " rows="5"></textarea>
-
-                                            @error('content')
-                                                <span class="invalid-feedback" role="alert">
-                                                    {{ $message }}
-                                                </span>
-                                            @enderror
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Name</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Enter name">
-
-                                            @error('name')
-                                                <span class="invalid-feedback" role="alert">
-                                                    {{ $message }}
-                                                </span>
-                                            @enderror
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Position</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control @error('position') is-invalid @enderror" name="position" id="position" placeholder="Enter position">
-
-                                            @error('position')
-                                                <span class="invalid-feedback" role="alert">
-                                                    {{ $message }}
-                                                </span>
-                                            @enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row pt-4">
-                                            <label class="col-sm-2"></label>
-                                            <div class="col-sm-10">
-                                                <button type="submit" class="btn btn-primary m-b-0"><i class="fas fa-plus"></i> Add Testimonial</button>
-                                            </div>
-                                        </div>
-                                    </form> --}}
                                 </div>
                             </div>
 

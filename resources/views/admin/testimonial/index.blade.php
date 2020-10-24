@@ -22,7 +22,8 @@
                 <div class="page-header-title">
                     <i class="feather icon-credit-card bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>Testimonials</h5>
+                        <h5>Testimonial</h5>
+
                     </div>
                 </div>
             </div>
@@ -44,22 +45,14 @@
         <div class="main-body">
             <div class="page-wrapper">
 
-                @if (session('danger'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('danger') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                @endif
-
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
 
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Testimonials Table</h5>
+                                    <h5>Testimonial Table</h5>
+                                    <a href="{{ route('testimonial.create') }}"> <button class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add Testimonial</button></a>
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive">

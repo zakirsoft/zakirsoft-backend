@@ -44,33 +44,15 @@
     <div class="pcoded-inner-content">
         <div class="main-body">
             <div class="page-wrapper">
-
-                @if (session('danger'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('danger') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                @endif
-
-                @if (session('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ session('success') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                @endif
-
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
 
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Portfolio Table</h5>
-                                       <a href="{{ route('portfolio.create') }}"> <button class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add Portfolio</button></a>
+                                    <h5>Portfolio</h5>
+                                    <a href="{{ route('portfolio.create') }}"> <button class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add Portfolio</button></a>
+                                    <a href="{{ route('portfolio.category.index') }}"> <button class="btn btn-primary float-right mr-2"><i class="fas fa-arrow-left"></i> Category List</button></a>
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive">

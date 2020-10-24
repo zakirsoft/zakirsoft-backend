@@ -23,7 +23,7 @@
                 <div class="page-header-title">
                     <i class="feather icon-credit-card bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>Category</h5>
+                        <h5>Portfolio Category</h5>
                     </div>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                         <li class="breadcrumb-item">
                             <a href="{{ route('dashboard.index') }}"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Category</a>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Portfolio Category</a>
                         </li>
                     </ul>
                 </div>
@@ -45,43 +45,6 @@
         <div class="main-body">
             <div class="page-wrapper">
 
-
-                @if (session('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ session('success') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                @endif
-
-                @if (session('danger'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('danger') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                @endif
-                @if (session('warning'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('warning') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                @endif
-
-                @if (session('error'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ session('error') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                @endif
-
                 <div class="page-body">
 
                     <div class="row">
@@ -89,7 +52,7 @@
 
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Add Category</h5>
+                                    <h5>Portfolio Category</h5>
                                         <button  type="button" class="btn btn-primary waves-effect float-right" data-toggle="modal" data-target="#add_career"><i class="fas fa-plus"></i> Add Category</button>
                                 </div>
                                 <div class="card-block">
@@ -187,11 +150,11 @@
         <div class="modal-body">
                 <div class="form-group">
                   <label for="title">Category Name</label>
-                  <input required name="name" type="text" class="form-control" id="title" placeholder="Enter portfolio category name">
+                  <input required name="name" type="text" class="form-control" id="title" placeholder="Enter category name">
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-times"></i> Close</button>
                 <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Add Category</button>
             </div>
         </form>
