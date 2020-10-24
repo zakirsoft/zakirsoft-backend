@@ -35,3 +35,5 @@
     <!-- joinus section end -->
 @endsection
 
+@section('style') @livewireStyles @endsection
+@section('script') @livewireScripts @endsection

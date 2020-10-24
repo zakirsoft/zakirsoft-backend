@@ -43,37 +43,37 @@
 
             <ul class="pcoded-item pcoded-left-item">
                 <li class="pcoded-hasmenu @yield('portfolio')">
-                    @can('portfolio show')
+                    {{-- @can('portfolio show') --}}
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="far fa-window-restore"></i></span>
                         <span class="pcoded-mtext">Portfolio</span>
                     </a>
                     <ul class="pcoded-submenu">
-                        @can('portfolio list')
+                        {{-- @can('portfolio list') --}}
                         <li class="">
                             <a href="{{ route('portfolio.category.index') }}" class="waves-effect waves-dark">
                                     <span class="pcoded-mtext">Category List</span>
                             </a>
                         </li>
-                        @endcan
-                        @can('portfolio list')
+                        {{-- @endcan
+                        @can('portfolio list') --}}
                         <li class="">
                             <a href="{{ route('portfolio.index') }}" class="waves-effect waves-dark">
                                     <span class="pcoded-mtext">Portfolio List</span>
                                 </a>
                         </li>
                             </li>
-                        @endcan
-                        @can('portfolio create')
+                        {{-- @endcan
+                        @can('portfolio create') --}}
                         <li class="">
                             <a href="{{ route('portfolio.create') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Add Portfolio</span>
                             </a>
                         </li>
 
-                        @endcan
+                        {{-- @endcan --}}
                     </ul>
-                    @endcan
+                    {{-- @endcan --}}
                 </li>
                 <li class="pcoded-hasmenu @yield('testimonial')">
                     @can('testimonial show')
