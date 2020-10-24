@@ -14,36 +14,16 @@
           </div>
           <div class="connect_info">
             <h4>Connect With us</h4>
-            <p>
-              In consequat, quam id sodales hendrerit, eros mi molestie leo,
-              nec lacinia risus neque tristique augue. Proin tempus urna vel
-              congue elementum.
-            </p>
-            <span class="email">Zakirsoft@outlook.com</span>
+            <p>{{$content->content}}</p>
+            <span class="email">{{$content->email}}</span>
           </div>
           <div>
             <ul class="social_links">
+              @foreach ($socials as $social)
               <li>
-                <a href="#"><i class="fab fa-behance"></i></a>
+                <a href="{{$social->profile_link}}"><i class="{{$social->social_media}}"></i></a>
               </li>
-              <li>
-                <a href="#"><i class="fab fa-dribbble"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fab fa-github"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-              </li>
+              @endforeach
             </ul>
           </div>
         </div>
