@@ -148,21 +148,60 @@
                   <input name="position" type="text" class="form-control" id="content" placeholder="Enter Your Position" required>
                 </div>
                 <div class="form-group">
-                  <label for="content">Image</label>
-                  <input type="file" class="form-control" name="image" id="position" required>
+                    <label for="content">Image</label><br>
+                    <img class="my-2" id="single_image_preview"/>
+                    <input onchange="readURL(this)" type="file" class="form-control" name="image" id="position" required id="single_image">
                 </div>
-
 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add Team Content</button>
             </div>
         </form>
       </div>
     </div>
   </div>
 
-
-
 @endsection
+
+
+@section('style')
+<style>
+    /* Image Style  */
+
+        img{
+            max-width:80px;
+        }
+        input[type=file]{
+          padding:10px;
+        }
+
+</style>
+@endsection
+
+
+@section('script')
+<script>
+
+         /* image 1 */
+    $('#single_image_preview').hide();
+    // $('#single_image_preview_remove').hide();
+    $('#reaset_multiple').hide();
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        $('#single_image_preview').show();
+        // $('#single_image_preview_remove').show();
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+              $('#single_image_preview').attr('src', e.target.result);
+          };
+
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+
+</script>
+@endsection
+

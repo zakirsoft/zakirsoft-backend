@@ -43,23 +43,26 @@ class TeamController extends Controller
         $request->validate([
             'name'=>'required',
             'position'=>'required',
-            'image' => 'required|image|mimes:png,jpg'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:10048'
         ]);
 
         $team = Team::create([
             'name'=> $request->name,
             'position'=> $request->position,
+            'image'=>"image",
         ]);
 
         if( $request->has('image')){
             $image = $request->image;
             $imageName = time() . '_' . uniqid() .'.'. $image->getClientOriginalExtension();
 
-            Storage::putFileAs('image', $image, $imageName);
-            $team->image = 'storage/image/'. $imageName;
+            Storage::putFileAs('team', $image, $imageName);
+            $team->image = 'storage/team/'. $imageName;
             $team->save();
         }
-        return back()->with('success', 'Member Add To Successfully');
+
+        session()->flash('success', 'Team Member Added Successfully!');
+        return redirect()->route('team.index');
     }
 
     /**
@@ -97,22 +100,47 @@ class TeamController extends Controller
         $request->validate([
             'name' => 'required',
             'position' => 'required',
-            'image' => 'required|image|mimes:png,jpg',
-
         ]);
-        if( $request->has('image')){
-            $team = Team::find($id);
 
-            if(file_exists($team->image)){
-                unlink(public_path($team->image));
+        if( $request->has('image')){
+
+             // old image delete
+            $old_image = Team::find($id);
+
+            if (file_exists($old_image->image)) {
+                unlink(public_path($old_image->image));
             }
 
             $image = $request->image;
             $imageName = time() . '_' . uniqid() .'.'. $image->getClientOriginalExtension();
-            Storage::putFileAs('/image', $image, $imageName);
-            $team->image = 'storage/image/' . $imageName;
-            $team->save();
+            Storage::putFileAs('/team', $image, $imageName);
+            // Storage::putFileAs('/portfolio', $image, $imageName);
+            $image_address = 'storage/team/'. $imageName;
+
+            Team::findOrFail($id)->update([
+                'name' => $request->name,
+                'position' => $request->position,
+                'image' => $image_address,
+            ]);
+
+            session()->flash('success', 'Team Content Updated Successfully With Image!');
+            return redirect()->route('team.index');
+
+        }else{
+
+            Team::findOrFail($id)->update([
+                'name' => $request->name,
+                'position' =>  $request->position,
+            ]);
+
+            session()->flash('success', 'Team Content Updated Successfully Without Image!');
+            return redirect()->route('team.index');
+
         }
+
+
+
+
         session()->flash('success', 'Member Update Successfully!');
         return redirect()->back();
     }

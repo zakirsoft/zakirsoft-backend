@@ -23,8 +23,7 @@ active pcoded-trigger
                 <div class="page-header-title">
                     <i class="feather icon-clipboard bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>Add Team</h5>
-                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+                        <h5>Edit Team</h5>
                     </div>
                 </div>
             </div>
@@ -34,10 +33,10 @@ active pcoded-trigger
                         <li class="breadcrumb-item">
                             <a href="{{ route('dashboard.index') }}"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="{{ route('team.index') }}">Our Team</a>
+                        <li class="breadcrumb-item"><a href="{{ route('team.index') }}">Team</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="#!">Add Portfolio</a>
+                            <a href="#!">Edit Portfolio</a>
                         </li>
                     </ul>
                 </div>
@@ -73,8 +72,8 @@ active pcoded-trigger
 
                             <div class="card">
                                 <div class="card-header align-items-center justify-content-between d-flex">
-                                    <h5>Paste here Team information</h5>
-                                    <a href="{{ route('team.index') }}" class="btn btn-sm btn-primary">Show Member</a>
+                                    <h5>Edit Team</h5>
+                                    <a href="{{ route('team.index') }}" class="btn btn-sm btn-primary"><i class="fa fa-arrow-left"></i> Show Member</a>
                                 </div>
                                 <div class="card-block">
 
@@ -92,13 +91,19 @@ active pcoded-trigger
                                         @csrf
                                         @method('PUT')
 
-                                        <div class="form-group">
-                                            <img width="150px" src="{{ asset($teams->image) }}" alt="">
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Current Image </label>
+                                            <div class="col-sm-10">
+                                                <img width="150px" src="{{ asset($teams->image) }}" alt="">
+                                            </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Image </label>
                                             <div class="col-sm-10">
-                                                <input type="file" class="form-control" name="image" id="position">
+                                                <img class="my-2" id="single_image_preview"/>
+                                                <input onchange="readURL(this)" type="file" class="form-control" name="image" id="position" id="single_image">
+                                                {{-- <input type="file" class="form-control" name="image" id="position"> --}}
                                             </div>
                                         </div>
 
@@ -120,8 +125,7 @@ active pcoded-trigger
                                         <div class="form-group row pt-4">
                                             <label class="col-sm-2"></label>
                                             <div class="col-sm-10">
-                                                <button type="submit" class="btn btn-primary m-b-0"><i
-                                                        class="fas fa-plus"></i> Update Member</button>
+                                                <button type="submit" class="btn btn-primary m-b-0"><i class="fas fa-plus"></i> Update</button>
                                             </div>
                                         </div>
                                     </form>
@@ -139,37 +143,44 @@ active pcoded-trigger
 
 
 @endsection
+
 @section('style')
 <style>
-    .ck-editor__editable_inline {
-        min-height: 170px;
-    }
+    /* Image Style  */
+
+        img{
+            max-width:80px;
+        }
+        input[type=file]{
+          padding:10px;
+        }
 
 </style>
 @endsection
+
+
 @section('script')
 <script>
-    ClassicEditor
-        .create(document.querySelector('#editor'))
-        .catch(error => {
-            console.error(error);
-        });
 
-</script>
-<script>
-    ClassicEditor
-        .create(document.querySelector('#editor5'))
-        .catch(error => {
-            console.error(error);
-        });
+         /* image 1 */
+    $('#single_image_preview').hide();
+    // $('#single_image_preview_remove').hide();
+    $('#reaset_multiple').hide();
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        $('#single_image_preview').show();
+        // $('#single_image_preview_remove').show();
+          var reader = new FileReader();
 
-</script>
-<script>
-    ClassicEditor
-        .create(document.querySelector('#editor2'))
-        .catch(error => {
-            console.error(error);
-        });
+          reader.onload = function (e) {
+              $('#single_image_preview').attr('src', e.target.result);
+          };
+
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
 
 </script>
 @endsection
+
+

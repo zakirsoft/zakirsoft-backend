@@ -130,7 +130,6 @@
                                                 <div class="form-group">
                                                     <label>Thumbnail Image</label><br>
                                                     <img class="my-2" id="single_image_preview"/>
-                                                    {{-- <button id="single_image_preview_remove" type="button" onclick="reset_single()" class="btn btn-danger btn-sm">x</button> --}}
                                                     <div class="input-group">
                                                       <input type="text" class="form-control" readonly>
                                                         <div class="input-group-btn">
@@ -141,9 +140,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
                                             </div>
-                                            {{-- @error('image') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror --}}
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Multiple Image</label><br>
@@ -235,6 +232,7 @@
 
 
 @endsection
+
 @section('style')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.css">
 <style>

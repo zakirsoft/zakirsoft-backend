@@ -46,7 +46,7 @@ Route::put('portfolio/category/update/{id}', [PortfolioCategoryController::class
 Route::resource('career', CareerController::class);
 
 // =====================Contact =====================
-Route::resource('contact', ContactController::class);
+// Route::resource('contact', ContactController::class);
 
 // =====================Testimonail =====================
 Route::resource('testimonial', TestimonialController::class);
