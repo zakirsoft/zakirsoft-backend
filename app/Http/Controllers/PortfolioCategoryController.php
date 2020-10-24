@@ -7,11 +7,10 @@ use App\Models\PortfolioCategory;
 
 class PortfolioCategoryController extends Controller
 {
-
-
-
-
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
         function index(){
             $portfolio_category = PortfolioCategory::latest()->SimplePaginate(10);
             return view('admin.portfolio.category.index',compact('portfolio_category'));
