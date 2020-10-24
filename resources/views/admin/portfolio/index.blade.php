@@ -91,6 +91,9 @@
                                                         <a href="{{ route('portfolio.edit', $portfolio->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit Role">
                                                             <i class="far fa-edit"></i>
                                                         </a>
+                                                        <a href="{{ route('portfolio.show', $portfolio->id) }}" class="btn btn-sm btn-info mr-1" title="Show Role">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
                                                         <form action="{{ route('portfolio.destroy', $portfolio->id) }}" method="POST" class="d-inline">
                                                             @method('DELETE')
                                                             @csrf

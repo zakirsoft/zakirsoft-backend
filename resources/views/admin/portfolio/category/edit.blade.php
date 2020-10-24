@@ -62,6 +62,7 @@
                             <div class="card">
                                 <div class="card-header bg-dark text-light">
                                    Edit Category
+                                   <a href="{{ url()->previous() }}" class="btn btn-sm btn-primary float-right"><i class="fa fa-arrow-left"></i> Category</a>
                                 </div>
                                 <div class="card-block">
                                     <form id="main" method="POST" action="{{ route('portfolio.category.update', $p_category_edit->id) }}">

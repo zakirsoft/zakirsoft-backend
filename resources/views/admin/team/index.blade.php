@@ -43,24 +43,6 @@
     <div class="pcoded-inner-content">
         <div class="main-body">
             <div class="page-wrapper">
-
-                @if (session('delete'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('delete') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                @endif
-                @if (session('update'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ session('update') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                @endif
-
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
@@ -149,7 +131,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                 <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add</button>
             </div>
         </form>
