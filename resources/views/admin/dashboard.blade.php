@@ -22,13 +22,13 @@
                     <i class="fas fa-tachometer-alt bg-c-green"></i>
                     <div class="d-inline">
                         <h5>Dashboard</h5>
-                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+                        <span id="responsive___none">lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4" id="responsive___none">
                 <div class="page-header-breadcrumb">
-                    <ul class=" breadcrumb breadcrumb-title">
+                    <ul class="breadcrumb breadcrumb-title">
                         <li class="breadcrumb-item">
                         <a href="{{ route('dashboard.index') }}"><i class="feather icon-home"></i></a>
                         </li>
@@ -137,11 +137,11 @@
                                 <div class="card-body">
                                     <div class="row align-items-center m-b-30">
                                         <div class="col">
-                                            <h6 class="m-b-5 text-white">Example</h6>
-                                            <h3 class="m-b-0 f-w-700 text-white">0</h3>
+                                            <h6 class="m-b-5 text-white">Team Members</h6>
+                                            <h3 class="m-b-0 f-w-700 text-white">{{$social}}</h3>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-desktop text-c-green f-18"></i>
+                                            <i class="fas fa-users text-c-green f-18"></i>
                                         </div>
                                     </div>
                                     {{-- <p class="m-b-0 text-white"><span class="label label-primary m-r-10">+12%</span>From
@@ -154,11 +154,11 @@
                                 <div class="card-body">
                                     <div class="row align-items-center m-b-30">
                                         <div class="col">
-                                            <h6 class="m-b-5 text-white">Example</h6>
-                                            <h3 class="m-b-0 f-w-700 text-white">0</h3>
+                                            <h6 class="m-b-5 text-white">Social Profile</h6>
+                                            <h3 class="m-b-0 f-w-700 text-white">{{$team}}</h3>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-desktop text-c-green f-18"></i>
+                                            <i class="fas fa-share-alt text-c-green f-18"></i>
                                         </div>
                                     </div>
                                     {{-- <p class="m-b-0 text-white"><span class="label label-success m-r-10">+52%</span>From
