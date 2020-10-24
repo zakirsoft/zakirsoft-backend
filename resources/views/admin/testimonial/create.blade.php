@@ -46,16 +46,6 @@
     <div class="pcoded-inner-content">
         <div class="main-body">
             <div class="page-wrapper">
-
-                @if (session('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ session('success') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                @endif
-
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
@@ -65,7 +55,36 @@
                                     <h5>Add Testimonial</h5>
                                 </div>
                                 <div class="card-block">
-                                    <form id="main" method="POST" action="{{ route('testimonial.store') }}">
+
+
+                                    <form id="main"  method="POST" action="{{ route('testimonial.store') }}">
+                                        @csrf
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 col-form-label">Purpose</label>
+                                                    <input type="text" class="form-control @error('purpose') is-invalid @enderror" name="purpose" id="name" placeholder="Enter Purpose of Testimonial (Not visible)">                                                    @error('client_name') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                    @error('purpose') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label>Client Email</label>
+                                                     <input value="{{ old('client_email') }}" type="text" class="form-control @error('client_email') is-invalid @enderror" name="client_email" placeholder="Enter Client Email of Portfolio">
+                                                     @error('client_email') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <button type="submit" class="btn btn-primary  m-b-0"><i class="fas fa-plus"></i> Add Portfolio</button>
+
+
+
+                                    </form>
+
+
+                                    {{-- <form id="main" method="POST" action="{{ route('testimonial.store') }}">
                                         @csrf
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Purpose</label>
@@ -123,7 +142,7 @@
                                                 <button type="submit" class="btn btn-primary m-b-0"><i class="fas fa-plus"></i> Add Testimonial</button>
                                             </div>
                                         </div>
-                                    </form>
+                                    </form> --}}
                                 </div>
                             </div>
 

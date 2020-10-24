@@ -76,28 +76,28 @@
                     @endcan
                 </li>
                 <li class="pcoded-hasmenu @yield('testimonial')">
-                    @can('testimonial show')
+                    {{-- @can('testimonial show') --}}
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="far fa-file-word"></i></span>
                         <span class="pcoded-mtext">Testimonial</span>
                     </a>
                     <ul class="pcoded-submenu">
-                        @can('testimonial create')
+                        {{-- @can('testimonial create') --}}
                         <li class="">
                             <a href="{{ route('testimonial.create') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Add Testimonial</span>
                             </a>
                         </li>
-                        @endcan
-                        @can('testimonial list')
+                        {{-- @endcan --}}
+                        {{-- @can('testimonial list') --}}
                         <li class="">
                             <a href="{{ route('testimonial.index') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Testimonials List</span>
                             </a>
                         </li>
-                        @endcan
+                        {{-- @endcan --}}
                     </ul>
-                    @endcan
+                    {{-- @endcan --}}
                 </li>
                 <li class="@yield('career')">
                     @can('career show')
@@ -136,8 +136,8 @@
                 </li>
             </ul>
 
-            <div class="pcoded-navigation-label">Other</div>
-            <ul class="pcoded-item pcoded-left-item">
+            {{-- <div class="pcoded-navigation-label">Other</div> --}}
+            {{-- <ul class="pcoded-item pcoded-left-item">
                 </li>
                 <li class="pcoded-hasmenu">
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
@@ -177,7 +177,7 @@
                         <span class="pcoded-mtext">Option</span>
                     </a>
                 </li>
-            </ul>
+            </ul> --}}
 
         </div>
     </div>
