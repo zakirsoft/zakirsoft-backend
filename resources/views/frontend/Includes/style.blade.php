@@ -8,5 +8,6 @@
 <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/magnific-popup.css">
 <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/slick.css" />
 <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/style.css" />
+@livewireStyles
 @yield('website_style')
 

@@ -27,5 +27,10 @@
 
 @endsection
 
+<<<<<<< HEAD
 @section('website_style') @livewireStyles @endsection 
  @section('website_script') @livewireScripts @endsection
+=======
+{{-- @section('website_style') @livewireStyles @endsection
+@section('website_script') @livewireScripts @endsection --}}
+>>>>>>> 12e0bb75713dc7fa613aa3c9ee3343d72098b83f
