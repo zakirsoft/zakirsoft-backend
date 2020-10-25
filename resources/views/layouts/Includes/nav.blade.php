@@ -3,7 +3,7 @@
         <div class="navbar-logo">
             <a href="{{ route('dashboard.index') }}">
                 {{-- Brand Logo --}}
-             <img width="160px" height="28px" class="img-fluid" src="{{asset('admin')}}/png/zakisoft.png" alt="Theme-Logo" />
+             <img width="160px" height="28px" class="img-fluid ml-3" src="{{asset('admin')}}/png/zakirsoft.png" alt="Theme-Logo" />
             </a>
             <a class="mobile-menu" id="mobile-collapse" href="#!">
                 <i class="feather icon-menu icon-toggle-right"></i>

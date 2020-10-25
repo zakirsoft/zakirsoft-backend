@@ -215,7 +215,6 @@
 
         @foreach ($testimonials as $testimonial)
         <div class="slide_item">
-<<<<<<< HEAD
           <div class="content_text">
             "Cras eu elit congue, placerat dui ut, tincidunt nisl. Nulla leo
             elit, pharetra bibendum justo quis, cursus consectetur erat. Sed
@@ -252,7 +251,6 @@
           <span class="client_position">CEO of Invision</span>
         </div>
 
-=======
             <div class="content_text">
               "{{$testimonial->content}}"
             </div>
@@ -260,7 +258,6 @@
             <span class="client_position">{{$testimonial->position}}</span>
           </div>
         @endforeach
->>>>>>> baa62abb92fb3e53bcc137778d2967272eab8203
 
       </div>
 
