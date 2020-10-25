@@ -10,7 +10,6 @@
 
 @section('content')
 
-
 <div class="loader-bg">
     <div class="loader-bar"></div>
 </div>
@@ -24,7 +23,6 @@
                     <i class="feather icon-clipboard bg-c-blue"></i>
                     <div class="d-inline">
                         <h5>Show Portfolio</h5>
-
                     </div>
                 </div>
             </div>
@@ -106,7 +104,6 @@
                                                     @endif
                                                 </td>
                                             </tr>
-
                                         </tbody>
                                     </table>
                                 </div>
@@ -114,7 +111,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

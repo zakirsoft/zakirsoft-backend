@@ -15,7 +15,6 @@
 </div>
 
 <div class="pcoded-content">
-
     <div class="page-header card">
         <div class="row align-items-end">
             <div class="col-lg-8">
@@ -44,22 +43,13 @@
     <div class="pcoded-inner-content">
         <div class="main-body">
             <div class="page-wrapper">
-        {{-- session --}}
-                @if (session('delete'))
-                <div class="alert alert-danger bg-danger" role="alert">
-                    {{ session('delete') }}
-                </div>
-                @endif
-
+                @if (session('delete')) <div class="alert alert-danger bg-danger" role="alert">{{ session('delete') }}</div> @endif
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Default Table</h5>
-                                    <span>Example of default table, Add <code>.table-de</code> class to the
-                                        <code>.table</code> to create a table with default spacing. Default table all
-                                        rows have <code>0.75rem</code> height.</span>
+                                    <h5>Contact</h5>
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive">
@@ -90,21 +80,16 @@
                                                     </form>
                                                 </tr>
                                                 @endforeach
-
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 </div>
-
-
 @endsection

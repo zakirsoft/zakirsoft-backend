@@ -15,7 +15,6 @@ active pcoded-trigger
 </div>
 
 <div class="pcoded-content">
-
     <div class="page-header card">
         <div class="row align-items-end">
             <div class="col-lg-8">
@@ -46,7 +45,6 @@ active pcoded-trigger
     <div class="pcoded-inner-content">
         <div class="main-body">
             <div class="page-wrapper">
-
                 @if (session('create'))
                 <div class="alert alert-info alert-dismissible fade show" role="alert">
                     {{ session('create') }} <a href="{{ route('role.index') }}" class="alert-link">Check Here</a>.
@@ -55,11 +53,9 @@ active pcoded-trigger
                     </button>
                 </div>
                 @endif
-
                 <div class="page-body">
                     <div class="row">
                         <div class="col-8 offset-2">
-
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between">
                                     <h5>Create Role</h5>
@@ -79,20 +75,15 @@ active pcoded-trigger
                                                 </span>
                                             @enderror
                                         </div>
-
-                                        <button type="submit" class="btn btn-primary"><i
-                                                class="fas fa-plus-square pr-1"></i>Save</button>
+                                        <button type="submit" class="btn btn-primary"><i class="fas fa-plus-square pr-1"></i>Save</button>
                                     </form>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 </div>
-
 @endsection

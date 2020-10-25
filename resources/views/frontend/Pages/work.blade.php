@@ -4,8 +4,6 @@
 @section('work_footer') active @endsection
 
 @section('content')
-
-
     <!-- work section start -->
     <section id="work" class="none">
         <div class="round_shape_img">
@@ -105,6 +103,4 @@
         </div>
     </section>
     <!-- work section end -->
-
 @endsection
-

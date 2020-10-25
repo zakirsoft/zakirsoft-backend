@@ -15,7 +15,6 @@ Customize Profile - ZakirSoft
 </div>
 
 <div class="pcoded-content">
-
     <div class="page-header card">
         <div class="row align-items-end">
             <div class="col-lg-8">
@@ -49,17 +48,14 @@ Customize Profile - ZakirSoft
                 <div class="page-body">
                     <div class="row justify-content-center">
                         <div class="col-sm-8">
-
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Current Details</h5>
                                 </div>
                                 <div class="card-block">
-
                                     <div class="text-center pb-5">
                                         <img id="image" width="130" height="130" style="border-radius: 100px" / src="{{ asset(Auth::user()->image) }}">
                                     </div>
-
                                     <form id="main" method="POST" action="{{ route('profile.update', Auth::user()->id) }}"enctype="multipart/form-data">
                                         @method('PUT')
                                         @csrf
@@ -77,13 +73,6 @@ Customize Profile - ZakirSoft
                                               @error('email') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                             </div>
                                         </div>
-                                        {{-- <div class="form-group row">
-                                            <label for="image" class="col-sm-2 col-form-label">Image</label>
-                                            <div class="col-sm-10">
-                                              <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image" onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])">
-                                              @error('image') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
-                                            </div>
-                                        </div> --}}
                                         <div class="form-group row">
                                             <label for="current_password" class="col-sm-2 col-form-label">Current Password</label>
                                             <div class="col-sm-10">
@@ -103,20 +92,15 @@ Customize Profile - ZakirSoft
                                                 @error('password_confirmation') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                               </div>
                                         </div>
-
                                         <button type="submit" class="btn btn-primary m-b-0 mt-4"><i class="fas fa-sync"></i> Update</button>
                                     </form>
-
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 </div>
-
 @endsection

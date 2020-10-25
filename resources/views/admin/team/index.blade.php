@@ -145,39 +145,26 @@
 @section('style')
 <style>
     /* Image Style  */
-
-        img{
-            max-width:80px;
-        }
-        input[type=file]{
-          padding:10px;
-        }
-
+    img{ max-width:80px; }
+    input[type=file]{ padding:10px; }
 </style>
 @endsection
-
 
 @section('script')
 <script>
 
-         /* image 1 */
+    /* image 1 */
     $('#single_image_preview').hide();
-    // $('#single_image_preview_remove').hide();
     $('#reaset_multiple').hide();
     function readURL(input) {
       if (input.files && input.files[0]) {
         $('#single_image_preview').show();
-        // $('#single_image_preview_remove').show();
-          var reader = new FileReader();
-
-          reader.onload = function (e) {
-              $('#single_image_preview').attr('src', e.target.result);
-          };
-
-          reader.readAsDataURL(input.files[0]);
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#single_image_preview').attr('src', e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
       }
   }
-
 </script>
 @endsection
-

@@ -47,11 +47,9 @@ active pcoded-trigger
     <div class="pcoded-inner-content">
         <div class="main-body">
             <div class="page-wrapper">
-
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
-
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between">
                                     <h5>Permission assign to Role</h5>
@@ -77,17 +75,13 @@ active pcoded-trigger
                                                 @endforeach
                                             </select>
                                         </div>
-
-                                        <button type="submit" class="btn btn-primary"><i
-                                                class="fas fa-plus-square pr-1"></i>Assign</button>
+                                        <button type="submit" class="btn btn-primary"><i class="fas fa-plus-square pr-1"></i>Assign</button>
                                     </form>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -96,12 +90,12 @@ active pcoded-trigger
 
 
 @section('style')
-<link rel="stylesheet" href="{{ asset('admin') }}/css/select2.min.css" />
+    <link rel="stylesheet" href="{{ asset('admin') }}/css/select2.min.css" />
 @endsection
 
 @section('script')
-<script src="{{ asset('admin') }}/js/select2.full.min.js"></script>
-<script>
-    $(".js-example-basic-multiple").select2();
-</script>
+    <script src="{{ asset('admin') }}/js/select2.full.min.js"></script>
+    <script>
+        $(".js-example-basic-multiple").select2();
+    </script>
 @endsection

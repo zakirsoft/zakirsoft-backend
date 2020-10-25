@@ -34,6 +34,4 @@
         </div>
     </section>
     <!-- joinus section end -->
-
 @endsection
-

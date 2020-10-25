@@ -9,13 +9,12 @@ active pcoded-trigger
 @endsection
 
 @section('content')
-@include('notify::messages')
+
 <div class="loader-bg">
     <div class="loader-bar"></div>
 </div>
 
 <div class="pcoded-content">
-
     <div class="page-header card">
         <div class="row align-items-end">
             <div class="col-lg-8">
@@ -43,20 +42,17 @@ active pcoded-trigger
     <div class="pcoded-inner-content">
         <div class="main-body">
             <div class="page-wrapper">
-
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
-
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Footer Content</h5>
                                     @can('footer create')
-                                    @if ($ContentCount < 1) <button type="button"
-                                        class="btn btn-primary waves-effect float-right" data-toggle="modal"
-                                        data-target="#add_content"><i class="fas fa-plus"></i></button>
-                                        @endif
-                                        @endcan
+                                    @if ($ContentCount < 1)
+                                        <button type="button"class="btn btn-primary waves-effect float-right" data-toggle="modal" data-target="#add_content"><i class="fas fa-plus"></i></button>
+                                    @endif
+                                    @endcan
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive">
@@ -85,15 +81,11 @@ active pcoded-trigger
                                                             method="POST">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <button
-                                                                onclick="return confirm('Are you sure you want to delete this item?');"
-                                                                class="btn btn-sm btn-danger"><i
-                                                                    class="far fa-trash-alt"></i></button>
+                                                            <button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm btn-danger far fa-trash-alt"><i></i></button>
                                                         </form>
                                                         @endcan
                                                     </td>
                                                 </tr>
-
                                                 {{-- Footer Content Edit --}}
                                                 <div class="modal fade" id="edit_content{{$footer->id}}" tabindex="-1"
                                                     role="dialog" aria-labelledby="exampleModal3Label"
@@ -187,8 +179,7 @@ active pcoded-trigger
                                                                 class="far fa-edit"></i></a>
                                                         @endcan
                                                         @can('footer delete')
-                                                        <form action="{{ route('social.destroy', $social->id) }}"
-                                                            method="POST">
+                                                        <form action="{{ route('social.destroy', $social->id) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf
                                                             <button
@@ -369,6 +360,4 @@ active pcoded-trigger
         </div>
     </div>
 </div>
-
-
 @endsection

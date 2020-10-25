@@ -5,10 +5,8 @@
 
 @section('content')
 
-
   <!-- about-us section start -->
   <section id="about" class="none">
-
     <div class="container">
       <div class="row section_title">
         <h2>About us</h2>
@@ -60,7 +58,6 @@
       <img src="{{ asset('frontend') }}/assets/images/shape/shadow_2.png" alt="shaddow_ibackground">
     </div>
   </section>
-
 
   <!-- about-us 2 section end -->
   <section id="about_content_2" class="none">

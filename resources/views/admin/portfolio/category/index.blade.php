@@ -15,7 +15,6 @@ active pcoded-trigger
 </div>
 
 <div class="pcoded-content">
-
     <div class="page-header card">
         <div class="row align-items-end">
             <div class="col-lg-8">
@@ -43,12 +42,9 @@ active pcoded-trigger
     <div class="pcoded-inner-content">
         <div class="main-body">
             <div class="page-wrapper">
-
                 <div class="page-body">
-
                     <div class="row">
                         <div class="col-sm-12">
-
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Portfolio Category</h5>
@@ -58,7 +54,6 @@ active pcoded-trigger
                                     @endcan
                                 </div>
                                 <div class="card-block">
-
                                     <div class="table-responsive">
                                         @if ($errors->any())
                                         <div class="alert alert-danger">
@@ -80,7 +75,6 @@ active pcoded-trigger
                                                 </tr>
                                             </thead>
                                             <tbody>
-
                                                 @forelse ($portfolio_category as $key => $category)
                                                 <tr>
                                                     <th class="text-center" scope="row">
@@ -133,11 +127,9 @@ active pcoded-trigger
                                         {{ $portfolio_category->links()  }}
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -172,5 +164,4 @@ active pcoded-trigger
         </div>
     </div>
 </div>
-
 @endsection

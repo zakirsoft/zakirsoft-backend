@@ -10,13 +10,11 @@
 
 @section('content')
 
-
 <div class="loader-bg">
     <div class="loader-bar"></div>
 </div>
 
 <div class="pcoded-content">
-
     <div class="page-header card">
         <div class="row align-items-end">
             <div class="col-lg-8">
@@ -50,14 +48,12 @@
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
-
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Add Portfolio</h5>
                                    <a href="{{ route('portfolio.category.index') }}"> <button type="button" class="btn btn-primary waves-effect float-right"><i class="fas fa-plus"></i> Add Category</button></a>
                                 </div>
                                 <div class="card-block">
-
                                         @if ($errors->any())
                                         <div class="alert alert-danger alert-dismissible fade show">
                                            Please provide required field conditions!
@@ -70,10 +66,8 @@
                                             </ul>
                                         </div>
                                         @endif
-
                                     <form id="main" method="POST" action="{{ route('portfolio.store') }}" enctype="multipart/form-data">
                                         @csrf
-
                                         <div class="row">
                                             <div class="col-4">
                                                 <div class="form-group">
@@ -83,7 +77,6 @@
                                                         @foreach ($category_list as $item)
                                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                         @endforeach
-
                                                     </select>
                                                     @error('category_id') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
@@ -104,7 +97,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="form-group">
@@ -196,77 +188,61 @@
                                     </form>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 </div>
-
-
 @endsection
 
 @section('style')
 <style>
-    .ck-editor__editable_inline {
-        min-height: 170px;
-    }
+    .ck-editor__editable_inline { min-height: 170px; }
 
     /* Image Style  */
-        img{
-            max-width:80px;
-        }
-        input[type=file]{
-          padding:10px;
-        }
+    img{ max-width:80px;}
+    input[type=file]{ padding:10px; }
 
-          /* image 2 */
+    /* image 2 */
 
-          .it .btn-orange
-          {
-              background-color: blue;
-              border-color: #777!important;
-              color: #777;
-              text-align: left;
-            width:100%;
-          }
-          .it input.form-control
-          {
-
-              border:none;
-            margin-bottom:0px;
-              border-radius: 0px;
-              border-bottom: 1px solid #ddd;
-              box-shadow: none;
-          }
-          .it .form-control:focus
-          {
-              border-color: #ff4d0d;
-              box-shadow: none;
-              outline: none;
-          }
-          .fileUpload {
-              position: relative;
-              overflow: hidden;
-          }
-          .fileUpload input.upload {
-              position: absolute;
-              top: 0;
-              right: 0;
-              margin: 0;
-              padding: 0;
-              font-size: 20px;
-              cursor: pointer;
-              opacity: 0;
-              filter: alpha(opacity=0);
-          }
-
+    .it .btn-orange{
+        background-color: blue;
+        border-color: #777!important;
+        color: #777;
+        text-align: left;
+        width:100%;
+    }
+    .it input.form-control{
+        border:none;
+        margin-bottom:0px;
+        border-radius: 0px;
+        border-bottom: 1px solid #ddd;
+        box-shadow: none;
+    }
+    .it .form-control:focus{
+        border-color: #ff4d0d;
+        box-shadow: none;
+        outline: none;
+    }
+    .fileUpload{
+        position: relative;
+        overflow: hidden;
+    }
+    .fileUpload input.upload {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        cursor: pointer;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
 </style>
 @endsection
-
 
 @section('script')
 <script>
@@ -292,29 +268,28 @@
     function readURL(input) {
       if (input.files && input.files[0]) {
         $('#single_image_preview').show();
-          var reader = new FileReader();
-          reader.onload = function (e) {
-              $('#single_image_preview').attr('src', e.target.result);
-          };
-          reader.readAsDataURL(input.files[0]);
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#single_image_preview').attr('src', e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
       }
-  }
+    }
 
-/* image 2 */
-  $(document).on('change','.up', function(){
-            var names = [];
-            var length = $(this).get(0).files.length;
-                for (var i = 0; i < $(this).get(0).files.length; ++i) {
-                    names.push($(this).get(0).files[i].name);
-                }
-
-                if(length>2){
-                  var fileName = names.join(', ');
-                  $(this).closest('.form-group').find('.form-control').attr("value",length+" files selected");
-                }
-                else{
-                    $(this).closest('.form-group').find('.form-control').attr("value",names);
-                }
+    /* image 2 */
+    $(document).on('change','.up', function(){
+        var names = [];
+        var length = $(this).get(0).files.length;
+        for (var i = 0; i < $(this).get(0).files.length; ++i) {
+            names.push($(this).get(0).files[i].name);
+        }
+        if(length>2){
+            var fileName = names.join(', ');
+            $(this).closest('.form-group').find('.form-control').attr("value",length+" files selected");
+        }
+        else{
+            $(this).closest('.form-group').find('.form-control').attr("value",names);
+        }
        });
 
 // multiple image
@@ -324,6 +299,5 @@ function preview_image() {
         $('#multiple_image_preview').append("<img class='my-2' src='"+URL.createObjectURL(event.target.files[i])+"'>&nbsp;&nbsp;");
     }
 }
-
 </script>
 @endsection
