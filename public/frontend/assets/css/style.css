@@ -215,6 +215,12 @@ input:required {
   margin-bottom: 70px;
 }
 
+@media (max-width: 1024px) {
+  .round_shape_img img {
+    display: none;
+  }
+}
+
 /* ?? part start */
 header {
   background-color: #fff;
@@ -959,6 +965,7 @@ header .container .head_content .menu .m_bar li:first-child {
   top: 24%;
   right: 0%;
   z-index: -1;
+  display: none;
 }
 
 #about .round_shape_img img {
@@ -1028,6 +1035,7 @@ header .container .head_content .menu .m_bar li:first-child {
   position: absolute;
   left: -38%;
   top: 48%;
+  display: none;
 }
 
 #team .round_shape_img img {
@@ -1530,6 +1538,12 @@ header .container .head_content .menu .m_bar li:first-child {
   text-transform: uppercase;
 }
 
+#details_project .project_img img {
+  width: 800px;
+  height: 400px;
+  object-fit: cover;
+}
+
 #footer_area {
   text-align: center;
   padding-top: 188px;
@@ -1894,6 +1908,7 @@ header .container .head_content .menu .m_bar li:first-child {
   }
   #WE_Do .round_shape_img {
     left: 15% !important;
+    display: none;
   }
   #testimonial-area .testimonial_slider .slick-arrow.slick-prev {
     transform: translate(165px, 120px);
@@ -2006,6 +2021,9 @@ header .container .head_content .menu .m_bar li:first-child {
   }
   #about .about_content .col-lg-6:first-child {
     margin-left: 0px;
+  }
+  #WE_Do .round_shape_img {
+    display: none;
   }
 }
 

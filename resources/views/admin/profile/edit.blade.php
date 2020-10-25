@@ -77,13 +77,13 @@ Customize Profile - ZakirSoft
                                               @error('email') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                             </div>
                                         </div>
-                                        <div class="form-group row">
+                                        {{-- <div class="form-group row">
                                             <label for="image" class="col-sm-2 col-form-label">Image</label>
                                             <div class="col-sm-10">
                                               <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image" onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])">
                                               @error('image') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <div class="form-group row">
                                             <label for="current_password" class="col-sm-2 col-form-label">Current Password</label>
                                             <div class="col-sm-10">

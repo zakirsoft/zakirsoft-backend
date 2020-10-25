@@ -23,7 +23,7 @@ class Contact extends Component
     public function updated($field){
 
         $this->validateOnly($field, [
-            'name' => 'required|min:5|min:4|max:100',
+            'name' => 'required|min:3|mix:100|string',
             'email' => 'required|email',
             'subject' => 'required|max:200',
             'message' => 'required',
@@ -42,7 +42,7 @@ class Contact extends Component
     public function contact_submit(){
 
         $savecontact =  $this->validate([
-            'name' => 'required|min:5|min:4|max:100',
+            'name' => 'required|min:3|mix:100|string',
             'email' => 'required|email',
             'subject' => 'required|max:200',
             'message' => 'required',

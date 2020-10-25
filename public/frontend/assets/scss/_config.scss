@@ -263,3 +263,13 @@ input:required {
     @content;
   }
 }
+
+
+
+// round shape img
+
+@media(max-width: 1024px) {
+    .round_shape_img img {
+        display: none;
+    }
+}
