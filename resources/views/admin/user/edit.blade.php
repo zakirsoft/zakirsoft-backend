@@ -50,7 +50,7 @@
 
                 <div class="page-body">
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-8 offset-2">
 
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between">
@@ -98,7 +98,7 @@
                                             @enderror
                                         </div>
 
-                                        <div class="form-group pb">
+                                        {{-- <div class="form-group pb">
                                             <label for="password">Password</label>
                                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
 
@@ -107,9 +107,9 @@
                                                     {{ $message }}
                                                 </span>
                                             @enderror
-                                        </div>
+                                        </div> --}}
 
-                                        <button type="submit" class="btn btn-primary"><i class="fas fa-plus-square pr-1"></i>Update</button>
+                                        <button type="submit" class="btn btn-primary mt-5"><i class="fas fa-sync pr-1"></i>Update</button>
                                     </form>
 
                                 </div>

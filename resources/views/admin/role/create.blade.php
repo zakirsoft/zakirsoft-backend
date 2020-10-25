@@ -58,7 +58,7 @@ active pcoded-trigger
 
                 <div class="page-body">
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-8 offset-2">
 
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between">

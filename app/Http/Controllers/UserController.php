@@ -120,14 +120,14 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'name' => ['required'],
-            'email' => ['required','email','unique:users,email'],
-            'password' => ['required','min:8'],
+            // 'email' => ['required','email','unique:users,email'],
+            // 'password' => ['required','min:8'],
         ],[
             'name.required' => 'Full Name is Required.',
             'email.required' => 'Enter E-Mail is Required.',
             'email.email' => 'Enter a Valid E-Mail address.',
-            'email.unique' => 'E-Mail already exist in Our System, Choose Another!',
-            'password.required' => 'Password field is Required.',
+            // 'email.unique' => 'E-Mail already exist in Our System, Choose Another!',
+            // 'password.required' => 'Password field is Required.',
         ]);
 
         $img = User::findOrFail($id);
@@ -148,7 +148,7 @@ class UserController extends Controller
         User::findOrFail($id)->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->password),
+            // 'password' => bcrypt($request->password),
         ]);
 
         return redirect(route('user.index'))->with('create', 'User updated Successfully');
