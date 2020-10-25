@@ -1,7 +1,7 @@
 <form wire:submit.prevent="contact_submit">
     @if (session()->has('success')) <div class="alert alert-success alert-dismissible fade show">{{ session('success') }}</div>@endif
     @if ($errors->any()) <div class="alert alert-danger" role="alert"> Please provide required field conditions!</div> @endif
-    
+
     <div class="form-row">
         <div class="col">
             <input wire:model="name" type="text" class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Your name">

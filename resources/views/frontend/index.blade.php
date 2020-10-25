@@ -212,6 +212,7 @@
         <h2>Testimonials</h2>
       </div>
       <div class="row testimonial_slider">
+<<<<<<< HEAD
         @foreach ($testimonials as $testimonial)
       <div class="slide_item">
             <div class="content_text">
@@ -223,6 +224,16 @@
             </div>
 
         </div>
+=======
+          @foreach ($testimonials as $testimonial)
+          <div class="slide_item">
+          <div class="content_text"> "{{$testimonial->content}}" </div>
+          <h3 class="client_name">{{$testimonial->name}}</h3>
+          <span class="client_position">{{$testimonial->position}}</span>
+        </div>
+          @endforeach
+      </div>
+>>>>>>> 23e8c0d4d290845da9bb81b030376528b07f8f3d
     </div>
     @endforeach
     <div class="qoute_img">
