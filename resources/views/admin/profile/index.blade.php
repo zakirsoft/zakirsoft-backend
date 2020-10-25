@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('title')
-    Add Testimonial - ZakirSoft
+    Profile Overview - ZakirSoft
 @endsection
 
 @section('testimonial')
-    active pcoded-trigger
+active pcoded-trigger
 @endsection
 
 @section('content')
@@ -22,7 +22,8 @@
                 <div class="page-header-title">
                     <i class="feather icon-clipboard bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>Add Testimonial</h5>
+                        <h5>Profile Overview</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur.</p>
                     </div>
                 </div>
             </div>
@@ -32,10 +33,10 @@
                         <li class="breadcrumb-item">
                             <a href="{{ route('dashboard.index') }}"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="{{ route('testimonial.index') }}">Testimonial</a>
+                        <li class="breadcrumb-item"><a href="{{ route('testimonial.index') }}">Profile</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="javascript:void(0)">Add Testimonial</a>
+                            <a href="javascript:void(0)">Overview</a>
                         </li>
                     </ul>
                 </div>
@@ -52,46 +53,34 @@
 
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Add Testimonial</h5>
+                                    <h5>User's Profile</h5>
                                 </div>
                                 <div class="card-block">
 
-                                    <form id="main"  method="POST" action="{{ route('testimonial.store') }}">
+                                    <div class="text-center pb-5">
+                                        <img id="image" width="130" height="130" style="border-radius: 100px" / src="">
+                                    </div>
+
+                                    <form id="main"  method="" action="" enctype="multipart/form-data">
                                         @csrf
-                                        <div class="row justify-content-center">
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 col-form-label">Purpose</label>
-                                                    <input type="text" class="form-control @error('purpose') is-invalid @enderror" name="purpose" id="name" placeholder="Enter purpose of testimonial">
-                                                    @error('purpose') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 col-form-label">Name</label>
-                                                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Enter name">
-                                                     @error('name') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 col-form-label">Position</label>
-                                                    <input type="text" class="form-control @error('position') is-invalid @enderror" name="position" id="position" placeholder="Enter position">
-                                                     @error('position') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 col-form-label">Content</label>
-                                                    <textarea type="text" class="form-control @error('content') is-invalid @enderror" name="content" id="content" placeholder="Write testimonial content here.... " rows="5"></textarea>
-                                                     @error('content') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
-                                                </div>
+                                        <div class="form-group row">
+                                            <label for="name" class="col-sm-2 col-form-label">Name</label>
+                                            <div class="col-10">
+                                              <input type="name" name="name" class="form-control" id="name" placeholder="Enter name" value="" disabled>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary  m-b-0"><i class="fas fa-plus"></i> Add</button>
+                                        <div class="form-group row">
+                                            <label for="email" class="col-sm-2 col-form-label">E-Mail Address</label>
+                                            <div class="col-sm-10">
+                                              <input type="email" name="email" class="form-control" id="email" value="" disabled>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-secondary m-b-0 mt-4"><i class="fas fa-arrow-left"></i> Back</button>
                                     </form>
 
                                 </div>
+
                             </div>
 
                         </div>
