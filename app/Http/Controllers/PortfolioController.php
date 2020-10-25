@@ -131,7 +131,6 @@ class PortfolioController extends Controller
         $category_list = PortfolioCategory::where('status',1)->get();
         $m_portfolio_image = PortfoiloImages::where('portfolio_id',$portfolio->id)->get();
 
-        // return $m_portfolio_image;
         return view('admin.portfolio.show',compact('portfolio','category_list','m_portfolio_image'));
     }
 

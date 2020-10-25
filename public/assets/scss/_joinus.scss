@@ -1,0 +1,83 @@
+#joinus-contact_area {
+  position: relative;
+  padding-bottom: 197px;
+  .contact_form {
+    .form-row input {
+      border: 0;
+      border-radius: 0px;
+      border-bottom: 1px solid #ddd;
+      padding: 30px 10px;
+      outline: none;
+      margin: 20px 0;
+      color: #7A849A;
+      &.form-control {
+        background-clip: unset;
+      }
+    }
+    .form-row{
+      select {
+        border: none;
+        border-radius: 0px;
+        border-bottom: 1px solid #ddd;
+        margin: 43px 0px;
+        color: #7A849A;
+        font-size: 16px;
+        option {
+         font-size: 16px;
+         text-transform: capitalize;
+         &[selected] {
+         
+         }
+        }
+      }
+    }
+    .subject {
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid #ddd;
+      padding: 30px 10px;
+      outline: none;
+      margin: 20px 0;
+    }
+  }
+  textarea {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    padding: 30px 10px;
+    outline: none;
+    margin: 20px 0;
+    resize: none;
+    height: 150px;
+  }
+  button {
+    margin-top: 25px;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 2.1px;
+    color: $black;
+    border: 2px solid $black;
+    padding: 16px;
+    font-weight: $semi_bold;
+    text-transform: uppercase;
+    display: inline-block;
+    outline: none;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+  }
+  button:hover {
+    border: 2px solid transparent;
+  }
+  .round_shape_img {
+    position: absolute;
+    z-index: -1;
+    top: -90%;
+    left: -50%;
+    img {
+      max-width: 100%;
+    }
+  }
+}

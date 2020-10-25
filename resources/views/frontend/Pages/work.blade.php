@@ -59,11 +59,11 @@
                                 <div class="tab-pane fade {{ $item->category_id == $category->id ? "active" : '' }} " id="pills{{ $category->id }}" role="tabpanel"
                                     aria-labelledby="pills-frontend">
 
-                                    <p>{{  $item->id }}</p>
+                                    {{-- <p>{{  $item->id }}</p> --}}
 
 
 
-                                    {{-- <div class="row align-items-center mb-100">
+                                    <div class="row align-items-center mb-100">
                                         <div class="col-4">
                                             <div class="project_info">
                                                 <span class="p_type">{{ $item->category->name }}</span>
@@ -79,7 +79,7 @@
                                                 <img src="{{ asset($item->image) }}" alt="Project_img">
                                             </div>
                                         </div>
-                                    </div> --}}
+                                    </div>
 
                                 </div>
                             @endforeach

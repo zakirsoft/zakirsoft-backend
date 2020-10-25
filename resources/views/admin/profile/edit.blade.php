@@ -60,19 +60,20 @@ Customize Profile - ZakirSoft
                                         <img id="image" width="130" height="130" style="border-radius: 100px" / src="">
                                     </div>
 
-                                    <form id="main"  method="" action="" enctype="multipart/form-data">
+                                    <form id="main" method="POST" action="{{ route('profile.update', Auth::user()->id) }}"enctype="multipart/form-data">
+                                        @method('PUT')
                                         @csrf
                                         <div class="form-group row">
                                             <label for="name" class="col-sm-2 col-form-label">Name</label>
                                             <div class="col-sm-10">
-                                              <input type="name" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Enter name" value="">
+                                              <input type="name" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Enter name" value="{{ Auth::user()->name }}">
                                               @error('name') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="email" class="col-sm-2 col-form-label">E-Mail Address</label>
                                             <div class="col-sm-10">
-                                              <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" value="" disabled>
+                                              <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" value="{{ Auth::user()->email }}" disabled>
                                               @error('email') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                             </div>
                                         </div>
@@ -86,20 +87,20 @@ Customize Profile - ZakirSoft
                                         <div class="form-group row">
                                             <label for="current_password" class="col-sm-2 col-form-label">Current Password</label>
                                             <div class="col-sm-10">
-                                              <input type="current_password" name="current_password" class="form-control @error('current_password') is-invalid @enderror" id="current_password" placeholder="Current Password">
+                                              <input type="password" name="current_password" class="form-control @error('current_password') is-invalid @enderror" placeholder="Current Password" autocomplete="new-password">
                                               @error('current_password') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="new_password" class="col-sm-2 col-form-label">New Password</label>
                                             <div class="col-sm-5">
-                                              <input type="new_password" name="new_password" class="form-control @error('new_password') is-invalid @enderror" id="new_password" placeholder="New Password">
-                                              @error('new_password') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                              <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="New Password">
+                                              @error('password') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                             </div>
 
                                             <div class="col-sm-5">
-                                                <input type="confirm_password" name="confirm_password" class="form-control @error('confirm_password') is-invalid @enderror" id="confirm_password" placeholder="Confirm Password">
-                                                @error('confirm_password') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                <input type="password" name="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" placeholder="Confirm Password" autocomplete="new-password">
+                                                @error('password_confirmation') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                               </div>
                                         </div>
 

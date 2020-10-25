@@ -4,7 +4,7 @@
     Profile Overview - ZakirSoft
 @endsection
 
-@section('testimonial')
+@section('users')
 active pcoded-trigger
 @endsection
 
@@ -66,13 +66,13 @@ active pcoded-trigger
                                         <div class="form-group row">
                                             <label for="name" class="col-sm-2 col-form-label">Name</label>
                                             <div class="col-10">
-                                              <input type="name" name="name" class="form-control" id="name" placeholder="Enter name" value="" disabled>
+                                              <input type="name" name="name" class="form-control" id="name" placeholder="Enter name" value="{{ Auth::user()->name }}" disabled>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="email" class="col-sm-2 col-form-label">E-Mail Address</label>
                                             <div class="col-sm-10">
-                                              <input type="email" name="email" class="form-control" id="email" value="" disabled>
+                                              <input type="email" name="email" class="form-control" id="email" value="{{ Auth::user()->email }}" disabled>
                                             </div>
                                         </div>
 

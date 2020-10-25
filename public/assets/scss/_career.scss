@@ -1,0 +1,30 @@
+#joinus-area {
+    .join-designer {
+        h2 {
+            font-size: 46;
+            line-height: 1.2;
+            color: $black;
+            font-family: $oswald;
+            padding-bottom: 10px;
+            font-weight: $semi_bold;
+        }
+
+        p {
+            color: $gray;
+            font-size: 20PX;
+            line-height: 2;
+
+        }
+    }
+    .join_team {
+        margin-bottom: 60px;
+       @media(max-width:991px) {
+           margin-bottom: 40px;
+       }
+    }
+}
+#joinus_footer{
+    .copyright_text {
+        padding-bottom: 30px;
+      }
+}

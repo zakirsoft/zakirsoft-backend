@@ -5,5 +5,6 @@
 <script src="{{ asset('frontend') }}/assets/js/jquery.magnific-popup.min.js"></script>
 <script src="{{ asset('frontend') }}/assets/js/app.js"></script>
 <script></script>
+{{-- @livewireScripts --}}
 @yield('website_script')
 
