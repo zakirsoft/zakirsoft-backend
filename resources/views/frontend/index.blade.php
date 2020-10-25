@@ -212,59 +212,13 @@
         <h2>Testimonials</h2>
       </div>
       <div class="row testimonial_slider">
-        @foreach ($testimonials as $testimonial)
-<<<<<<< HEAD
-        <div class="slide_item">
-          <div class="content_text">
-            "Cras eu elit congue, placerat dui ut, tincidunt nisl. Nulla leo
-            elit, pharetra bibendum justo quis, cursus consectetur erat. Sed
-            nec posuere turpis. Maecenas nec bibendum purus. Nulla fringilla,
-            lorem iaculis iaculis fermentum, ligula nibh mollis ipsum, et
-            scelerisque risus ante eu sem. Phasellus ac sagittis nisi.
-            Suspendisse potenti."
-          </div>
-          <h3 class="client_name"></h3>
-          <span class="client_position">CEO of Invision</span>
+          @foreach ($testimonials as $testimonial)
+          <div class="slide_item">
+          <div class="content_text"> "{{$testimonial->content}}" </div>
+          <h3 class="client_name">{{$testimonial->name}}</h3>
+          <span class="client_position">{{$testimonial->position}}</span>
         </div>
-        <div class="slide_item">
-          <div class="content_text">
-            "Cras eu elit congue, placerat dui ut, tincidunt nisl. Nulla leo
-            elit, pharetra bibendum justo quis, cursus consectetur erat. Sed
-            nec posuere turpis. Maecenas nec bibendum purus. Nulla fringilla,
-            lorem iaculis iaculis fermentum, ligula nibh mollis ipsum, et
-            scelerisque risus ante eu sem. Phasellus ac sagittis nisi.
-            Suspendisse potenti."
-          </div>
-          <h3 class="client_name">Frank Wagner</h3>
-          <span class="client_position">CEO of Invision</span>
-        </div>
-        <div class="slide_item">
-          <div class="content_text">
-            "Cras eu elit congue, placerat dui ut, tincidunt nisl. Nulla leo
-            elit, pharetra bibendum justo quis, cursus consectetur erat. Sed
-            nec posuere turpis. Maecenas nec bibendum purus. Nulla fringilla,
-            lorem iaculis iaculis fermentum, ligula nibh mollis ipsum, et
-            scelerisque risus ante eu sem. Phasellus ac sagittis nisi.
-            Suspendisse potenti."
-          </div>
-          <h3 class="client_name">Frank Wagner</h3>
-          <span class="client_position">CEO of Invision</span>
-        </div>
-
-            <div class="content_text">
-              "{{$testimonial->content}}"
-=======
-            <div class="slide_item">
-                <div class="content_text"> "{{$testimonial->content}}" </div>
-                <h3 class="client_name">{{$testimonial->name}}</h3>
-                <span class="client_position">{{$testimonial->position}}</span>
->>>>>>> 45f2a2c2113330240fec67f1a6ff680c64b6ec5e
-            </div>
-        @endforeach
-<<<<<<< HEAD
-
-=======
->>>>>>> 45f2a2c2113330240fec67f1a6ff680c64b6ec5e
+          @endforeach
       </div>
     </div>
     <div class="qoute_img">
