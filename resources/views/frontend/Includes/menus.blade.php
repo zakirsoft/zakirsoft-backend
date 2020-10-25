@@ -35,7 +35,7 @@
             @endforeach
         </ul>
         <div class="copyright-text">
-          <p> &copy; {{ date('Y') }} - Zakirsoft </h5>
+          <p> Copyright © {{date('Y')}} ZakirSoft. All Rights Reserved. </p>
         </div>
       </div>
     </div>

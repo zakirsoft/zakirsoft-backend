@@ -28,7 +28,7 @@
         </div>
         <div class="col-12">
           <div class="copyright_text">
-            <p>&#169; {{ date('Y') }} - Zakirsoft</p>
+            <p> Copyright © {{date('Y')}} ZakirSoft. All Rights Reserved. </p>
           </div>
         </div>
       </div>
