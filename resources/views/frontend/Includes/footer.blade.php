@@ -13,7 +13,6 @@
             </ul>
           </div>
           <div class="connect_info">
-            <h4>{{$content->content ?? ''}}</h4>
             <p>{{$content->content ?? ''}}</p>
             <span class="email">{{$content->email ?? ''}}</span>
           </div>

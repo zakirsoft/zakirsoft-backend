@@ -57,8 +57,30 @@ active pcoded-trigger
                                 </div>
                                 <div class="card-block">
 
-                                    <button type="submit" class="btn btn-secondary m-b-0"><i class="fas fa-arrow-left"></i> Back</button>
+                                    <div class="text-center pb-5">
+                                        <img id="image" width="130" height="130" style="border-radius: 100px" / src="">
+                                    </div>
+
+                                    <form id="main"  method="" action="" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="form-group row">
+                                            <label for="name" class="col-sm-2 col-form-label">Name</label>
+                                            <div class="col-10">
+                                              <input type="name" name="name" class="form-control" id="name" placeholder="Enter name" value="" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="email" class="col-sm-2 col-form-label">E-Mail Address</label>
+                                            <div class="col-sm-10">
+                                              <input type="email" name="email" class="form-control" id="email" value="" disabled>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-secondary m-b-0 mt-4"><i class="fas fa-arrow-left"></i> Back</button>
+                                    </form>
+
                                 </div>
+
                             </div>
 
                         </div>

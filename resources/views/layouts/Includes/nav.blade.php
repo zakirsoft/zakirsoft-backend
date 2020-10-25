@@ -39,15 +39,9 @@
                 <li class="user-profile header-notification">
                     <div class="dropdown-primary dropdown">
                         <div class="dropdown-toggle" data-toggle="dropdown">
-<<<<<<< HEAD
                             <img src="{{ asset(Auth::user()->image) }}" class="img-radius"
                                 alt="User-Profile-Image">
                             <span>{{Auth::user()->name}}</span>
-=======
-                            <img src="{{ asset('admin') }}/jpg/avatar.jpg" class="img-radius"
-                                alt="User-Profile-Image">
-                            <span>{{ Auth::user()->name }}</span>
->>>>>>> 02f119e5096224bc0542aafd29f11f510b35751a
                             <i class="feather icon-chevron-down"></i>
                         </div>
                         <ul class="show-notification profile-notification dropdown-menu"
