@@ -1,23 +1,23 @@
 @extends('frontend.master')
 
 @section('work') active @endsection
-@section('work_footer') footer_active @endsection
+@section('work_footer') active @endsection
 
 @section('content')
 
+
+
     <!-- details slider section start -->
-    <section id="details_slier">
+    <section id="details_slider">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="details-slider-active">
-
                         @foreach ($work_details_imgages as $item)
                         <div class="single-slider">
                             <img src="{{ asset($item->m_image) }}" alt="project-img">
                         </div>
                         @endforeach
-
                     </div>
                 </div>
                 <div class="col-12">
@@ -44,7 +44,7 @@
                         </div>
                         <div class="project_button">
                             <a class="button" href="#">View Project on live</a>
-                            <a href="#">View Project on live <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="arrow_icon"></a>
+                            <a target="_blank" href="{{ $work_details_content->live_link }}">View Project on live <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="arrow_icon"></a>
                         </div>
                     </div>
                 </div>
@@ -54,23 +54,19 @@
                     <div class="our_role">
                         <ul>
                             <h4>Our Role</h4>
-                            <li>User interface Design</li>
-                            <li>Back end</li>
-                            <li>Front end</li>
+                            {!! $work_details_content->our_role !!}
                         </ul>
                     </div>
                     <div class="our_role">
                         <ul>
                             <h4>Tools Used</h4>
-                            <li>note js</li>
-                            <li>Vusial code studio</li>
-                            <li>Adobe Photoshop</li>
-                            <li>Blender</li>
+                            {{-- <li>note js</li> --}}
+                            {!! $work_details_content->tool_used !!}
                         </ul>
                     </div>
                     <div class="our_role">
                         <ul>
-                            <h4>Project Length</h4>
+                            <h4>project length</h4>
                             <li>{{ $work_details_content->project_length }}</li>
                         </ul>
                     </div>
@@ -88,32 +84,29 @@
     <!-- project-name area section end -->
     <section id="details_project">
         <div class="container">
-
             @foreach ($portfolio as $item)
-            <div class="tab-pane fade show active" id="pills-all" role="tabpanel"
-                aria-labelledby="pills-all-tab">
-                <div class="row align-items-center mb-100">
-                    <div class="col-4">
-                        <div class="project_info">
-                            <span class="p_type">{{ $item->category->name }}</span>
-                            <h3 class="project_name">{{ $item->title }}</h3>
-                            <a href="{{ route('work_details_website', $item->id) }}" class="v_project">
-                                view more
-                                <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="arrow_icon">
-                            </a>
-                        </div>
+            <div class="row align-items-center mb-100">
+                <div class="col-4">
+                    <div class="project_info">
+                        <p>Next Projects</p>
+                        <span class="p_type">{{ $item->category->name }}</span>
+                        <h3 class="project_name">{{ $item->title }}</h3>
+                        <a href="{{ route('work_details_website', $item->id) }}" class="v_project">
+                            view more
+                            <img class="img-fluid" src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="arrow_icon">
+                        </a>
                     </div>
-                    <div class="col-8">
-                        <div class="project_img">
-                            <img src="{{ asset($item->image) }}" alt="Project_img">
-                        </div>
+                </div>
+                <div class="col-8">
+                    <div class="project_img">
+                        <img class="img-fluid" src="{{ asset($item->image) }}" alt="Project_img">
                     </div>
                 </div>
             </div>
             @endforeach
 
-
         </div>
     </section>
     <!-- project-name area section end -->
+
 @endsection

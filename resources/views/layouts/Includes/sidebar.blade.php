@@ -128,14 +128,6 @@
                 </a>
             </li>
             @endcan
-            <li class="@yield('about')">
-                <a href="#" class="waves-effect waves-dark">
-                    <span class="pcoded-micon">
-                        <i class="fas fa-info-circle"></i>
-                    </span>
-                    <span class="pcoded-mtext">About Us</span>
-                </a>
-            </li>
         </ul>
         </div>
     </div>

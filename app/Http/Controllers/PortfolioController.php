@@ -129,9 +129,10 @@ class PortfolioController extends Controller
     {
         $portfolio = Portfolio::findOrFail($id);
         $category_list = PortfolioCategory::where('status',1)->get();
-        // return $category_list;
+        $m_portfolio_image = PortfoiloImages::where('portfolio_id',$portfolio->id)->get();
 
-        return view('admin.portfolio.show',compact('portfolio','category_list'));
+        // return $m_portfolio_image;
+        return view('admin.portfolio.show',compact('portfolio','category_list','m_portfolio_image'));
     }
 
     /**

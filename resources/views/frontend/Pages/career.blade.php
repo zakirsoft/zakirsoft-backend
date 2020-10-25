@@ -17,8 +17,8 @@
                     <div class="row join_team">
                         <div class="col-lg-6 col-12">
                             <div class="join-designer">
-                                <h2>Front End Developer</h2>
-                                <p>You design website or mobile application.</p>
+                                <h2>{{ $item->title }}</h2>
+                                <p>{{ $item->content }}</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-12">
