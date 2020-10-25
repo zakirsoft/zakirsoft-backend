@@ -4,12 +4,7 @@
 Customize Profile - ZakirSoft
 @endsection
 
-@section('testimonial')
-    active pcoded-trigger
-@endsection
-
 @section('content')
-
 <div class="loader-bg">
     <div class="loader-bar"></div>
 </div>
@@ -41,7 +36,6 @@ Customize Profile - ZakirSoft
             </div>
         </div>
     </div>
-
     <div class="pcoded-inner-content">
         <div class="main-body">
             <div class="page-wrapper">

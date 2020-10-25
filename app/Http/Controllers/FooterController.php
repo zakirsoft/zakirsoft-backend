@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Career;
+
+use App\Models\ContatMessage;
 use App\Models\Footer;
 use App\Models\Social;
 use Carbon\Carbon;
@@ -63,5 +64,10 @@ class FooterController extends Controller
         }
 
         return redirect()->back()->with('success', 'Footer content has been Deleted.');
+    }
+
+    function contact_messages(){
+        $contacts = ContatMessage::latest()->paginate(10);
+        return view('admin.contact.messages',compact('contacts'));
     }
 }

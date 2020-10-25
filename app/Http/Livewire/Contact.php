@@ -18,17 +18,14 @@ class Contact extends Component
     public $email;
     public $subject;
     public $message;
-
     // validation form
     public function updated($field){
 
         $this->validateOnly($field, [
-            'name' => 'required|min:3|mix:100|string',
+            'name' => 'required',
             'email' => 'required|email',
-            'subject' => 'required|max:200',
+            'subject' => 'required',
             'message' => 'required',
-
-
         ],[
             'name.required' => 'Please Provide Name Field',
             'email.required' => 'Please Provide Email Field',
@@ -42,9 +39,9 @@ class Contact extends Component
     public function contact_submit(){
 
         $savecontact =  $this->validate([
-            'name' => 'required|min:3|mix:100|string',
+            'name' => 'required',
             'email' => 'required|email',
-            'subject' => 'required|max:200',
+            'subject' => 'required',
             'message' => 'required',
         ],[
             'name.required' => 'Please Provide Name Field',
@@ -63,47 +60,12 @@ class Contact extends Component
 
         session()->flash('success', 'Your Message Successfully Sent!');
         $this->cleanevars();
-
     }
 
     private function cleanevars(){
-
         $this->name = null;
         $this->email = null;
         $this->subject = null;
         $this->message = null;
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-

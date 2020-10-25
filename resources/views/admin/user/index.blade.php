@@ -4,7 +4,7 @@
     Users View - ZakirSoft
 @endsection
 
-@section('users')
+@section('user')
     active pcoded-trigger
 @endsection
 
@@ -23,7 +23,6 @@
                     <i class="feather icon-credit-card bg-c-blue"></i>
                     <div class="d-inline">
                         <h5>Memebers</h5>
-                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                     </div>
                 </div>
             </div>

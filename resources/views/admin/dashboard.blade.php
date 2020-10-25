@@ -22,7 +22,6 @@
                     <i class="fas fa-tachometer-alt bg-c-green"></i>
                     <div class="d-inline">
                         <h5>Dashboard</h5>
-                        <span id="responsive___none">lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                     </div>
                 </div>
             </div>

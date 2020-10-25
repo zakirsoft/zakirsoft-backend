@@ -49,22 +49,16 @@ Route::middleware(['auth'])->prefix('portfolio')->group(function () {
 Route::middleware(['auth'])->group(function () {
     //Career Route
     Route::resource('career', CareerController::class);
-
     //Testimonail Route
     Route::resource('testimonial', TestimonialController::class);
-
     //Footer
     Route::resource('footer', FooterController::class);
-
     //Social Route
     Route::resource('social', SocialController::class);
-
     //Team Route
     Route::resource('team', TeamController::class );
-
     // Profile/Settings Route
     Route::resource('profile', ProfileController::class );
-
     // Role Permissions Routes
     Route::get('role/permission/{id}', [RoleController::class, 'permission_assign'])->name('PermissionAssign');
     Route::post('role/permission/{role}', [RoleController::class, 'permission_assign_post'])->name('PermissionAssignPost');
@@ -74,4 +68,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('user/role-assign/{user}', [UserController::class, 'role_assign'])->name('RoleAssign');
     Route::post('user/role-assign/{user}', [UserController::class, 'role_assign_store'])->name('RoleAssignStore');
     Route::resource('user', UserController::class);
+    // Contact Messages
+    Route::get('contact/messages', [FooterController::class, 'contact_messages'])->name('contact.index');
 });

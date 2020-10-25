@@ -4,7 +4,7 @@
     Role Assign - ZakirSoft
 @endsection
 
-@section('role')
+@section('user')
     active pcoded-trigger
 @endsection
 
@@ -22,7 +22,6 @@
                     <i class="feather icon-credit-card bg-c-blue"></i>
                     <div class="d-inline">
                         <h5>Role Assign</h5>
-                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                     </div>
                 </div>
             </div>

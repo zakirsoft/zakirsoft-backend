@@ -4,7 +4,7 @@
     User Update - ZakirSoft
 @endsection
 
-@section('users')
+@section('user')
     active pcoded-trigger
 @endsection
 

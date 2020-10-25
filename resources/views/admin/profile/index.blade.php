@@ -4,10 +4,6 @@
     Profile Overview - ZakirSoft
 @endsection
 
-@section('users')
-active pcoded-trigger
-@endsection
-
 @section('content')
 
 <div class="loader-bg">
@@ -23,7 +19,6 @@ active pcoded-trigger
                     <i class="feather icon-clipboard bg-c-blue"></i>
                     <div class="d-inline">
                         <h5>Profile Overview</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur.</p>
                     </div>
                 </div>
             </div>
