@@ -57,7 +57,7 @@ Customize Profile - ZakirSoft
                                 <div class="card-block">
 
                                     <div class="text-center pb-5">
-                                        <img id="image" width="130" height="130" style="border-radius: 100px" / src="">
+                                        <img id="image" width="130" height="130" style="border-radius: 100px" / src="{{ asset(Auth::user()->image) }}">
                                     </div>
 
                                     <form id="main" method="POST" action="{{ route('profile.update', Auth::user()->id) }}"enctype="multipart/form-data">

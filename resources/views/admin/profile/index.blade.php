@@ -58,7 +58,7 @@ active pcoded-trigger
                                 <div class="card-block">
 
                                     <div class="text-center pb-5">
-                                        <img id="image" width="130" height="130" style="border-radius: 100px" / src="">
+                                        <img id="image" width="130" height="130" style="border-radius: 100px" / src="{{ asset(Auth::user()->image) }}">
                                     </div>
 
                                     <form id="main"  method="" action="" enctype="multipart/form-data">
@@ -76,7 +76,7 @@ active pcoded-trigger
                                             </div>
                                         </div>
 
-                                        <button type="submit" class="btn btn-secondary m-b-0 mt-4"><i class="fas fa-arrow-left"></i> Back</button>
+                                        <a type="button" href="{{route('login')}}" class="btn btn-secondary m-b-0 mt-5"><i class="fas fa-arrow-left"></i> Back</a>
                                     </form>
 
                                 </div>
