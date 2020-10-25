@@ -10,14 +10,16 @@ use App\Models\Portfolio;
 use App\Models\PortfolioCategory;
 use App\Models\PortfoiloImages;
 use App\Models\Social;
+use App\Models\Testimonial;
 
 class WebsiteController extends Controller
 {
     function home(){
         $portfolio = Portfolio::latest()->get();
+        $testimonials = Testimonial::OrderBy('created_at', 'desc')->get();
         $content = Footer::get()->first();
         $socials = Social::all();
-        return view('frontend.index',compact('portfolio', 'content', 'socials'));
+        return view('frontend.index',compact('portfolio', 'testimonials', 'content', 'socials'));
     }
 
     function about(){
