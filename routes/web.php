@@ -15,8 +15,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-
-//  =====================Frontend Routes =====================
+/*-------------------------------------------------------------------------
+ Frontend Routes
+--------------------------------------------------------------------------*/
 Route::get('/', [WebsiteController::class, 'home'])->name('home_website');
 Route::get('/about', [WebsiteController::class, 'about'])->name('about_website');
 Route::get('/works', [WebsiteController::class, 'work'])->name('work_website');
@@ -24,52 +25,53 @@ Route::get('/works/{id}/details', [WebsiteController::class, 'workDetails'])->na
 Route::get('/careers', [WebsiteController::class, 'career'])->name('career_website');
 Route::get('/contacts', [WebsiteController::class, 'contact'])->name('contact_website');
 
-//  =====================Backend Routes =====================
-
+/*-------------------------------------------------------------------------
+ Backend Routes
+--------------------------------------------------------------------------*/
 Auth::routes(['verify' => true]);
 Route::redirect('home', 'dashboard', 302);
 
-
-// =====================Dashboard =====================
+//Dashboard Route
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
-
-// =====================Portfolio =====================
+// Portfolio & Portfolio Category Routes
 Route::resource('portfolio', PortfolioController::class);
-Route::get('portfolio/category/index', [PortfolioCategoryController::class, 'index'])->name('portfolio.category.index');
-Route::post('portfolio/category/create', [PortfolioCategoryController::class, 'create'])->name('portfolio.category.create');
-Route::get('portfolio/category/inactive/{id}', [PortfolioCategoryController::class, 'inactive'])->name('portfolio.category.inactive');
-Route::get('portfolio/category/active/{id}', [PortfolioCategoryController::class, 'active'])->name('portfolio.category.active');
-Route::delete('portfolio/category/destroy/{id}', [PortfolioCategoryController::class, 'destroy'])->name('portfolio.category.destroy');
-Route::get('portfolio/category/edit/{id}', [PortfolioCategoryController::class, 'edit'])->name('portfolio.category.edit');
-Route::put('portfolio/category/update/{id}', [PortfolioCategoryController::class, 'update'])->name('portfolio.category.update');
+Route::middleware(['auth'])->prefix('portfolio')->group(function () {
+    Route::get('category/index', [PortfolioCategoryController::class, 'index'])->name('portfolio.category.index');
+    Route::post('category/create', [PortfolioCategoryController::class, 'create'])->name('portfolio.category.create');
+    Route::get('category/inactive/{id}', [PortfolioCategoryController::class, 'inactive'])->name('portfolio.category.inactive');
+    Route::get('category/active/{id}', [PortfolioCategoryController::class, 'active'])->name('portfolio.category.active');
+    Route::delete('category/destroy/{id}', [PortfolioCategoryController::class, 'destroy'])->name('portfolio.category.destroy');
+    Route::get('category/edit/{id}', [PortfolioCategoryController::class, 'edit'])->name('portfolio.category.edit');
+    Route::put('category/update/{id}', [PortfolioCategoryController::class, 'update'])->name('portfolio.category.update');
+});
 
-// =====================Career =====================
-Route::resource('career', CareerController::class);
+Route::middleware(['auth'])->group(function () {
+    //Career Route
+    Route::resource('career', CareerController::class);
 
+    //Testimonail Route
+    Route::resource('testimonial', TestimonialController::class);
 
-// =====================Testimonail =====================
-Route::resource('testimonial', TestimonialController::class);
+    //Footer
+    Route::resource('footer', FooterController::class);
 
-// ===================== Footer =====================
-Route::resource('footer', FooterController::class);
-// ===================== Social =====================
-Route::resource('social', SocialController::class);
+    //Social Route
+    Route::resource('social', SocialController::class);
 
-// =====================Team Route =====================
-Route::resource('team', TeamController::class );
+    //Team Route
+    Route::resource('team', TeamController::class );
 
-// =====================Profile/Settings Route =====================
-Route::resource('profile', ProfileController::class );
+    // Profile/Settings Route
+    Route::resource('profile', ProfileController::class );
 
-// =====================About Us Route =====================
+    // Role Permissions Routes
+    Route::get('role/permission/{id}', [RoleController::class, 'permission_assign'])->name('PermissionAssign');
+    Route::post('role/permission/{role}', [RoleController::class, 'permission_assign_post'])->name('PermissionAssignPost');
+    Route::resource('role', RoleController::class );
 
-
-// =====================Role =====================
-Route::get('role/permission/{id}', [RoleController::class, 'permission_assign'])->name('PermissionAssign');
-Route::post('role/permission/{role}', [RoleController::class, 'permission_assign_post'])->name('PermissionAssignPost');
-Route::resource('role', RoleController::class );
-
-Route::get('user/role-assign/{user}', [UserController::class, 'role_assign'])->name('RoleAssign');
-Route::post('user/role-assign/{user}', [UserController::class, 'role_assign_store'])->name('RoleAssignStore');
-Route::resource('user', UserController::class);
+    // Role Assign Routes
+    Route::get('user/role-assign/{user}', [UserController::class, 'role_assign'])->name('RoleAssign');
+    Route::post('user/role-assign/{user}', [UserController::class, 'role_assign_store'])->name('RoleAssignStore');
+    Route::resource('user', UserController::class);
+});

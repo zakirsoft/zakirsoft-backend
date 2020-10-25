@@ -27,7 +27,4 @@ class Portfolio extends Model
     public function category(){
         return $this->belongsTo(PortfolioCategory::class,'category_id');
     }
-
-
-
 }

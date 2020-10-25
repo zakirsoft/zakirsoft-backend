@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class PortfoiloImages extends Model
 {
     use HasFactory;
+    
     protected $fillable=[
         'portfolio_id',
         'm_image',
@@ -16,5 +17,4 @@ class PortfoiloImages extends Model
     public function portfolio_images(){
         return $this->belongsTo(Portfolio::class,'portfolio_id');
     }
-
 }
