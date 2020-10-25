@@ -39,21 +39,21 @@
                 <li class="user-profile header-notification">
                     <div class="dropdown-primary dropdown">
                         <div class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{ asset('admin') }}/jpg/avatar-4.jpg" class="img-radius"
+                            <img src="{{ asset(Auth::user()->image) }}" class="img-radius"
                                 alt="User-Profile-Image">
-                            <span>John Doe</span>
+                            <span>{{Auth::user()->name}}</span>
                             <i class="feather icon-chevron-down"></i>
                         </div>
                         <ul class="show-notification profile-notification dropdown-menu"
                             data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                             <li>
-                                <a href="#!">
-                                    <i class="feather icon-settings"></i> Settings
+                                <a href="{{route('profile.index')}}">
+                                    <i class="feather icon-user"></i> Profile
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    <i class="feather icon-user"></i> Profile
+                                <a href="{{route('profile.edit', Auth::user()->id)}}">
+                                    <i class="feather icon-settings"></i> Settings
                                 </a>
                             </li>
                             <li>
