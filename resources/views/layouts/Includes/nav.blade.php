@@ -1,9 +1,9 @@
 <nav class="navbar header-navbar pcoded-header">
     <div class="navbar-wrapper">
         <div class="navbar-logo">
-            <a href="index.html">
-                Brand Logo
-                <!-- <img class="img-fluid" src="{{asset('admin')}}/png/logo.png" alt="Theme-Logo" /> -->
+            <a href="{{ route('dashboard.index') }}">
+                {{-- Brand Logo --}}
+             <img width="160px" height="28px" class="img-fluid" src="{{asset('admin')}}/png/zakisoft.png" alt="Theme-Logo" />
             </a>
             <a class="mobile-menu" id="mobile-collapse" href="#!">
                 <i class="feather icon-menu icon-toggle-right"></i>
@@ -39,9 +39,9 @@
                 <li class="user-profile header-notification">
                     <div class="dropdown-primary dropdown">
                         <div class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{ asset('admin') }}/jpg/avatar-4.jpg" class="img-radius"
+                            <img src="{{ asset('admin') }}/jpg/avatar.jpg" class="img-radius"
                                 alt="User-Profile-Image">
-                            <span>John Doe</span>
+                            <span>{{ Auth::user()->name }}</span>
                             <i class="feather icon-chevron-down"></i>
                         </div>
                         <ul class="show-notification profile-notification dropdown-menu"
@@ -59,7 +59,7 @@
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                    <i class="fas fa-sign-out-alt"></i> Logout
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf

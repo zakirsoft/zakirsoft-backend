@@ -41,13 +41,12 @@ class WebsiteController extends Controller
        $content = Footer::get()->first();
        $socials = Social::all();
        $work_details_imgages = PortfoiloImages::where('portfolio_id',$id)->get();
-    //    return $work_details_imgages;
 
         return view('frontend.Pages.work_details',compact('portfolio','work_details_content','work_details_imgages', 'content', 'socials'));
     }
 
     function career(){
-        $career = Career::get();
+        $career = Career::latest()->get();
         $content = Footer::get()->first();
         $socials = Social::all();
         return view('frontend.Pages.career',compact('career', 'content', 'socials'));

@@ -63,126 +63,52 @@
                                         width="100%">
                                         <tbody>
                                             <tr>
-                                                <th width="25%">Student Class</th>
-                                                <td width="25%">One</td>
-                                                <th width="25%">Student Roll</th>
-                                                <td width="25%">123456</td>
+                                                <th width="25%" class="font-weight-bold">Category Name</th>
+                                                <td width="25%">{{ $portfolio->category->name }}</td>
+                                                <th width="25%">Title</th>
+                                                <td width="25%">{{ $portfolio->title }}</td>
                                             </tr>
-                                            <tr style="font-size: 16px;">
-                                                <th class="text-info" width="25%">Bangla</th>
+                                            <tr>
+                                                <th width="25%" class="font-weight-bold">Client Name</th>
+                                                <td width="25%">{{ $portfolio->client_name }}</td>
+                                                <th width="25%">Client Email</th>
+                                                <td width="25%">{{ $portfolio->client_email }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th width="25%" class="font-weight-bold">Live Link</th>
+                                                <td width="25%">{{ $portfolio->live_link }}</td>
+                                                <th width="25%">Bahance Link</th>
+                                                <td width="25%">{{ $portfolio->bahance_link }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th width="25%" class="font-weight-bold">Our Role</th>
+                                                <td width="25%">{{ $portfolio->our_role }}</td>
+                                                <th width="25%">Tools Used</th>
+                                                <td width="25%">{{ $portfolio->tool_used }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th width="25%" class="font-weight-bold">Description</th>
+                                                <td width="25%">{{ $portfolio->description }}</td>
+                                                <th width="25%">Project Length</th>
+                                                <td width="25%">{{ $portfolio->project_length }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th width="25%" class="font-weight-bold">Thumbnail Image</th>
+                                                <td width="25%"><img height="200px" width="350px" src="{{ asset($portfolio->image) }}" alt=""></td>
+                                                <th width="25%">Multiple Images</th>
                                                 <td width="25%">
-                                                    <span class="text-success font-weight-bold">79</span> Out Of 100
-                                                </td>
-                                                <th class="text-info" width="25%">English</th>
-                                                <td width="25%">
-                                                    <span class="text-danger font-weight-bold"> 32</span> Out Of 100
+                                                    @if ($m_portfolio_image->count() == 0)
+                                                        <span class="text-danger">Not found</span>
+                                                    @else
+                                                        @foreach ($m_portfolio_image as $item)
+                                                            <img height="80px" width="150px" src="{{ asset($item->m_image) }}" alt="">
+                                                        @endforeach
+                                                    @endif
                                                 </td>
                                             </tr>
-                                            <tr style="font-size: 16px;">
-                                                <th class="text-info" width="25%">Math</th>
-                                                <td width="25%">
-                                                    <span class="text-success font-weight-bold">88</span> Out Of 100
-                                                </td>
-                                                <th class="text-info" width="25%">Religion</th>
-                                                <td width="25%">
-                                                    <span class="text-success font-weight-bold">50</span> Out Of 100
 
-                                                </td>
-                                            </tr>
                                         </tbody>
                                     </table>
-
-                                    {{-- <form id="main">
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <div class="form-group">
-                                                    <label>Category Name Type</label>
-
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="form-group">
-                                                    <label>Title</label>
-                                                    <input value="{{ $portfolio->title }}" type="text" class="form-control" name="title" id="name"placeholder="Enter Title of Portfolio">
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="form-group">
-                                                    <label>Project Length </label>
-                                                    <input value="{{ $portfolio->project_length }}" type="text" class="form-control" name="project_length" id="name" placeholder="Enter Project Length of Portfolio">
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="row mb-3 mt-3">
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label>Current Thumbnail Image</label><br>
-                                                  <img height="80px" width="150px" src="{{ asset($portfolio->image) }}" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label>Multiple Image</label>
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label>Client Name</label>
-                                                    <input type="text" class="form-control" name="client_name" id="name" value="{{ $portfolio->client_name }}" placeholder="Enter Client Name of Portfolio">
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label>Client Email</label>
-                                                    <input type="text" class="form-control" name="client_email" id="name" placeholder="Enter Client Email of Portfolio" value="{{ $portfolio->client_email }}">
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label>Live Link </label>
-                                                    <input type="text" class="form-control" name="live_link" id="name" value="{{ $portfolio->live_link }}">
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label>Bahance Link</label>
-                                                    <input type="text" class="form-control" name="bahance_link" id="name" value="{{ $portfolio->bahance_link }}">
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label>Our Role</label>
-                                                    <textarea style="height: 130px" type="text" class="form-control" name="our_role" placeholder="Enter role of portfolio"> {{ $portfolio->our_role }} </textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label>Tools Used </label>
-                                                    <textarea type="text" class="form-control" name="tool_used" placeholder="Write Tool User of Portfolio.... "> {{ $portfolio->tool_used }} </textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Description </label>
-                                            <textarea type="text" class="form-control" name="description" placeholder="Write Portfolio content here.... "> {{ $portfolio->description }} </textarea>
-                                        </div>
-
-                                        <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-sync"></i> Update Portfolio</button>
-                                        </div>
-                                    </form> --}}
                                 </div>
                             </div>
                         </div>
