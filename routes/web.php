@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\WebsiteController;
-use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\PortfolioController;
@@ -17,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
-//  =====================Frontend Routes =====================
+// Frontend Routes =====================
 Route::get('/', [WebsiteController::class, 'home'])->name('home_website');
 Route::get('/about', [WebsiteController::class, 'about'])->name('about_website');
 Route::get('/works', [WebsiteController::class, 'work'])->name('work_website');
@@ -25,17 +24,20 @@ Route::get('/works/{id}/details', [WebsiteController::class, 'workDetails'])->na
 Route::get('/careers', [WebsiteController::class, 'career'])->name('career_website');
 Route::get('/contacts', [WebsiteController::class, 'contact'])->name('contact_website');
 
-//  =====================Backend Routes =====================
-
+// Backend Routes =====================
 Auth::routes(['verify' => true]);
 Route::redirect('home', 'dashboard', 302);
 
+// Dashboard =====================
+Route::get('dashboard', [DashboardController::class, 'index']);
 
-// =====================Dashboard =====================
-Route::resource('dashboard', DashboardController::class);
-
-// =====================Portfolio =====================
+// Portfolio =====================
 Route::resource('portfolio', PortfolioController::class);
+
+// Portfolio =====================
+Route::resource('portfolio', PortfolioController::class);
+
+// Portfolio Category =====================
 Route::get('portfolio/category/index', [PortfolioCategoryController::class, 'index'])->name('portfolio.category.index');
 Route::post('portfolio/category/create', [PortfolioCategoryController::class, 'create'])->name('portfolio.category.create');
 Route::get('portfolio/category/inactive/{id}', [PortfolioCategoryController::class, 'inactive'])->name('portfolio.category.inactive');
@@ -44,35 +46,31 @@ Route::delete('portfolio/category/destroy/{id}', [PortfolioCategoryController::c
 Route::get('portfolio/category/edit/{id}', [PortfolioCategoryController::class, 'edit'])->name('portfolio.category.edit');
 Route::put('portfolio/category/update/{id}', [PortfolioCategoryController::class, 'update'])->name('portfolio.category.update');
 
-// =====================Career =====================
+// Career =====================
 Route::resource('career', CareerController::class);
 
-// =====================Contact =====================
-// Route::resource('contact', ContactController::class);
-
-// =====================Testimonail =====================
+// Testimonail =====================
 Route::resource('testimonial', TestimonialController::class);
 
-// ===================== Footer =====================
+// Footer =====================
 Route::resource('footer', FooterController::class);
-// ===================== Social =====================
+// Social =====================
 Route::resource('social', SocialController::class);
 
-// =====================Team Route =====================
+// Team Route =====================
 Route::resource('team', TeamController::class );
 
-// =====================Profile/Settings Route =====================
+// Profile/Settings Route =====================
 Route::resource('profile', ProfileController::class );
 
-// =====================About Us Route =====================
-
-
-// =====================Role =====================
+// Role =====================
 Route::get('role/permission/{id}', [RoleController::class, 'permission_assign'])->name('PermissionAssign');
 Route::post('role/permission/{role}', [RoleController::class, 'permission_assign_post'])->name('PermissionAssignPost');
 Route::resource('role', RoleController::class );
 
-// Route::resource('role', RoleController::class);
+// User Role Assign Route =====================
 Route::get('user/role-assign/{user}', [UserController::class, 'role_assign'])->name('RoleAssign');
 Route::post('user/role-assign/{user}', [UserController::class, 'role_assign_store'])->name('RoleAssignStore');
+
+// User Resource Route =====================
 Route::resource('user', UserController::class);
