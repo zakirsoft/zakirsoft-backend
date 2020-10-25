@@ -16,33 +16,17 @@ class TeamController extends Controller
         $this->middleware(['permission:team show|team create|team edit|team delete']);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $team = Team::all();
         return view('admin.team.index')->with('teams', $team);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('admin.team.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -60,7 +44,6 @@ class TeamController extends Controller
         if( $request->has('image')){
             $image = $request->image;
             $imageName = time() . '_' . uniqid() .'.'. $image->getClientOriginalExtension();
-
             Storage::putFileAs('team', $image, $imageName);
             $team->image = 'storage/team/'. $imageName;
             $team->save();
@@ -70,36 +53,12 @@ class TeamController extends Controller
         return redirect()->route('team.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Team  $team
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Team $team)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Team  $team
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $team = Team::findOrFail($id);
         return view('admin.team.edit')->with('teams',$team);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Team  $team
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -109,7 +68,6 @@ class TeamController extends Controller
 
         if( $request->has('image')){
 
-             // old image delete
             $old_image = Team::find($id);
 
             if (file_exists($old_image->image)) {
@@ -119,7 +77,6 @@ class TeamController extends Controller
             $image = $request->image;
             $imageName = time() . '_' . uniqid() .'.'. $image->getClientOriginalExtension();
             Storage::putFileAs('/team', $image, $imageName);
-            // Storage::putFileAs('/portfolio', $image, $imageName);
             $image_address = 'storage/team/'. $imageName;
 
             Team::findOrFail($id)->update([
@@ -130,9 +87,7 @@ class TeamController extends Controller
 
             session()->flash('success', 'Team Content Updated Successfully With Image!');
             return redirect()->route('team.index');
-
         }else{
-
             Team::findOrFail($id)->update([
                 'name' => $request->name,
                 'position' =>  $request->position,
@@ -140,22 +95,12 @@ class TeamController extends Controller
 
             session()->flash('success', 'Team Content Updated Successfully Without Image!');
             return redirect()->route('team.index');
-
         }
-
-
-
 
         session()->flash('success', 'Member Update Successfully!');
         return redirect()->back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Team  $team
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $team = Team::find($id);
@@ -165,6 +110,7 @@ class TeamController extends Controller
             $team->delete();
         }
         $team->delete();
+        
         session()->flash('success', 'Member Deleted Successfully!');
         return back();
     }

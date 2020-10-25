@@ -15,11 +15,6 @@ class FooterController extends Controller
         $this->middleware(['permission:footer show|footer create|footer edit|footer delete']);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $footers = Footer::all();
@@ -28,22 +23,6 @@ class FooterController extends Controller
         return view('admin.footer.index', compact('footers', 'ContentCount', 'socials'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->validate($request,[
@@ -65,35 +44,6 @@ class FooterController extends Controller
         return redirect()->back()->with('success', 'Footer content added Successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Footer  $footer
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Footer $footer)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Footer  $footer
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Footer $footer)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Footer  $footer
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $update = Footer::findOrFail($id);
@@ -104,12 +54,6 @@ class FooterController extends Controller
         return redirect()->back()->with('success', 'Footer content has been Updated.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Footer  $footer
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $content = Footer::find($id);

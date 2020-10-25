@@ -18,34 +18,18 @@ class PortfolioController extends Controller
         $this->middleware(['permission:portfolio show|portfolio list|portfolio create|portfolio edit|portfolio delete']);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $portfolio_list = Portfolio::SimplePaginate(10);
         return view('admin.portfolio.index',compact('portfolio_list'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $category_list = PortfolioCategory::where('status',1)->get();
         return view('admin.portfolio.create',compact('category_list'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -112,19 +96,11 @@ class PortfolioController extends Controller
             }
         }
 
-
-
         session()->flash('success', 'Portfolio added Successfully!');
         return redirect()->route('portfolio.create');
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Portfolio  $portfolio
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $portfolio = Portfolio::findOrFail($id);
@@ -134,12 +110,6 @@ class PortfolioController extends Controller
         return view('admin.portfolio.show',compact('portfolio','category_list','m_portfolio_image'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Portfolio  $portfolio
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $portfolio = Portfolio::findOrFail($id);
@@ -147,16 +117,8 @@ class PortfolioController extends Controller
         return view('admin.portfolio.edit',compact('portfolio','category_list'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Portfolio  $portfolio
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request,$id)
     {
-
         $request->validate([
             'title' => 'required',
             'description' => 'required',
@@ -183,38 +145,35 @@ class PortfolioController extends Controller
 
         if($request->has('image')) {
 
-                // old image delete
-                $old_image = Portfolio::findOrFail($id);
+            $old_image = Portfolio::findOrFail($id);
 
-                if (file_exists($old_image->image)) {
-                    unlink(base_path('public/'.$old_image->image));
-                }
+            if (file_exists($old_image->image)) {
+                unlink(base_path('public/'.$old_image->image));
+            }
 
-                    $image = $request->image;
-                    $imageName = time() . '_' . uniqid() .'.'. $image->getClientOriginalExtension();
-                    Storage::putFileAs('/portfolio', $image, $imageName);
-                    $image_address = 'storage/portfolio/'. $imageName;
+            $image = $request->image;
+            $imageName = time() . '_' . uniqid() .'.'. $image->getClientOriginalExtension();
+            Storage::putFileAs('/portfolio', $image, $imageName);
+            $image_address = 'storage/portfolio/'. $imageName;
 
-                    Portfolio::findOrFail($id)->update([
-                        'title' => $request->title,
-                        'image' =>$image_address,
-                        'title_slug' =>Str::slug($request->title),
-                        'description' => $request->description,
-                        'live_link' => $request->live_link,
-                        'bahance_link' => $request->bahance_link,
-                        'project_length' => $request->project_length,
-                        'our_role' => $request->our_role,
-                        'tool_used' => $request->tool_used,
-                        'client_name' => $request->client_email,
-                        'client_email' => $request->client_email,
-                        'category_id' => $request->category_id,
-                        'updated_at' => Carbon::now()
-                    ]);
+            Portfolio::findOrFail($id)->update([
+                'title' => $request->title,
+                'image' =>$image_address,
+                'title_slug' =>Str::slug($request->title),
+                'description' => $request->description,
+                'live_link' => $request->live_link,
+                'bahance_link' => $request->bahance_link,
+                'project_length' => $request->project_length,
+                'our_role' => $request->our_role,
+                'tool_used' => $request->tool_used,
+                'client_name' => $request->client_email,
+                'client_email' => $request->client_email,
+                'category_id' => $request->category_id,
+                'updated_at' => Carbon::now()
+            ]);
 
-
-                    session()->flash('success', 'Portfolio Updated Successfully With Image!');
-                    return redirect()->route('portfolio.index');
-
+            session()->flash('success', 'Portfolio Updated Successfully With Image!');
+            return redirect()->route('portfolio.index');
         }else {
 
             Portfolio::findOrFail($id)->update([
@@ -234,40 +193,24 @@ class PortfolioController extends Controller
 
             session()->flash('success', 'Portfolio Updated Successfully Without Image!');
             return redirect()->route('portfolio.index');
-
         }
-
-
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Portfolio  $portfolio
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-
         $old_image = Portfolio::findOrFail($id);
 
         if(file_exists($old_image->image)){
-
             unlink(base_path('public/'.$old_image->image));
             $old_image->delete();
 
             session()->flash('success', 'Portfolio Deleted Successfully!');
             return redirect()->route('portfolio.index');
-
         }else{
-
             $old_image->delete();
 
             session()->flash('warning', 'Portfolio Deleted Successfully!');
             return redirect()->route('portfolio.index');
         }
-
-
-
     }
 }

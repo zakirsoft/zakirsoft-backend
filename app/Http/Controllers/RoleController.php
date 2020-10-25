@@ -20,12 +20,10 @@ class RoleController extends Controller
         ]);
     }
 
-
     public function create()
     {
         return view('admin.role.create');
     }
-
 
     public function store(Request $request)
     {
@@ -44,13 +42,11 @@ class RoleController extends Controller
         return back()->with('success', 'Role created Successfully');
     }
 
-
     public function edit($id)
     {
         $roles = Role::findOrFail($id);
         return view('admin.role.edit', compact('roles'));
     }
-
 
     public function update(Request $request)
     {
@@ -85,13 +81,11 @@ class RoleController extends Controller
         return view('admin.role.assign', compact('role', 'permissions', 'rolePermissions'));
     }
 
-
     public function permission_assign_post(Request $request, Role $role)
     {
         $role->syncPermissions($request->permissions);
         return redirect(route('role.index'))->with('success', 'Permission has been assigned');
     }
-
 
     public function destroy($id)
     {
@@ -100,8 +94,7 @@ class RoleController extends Controller
         if($role){
             $role->delete();
         }
-
+        
         return back()->with('success', 'Role has been Deleted.');
     }
-
 }

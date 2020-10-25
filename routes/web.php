@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\WebsiteController;
-use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\PortfolioController;
@@ -32,7 +31,8 @@ Route::redirect('home', 'dashboard', 302);
 
 
 // =====================Dashboard =====================
-Route::resource('dashboard', DashboardController::class);
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
 
 // =====================Portfolio =====================
 Route::resource('portfolio', PortfolioController::class);
@@ -47,8 +47,6 @@ Route::put('portfolio/category/update/{id}', [PortfolioCategoryController::class
 // =====================Career =====================
 Route::resource('career', CareerController::class);
 
-// =====================Contact =====================
-// Route::resource('contact', ContactController::class);
 
 // =====================Testimonail =====================
 Route::resource('testimonial', TestimonialController::class);
@@ -72,7 +70,6 @@ Route::get('role/permission/{id}', [RoleController::class, 'permission_assign'])
 Route::post('role/permission/{role}', [RoleController::class, 'permission_assign_post'])->name('PermissionAssignPost');
 Route::resource('role', RoleController::class );
 
-// Route::resource('role', RoleController::class);
 Route::get('user/role-assign/{user}', [UserController::class, 'role_assign'])->name('RoleAssign');
 Route::post('user/role-assign/{user}', [UserController::class, 'role_assign_store'])->name('RoleAssignStore');
 Route::resource('user', UserController::class);
