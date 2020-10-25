@@ -28,10 +28,5 @@
 @endsection
 
 @section('website_style') @livewireStyles @endsection
-<<<<<<< HEAD
 @section('website_script') @livewireScripts @endsection
-=======
- @section('website_script') @livewireScripts @endsection
->>>>>>> 23e8c0d4d290845da9bb81b030376528b07f8f3d
-{{-- @section('website_style') @livewireStyles @endsection
-@section('website_script') @livewireScripts @endsection --}}
+
