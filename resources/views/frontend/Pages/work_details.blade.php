@@ -4,9 +4,6 @@
 @section('work_footer') active @endsection
 
 @section('content')
-
-
-
     <!-- details slider section start -->
     <section id="details_slider">
         <div class="container">

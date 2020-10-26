@@ -4,7 +4,7 @@
     User Update - ZakirSoft
 @endsection
 
-@section('users')
+@section('user')
     active pcoded-trigger
 @endsection
 
@@ -97,18 +97,6 @@
                                                 </span>
                                             @enderror
                                         </div>
-
-                                        {{-- <div class="form-group pb">
-                                            <label for="password">Password</label>
-                                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
-
-                                            @error('password')
-                                                <span class="invalid-feedback" role="alert">
-                                                    {{ $message }}
-                                                </span>
-                                            @enderror
-                                        </div> --}}
-
                                         <button type="submit" class="btn btn-primary mt-5"><i class="fas fa-sync pr-1"></i>Update</button>
                                     </form>
 

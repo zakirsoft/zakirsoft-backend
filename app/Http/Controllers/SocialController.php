@@ -13,32 +13,6 @@ class SocialController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->validate($request,[
@@ -57,39 +31,9 @@ class SocialController extends Controller
         $insert->profile_name = $request->profile_name;
         $insert->profile_link = $request->social_link;
         $insert->save();
-
         return redirect()->back()->with('success', 'A Social Profile added Successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Social  $social
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Social $social)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Social  $social
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Social $social)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Social  $social
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $this->validate($request,[
@@ -108,16 +52,9 @@ class SocialController extends Controller
         $update->profile_name = $request->profile_name;
         $update->profile_link = $request->social_link;
         $update->save();
-
         return redirect()->back()->with('success', 'Social Profile has been Updated.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Social  $social
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $social = Social::findOrFail($id);
@@ -125,7 +62,6 @@ class SocialController extends Controller
         if ($social) {
             $social->delete();
         }
-
         return redirect()->back()->with('success', 'Social Profile has been Deleted.');
     }
 }

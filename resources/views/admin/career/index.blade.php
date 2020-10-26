@@ -9,13 +9,12 @@
 @endsection
 
 @section('content')
-@include('notify::messages')
+
 <div class="loader-bg">
     <div class="loader-bar"></div>
 </div>
 
 <div class="pcoded-content">
-
     <div class="page-header card">
         <div class="row align-items-end">
             <div class="col-lg-8">
@@ -91,27 +90,6 @@
                                                             <button onclick="return confirm('Are you sure you want to delete this item?');"  class="btn btn-sm btn-danger text-light"><i class="far fa-trash-alt"></i></button>
                                                         </form>
                                                     </td>
-                                                    {{-- <td class="text-center">
-                                                        <div class="dropdown">
-                                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <i class="fas fa-cog"></i> Action
-                                                        </button>
-                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                          @can('career edit')
-                                                          <a class="dropdown-item text-info btn btn-sm" href="{{ route('career.edit', $career->id) }}"><i class="far fa-edit"></i> Edit</a>
-                                                          @endcan
-                                                          @can('career delete')
-                                                          <form action="{{ route('career.destroy', $career->id) }}" method="POST">
-                                                            @method('DELETE')
-                                                            @csrf
-                                                            <button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm text-danger m-1 dropdown-item"></i><i class="far fa-trash-alt"></i> Remove</button>
-                                                        </form>
-                                                          @endcan
-                                                        </div>
-                                                      </div>
-                                                    </td> --}}
-
-                                                    </td>
                                                 </tr>
                                                 @empty
                                                 <tr>
@@ -123,17 +101,14 @@
                                             </tbody>
                                         </table>
                                         {{ $career_list->links()  }}
-
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-        </div>
+      </div>
     </div>
 </div>
 
@@ -157,8 +132,6 @@
                   <label for="content">Content</label>
                   <input value="{{ old('content') }}" required name="content" type="text" class="form-control" id="content" placeholder="Enter Content of Career">
                 </div>
-
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
@@ -167,6 +140,5 @@
         </form>
       </div>
     </div>
-  </div>
-
+</div>
 @endsection

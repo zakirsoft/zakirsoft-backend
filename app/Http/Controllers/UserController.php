@@ -17,11 +17,6 @@ class UserController extends Controller
         $this->middleware(['permission:user show|user create|user list|user edit|role assign|user delete']);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $users = User::latest()->simplepaginate(10);
@@ -30,23 +25,12 @@ class UserController extends Controller
         return view('admin.user.index', compact('users', 'user_count'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $roles = Role::all();
         return view('admin.user.create', compact('roles'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -82,56 +66,26 @@ class UserController extends Controller
         }
 
         $user->assignRole($request->roles);
-
         return redirect()->back()->with('success', 'User created Successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        // dd($id);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $user = User::findOrFail($id);
         return view('admin.user.edit', compact('user'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $this->validate($request, [
             'name' => ['required'],
-            // 'email' => ['required','email','unique:users,email'],
-            // 'password' => ['required','min:8'],
         ],[
             'name.required' => 'Full Name is Required.',
             'email.required' => 'Enter E-Mail is Required.',
             'email.email' => 'Enter a Valid E-Mail address.',
-            // 'email.unique' => 'E-Mail already exist in Our System, Choose Another!',
-            // 'password.required' => 'Password field is Required.',
         ]);
 
         $img = User::findOrFail($id);
-
         if (file_exists($img->image)) {
             unlink($img->image);
         }
@@ -140,7 +94,6 @@ class UserController extends Controller
             $image = $request->image;
             $imageName = time() . '_' . uniqid() .'.'. $image->getClientOriginalExtension();
             Storage::putFileAs('/user', $image, $imageName);
-
             $img->image = 'storage/user/'. $imageName;
             $img->save();
         }
@@ -148,18 +101,11 @@ class UserController extends Controller
         User::findOrFail($id)->update([
             'name' => $request->name,
             'email' => $request->email,
-            // 'password' => bcrypt($request->password),
         ]);
 
         return redirect(route('user.index'))->with('create', 'User updated Successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $user = User::findOrFail($id);
@@ -175,9 +121,6 @@ class UserController extends Controller
        return redirect()->back()->with('success', 'A User has been Deleted Successfully');
     }
 
-
-    // Assign Role Area
-
     public function role_assign(User $user)
     {
         $userRoles = $user->roles;
@@ -189,7 +132,6 @@ class UserController extends Controller
 
         return view('admin.user.role', compact('user', 'roles', 'userRoles'));
     }
-
 
     public function role_assign_store(Request $request, User $user)
     {

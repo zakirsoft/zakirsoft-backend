@@ -127,6 +127,14 @@
                     <span class="pcoded-mtext">Footer Content</span>
                 </a>
             </li>
+            <li class="@yield('contact')">
+                <a href="{{ route('contact.index') }}" class="waves-effect waves-dark">
+                    <span class="pcoded-micon">
+                        <i class="fa fa-envelope"></i>
+                    </span>
+                    <span class="pcoded-mtext">Contact Messages</span>
+                </a>
+            </li>
             @endcan
         </ul>
         </div>

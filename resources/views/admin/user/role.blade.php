@@ -4,7 +4,7 @@
     Role Assign - ZakirSoft
 @endsection
 
-@section('role')
+@section('user')
     active pcoded-trigger
 @endsection
 
@@ -15,7 +15,6 @@
 </div>
 
 <div class="pcoded-content">
-
     <div class="page-header card">
         <div class="row align-items-end">
             <div class="col-lg-8">
@@ -23,7 +22,6 @@
                     <i class="feather icon-credit-card bg-c-blue"></i>
                     <div class="d-inline">
                         <h5>Role Assign</h5>
-                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                     </div>
                 </div>
             </div>

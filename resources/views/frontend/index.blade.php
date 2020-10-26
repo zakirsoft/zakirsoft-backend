@@ -4,7 +4,6 @@
 @section('home_footer') active @endsection
 
 @section('content')
-
   <!-- banner section start -->
   <section id="banner" class="none">
     <!-- shaddow round img -->
@@ -44,7 +43,6 @@
       </div>
 
       <div class="row project_slider">
-
         @foreach ($portfolio as $item)
         <div class="slide_item row">
           <div class="col-lg-4 col-12 order-lg-0 order-2">
@@ -64,18 +62,14 @@
           </div>
         </div>
         @endforeach
-
-
       </div>
       <h4 class="drag_text">Drag</h4>
     </div>
   </section>
   <!-- work section end -->
 
-
   <!-- what-do section start -->
   <section id="WE_Do" class="none">
-
     <div class="container">
       <div class="row section_title">
         <h2>What we do</h2>
@@ -173,8 +167,6 @@
   </section>
   <!-- what-do section end -->
 
-
-
   <!-- brand section start -->
   <section id="brand_area" class="none">
     <div class="container">
@@ -221,11 +213,10 @@
           @endforeach
       </div>
     </div>
-  
+
     <div class="qoute_img">
       <img src="{{ asset('frontend') }}/assets/images/qoute.png" alt="qoute" />
     </div>
   </section>
   <!-- testimonial section end -->
-
 @endsection

@@ -13,11 +13,6 @@ class CareerController extends Controller
         $this->middleware(['permission:career show|career create|career edit|career delete']);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $career_list = Career::latest()->SimplePaginate(10);
@@ -25,22 +20,6 @@ class CareerController extends Controller
         return view('admin.career.index',compact('career_list','career_list_count'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -61,36 +40,12 @@ class CareerController extends Controller
         return redirect()->route('career.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Career  $career
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Career $career)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Career  $career
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $career = Career::findOrFail($id);
        return view('admin.career.edit',compact('career'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Career  $career
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request,$id)
     {
         $request->validate([
@@ -112,12 +67,6 @@ class CareerController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Career  $career
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $career = Career::findOrFail($id);
@@ -134,7 +83,6 @@ class CareerController extends Controller
             session()->flash('success', 'Carrer Content Deleted Successfully!');
             return redirect()->route('career.index');
         }
-
 
     }
 }

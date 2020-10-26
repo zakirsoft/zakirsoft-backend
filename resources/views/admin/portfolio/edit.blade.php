@@ -10,13 +10,11 @@
 
 @section('content')
 
-
 <div class="loader-bg">
     <div class="loader-bar"></div>
 </div>
 
 <div class="pcoded-content">
-
     <div class="page-header card">
         <div class="row align-items-end">
             <div class="col-lg-8">
@@ -24,7 +22,6 @@
                     <i class="feather icon-clipboard bg-c-blue"></i>
                     <div class="d-inline">
                         <h5>Edit Portfolio</h5>
-
                     </div>
                 </div>
             </div>
@@ -51,19 +48,16 @@
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
-
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Edit Portfolio</h5>
                                     <a href="{{ url()->previous() }}" class="btn btn-sm btn-primary float-right"><i class="fa fa-arrow-left"></i> Portfolio</a>
                                 </div>
                                 <div class="card-block">
-                                    <form id="main" method="POST" action="{{ route('portfolio.update', $portfolio->id) }}"
-                                        enctype="multipart/form-data">
+                                    <form id="main" method="POST" action="{{ route('portfolio.update', $portfolio->id) }}"enctype="multipart/form-data">
                                         @method('PUT')
                                         @csrf
                                         <div class="row">
-
                                             <div class="col-6 offset-3">
                                                 @if ($errors->any())
                                                 <div class="alert alert-danger">
@@ -71,7 +65,6 @@
                                                 </div>
                                                 @endif
                                             </div>
-
                                         </div>
                                         <div class="row">
                                             <div class="col-4">
@@ -96,10 +89,8 @@
                                                     <label>Project Length </label>
                                                     <input value="{{ $portfolio->project_length }}" type="text" class="form-control  @error('project_length') is-invalid @enderror" name="project_length" id="name" placeholder="Enter Project Length of Portfolio">
                                                     @error('project_length') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
-
                                                 </div>
                                             </div>
-
                                         </div>
                                         <div class="row mb-3 mt-3">
                                             <div class="col-6">
@@ -116,7 +107,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="form-group">
@@ -131,7 +121,6 @@
                                                     <input type="text" class="form-control  @error('client_email') is-invalid @enderror" name="client_email" id="name" placeholder="Enter Client Email of Portfolio" value="{{ $portfolio->client_email }}">
                                                      @error('client_email') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
-
                                             </div>
                                         </div>
                                         <div class="row">
@@ -149,7 +138,6 @@
                                                     @error('bahance_link') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
-
                                         </div>
                                         <div class="row">
                                             <div class="col-6">
@@ -167,15 +155,13 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="form-group">
                                             <label>Description </label>
                                             <textarea id="editor3" type="text" class="form-control" name="description" placeholder="Write Portfolio content here.... "> {{ $portfolio->description }} </textarea>
                                             @error('description') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                         </div>
-
                                         <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-sync"></i> Update Portfolio</button>
-                                        </div>
+                                    </div>
                                     </form>
                                 </div>
                             </div>
@@ -191,21 +177,13 @@
 
 @section('style')
 <style>
-    .ck-editor__editable_inline {
-        min-height: 170px;
-    }
+    .ck-editor__editable_inline { min-height: 170px; }
 
     /* Image Style  */
-    img{
-        max-width:80px;
-    }
-    input[type=file]{
-        padding:10px;
-    }
-
+    img{ max-width:80px; }
+    input[type=file]{ padding:10px; }
 </style>
 @endsection
-
 
 @section('script')
 <script>
@@ -232,14 +210,12 @@
     function readURL(input) {
       if (input.files && input.files[0]) {
         $('#single_image_preview').show();
-          var reader = new FileReader();
-          reader.onload = function (e) {
-              $('#single_image_preview').attr('src', e.target.result);
-          };
-          reader.readAsDataURL(input.files[0]);
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#single_image_preview').attr('src', e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
       }
   }
-
 </script>
 @endsection
-

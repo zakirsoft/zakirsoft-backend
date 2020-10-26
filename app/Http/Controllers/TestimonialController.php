@@ -13,33 +13,17 @@ class TestimonialController extends Controller
         $this->middleware(['permission:testimonial show|testimonial create|testimonial list|testimonial delete']);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $testimonials = Testimonial::SimplePaginate(10);
         return view('admin.testimonial.index', compact('testimonials'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('admin.testimonial.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -64,50 +48,8 @@ class TestimonialController extends Controller
 
         session()->flash('success', 'Testimonial Added Successfully!');
         return redirect()->route('testimonial.create');
-
-        // return back()->with('insert', 'Testimonial added Successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Testimonial  $testimonial
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Testimonial $testimonial)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Testimonial  $testimonial
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Testimonial $testimonial)
-    {
-
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Testimonial  $testimonial
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Testimonial $testimonial)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Testimonial  $testimonial
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
        $test = Testimonial::find($id);
@@ -118,6 +60,5 @@ class TestimonialController extends Controller
 
         session()->flash('success', 'Testimonial Deleted Successfully!');
         return redirect()->route('testimonial.index');
-
     }
 }

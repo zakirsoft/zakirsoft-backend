@@ -11,86 +11,73 @@ class PortfolioCategoryController extends Controller
     {
         $this->middleware('auth');
     }
-        function index(){
-            $portfolio_category = PortfolioCategory::latest()->SimplePaginate(10);
-            return view('admin.portfolio.category.index',compact('portfolio_category'));
-        }
 
-        function create(Request $request){
+    function index(){
+        $portfolio_category = PortfolioCategory::latest()->SimplePaginate(10);
+        return view('admin.portfolio.category.index',compact('portfolio_category'));
+    }
 
-            $request->validate([
-                'name' => 'required',
-            ],[
-                'name.required' => 'Portfolio category field is required.',
-            ]);
+    function create(Request $request){
 
-            PortfolioCategory::create([
-                'name' => $request->name,
-            ]);
+        $request->validate([
+            'name' => 'required',
+        ],[
+            'name.required' => 'Portfolio category field is required.',
+        ]);
 
-            session()->flash('success', 'Portfolio Category Added Successfully!');
-            return redirect()->route('portfolio.category.index');
+        PortfolioCategory::create([
+            'name' => $request->name,
+        ]);
 
-        }
+        session()->flash('success', 'Portfolio Category Added Successfully!');
+        return redirect()->route('portfolio.category.index');
+    }
 
-        function inactive($id){
-           $p_category = PortfolioCategory::findOrFail($id);
+    function inactive($id){
+        $p_category = PortfolioCategory::findOrFail($id);
 
-           if ($p_category) {
-                $p_category->update([
-                    'status' => 2
-                ]);
-                session()->flash('warning', 'Portfolio Category Inactive Successfully!');
-                return redirect()->route('portfolio.category.index');
-           }
+        if ($p_category) {
+            $p_category->update([ 'status' => 2 ]);
 
-        }
-
-        function active($id){
-            $p_category = PortfolioCategory::findOrFail($id);
-
-            if ($p_category) {
-                 $p_category->update([ 'status' => 1 ]);
-                 session()->flash('success', 'Portfolio Category Active Successfully!');
-                 return redirect()->route('portfolio.category.index');
-            }
-        }
-
-        function destroy($id){
-            $p_category = PortfolioCategory::findOrFail($id);
-
-            if ($p_category) {
-                 $p_category->delete();
-                 session()->flash('success', 'Portfolio Category Deleted Successfully!');
-                 return redirect()->route('portfolio.category.index');
-            }
-        }
-
-        function edit($id){
-            $p_category_edit = PortfolioCategory::findOrFail($id);
-            return view('admin.portfolio.category.edit',compact('p_category_edit'));
-        }
-
-        function update(Request $request,$id){
-
-            $request->validate([
-                'name' => 'required',
-          ],[
-              'name.required' => 'Portfolio category field is required.',
-              ]);
-
-            PortfolioCategory::findOrFail($id)->update(['name' => $request->name]);
-            session()->flash('success', 'Portfolio Category Updated Successfully!');
+            session()->flash('warning', 'Portfolio Category Inactive Successfully!');
             return redirect()->route('portfolio.category.index');
         }
+    }
 
+    function active($id){
+        $p_category = PortfolioCategory::findOrFail($id);
 
+        if ($p_category) {
+            $p_category->update([ 'status' => 1 ]);
+            session()->flash('success', 'Portfolio Category Active Successfully!');
+            return redirect()->route('portfolio.category.index');
+        }
+    }
 
+    function destroy($id){
+        $p_category = PortfolioCategory::findOrFail($id);
 
+        if ($p_category) {
+            $p_category->delete();
+            session()->flash('success', 'Portfolio Category Deleted Successfully!');
+            return redirect()->route('portfolio.category.index');
+        }
+    }
 
+    function edit($id){
+        $p_category_edit = PortfolioCategory::findOrFail($id);
+        return view('admin.portfolio.category.edit',compact('p_category_edit'));
+    }
 
+    function update(Request $request,$id){
+        $request->validate([
+            'name' => 'required',
+        ],[
+            'name.required' => 'Portfolio category field is required.',
+            ]);
 
-
-
-
+        PortfolioCategory::findOrFail($id)->update(['name' => $request->name]);
+        session()->flash('success', 'Portfolio Category Updated Successfully!');
+        return redirect()->route('portfolio.category.index');
+    }
 }

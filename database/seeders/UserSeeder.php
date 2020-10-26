@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
+use Carbon\Carbon;
 
 class UserSeeder extends Seeder
 {
@@ -19,9 +19,10 @@ class UserSeeder extends Seeder
         $user = User::create([
             'name'=>'Admin',
             'email'=>'admin@zakirsoft.com',
-            'password'=>bcrypt('password')
+            'password'=>bcrypt('password'),
+            'image'=>'storage/user/auth.png',
+            'email_verified_at'=> Carbon::now(),
         ]);
-
         $role = Role::where('name', 'admin')->first();
         $user->assignRole($role->name);
     }

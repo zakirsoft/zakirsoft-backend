@@ -16,7 +16,6 @@
 </div>
 
 <div class="pcoded-content">
-
     <div class="page-header card">
         <div class="row align-items-end">
             <div class="col-lg-8">
@@ -76,8 +75,6 @@
                                             <label for="content">Content</label>
                                             <input value="{{ $career->content }}" required name="content" type="text" class="form-control" id="content" placeholder="Enter Content of Career">
                                           </div>
-
-
                                         <button type="submit" class="btn btn-primary m-b-0"><i class="fas fa-sync"></i> Update</button>
                                     </form>
                                 </div>
@@ -85,7 +82,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

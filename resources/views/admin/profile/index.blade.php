@@ -4,10 +4,6 @@
     Profile Overview - ZakirSoft
 @endsection
 
-@section('users')
-active pcoded-trigger
-@endsection
-
 @section('content')
 
 <div class="loader-bg">
@@ -23,7 +19,6 @@ active pcoded-trigger
                     <i class="feather icon-clipboard bg-c-blue"></i>
                     <div class="d-inline">
                         <h5>Profile Overview</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur.</p>
                     </div>
                 </div>
             </div>
@@ -50,17 +45,14 @@ active pcoded-trigger
                 <div class="page-body">
                     <div class="row justify-content-center">
                         <div class="col-sm-8">
-
                             <div class="card">
                                 <div class="card-header">
                                     <h5>User's Profile</h5>
                                 </div>
                                 <div class="card-block">
-
                                     <div class="text-center pb-5">
                                         <img id="image" width="130" height="130" style="border-radius: 100px" / src="{{ asset(Auth::user()->image) }}">
                                     </div>
-
                                     <form id="main"  method="" action="" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group row">
@@ -75,21 +67,15 @@ active pcoded-trigger
                                               <input type="email" name="email" class="form-control" id="email" value="{{ Auth::user()->email }}" disabled>
                                             </div>
                                         </div>
-
                                         <a type="button" href="{{route('login')}}" class="btn btn-secondary m-b-0 mt-5"><i class="fas fa-arrow-left"></i> Back</a>
                                     </form>
-
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 </div>
-
 @endsection

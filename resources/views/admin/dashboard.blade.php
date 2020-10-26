@@ -22,7 +22,6 @@
                     <i class="fas fa-tachometer-alt bg-c-green"></i>
                     <div class="d-inline">
                         <h5>Dashboard</h5>
-                        <span id="responsive___none">lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                     </div>
                 </div>
             </div>
@@ -57,8 +56,6 @@
                                             <i class="fas far fa-user text-c-green f-18"></i>
                                         </div>
                                     </div>
-                                    {{-- <p class="m-b-0 text-white"><span class="label label-danger m-r-10">+11%</span>From
-                                        Previous Month</p> --}}
                                 </div>
                             </div>
                         </div>
@@ -74,8 +71,6 @@
                                             <i class="fas fa-lock text-c-green f-18"></i>
                                         </div>
                                     </div>
-                                    {{-- <p class="m-b-0 text-white"><span class="label label-primary m-r-10">+12%</span>From
-                                        Previous Month</p> --}}
                                 </div>
                             </div>
                         </div>
@@ -91,8 +86,6 @@
                                             <i class="far fa-window-restore text-c-green f-18"></i>
                                         </div>
                                     </div>
-                                    {{-- <p class="m-b-0 text-white"><span class="label label-success m-r-10">+52%</span>From
-                                        Previous Month</p> --}}
                                 </div>
                             </div>
                         </div>
@@ -108,8 +101,6 @@
                                             <i class="far fa-file-word text-c-green f-18"></i>
                                         </div>
                                     </div>
-                                    {{-- <p class="m-b-0 text-white"><span class="label label-warning m-r-10">+52%</span>From
-                                        Previous Month</p> --}}
                                 </div>
                             </div>
                         </div>
@@ -127,8 +118,6 @@
                                             <i class="fas fa-graduation-cap text-c-green f-18"></i>
                                         </div>
                                     </div>
-                                    {{-- <p class="m-b-0 text-white"><span class="label label-danger m-r-10">+11%</span>From
-                                        Previous Month</p> --}}
                                 </div>
                             </div>
                         </div>
@@ -144,8 +133,6 @@
                                             <i class="fas fa-users text-c-green f-18"></i>
                                         </div>
                                     </div>
-                                    {{-- <p class="m-b-0 text-white"><span class="label label-primary m-r-10">+12%</span>From
-                                        Previous Month</p> --}}
                                 </div>
                             </div>
                         </div>
@@ -161,8 +148,6 @@
                                             <i class="fas fa-share-alt text-c-green f-18"></i>
                                         </div>
                                     </div>
-                                    {{-- <p class="m-b-0 text-white"><span class="label label-success m-r-10">+52%</span>From
-                                        Previous Month</p> --}}
                                 </div>
                             </div>
                         </div>
@@ -178,8 +163,6 @@
                                             <i class="fas fa-desktop text-c-green f-18"></i>
                                         </div>
                                     </div>
-                                    {{-- <p class="m-b-0 text-white"><span class="label label-warning m-r-10">+52%</span>From
-                                        Previous Month</p> --}}
                                 </div>
                             </div>
                         </div>
