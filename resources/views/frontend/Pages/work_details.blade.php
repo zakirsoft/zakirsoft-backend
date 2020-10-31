@@ -2,11 +2,11 @@
 
 @section('title') Portfolio Details @endsection
 @section('meta')
-<meta name="author" content="Zakir Soft">
-<meta name="keywords" content="web design, web development, web development agency, agency, web, design, development, pwa, spa, web application development, website, website design, ecommerce website">
-<meta name="description" content="We work several trending technology, check our latest works in multiple category, including web design, web development & web application development. We work with Python, PHP, Laravel, PostgreSQL, MYSQL, Vue.js, React.js, Nuxt.js, Next.js, Cloud Server & much more.">
-<meta property="og:title" content="Portfolio - Zakir Soft" />
-<meta property="og:type" content="website" />
+    <meta name="author" content="Zakir Soft">
+    <meta name="keywords" content="web design, web development, web development agency, agency, web, design, development, pwa, spa, web application development, website, website design, ecommerce website">
+    <meta name="description" content="We work several trending technology, check our latest works in multiple category, including web design, web development & web application development. We work with Python, PHP, Laravel, PostgreSQL, MYSQL, Vue.js, React.js, Nuxt.js, Next.js, Cloud Server & much more.">
+    <meta property="og:title" content="Portfolio - Zakir Soft" />
+    <meta property="og:type" content="website" />
     <meta property="og:image" content="{{ asset('frontend') }}/assets/images/preview.jpg" />
 @endsection
 @section('work') active @endsection
@@ -24,7 +24,6 @@
                             <img src="{{ asset($item->m_image) }}" alt="project-img">
                         </div>
                         @endforeach
-
                     </div>
                 </div>
                 <div class="col-12">
@@ -47,11 +46,11 @@
                     </div>
                     <div class="project_wrapper">
                         <div class="project_text">
-                            <p>{!! $work_details_content->description !!}</p>
+                            <p>{!! $work_details_content->description !!}.</p>
                         </div>
                         <div class="project_button">
-                            <a class="button" href="#">View Project on live</a>
-                            <a target="_blank" href="{{ $work_details_content->live_link }}">View Project on live <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="arrow_icon"></a>
+                            <a class="button" href="{{ $work_details_content->live_link }}">View Project on live</a>
+                            <a href="{{ $work_details_content->bahance_link }}" class="button border-0">View Behance on live <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="arrow_icon"></a>
                         </div>
                     </div>
                 </div>
@@ -86,19 +85,18 @@
         </div>
     </section>
     <!-- details project section end -->
-
     <section id="details_project">
         <div class="container">
             @foreach ($portfolio as $item)
             <div class="row align-items-center project_items mb-100">
                 <div class="col-lg-4 col-12 order-2">
                     <div class="project_info">
-                        <p>Next Projects</p>
+                        <p>Previous Projects</p>
                         <span class="p_type">{{ $item->category->name }}</span>
                         <h3 class="project_name">{{ $item->title }}</h3>
                         <a href="{{ route('work_details_website', $item->id) }}" class="v_project">
                             view more
-                            <img class="img-fluid" src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="arrow_icon">
+                            <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="arrow_icon">
                         </a>
                     </div>
                 </div>

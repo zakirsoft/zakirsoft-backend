@@ -45,22 +45,22 @@
   </section>
 
   <!-- work section start -->
-
   <section id="Project" class="none">
     <div class="container-fluid">
       <div class="row section_title">
         <h2>our Work</h2>
       </div>
+
       <div class="row project_slider">
         @foreach ($portfolio as $item)
         <div class="slide_item row">
           <div class="col-lg-4  col-12 order-lg-0 order-2">
-            <div class="slide_info">
+            <div class="slide_info ml">
               <span class="p_type">{{ $item->category->name }}</span>
               <h3 class="p_title">{{ Str::words($item->title,3) }}</h3>
               <a class="v_project" href="{{ route('work_details_website', $item->id) }}">
                 <span>View Project</span>
-                <img src="assets/images/Arrow-icon.png" alt="project-img" />
+                <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="project-img" />
               </a>
             </div>
           </div>
@@ -71,7 +71,7 @@
           </div>
         </div>
         @endforeach
-      </div>
+        </div>
       <h4 class="drag_text">Drag</h4>
     </div>
   </section>
@@ -79,18 +79,19 @@
 
   <!-- what-do section start -->
   <section id="WE_Do" class="none">
+
     <div class="container">
       <div class="row section_title">
         <h2>What we do</h2>
       </div>
       <div class="row">
-        <div class="col-lg-6 col-12 mb-30">
+        <div class="col-xl-6  mb-30">
           <div class="box_wrapper">
             <div class="card_box">
-              <div class="front_part">
+              <div class="front_part face">
                 <h2>Front end <span class="text_stroke">Developer</span></h2>
               </div>
-              <div class="back_part">
+              <div class="back_part face">
                 <div class="box_title">
                   <h2>Front end Developer</h2>
                   <p>
@@ -105,13 +106,13 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-6 col-12 mb-30">
+        <div class="col-xl-6  mb-30">
           <div class="box_wrapper">
             <div class="card_box">
-              <div class="front_part">
+              <div class="front_part face">
                 <h2>Front end <span class="text_stroke">Developer</span></h2>
               </div>
-              <div class="back_part">
+              <div class="back_part face">
                 <div class="box_title">
                   <h2>Front end Developer</h2>
                   <p>
@@ -126,13 +127,13 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-6 col-12 mb-30">
+        <div class="col-xl-6  mb-30">
           <div class="box_wrapper">
             <div class="card_box">
-              <div class="front_part">
+              <div class="front_part face">
                 <h2>Front end <span class="text_stroke">Developer</span></h2>
               </div>
-              <div class="back_part">
+              <div class="back_part face">
                 <div class="box_title">
                   <h2>Front end Developer</h2>
                   <p>
@@ -147,13 +148,13 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-6 col-12">
+        <div class="col-xl-6  mb-30">
           <div class="box_wrapper">
             <div class="card_box">
-              <div class="front_part">
+              <div class="front_part face">
                 <h2>Front end <span class="text_stroke">Developer</span></h2>
               </div>
-              <div class="back_part">
+              <div class="back_part face">
                 <div class="box_title">
                   <h2>Front end Developer</h2>
                   <p>
@@ -181,25 +182,25 @@
     <div class="container">
       <div class="brand_slider">
         <div class="single_brand">
-          <img src="assets/images/partner/Adobe.png" alt="brand logo" />
+          <img src="{{ asset('frontend') }}/assets/images/partner/Adobe.png" alt="brand logo" />
         </div>
         <div class="single_brand">
-          <img src="assets/images/partner/Sketch.png" alt="brand logo" />
+          <img src="{{ asset('frontend') }}/assets/images/partner/Sketch.png" alt="brand logo" />
         </div>
         <div class="single_brand">
-          <img src="assets/images/partner/Spotify.png" alt="brand logo" />
+          <img src="{{ asset('frontend') }}/assets/images/partner/Spotify.png" alt="brand logo" />
         </div>
         <div class="single_brand">
-          <img src="assets/images/partner/google.png" alt="brand logo" />
+          <img src="{{ asset('frontend') }}/assets/images/partner/google.png" alt="brand logo" />
         </div>
         <div class="single_brand">
-          <img src="assets/images/partner/amazon.png" alt="brand logo" />
+          <img src="{{ asset('frontend') }}/assets/images/partner/amazon.png" alt="brand logo" />
         </div>
         <div class="single_brand">
-          <img src="assets/images/partner/Firefox.png" alt="brand logo" />
+          <img src="{{ asset('frontend') }}/assets/images/partner/Firefox.png" alt="brand logo" />
         </div>
         <div class="single_brand">
-          <img src="assets/images/partner/Apple icon.png" alt="brand logo" />
+          <img src="{{ asset('frontend') }}/assets/images/partner/Apple icon.png" alt="brand logo" />
         </div>
       </div>
     </div>
@@ -207,6 +208,8 @@
   <!-- brand section end -->
 
   <!-- testimonial section start -->
+
+
   <section id="testimonial-area" class="none">
     <div class="container">
       <div class="row section_title">
@@ -214,18 +217,20 @@
       </div>
       <div class="row testimonial_slider">
         @foreach ($testimonials as $testimonial)
-          <div class="slide_item">
-          <div class="content_text"> "{{$testimonial->content}}" </div>
+        <div class="slide_item">
+          <div class="content_text">
+            "{{$testimonial->content}}."
+          </div>
           <h3 class="client_name">{{$testimonial->name}}</h3>
           <span class="client_position">{{$testimonial->position}}</span>
         </div>
-          @endforeach
+        @endforeach
       </div>
     </div>
-
     <div class="qoute_img">
       <img src="{{ asset('frontend') }}/assets/images/qoute.png" alt="qoute" />
     </div>
   </section>
   <!-- testimonial section end -->
+
 @endsection

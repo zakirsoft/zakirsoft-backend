@@ -13,7 +13,6 @@
 @section('career_footer') active @endsection
 
 @section('content')
-
     <!-- joinus section start -->
     <section id="joinus-area" class="none ">
         <div class="container">
