@@ -50,7 +50,6 @@
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
-
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between">
                                     <h5>Role assign to user</h5>
@@ -77,22 +76,18 @@
                                             </select>
                                         </div>
 
-                                        <button type="submit" class="btn btn-primary"><i
-                                                class="fas fa-plus-square pr-1"></i>Assign</button>
+                                        <button type="submit" class="btn btn-primary"><i class="fas fa-plus-square pr-1"></i>Assign</button>
                                     </form>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 </div>
 @endsection
-
 
 @section('style')
     <link rel="stylesheet" href="{{ asset('admin') }}/css/select2.min.css" />

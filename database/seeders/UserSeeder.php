@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'name'=>'Admin',
             'email'=>'admin@zakirsoft.com',
             'password'=>bcrypt('password'),
-            'image'=>'storage/user/auth.png',
+            'image'=>'admin/user/auth.png',
             'email_verified_at'=> Carbon::now(),
         ]);
         $role = Role::where('name', 'admin')->first();

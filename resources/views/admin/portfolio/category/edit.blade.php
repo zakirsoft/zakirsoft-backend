@@ -47,7 +47,7 @@
             <div class="page-wrapper">
                 <div class="page-body">
                     <div class="row justify-content-center">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -58,11 +58,11 @@
                             </div>
                             @endif
                             <div class="card">
-                                <div class="card-header bg-dark text-light">
+                                <div class="card-header">
                                    Edit Category
                                    <a href="{{ url()->previous() }}" class="btn btn-sm btn-primary float-right"><i class="fa fa-arrow-left"></i> Category</a>
                                 </div>
-                                <div class="card-block">
+                                <div class="card-block col-8 offset-2">
                                     <form id="main" method="POST" action="{{ route('portfolio.category.update', $p_category_edit->id) }}">
                                         @method('PUT')
                                         @csrf

@@ -58,16 +58,14 @@ class FooterController extends Controller
     public function destroy($id)
     {
         $content = Footer::find($id);
-
         if($content){
             $content->delete();
         }
-
         return redirect()->back()->with('success', 'Footer content has been Deleted.');
     }
 
     function contact_messages(){
-        $contacts = ContatMessage::latest()->paginate(10);
+        $contacts = ContatMessage::latest()->SimplePaginate(10);
         return view('admin.contact.messages',compact('contacts'));
     }
 }

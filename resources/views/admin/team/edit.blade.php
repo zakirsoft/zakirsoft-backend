@@ -67,15 +67,14 @@ active pcoded-trigger
 
 
                 <div class="page-body">
-                    <div class="row justify-content-center">
-                        <div class="col-sm-8">
-
-                            <div class="card">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card text-center">
                                 <div class="card-header align-items-center justify-content-between d-flex">
                                     <h5>Edit Team</h5>
                                     <a href="{{ url()->previous() }}" class="btn btn-sm btn-primary"><i class="fa fa-arrow-left"></i> Team</a>
                                 </div>
-                                <div class="card-block">
+                                <div class="card-block col-8 offset-2">
 
                                     @if ($errors->any())
                                     <div class="alert alert-danger">
@@ -86,12 +85,9 @@ active pcoded-trigger
                                         </ul>
                                     </div>
                                     @endif
-
                                     <form id="main" method="POST" action="{{ route('team.update', $teams->id) }}"enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
-
-
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Current Image </label>
                                             <div class="col-sm-10">
@@ -105,7 +101,6 @@ active pcoded-trigger
                                                 <input onchange="readURL(this)" type="file" class="form-control" name="image" id="position" id="single_image">
                                             </div>
                                         </div>
-
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Name</label>
                                             <div class="col-sm-10">

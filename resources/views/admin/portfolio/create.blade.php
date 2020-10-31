@@ -54,18 +54,6 @@
                                    <a href="{{ route('portfolio.category.index') }}"> <button type="button" class="btn btn-primary waves-effect float-right"><i class="fas fa-plus"></i> Add Category</button></a>
                                 </div>
                                 <div class="card-block">
-                                        @if ($errors->any())
-                                        <div class="alert alert-danger alert-dismissible fade show">
-                                           Please provide required field conditions!
-                                        </div>
-                                        <div class="alert alert-danger alert-dismissible fade show">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                        @endif
                                     <form id="main" method="POST" action="{{ route('portfolio.store') }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="row">
@@ -112,6 +100,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                @error('image') <span class="text-danger">Image field is required!</span> @enderror
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">

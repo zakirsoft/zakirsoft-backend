@@ -59,7 +59,7 @@
                             </div>
                             @endif
                             <div class="card">
-                                <div class="card-header bg-dark text-light">
+                                <div class="card-header">
                                    Edit Career Content
                                 </div>
                                 <div class="card-block">

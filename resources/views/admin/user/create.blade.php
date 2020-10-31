@@ -47,8 +47,6 @@ active pcoded-trigger
     <div class="pcoded-inner-content">
         <div class="main-body">
             <div class="page-wrapper">
-
-
                 @if (session('create'))
                 <div class="alert alert-primary alert-dismissible fade show" role="alert">
                     {{ session('create') }} <a href="{{ route('user.index') }}" class="alert-link">Check Here</a>.
@@ -57,12 +55,9 @@ active pcoded-trigger
                     </button>
                 </div>
                 @endif
-
-
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
-
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between">
                                     <h5>Create User</h5>
@@ -70,10 +65,8 @@ active pcoded-trigger
                                         title="Return Back"><i class="fas fa-arrow-alt-circle-left pr-1"></i>Back</a>
                                 </div>
                                 <div class="card-block col-md-6 offset-3 col-sm-12 pb-5">
-
                                     <form method="POST" action="{{ route('user.store') }}" enctype="multipart/form-data">
                                         @csrf
-
                                         <div class="form-group">
                                             <div class="form-group pb-3">
                                                 <label for="roles">Role</label>

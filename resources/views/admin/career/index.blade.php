@@ -130,7 +130,8 @@
                 </div>
                 <div class="form-group">
                   <label for="content">Content</label>
-                  <input value="{{ old('content') }}" required name="content" type="text" class="form-control" id="content" placeholder="Enter Content of Career">
+                  <textarea required name="content" type="text" rows="10" class="form-control" placeholder="Enter Content of Career">{{ old('content') }}</textarea>
+                  {{-- <input value="{{ old('content') }}" required name="content" type="text" class="form-control" id="content" placeholder="Enter Content of Career"> --}}
                 </div>
             </div>
             <div class="modal-footer">

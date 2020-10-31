@@ -67,7 +67,6 @@
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
-
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between">
                                     <h5>All Users ({{ $user_count }})</h5>

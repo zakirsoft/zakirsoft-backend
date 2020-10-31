@@ -4,17 +4,17 @@
 
     <div class="form-row">
         <div class="col">
-            <input wire:model="name" type="text" class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Your name">
+            <input @error('name') required @enderror  wire:model="name" type="text" class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Your name">
             @error('name')<span class="text-danger">{{ $message }}</span> @enderror
         </div>
         <div class="col">
-            <input wire:model="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Please enter a valid email">
+            <input  @error('email') required @enderror wire:model="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Please enter a valid email">
             @error('email')<span class="text-danger">{{ $message }}</span> @enderror
         </div>
     </div>
-    <input wire:model="subject" class="subject form-control @error('subject') is-invalid @enderror" type="text" name="Subjects" placeholder="Subjects">
+    <input @error('subject') required @enderror wire:model="subject" class="subject form-control @error('subject') is-invalid @enderror" type="text" name="Subjects" placeholder="Subjects">
         @error('subject')<span class="text-danger">{{ $message }}</span> @enderror
-    <textarea wire:model="message" id="" cols="30" rows="10" placeholder="Your message" class="@error('message') is-invalid @enderror"></textarea> <br>
+    <textarea wire:model="message" cols="30" rows="10" placeholder="Your message" class="@error('message') is-invalid @enderror" @error('message') style="box-shadow: 0px 1px 0px 0px red;" @enderror></textarea> <br>
         @error('message')<span class="text-danger">{{ $message }}</span> @enderror <br>
 
     @if ($errors->any())

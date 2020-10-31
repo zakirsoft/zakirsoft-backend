@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="card-block">
                                     <div class="text-center pb-5">
-                                        <img id="image" width="130" height="130" style="border-radius: 100px" / src="{{ asset(Auth::user()->image) }}">
+                                        <img id="image" width="130" height="130" style="border-radius: 100px" src="{{ asset(Auth::user()->image) }}">
                                     </div>
                                     <form id="main"  method="" action="" enctype="multipart/form-data">
                                         @csrf
