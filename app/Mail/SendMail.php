@@ -11,14 +11,16 @@ class SendMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $message;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($dataNew)
     {
-        //
+        $this->dataNew = $dataNew;
     }
 
     /**
@@ -28,6 +30,6 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->view('text');
+        return $this->from($this->dataNew['email'])->subject($this->dataNew['subject'])->view('frontend.Pages.message')->with('dataNew', $this->dataNew);
     }
 }

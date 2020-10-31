@@ -25,6 +25,7 @@ Route::get('/works/{id}/details', [WebsiteController::class, 'workDetails'])->na
 Route::get('/careers', [WebsiteController::class, 'career'])->name('career_website');
 Route::get('/contacts', [WebsiteController::class, 'contact'])->name('contact_website');
 
+
 /*-------------------------------------------------------------------------
  Backend Routes
 --------------------------------------------------------------------------*/

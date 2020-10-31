@@ -6,6 +6,8 @@ use Livewire\Component;
 use Carbon\Carbon;
 use App\Models\ContatMessage;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
+use Illuminate\Http\Request;
 
 class Contact extends Component
 {
@@ -36,7 +38,7 @@ class Contact extends Component
     }
 
     // save form
-    public function contact_submit(){
+    public function contact_submit(Request $request){
 
         $savecontact =  $this->validate([
             'name' => 'required',
@@ -57,6 +59,15 @@ class Contact extends Component
             'message' => $this->message,
             'created_at' => Carbon::now(),
         ]);
+
+        $dataNew = [
+            'name' =>  $this->name,
+            'email' => $this->email,
+            'subject' => $this->subject,
+            'message' => $this->message
+        ];
+
+        Mail::to('admin@zakirsoft.com')->send(new SendMail($dataNew));
 
         session()->flash('success', 'Your Message Successfully Sent!');
         $this->cleanevars();
