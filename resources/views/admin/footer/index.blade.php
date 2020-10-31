@@ -334,11 +334,12 @@ active pcoded-trigger
                             <option value="">Social Media</option>
                             <option value="fab fa-behance">Behance</option>
                             <option value="fab fa-dribbble">Dribbble</option>
-                            <option value="fab fa-github">Github</option>
                             <option value="fab fa-facebook-f">Facebook</option>
-                            <option value="fab fa-twitter">Twitter</option>
+                            <option value="fab fa-github">Github</option>
                             <option value="fab fa-instagram">Instagram</option>
                             <option value="fab fa-linkedin-in">Linkedin</option>
+                            <option value="fab fa-skype">Skype</option>
+                            <option value="fab fa-twitter">Twitter</option>
                         </select>
                     </div>
                     <div class="form-group">
