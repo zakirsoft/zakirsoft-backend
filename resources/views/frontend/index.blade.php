@@ -1,5 +1,15 @@
 @extends('frontend.master')
 
+@section('title') Home @endsection
+@section('meta')
+    <meta name="author" content="Zakir Soft">
+    <meta name="keywords" content="web design, web development, web development agency, agency, web, design, development, pwa, spa, web application development, website, website design, ecommerce website">
+    <meta name="description" content="We are a web design & development company in Dhaka, Bangladesh. We provide web design, web development, SPA, SSR & web application, development services.">
+    <meta property="og:title" content="Zakir Soft - Website Design and Development Company in Dhaka, Bangladesh" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="{{ asset('frontend') }}/assets/images/preview.jpg" />
+@endsection
+
 @section('home') active @endsection
 @section('home_footer') active @endsection
 
@@ -22,7 +32,7 @@
               Curabitur vulputate arcu odio, ac facilisis diam accumsan ut. Ut
               imperdiet et leo in vulputate.
             </p>
-            <a class="button" href="#">View Projects</a>
+            <a class="button" href="work.html">View Projects</a>
           </div>
         </div>
         <div class="col-xl-5 order-1 order-xl-0">
@@ -33,25 +43,24 @@
       </div>
     </div>
   </section>
-  <!-- banner section end -->
 
   <!-- work section start -->
+
   <section id="Project" class="none">
     <div class="container-fluid">
       <div class="row section_title">
         <h2>our Work</h2>
       </div>
-
       <div class="row project_slider">
         @foreach ($portfolio as $item)
         <div class="slide_item row">
-          <div class="col-lg-4 col-12 order-lg-0 order-2">
+          <div class="col-lg-4  col-12 order-lg-0 order-2">
             <div class="slide_info">
               <span class="p_type">{{ $item->category->name }}</span>
               <h3 class="p_title">{{ Str::words($item->title,3) }}</h3>
               <a class="v_project" href="{{ route('work_details_website', $item->id) }}">
                 <span>View Project</span>
-                <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="project-img" />
+                <img src="assets/images/Arrow-icon.png" alt="project-img" />
               </a>
             </div>
           </div>

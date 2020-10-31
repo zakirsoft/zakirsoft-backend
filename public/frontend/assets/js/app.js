@@ -92,8 +92,8 @@ $(document).ready(function () {
 		dots: true,
 		centerMode: true,
 		infinite: true,
-		centerPadding: '180px',
-		autoplay: true,
+		centerPadding: '225px',
+		autoplay: false,
 		autoplaySpeed: 1900,
 		responsive: [
 			{

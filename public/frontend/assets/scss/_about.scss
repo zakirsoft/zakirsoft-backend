@@ -70,12 +70,10 @@
 		pointer-events: none;
 		top: 24%;
 		right: 0%;
-        z-index: -1;
-        display: none;
+		z-index: -1;
 		img {
 			max-width: 100%;
-        }
-
+		}
 	}
 }
 
@@ -139,8 +137,7 @@
 	.round_shape_img {
 		position: absolute;
 		left: -38%;
-        top: 48%;
-        display: none;
+		top: 48%;
 		img {
 			max-width: 100%;
 			object-fit: contain;

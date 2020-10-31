@@ -1,5 +1,14 @@
 @extends('frontend.master')
 
+@section('title') Portfolio Details @endsection
+@section('meta')
+<meta name="author" content="Zakir Soft">
+<meta name="keywords" content="web design, web development, web development agency, agency, web, design, development, pwa, spa, web application development, website, website design, ecommerce website">
+<meta name="description" content="We work several trending technology, check our latest works in multiple category, including web design, web development & web application development. We work with Python, PHP, Laravel, PostgreSQL, MYSQL, Vue.js, React.js, Nuxt.js, Next.js, Cloud Server & much more.">
+<meta property="og:title" content="Portfolio - Zakir Soft" />
+<meta property="og:type" content="website" />
+    <meta property="og:image" content="{{ asset('frontend') }}/assets/images/preview.jpg" />
+@endsection
 @section('work') active @endsection
 @section('work_footer') active @endsection
 

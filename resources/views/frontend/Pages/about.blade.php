@@ -1,5 +1,15 @@
 @extends('frontend.master')
 
+@section('title') About Us @endsection
+@section('meta')
+    <meta name="author" content="Zakir Soft">
+    <meta name="keywords" content="web design, web development, web development agency, agency, web, design, development, pwa, spa, web application development, website, website design, ecommerce website">
+    <meta name="description" content="Zakir Soft, A team of young designer and developers. We have frontend, backend, mobile application and UI/UX Design team. We provide complete web solution to any company.">
+    <meta property="og:title" content="About Us - Zakir Soft" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="{{ asset('frontend') }}/assets/images/preview.jpg" />
+@endsection
+
 @section('about') active @endsection
 @section('about_footer') active @endsection
 

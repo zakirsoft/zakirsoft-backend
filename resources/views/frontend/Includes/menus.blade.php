@@ -1,4 +1,4 @@
-<div class="fullscreen-menu">
+  <div class="fullscreen-menu">
     <div class="menu-body">
       <div class="container">
         <div class="menu-container">
@@ -30,7 +30,7 @@
             @endforeach
         </ul>
         <div class="copyright-text">
-          <p> Copyright © {{date('Y')}} ZakirSoft. All Rights Reserved. </p>
+          <p> &copy; {{date('Y')}} - Zakirsoft </h5>
         </div>
       </div>
     </div>
