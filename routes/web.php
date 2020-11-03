@@ -32,9 +32,6 @@ Route::get('/contacts', [WebsiteController::class, 'contact'])->name('contact_we
 Auth::routes(['verify' => true]);
 Route::redirect('home', 'dashboard', 302);
 
-//Dashboard Route
-Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-
 // Portfolio & Portfolio Category Routes
 Route::resource('portfolio', PortfolioController::class);
 Route::middleware(['auth'])->prefix('portfolio')->group(function () {
@@ -47,7 +44,9 @@ Route::middleware(['auth'])->prefix('portfolio')->group(function () {
     Route::put('category/update/{id}', [PortfolioCategoryController::class, 'update'])->name('portfolio.category.update');
 });
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+    //Dashboard Route
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     //Career Route
     Route::resource('career', CareerController::class);
     //Testimonail Route

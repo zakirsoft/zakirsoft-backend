@@ -67,7 +67,7 @@ class Contact extends Component
             'message' => $this->message
         ];
 
-        Mail::to('admin@zakirsoft.com')->send(new SendMail($dataNew));
+        Mail::to('web.zakirbd@gmail.com')->send(new SendMail($dataNew));
 
         session()->flash('success', 'Your Message Successfully Sent!');
         $this->cleanevars();
