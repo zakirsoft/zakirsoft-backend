@@ -78,7 +78,7 @@
             @endforeach
         </ul>
         <div class="copyright-text">
-            <p>Copyright © {{ date('Y') }} ZakirSoft. All Rights Reserved.</p>
+            <p>&#169; {{date('Y')}} - Zakirsoft</p>
         </div>
       </div>
     </div>
@@ -121,7 +121,7 @@
         </div>
         <div class="col-12">
           <div class="copyright_text">
-            <p>Copyright © {{ date('Y') }} ZakirSoft. All Rights Reserved.</p>
+            <p>&#169; {{date('Y')}} - Zakirsoft</p>
           </div>
         </div>
       </div>

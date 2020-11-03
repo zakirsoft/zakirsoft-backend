@@ -7,14 +7,14 @@
 @section('content')
 <section class="login-block">
 
-    <div class="container-fluid">
+    <div class="container-fluid mt-5">
         <div class="row">
             <div class="col-sm-12">
 
                 <form method="POST" action="{{ route('login') }}" class="md-float-material form-material">
                     @csrf
                     <div class="text-center">
-                        {{-- <img src="png/logo.png" alt="logo.png"> --}}
+                        <img src="https://zakirsoft.com/frontend/assets/images/logo/1.png" alt="logo.png">
                     </div>
                     <div class="auth-box card">
                         <div class="card-block">
@@ -25,7 +25,7 @@
                             </div>
                             {{-- <p class="text-muted text-center p-b-5">Session Notifications</p> --}}
                             <div class="form-group form-primary">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror fill" name="email" value="{{ old('email') }}" required>
                                 <span class="form-bar"></span>
                                 <label class="float-label">Username</label>
 
@@ -36,7 +36,7 @@
                                 @enderror
                             </div>
                             <div class="form-group form-primary">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror fill" name="password" required>
                                 <span class="form-bar"></span>
                                 <label class="float-label">Password</label>
 

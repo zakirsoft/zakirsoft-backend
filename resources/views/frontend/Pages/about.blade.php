@@ -92,7 +92,7 @@
   <!-- Team section start -->
   <section id="team" class="none">
     <div class="round_shape_img">
-      <img src="assets/images/shape/shadow.png" alt="shaddow_ibackground">
+      <img src="{{ asset('frontend') }}/assets/images/shape/shadow.png" alt="shaddow_ibackground">
     </div>
     <div class="container">
       <div class="row section_title">
