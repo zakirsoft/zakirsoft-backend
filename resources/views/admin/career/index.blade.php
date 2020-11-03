@@ -54,7 +54,6 @@
                                         @endif
                                 </div>
                                 <div class="card-block">
-                                    @include('notify::messages')
                                     <div class="table-responsive">
                                         @if ($errors->any())
                                         <div class="alert alert-danger">

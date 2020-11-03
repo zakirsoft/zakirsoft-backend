@@ -9,7 +9,6 @@ active pcoded-trigger
 @endsection
 
 @section('content')
-@include('notify::messages')
 <div class="loader-bg">
     <div class="loader-bar"></div>
 </div>

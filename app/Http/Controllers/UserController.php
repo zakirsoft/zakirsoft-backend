@@ -37,7 +37,7 @@ class UserController extends Controller
             'name' => ['required'],
             'email' => ['required','email','unique:users,email'],
             'password' => ['required','min:8'],
-            'image' => ['required'],
+            'image' => ['required','image', 'mimes:jpeg,png,jpg,svg,webp', 'size:3072'],
             'roles' => ['required']
         ],[
             'name.required' => 'Full Name is Required.',
@@ -45,7 +45,8 @@ class UserController extends Controller
             'email.email' => 'Enter a Valid E-Mail address.',
             'email.unique' => 'E-Mail already exist in Our System, Choose Another!',
             'password.required' => 'Password field is Required.',
-            'image.required' => 'Choose a Profile Image.',
+            'image.size' => 'Image must be 3 or less than 3 MB',
+            'image.mimes' => 'Image supported format jpeg, png, svg, webp',
             'roles.required' => 'Please assign a user Role.'
         ]);
 

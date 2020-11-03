@@ -71,7 +71,7 @@
                                 <div class="card-header d-flex justify-content-between">
                                     <h5>All Users ({{ $user_count }})</h5>
                                     @can('user create')
-                                    <a href="{{ url('user/create') }}" class="btn btn-sm btn-primary mr-1" title="Create a User"><i class="fas fa-plus-square pr-1"></i>Create</a>
+                                    <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary mr-1" title="Create a User"><i class="fas fa-plus-square pr-1"></i>Create</a>
                                     @endcan
                                 </div>
                                 <div class="card-block">

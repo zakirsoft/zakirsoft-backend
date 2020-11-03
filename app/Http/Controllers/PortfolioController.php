@@ -42,7 +42,7 @@ class PortfolioController extends Controller
             'client_name' => 'required',
             'client_email' => 'required',
             'category_id' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:10048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|size:3072',
         ],[
             'title.required' => 'Title field is required!',
             'description.required' => 'Description field is required!',
@@ -53,6 +53,8 @@ class PortfolioController extends Controller
             'client_name.required' => 'Client name field is required!',
             'client_email.required' => 'Client email field is required!',
             'category_id.required' => 'Work type field is required!',
+            'image.mimes' => 'Image supported format jpeg, png, svg, webp',
+            'image.size' => 'Image must be 3 or less than 3 MB',
             'image.required' => 'image field is required!',
         ]);
 
@@ -142,6 +144,14 @@ class PortfolioController extends Controller
         ]);
 
         if($request->has('image')) {
+
+            $request->validate([
+                'image' => 'required|image|mimes:jpeg,png,jpg,svg,webp|size:3072'
+            ],[
+                'image.size' => 'Image must be 3 or less than 3 MB',
+                'image.mimes' => 'Image supported format jpeg, png, svg, webp',
+                'image.required' => 'image field is required!',
+            ]);
 
             $old_image = Portfolio::findOrFail($id);
 

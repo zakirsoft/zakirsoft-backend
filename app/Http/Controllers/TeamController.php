@@ -32,7 +32,7 @@ class TeamController extends Controller
         $request->validate([
             'name'=>'required',
             'position'=>'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:10048'
+            'image' => 'required|image|mimes:jpeg,png,jpg,svg,webp|size:3072'
         ]);
 
         $team = Team::create([
@@ -69,6 +69,13 @@ class TeamController extends Controller
         if( $request->has('image')){
 
             $old_image = Team::find($id);
+
+            $request->validate([
+                'image' => 'image|mimes:jpeg,png,jpg,svg,webp|size:3072'
+            ],[
+                'image.size' => 'Image must be 3 or less than 3 MB',
+                'image.mimes' => 'Image supported format jpeg, png, svg, webp',
+            ]);
 
             if (file_exists($old_image->image)) {
                 unlink(public_path($old_image->image));
@@ -110,7 +117,7 @@ class TeamController extends Controller
             $team->delete();
         }
         $team->delete();
-        
+
         session()->flash('success', 'Member Deleted Successfully!');
         return back();
     }
