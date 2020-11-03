@@ -37,7 +37,7 @@ class UserController extends Controller
             'name' => ['required'],
             'email' => ['required','email','unique:users,email'],
             'password' => ['required','min:8'],
-            'image' => ['required','image', 'mimes:jpeg,png,jpg,svg,webp', 'size:3072'],
+            'image' => ['required','image', 'mimes:jpeg,png,jpg,svg,webp','size:3072'],
             'roles' => ['required']
         ],[
             'name.required' => 'Full Name is Required.',

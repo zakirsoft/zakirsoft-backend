@@ -89,11 +89,11 @@
           <div class="box_wrapper">
             <div class="card_box">
               <div class="front_part face">
-                <h2>Front end <span class="text_stroke">Developerment</span></h2>
+                <h2>Frontend <span class="text_stroke">Development</span></h2>
               </div>
               <div class="back_part face">
                 <div class="box_title">
-                  <h2>Front end Developer</h2>
+                  <h2>Frontend Development</h2>
                   <p>
                     Aliquam in bibendum mauris. Sed vitae erat vel velit
                     blandit pharetra vitae nec ante. Cras at est augue. Cras
@@ -110,11 +110,11 @@
           <div class="box_wrapper">
             <div class="card_box">
               <div class="front_part face">
-                <h2>Front end <span class="text_stroke">Developerment</span></h2>
+                <h2>Backend <span class="text_stroke">Development</span></h2>
               </div>
               <div class="back_part face">
                 <div class="box_title">
-                  <h2>Front end Developer</h2>
+                  <h2>Backend Development</h2>
                   <p>
                     Aliquam in bibendum mauris. Sed vitae erat vel velit
                     blandit pharetra vitae nec ante. Cras at est augue. Cras
@@ -131,11 +131,11 @@
           <div class="box_wrapper">
             <div class="card_box">
               <div class="front_part face">
-                <h2>Front end <span class="text_stroke">Developer</span></h2>
+                <h2>Application  <span class="text_stroke">Development</span></h2>
               </div>
               <div class="back_part face">
                 <div class="box_title">
-                  <h2>Front end Developer</h2>
+                  <h2>Application Development</h2>
                   <p>
                     Aliquam in bibendum mauris. Sed vitae erat vel velit
                     blandit pharetra vitae nec ante. Cras at est augue. Cras
@@ -152,11 +152,11 @@
           <div class="box_wrapper">
             <div class="card_box">
               <div class="front_part face">
-                <h2>Front end <span class="text_stroke">Developer</span></h2>
+                <h2>UI/UX <span class="text_stroke">Designer</span></h2>
               </div>
               <div class="back_part face">
                 <div class="box_title">
-                  <h2>Front end Developer</h2>
+                  <h2>UI/UX Designer</h2>
                   <p>
                     Aliquam in bibendum mauris. Sed vitae erat vel velit
                     blandit pharetra vitae nec ante. Cras at est augue. Cras
