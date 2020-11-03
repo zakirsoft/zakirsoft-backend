@@ -76,7 +76,7 @@
               elementum diam elementum. Etiam elementum euismod commodo. Proin
               eleifend eget quam ut efficitur. Mauris a accumsan mauris.
             </p>
-            <a href="career.html" class="button">Join Our Team</a>
+            <a href="{{ route('career_website') }}" class="button">Join Our Team</a>
           </div>
         </div>
         <div class="col-lg-6 order-lg-0 order-1 r_space">

@@ -32,7 +32,7 @@
               Curabitur vulputate arcu odio, ac facilisis diam accumsan ut. Ut
               imperdiet et leo in vulputate.
             </p>
-            <a class="button" href="work.html">View Projects</a>
+            <a class="button" href="{{ route('work_website') }}">View Projects</a>
           </div>
         </div>
         <div class="col-xl-5 order-1 order-xl-0">

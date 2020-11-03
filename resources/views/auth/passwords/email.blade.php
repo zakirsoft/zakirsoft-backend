@@ -14,14 +14,13 @@
                 <form method="POST" action="{{ route('password.email') }}" class="md-float-material form-material">
                     @csrf
                     <div class="text-center">
-                        {{-- <img src="png/logo.png" alt="logo.png"> --}}
+                        <img height="40px" src="https://zakirsoft.com/frontend/assets/images/logo/1.png" alt="logo.png">
                     </div>
                     <div class="auth-box card">
                         <div class="card-block">
                             <div class="row m-b-20">
                                 <div class="col-md-12 text-center">
                                     <h3 class="txt-primary pb-4">Recover your password</h3>
-
                                     @if (session('status'))
                                     <div class="alert alert-success" role="alert">
                                         {{ session('status') }}
@@ -29,9 +28,8 @@
                                 @endif
                                 </div>
                             </div>
-                            {{-- <p class="text-muted text-center p-b-5">Session Notifications</p> --}}
                             <div class="form-group form-primary">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid fill @enderror " name="email" value="{{ old('email') }}" required autocomplete="email">
                                 <span class="form-bar"></span>
                                 <label class="float-label">Your E-Mail Address</label>
 
@@ -50,7 +48,7 @@
                             <div class="row">
                                 <div class="col-md-10">
                                     <p class="text-inverse text-left m-b-0">Thank you.</p>
-                                    <p class="text-inverse text-left"><a href="{{ url('/') }}"><b>Back to
+                                    <p class="text-inverse text-left"><a href="https://zakirsoft.com/"><b>Back to
                                                 Website</b></a>
                                     </p>
                                 </div>
@@ -61,14 +59,9 @@
                         </div>
                     </div>
                 </form>
-
             </div>
-
         </div>
-
     </div>
-
     </div>
-
 </section>
 @endsection
