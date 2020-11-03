@@ -30,7 +30,7 @@ Route::get('/contacts', [WebsiteController::class, 'contact'])->name('contact_we
  Backend Routes
 --------------------------------------------------------------------------*/
 Auth::routes(['verify' => true]);
-Route::redirect('home', 'dashboard', 302);
+// Route::redirect('home', 'dashboard', 302);
 
 
 // Portfolio & Portfolio Category Routes
