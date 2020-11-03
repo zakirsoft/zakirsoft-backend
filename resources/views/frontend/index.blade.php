@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title') Home @endsection
+@section('title') A Innovative Software Company @endsection
 @section('meta')
     <meta name="author" content="Zakir Soft">
     <meta name="keywords" content="web design, web development, web development agency, agency, web, design, development, pwa, spa, web application development, website, website design, ecommerce website">
@@ -28,9 +28,7 @@
               We are here to <br />
               grow your <br /><span class="text_stroke">Business.</span>
             </h2>
-            <p>
-              Curabitur vulputate arcu odio, ac facilisis diam accumsan ut. Ut
-              imperdiet et leo in vulputate.
+            <p> As a software company we develop innovatives website & software solutions. We are proud of what we do.
             </p>
             <a class="button" href="{{ route('work_website') }}">View Projects</a>
           </div>
@@ -94,13 +92,7 @@
               <div class="back_part face">
                 <div class="box_title">
                   <h2>Frontend Development</h2>
-                  <p>
-                    Aliquam in bibendum mauris. Sed vitae erat vel velit
-                    blandit pharetra vitae nec ante. Cras at est augue. Cras
-                    ut interdum elit.
-                  </p>
-                  <a href="#">Read More
-                    <img src="{{ asset('frontend') }}/assets/images/arrow.png" alt="Arrow" class="img-fluid" /></a>
+                  <p> Front-end web development is the practice of converting data to a graphical interface, through the use of HTML, CSS, and JavaScript, so that users can view and interact with that data. A front-end web developer is responsible for implementing visual elements that users see and interact with in a web application. </p>
                 </div>
               </div>
             </div>
@@ -115,13 +107,7 @@
               <div class="back_part face">
                 <div class="box_title">
                   <h2>Backend Development</h2>
-                  <p>
-                    Aliquam in bibendum mauris. Sed vitae erat vel velit
-                    blandit pharetra vitae nec ante. Cras at est augue. Cras
-                    ut interdum elit.
-                  </p>
-                  <a href="#">Read More
-                    <img src="{{ asset('frontend') }}/assets/images/arrow.png" alt="Arrow" class="img-fluid" /></a>
+                  <p>A back-end web developer is responsible for server-side web application logic and integration of the work front-end web developers do. Back-end developers usually write web services and APIs used by front-end developers and mobile application developers. </p>
                 </div>
               </div>
             </div>
@@ -131,18 +117,12 @@
           <div class="box_wrapper">
             <div class="card_box">
               <div class="front_part face">
-                <h2>Application  <span class="text_stroke">Development</span></h2>
+                <h2>SPA <span class="text_stroke">Development</span></h2>
               </div>
               <div class="back_part face">
                 <div class="box_title">
-                  <h2>Application Development</h2>
-                  <p>
-                    Aliquam in bibendum mauris. Sed vitae erat vel velit
-                    blandit pharetra vitae nec ante. Cras at est augue. Cras
-                    ut interdum elit.
-                  </p>
-                  <a href="#">Read More
-                    <img src="{{ asset('frontend') }}/assets/images/arrow.png" alt="Arrow" class="img-fluid" /></a>
+                  <h2>SPA Development</h2>
+                  <p> A single-page application (SPA) is a web Application or website that interacts with the user by dynamically rewriting the current web page with new data from the web server, instead of the default method of the browser loading entire new pages. The goal is faster transitions that make the website feel more like a native app. </p>
                 </div>
               </div>
             </div>
@@ -152,18 +132,12 @@
           <div class="box_wrapper">
             <div class="card_box">
               <div class="front_part face">
-                <h2>UI/UX <span class="text_stroke">Designer</span></h2>
+                <h2>SSR <span class="text_stroke">Development</span></h2>
               </div>
               <div class="back_part face">
                 <div class="box_title">
-                  <h2>UI/UX Designer</h2>
-                  <p>
-                    Aliquam in bibendum mauris. Sed vitae erat vel velit
-                    blandit pharetra vitae nec ante. Cras at est augue. Cras
-                    ut interdum elit.
-                  </p>
-                  <a href="#">Read More
-                    <img src="{{ asset('frontend') }}/assets/images/arrow.png" alt="Arrow" class="img-fluid" /></a>
+                  <h2>SSR  Development </h2>
+                  <p> Server-side rendering (SSR), is the ability of an application to contribute by displaying the web-page on the server instead of rendering it in the browser. Server-side sends a fully rendered page to the client; the client’s JavaScript bundle takes over and allows the SPA framework to operate. </p>
                 </div>
               </div>
             </div>
