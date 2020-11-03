@@ -4,7 +4,7 @@
             <div class="pcoded-navigation-label">System</div>
             <ul class="pcoded-item pcoded-left-item">
                 <li class="@yield('dashboard')">
-                    <a href="{{ url('/dashboard') }}" class="waves-effect waves-dark">
+                    <a href="{{ route('dashboard.index') }}" class="waves-effect waves-dark">
                         <span class="pcoded-micon">
                             <i class="feather icon-home"></i>
                         </span>
