@@ -1,4 +1,4 @@
-@extends('frontend.master')
+@extends('layouts.frontend')
 
 @section('title') Career @endsection
 @section('meta')
