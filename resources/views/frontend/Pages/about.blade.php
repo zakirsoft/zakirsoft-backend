@@ -1,5 +1,15 @@
 @extends('frontend.master')
 
+@section('title') About Us @endsection
+@section('meta')
+    <meta name="author" content="Zakir Soft">
+    <meta name="keywords" content="web design, web development, web development agency, agency, web, design, development, pwa, spa, web application development, website, website design, ecommerce website">
+    <meta name="description" content="Zakir Soft, A team of young designer and developers. We have frontend, backend, mobile application and UI/UX Design team. We provide complete web solution to any company.">
+    <meta property="og:title" content="About Us - Zakir Soft" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="{{ asset('frontend') }}/assets/images/preview.jpg" />
+@endsection
+
 @section('about') active @endsection
 @section('about_footer') active @endsection
 
@@ -7,6 +17,7 @@
 
   <!-- about-us section start -->
   <section id="about" class="none">
+
     <div class="container">
       <div class="row section_title">
         <h2>About us</h2>
@@ -22,12 +33,6 @@
             <div class="col-lg-4 col-12 order-lg-0 order-2">
               <div class="about_content_img_1">
                 <img src="{{ asset('frontend') }}/assets/images/about/about3.png" alt="img" />
-              </div>
-              <div class="play_video">
-                <a href="https://www.youtube.com/watch?v=LOzUl2KStvA" class="popup-video">
-                  <span class="play_icon"><img src="assets/images/icon.png" alt="icon" /> Play
-                    Video</span>
-                </a>
               </div>
             </div>
             <div class="col-lg-8 col-12 order-lg-0 order-1">
@@ -58,7 +63,6 @@
       <img src="{{ asset('frontend') }}/assets/images/shape/shadow_2.png" alt="shaddow_ibackground">
     </div>
   </section>
-
   <!-- about-us 2 section end -->
   <section id="about_content_2" class="none">
     <div class="container">
@@ -72,7 +76,7 @@
               elementum diam elementum. Etiam elementum euismod commodo. Proin
               eleifend eget quam ut efficitur. Mauris a accumsan mauris.
             </p>
-            <a href="#" class="button">Join Our Team</a>
+            <a href="career.html" class="button">Join Our Team</a>
           </div>
         </div>
         <div class="col-lg-6 order-lg-0 order-1 r_space">
@@ -88,7 +92,7 @@
   <!-- Team section start -->
   <section id="team" class="none">
     <div class="round_shape_img">
-      <img src="assets/images/shape/shadow.png" alt="shaddow_ibackground">
+      <img src="{{ asset('frontend') }}/assets/images/shape/shadow.png" alt="shaddow_ibackground">
     </div>
     <div class="container">
       <div class="row section_title">

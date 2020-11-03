@@ -140,7 +140,7 @@ active pcoded-trigger
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header bg-dark text-light">
+            <div class="modal-header">
                 <h5 class="modal-title" id="exampleModal3Label">Add Category</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>

@@ -13,7 +13,10 @@
             </ul>
           </div>
           <div class="connect_info">
-            <p>{{$content->content ?? ''}}</p>
+            <h4>Connect With us</h4>
+            <p>
+                {{$content->content ?? ''}}
+            </p>
             <span class="email">{{$content->email ?? ''}}</span>
           </div>
           <div>
@@ -23,12 +26,12 @@
                   <a href="{{$social->profile_link}}"><i class="{{$social->social_media}}"></i></a>
                 </li>
                 @endforeach
-              </ul>
+            </ul>
           </div>
         </div>
         <div class="col-12">
           <div class="copyright_text">
-            <p> Copyright © {{date('Y')}} ZakirSoft. All Rights Reserved. </p>
+            <p>&#169; {{date('Y')}} - Zakirsoft</p>
           </div>
         </div>
       </div>

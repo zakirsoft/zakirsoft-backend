@@ -19,11 +19,11 @@
   <meta property="og:image" content="assets/images/preview.jpg" />
 
   <!-- =========== CSS URL ============ -->
-  <link rel="stylesheet" href="assets/css/all.min.css" />
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="assets/css/magnific-popup.css">
-  <link rel="stylesheet" href="assets/css/slick.css">
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/all.min.css" />
+  <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/magnific-popup.css">
+  <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/slick.css">
+  <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/style.css" />
 </head>
 
 <body>
@@ -32,7 +32,7 @@
     <div class="container">
       <nav class="head_content">
         <a href="{{ url('/') }}" class="logo">
-          <img src="{{ asset('assets/images/logo/1.png') }}" alt="Zakir Soft">
+          <img src="{{ asset('frontend/assets/images/logo/1.png') }}" alt="Zakir Soft">
         </a>
         <div class="menu">
           <ul class="m_bar">
@@ -78,7 +78,7 @@
             @endforeach
         </ul>
         <div class="copyright-text">
-            <p>Copyright © {{ date('Y') }} ZakirSoft. All Rights Reserved.</p>
+            <p>&#169; {{date('Y')}} - Zakirsoft</p>
         </div>
       </div>
     </div>
@@ -92,7 +92,7 @@
         <div class="col-12">
           <div class="error_wrapper">
             <div class="error_img">
-              <img src="{{ asset('assets/images/404.svg') }}" alt="404 images">
+              <img src="{{ asset('frontend/assets/images/404.svg') }}" alt="404 images">
             </div>
             <h2>Oops, The page you are looking is not found</h2>
             <div class="404_button">
@@ -121,7 +121,7 @@
         </div>
         <div class="col-12">
           <div class="copyright_text">
-            <p>Copyright © {{ date('Y') }} ZakirSoft. All Rights Reserved.</p>
+            <p>&#169; {{date('Y')}} - Zakirsoft</p>
           </div>
         </div>
       </div>
@@ -131,12 +131,12 @@
 
 
   <!-- all js goes here -->
-  <script src="assets/js/jquery-1.12.4.min.js"></script>
-  <script src="assets/js/popper.min.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/slick.min.js"></script>
-  <script src="assets/js/jquery.magnific-popup.min.js"></script>
-  <script src="assets/js/app.js"></script>
+  <script src="{{ asset('frontend') }}/assets/js/jquery-1.12.4.min.js"></script>
+  <script src="{{ asset('frontend') }}/assets/js/popper.min.js"></script>
+  <script src="{{ asset('frontend') }}/assets/js/bootstrap.min.js"></script>
+  <script src="{{ asset('frontend') }}/assets/js/slick.min.js"></script>
+  <script src="{{ asset('frontend') }}/assets/js/jquery.magnific-popup.min.js"></script>
+  <script src="{{ asset('frontend') }}/assets/js/app.js"></script>
 </body>
 
 </html>
