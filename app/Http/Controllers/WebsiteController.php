@@ -26,7 +26,7 @@ class WebsiteController extends Controller
         $team = Team::all();
         $content = Footer::get()->first();
         $socials = Social::all();
-        return view('frontend.Pages.about', compact('content', 'socials'))->with('teams', $team);
+        return view('frontend.about', compact('content', 'socials'))->with('teams', $team);
     }
 
     function work(){
@@ -34,7 +34,7 @@ class WebsiteController extends Controller
         $category_list = PortfolioCategory::where('status',1)->get();
         $content = Footer::get()->first();
         $socials = Social::all();
-        return view('frontend.Pages.work',compact('portfolio','category_list', 'content', 'socials'));
+        return view('frontend.work',compact('portfolio','category_list', 'content', 'socials'));
     }
 
     function workDetails($id){
@@ -44,19 +44,19 @@ class WebsiteController extends Controller
        $socials = Social::all();
        $work_details_imgages = PortfoiloImages::where('portfolio_id',$id)->get();
 
-        return view('frontend.Pages.work_details',compact('portfolio','work_details_content','work_details_imgages', 'content', 'socials'));
+        return view('frontend.work_details',compact('portfolio','work_details_content','work_details_imgages', 'content', 'socials'));
     }
 
     function career(){
         $career = Career::latest()->get();
         $content = Footer::get()->first();
         $socials = Social::all();
-        return view('frontend.Pages.career',compact('career', 'content', 'socials'));
+        return view('frontend.career',compact('career', 'content', 'socials'));
     }
 
     function contact(){
         $content = Footer::get()->first();
         $socials = Social::all();
-        return view('frontend.Pages.contact', compact('content', 'socials'));
+        return view('frontend.contact', compact('content', 'socials'));
     }
 }
