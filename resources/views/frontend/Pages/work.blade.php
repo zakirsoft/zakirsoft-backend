@@ -22,7 +22,7 @@
     </div>
     <div class="container">
         <div class="row section_title">
-            <h2>Work</h2>
+            <h2>Works</h2>
         </div>
         <div class="work_content">
             <div class="container">
@@ -30,7 +30,7 @@
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <div class="tab-text">
-                                <p>These all our team member recent work</p>
+                                <p>These all our team member recent works</p>
                             </div>
                         </div>
                         <div class="col-md-6">

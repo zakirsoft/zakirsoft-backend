@@ -7,7 +7,7 @@
             <ul class="nav_links">
                 <li class="nav_items"><a href="{{ route('home_website') }}" class="@yield('home_footer')" >Home</a></li>
                 <li class="nav_items"><a href="{{ route('about_website') }}" class="@yield('about_footer')" >About</a></li>
-                <li class="nav_items"><a href="{{ route('work_website') }}" class="@yield('work_footer')" @yield('_footer')>work</a></li>
+                <li class="nav_items"><a href="{{ route('work_website') }}" class="@yield('work_footer')" @yield('_footer')>works</a></li>
                 <li class="nav_items"><a href="{{ route('career_website') }}" class="@yield('career_footer')" >Career</a></li>
                 <li class="nav_items"><a href="{{ route('contact_website') }}" class="@yield('contact_footer')" >Contact</a></li>
             </ul>

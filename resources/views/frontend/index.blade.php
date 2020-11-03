@@ -48,7 +48,7 @@
   <section id="Project" class="none">
     <div class="container-fluid">
       <div class="row section_title">
-        <h2>our Work</h2>
+        <h2>our Works</h2>
       </div>
 
       <div class="row project_slider">
@@ -89,7 +89,7 @@
           <div class="box_wrapper">
             <div class="card_box">
               <div class="front_part face">
-                <h2>Front end <span class="text_stroke">Developer</span></h2>
+                <h2>Front end <span class="text_stroke">Developerment</span></h2>
               </div>
               <div class="back_part face">
                 <div class="box_title">
@@ -110,7 +110,7 @@
           <div class="box_wrapper">
             <div class="card_box">
               <div class="front_part face">
-                <h2>Front end <span class="text_stroke">Developer</span></h2>
+                <h2>Front end <span class="text_stroke">Developerment</span></h2>
               </div>
               <div class="back_part face">
                 <div class="box_title">
