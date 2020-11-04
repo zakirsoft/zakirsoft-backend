@@ -32,7 +32,7 @@ class TeamController extends Controller
         $request->validate([
             'name'=>'required',
             'position'=>'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,svg,webp|size:3072'
+            'image' => 'required|image|mimes:jpeg,png,jpg,svg,webp|max:3072'
         ]);
 
         $team = Team::create([
@@ -71,7 +71,7 @@ class TeamController extends Controller
             $old_image = Team::find($id);
 
             $request->validate([
-                'image' => 'image|mimes:jpeg,png,jpg,svg,webp|size:3072'
+                'image' => 'image|mimes:jpeg,png,jpg,svg,webp|max:3072'
             ],[
                 'image.size' => 'Image must be 3 or less than 3 MB',
                 'image.mimes' => 'Image supported format jpeg, png, svg, webp',

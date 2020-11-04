@@ -32,7 +32,7 @@ class PortfolioController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $this->validate($request, [
             'title' => 'required',
             'description' => 'required',
             'live_link' => 'required|url',
@@ -42,7 +42,7 @@ class PortfolioController extends Controller
             'client_name' => 'required',
             'client_email' => 'required',
             'category_id' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|size:3072',
+            'image' => 'required|image|max:3072',
         ],[
             'title.required' => 'Title field is required!',
             'description.required' => 'Description field is required!',
