@@ -150,7 +150,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-6">
+                        {{-- <div class="col-xl-3 col-md-6">
                             <div class="card prod-p-card card-green">
                                 <div class="card-body">
                                     <div class="row align-items-center m-b-30">
@@ -164,7 +164,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
 
                 </div>

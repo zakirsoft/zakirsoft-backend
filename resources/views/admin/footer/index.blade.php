@@ -61,7 +61,7 @@ active pcoded-trigger
                                             <thead>
                                                 <tr>
                                                     <th>E-Mail</th>
-                                                    <th>Header Content</th>
+                                                    <th>Header Meta Script/Style</th>
                                                     <th>Footer Content</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -119,7 +119,7 @@ active pcoded-trigger
                                                                             placeholder="Enter E-mail address">
                                                                     </div>
                                                                     <div class="form-group">
-                                                                        <label for="content">Header Content</label>
+                                                                        <label for="content">Header Meta Script/Style</label>
                                                                         <textarea required name="head_content" type="text"
                                                                             class="form-control" id="content"
                                                                             placeholder="Enter Content of Footer"
@@ -315,7 +315,7 @@ active pcoded-trigger
                             id="content" placeholder="Enter Content of Footer" rows="8"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="content">Header Content</label>
+                        <label for="content">Header Meta Script/Style</label>
                         <textarea value="{{ old('head_content') }}" required name="head_content" type="text" class="form-control"
                             id="content" placeholder="Enter Content of Footer" rows="8"></textarea>
                     </div>
