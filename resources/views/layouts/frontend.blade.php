@@ -42,6 +42,7 @@
             color: #fff;
         }
     </style>
+     {{$content->head_content ?? ''}}
 </head>
 
 <body>

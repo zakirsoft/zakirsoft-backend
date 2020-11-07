@@ -49,8 +49,8 @@
                             <p>{!! $work_details_content->description !!}.</p>
                         </div>
                         <div class="project_button">
-                            <a class="button" href="{{ $work_details_content->live_link }}">View Project on live</a>
-                            <a href="{{ $work_details_content->bahance_link }}" class="button border-0">View Behance on live <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="arrow_icon"></a>
+                            <a target="_blank" class="button" href="{{ $work_details_content->live_link }}">View Project on live</a>
+                            <a target="_blank" href="{{ $work_details_content->bahance_link }}" class="button border-0">View Behance on live <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="arrow_icon"></a>
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                         <p>Previous Projects</p>
                         <span class="p_type">{{ $item->category->name }}</span>
                         <h3 class="project_name">{{ $item->title }}</h3>
-                        <a href="{{ route('work_details_website', $item->id) }}" class="v_project">
+                        <a target="_blank" href="{{ route('work_details_website', $item->id) }}" class="v_project">
                             view more
                             <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="arrow_icon">
                         </a>

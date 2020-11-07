@@ -30,7 +30,7 @@
             </h2>
             <p> As a software company we develop innovatives website & software solutions. We are proud of what we do.
             </p>
-            <a class="button" href="{{ route('work_website') }}">View Projects</a>
+            <a target="_blank" class="button" href="{{ route('work_website') }}">View Projects</a>
           </div>
         </div>
         <div class="col-xl-5 order-1 order-xl-0">
@@ -56,7 +56,7 @@
             <div class="slide_info ml">
               <span class="p_type">{{ $item->category->name }}</span>
               <h3 class="p_title">{{ Str::words($item->title,3) }}</h3>
-              <a class="v_project" href="{{ route('work_details_website', $item->id) }}">
+              <a target="_blank" class="v_project" href="{{ route('work_details_website', $item->id) }}">
                 <span>View Project</span>
                 <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="project-img" />
               </a>

@@ -13,4 +13,5 @@ class Career extends Model
         'title',
         'content',
     ];
+  
 }

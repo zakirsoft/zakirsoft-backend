@@ -64,7 +64,7 @@
           <div class="office_content_wrapper">
             <h3>About zakirsoft</h3>
             <p>We started this business to provide good softwares and quality of training at a better price. Zakirsoft specialize in working directly with other organizations to create sustainable partnerships. In fact, we recently helped student's to give them a correct path to become a web developer. </p>
-            <a href="{{ route('career_website') }}" class="button">Join Our Team</a>
+            <a target="_blank" href="{{ route('career_website') }}" class="button">Join Our Team</a>
           </div>
         </div>
         <div class="col-lg-6 order-lg-0 order-1 r_space">
