@@ -42,6 +42,7 @@
             color: #fff;
         }
     </style>
+     {!! $content->head_content !!}
 </head>
 
 <body>
@@ -97,7 +98,7 @@
                 <ul class="footer-social">
                     @foreach ($socials as $social)
                     <li>
-                        <a href="{{$social->profile_link}}"><i class="{{$social->social_media}}"></i></a>
+                        <a target="_blank" href="{{$social->profile_link}}"><i class="{{$social->social_media}}"></i></a>
                     </li>
                     @endforeach
                 </ul>
@@ -144,7 +145,7 @@
                         <ul class="social_links">
                             @foreach ($socials as $social)
                             <li>
-                                <a href="{{$social->profile_link}}"><i class="{{$social->social_media}}"></i></a>
+                                <a target="_blank" href="{{$social->profile_link}}"><i class="{{$social->social_media}}"></i></a>
                             </li>
                             @endforeach
                         </ul>

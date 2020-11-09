@@ -136,6 +136,15 @@
                 </a>
             </li>
             @endcan
+            <hr class="text-light">
+            <li class="">
+                <a href="{{ url('/') }}" class="h4 waves-effect waves-dark">
+                    <span class="pcoded-micon">
+                        <i class="fa fa-globe"></i>
+                    </span>
+                    <span class="pcoded-mtext font-weight-bold">Visit Website</span>
+                </a>
+            </li>
         </ul>
         </div>
     </div>

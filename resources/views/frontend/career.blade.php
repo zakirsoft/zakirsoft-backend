@@ -31,7 +31,7 @@
                         </div>
                         <div class="col-lg-6 col-12">
                             <div class="join-designer-button text-lg-right">
-                                <a class="button" href="{{ route('contact_website') }}">I want this position</a>
+                                <a target="_blank" class="button" href="{{ route('contact_website') }}">I want this position</a>
                             </div>
                         </div>
                     </div>

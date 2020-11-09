@@ -45,6 +45,7 @@ active pcoded-trigger
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
+
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Footer Content</h5>
@@ -60,7 +61,8 @@ active pcoded-trigger
                                             <thead>
                                                 <tr>
                                                     <th>E-Mail</th>
-                                                    <th>Content</th>
+                                                    <th>Header Meta Script/Style</th>
+                                                    <th>Footer Content</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -68,6 +70,7 @@ active pcoded-trigger
                                                 @forelse ($footers as $footer)
                                                 <tr>
                                                     <td>{{$footer->email}}</td>
+                                                    <td>{{$footer->head_content}}</td>
                                                     <td>{{$footer->content}}</td>
                                                     <td class="d-flex">
                                                         @can('footer edit')
@@ -116,7 +119,14 @@ active pcoded-trigger
                                                                             placeholder="Enter E-mail address">
                                                                     </div>
                                                                     <div class="form-group">
-                                                                        <label for="content">Content</label>
+                                                                        <label for="content">Header Meta Script/Style</label>
+                                                                        <textarea required name="head_content" type="text"
+                                                                            class="form-control" id="content"
+                                                                            placeholder="Enter Content of Footer"
+                                                                            rows="8">{{ $footer->head_content ?? old('head_content') }}</textarea>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="content">Footer Content</label>
                                                                         <textarea required name="content" type="text"
                                                                             class="form-control" id="content"
                                                                             placeholder="Enter Content of Footer"
@@ -302,6 +312,11 @@ active pcoded-trigger
                     <div class="form-group">
                         <label for="content">Content</label>
                         <textarea value="{{ old('content') }}" required name="content" type="text" class="form-control"
+                            id="content" placeholder="Enter Content of Footer" rows="8"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="content">Header Meta Script/Style</label>
+                        <textarea value="{{ old('head_content') }}" required name="head_content" type="text" class="form-control"
                             id="content" placeholder="Enter Content of Footer" rows="8"></textarea>
                     </div>
                 </div>

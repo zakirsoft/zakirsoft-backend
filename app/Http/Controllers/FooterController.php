@@ -28,7 +28,8 @@ class FooterController extends Controller
     {
         $this->validate($request,[
             'email' => ['required', 'email', 'unique:footers,email'],
-            'content' => ['required']
+            'content' => ['required'],
+            'head_content' => ['required'],
         ],[
             'email.required' => 'Email field is Required',
             'email.email' => 'Valid Email is Required',
@@ -39,6 +40,7 @@ class FooterController extends Controller
         Footer::insert([
             'email' => $request->email,
             'content' => $request->content,
+            'head_content' => $request->head_content,
             'created_at' => Carbon::now()
         ]);
 
@@ -49,6 +51,7 @@ class FooterController extends Controller
     {
         $update = Footer::findOrFail($id);
         $update->email = $request->email;
+        $update->head_content = $request->head_content;
         $update->content = $request->content;
         $update->save();
 

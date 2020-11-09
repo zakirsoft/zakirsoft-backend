@@ -17,6 +17,7 @@ class CreateFootersTable extends Migration
             $table->id();
             $table->string('email');
             $table->text('content');
+            $table->text('head_content');
             $table->timestamps();
         });
     }
