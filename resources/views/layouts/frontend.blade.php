@@ -169,6 +169,8 @@
     <script src="{{ asset('frontend') }}/assets/js/jquery.magnific-popup.min.js"></script>
     <script src="{{ asset('frontend') }}/assets/js/app.js"></script>
     @yield('website_script')
+
+    {!! $content->body_content !!}
 </body>
 
 </html>
