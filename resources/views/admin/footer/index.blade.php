@@ -62,6 +62,7 @@ active pcoded-trigger
                                                 <tr>
                                                     <th>E-Mail</th>
                                                     <th>Header Meta Script/Style</th>
+                                                    <th>Body Meta Script/Style</th>
                                                     <th>Footer Content</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -71,6 +72,7 @@ active pcoded-trigger
                                                 <tr>
                                                     <td>{{$footer->email}}</td>
                                                     <td>{{$footer->head_content}}</td>
+                                                    <td>{{$footer->body_content}}</td>
                                                     <td>{{$footer->content}}</td>
                                                     <td class="d-flex">
                                                         @can('footer edit')
@@ -124,6 +126,13 @@ active pcoded-trigger
                                                                             class="form-control" id="content"
                                                                             placeholder="Enter Content of Footer"
                                                                             rows="8">{{ $footer->head_content ?? old('head_content') }}</textarea>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="content">Body Meta Script/Style</label>
+                                                                        <textarea required name="body_content" type="text"
+                                                                            class="form-control" id="content"
+                                                                            placeholder="Enter Content of Footer"
+                                                                            rows="8">{{ $footer->body_content ?? old('body_content') }}</textarea>
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label for="content">Footer Content</label>
@@ -317,7 +326,12 @@ active pcoded-trigger
                     <div class="form-group">
                         <label for="content">Header Meta Script/Style</label>
                         <textarea value="{{ old('head_content') }}" required name="head_content" type="text" class="form-control"
-                            id="content" placeholder="Enter Content of Footer" rows="8"></textarea>
+                            id="content" placeholder="Enter Content of Body" rows="8"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="content">Body Meta Script/Style</label>
+                        <textarea value="{{ old('body_content') }}" required name="body_content" type="text" class="form-control"
+                            id="content" placeholder="Enter Content of Body" rows="8"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

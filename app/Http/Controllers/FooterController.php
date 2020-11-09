@@ -41,6 +41,7 @@ class FooterController extends Controller
             'email' => $request->email,
             'content' => $request->content,
             'head_content' => $request->head_content,
+            'body_content' => $request->body_content,
             'created_at' => Carbon::now()
         ]);
 
@@ -52,6 +53,7 @@ class FooterController extends Controller
         $update = Footer::findOrFail($id);
         $update->email = $request->email;
         $update->head_content = $request->head_content;
+        $update->body_content = $request->body_content;
         $update->content = $request->content;
         $update->save();
 
