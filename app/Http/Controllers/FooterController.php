@@ -29,7 +29,6 @@ class FooterController extends Controller
         $this->validate($request,[
             'email' => ['required', 'email', 'unique:footers,email'],
             'content' => ['required'],
-            'head_content' => ['required'],
         ],[
             'email.required' => 'Email field is Required',
             'email.email' => 'Valid Email is Required',
