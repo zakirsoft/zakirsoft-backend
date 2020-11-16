@@ -28,13 +28,11 @@
             <div class="container">
                 <div class="border-bottom pb-5">
                     <div class="row align-items-center">
-                        <div class="col-md-6">
-                            <div class="tab-text">
-                                <p>These all our team member recent works</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="work_tab">
+                        <div class="col-md-12 d-flex justify-content-center align-items-center">
+                            {{-- <div class="tab-text">
+                                <p>Our recent works.</p>
+                            </div> --}}
+                            <div class="work_tab my-2">
                                 <ul class="nav nav-pills mr-auto" id="pills-tab" role="tablist">
                                     <li class="nav-item">
                                         <a class="nav-link show active" id="pills-all-tab" data-toggle="pill"
@@ -48,7 +46,6 @@
                                             aria-selected="false">{{ $category->name }}</a>
                                     </li>
                                     @endforeach
-
                                 </ul>
                             </div>
                         </div>
