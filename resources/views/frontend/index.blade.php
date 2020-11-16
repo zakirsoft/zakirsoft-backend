@@ -4,7 +4,7 @@
 @section('meta')
     <meta name="author" content="Zakir Soft">
     <meta name="keywords" content="web design, web development, web development agency, agency, web, design, development, pwa, spa, web application development, website, website design, ecommerce website">
-    <meta name="description" content="We are a web design & development company in Dhaka, Bangladesh. We provide web design, web development, SPA, SSR & web application, development services.">
+    <meta name="description" content="We are a web design & development agency in Dhaka, Bangladesh. We provide web design, web development, SPA, SSR & web application, development services.">
     <meta property="og:title" content="Zakir Soft - Website Design and Development Company in Dhaka, Bangladesh" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="{{ asset('frontend') }}/assets/images/preview.jpg" />
@@ -132,12 +132,12 @@
           <div class="box_wrapper">
             <div class="card_box">
               <div class="front_part face">
-                <h2>SSR <span class="text_stroke">Development</span></h2>
+                <h2>PWA <span class="text_stroke">Development</span></h2>
               </div>
               <div class="back_part face">
                 <div class="box_title">
-                  <h2>SSR  Development </h2>
-                  <p> Server-side rendering (SSR), is the ability of an application to contribute by displaying the web-page on the server instead of rendering it in the browser. Server-side sends a fully rendered page to the client; the client’s JavaScript bundle takes over and allows the SPA framework to operate. </p>
+                  <h2>PWA  Development </h2>
+                  <p> Progressive web apps (PWA) has in combination of the best features of the site and mobile application built-in it. In practice, this means that such a site can be accessed by users as well as the application and the most interesting thing is an Internet connection is not necessary for this. The installation process can be done in one click directly from the browser. </p>
                 </div>
               </div>
             </div>

@@ -122,30 +122,25 @@
                     <div class="footer_menu">
                         <span>Quick Link</span>
                         <ul class="nav_links">
-                            <li class="nav_items"><a href="{{ route('home_website') }}"
-                                    class="@yield('home_footer')">Home</a></li>
-                            <li class="nav_items"><a href="{{ route('about_website') }}"
-                                    class="@yield('about_footer')">About</a></li>
-                            <li class="nav_items"><a href="{{ route('work_website') }}" class="@yield('work_footer')"
-                                    @yield('_footer')>works</a></li>
-                            <li class="nav_items"><a href="{{ route('career_website') }}"
-                                    class="@yield('career_footer')">Career</a></li>
-                            <li class="nav_items"><a href="{{ route('contact_website') }}"
-                                    class="@yield('contact_footer')">Contact</a></li>
+                            <li class="nav_items"><a href="{{ route('home_website') }}" class="@yield('home_footer')">Home</a></li>
+                            <li class="nav_items"><a href="{{ route('about_website') }}" class="@yield('about_footer')">About</a></li>
+                            <li class="nav_items"><a href="{{ route('work_website') }}" class="@yield('work_footer')" @yield('_footer')>works</a></li>
+                            <li class="nav_items"><a href="{{ route('career_website') }}" class="@yield('career_footer')">Career</a></li>
+                            <li class="nav_items"><a href="{{ route('contact_website') }}" class="@yield('contact_footer')">Contact</a></li>
                         </ul>
                     </div>
                     <div class="connect_info">
                         <h4>Connect With us</h4>
                         <p>
-                            {{$content->content ?? ''}}
+                            {!! $content->content ?? '' !!}
                         </p>
-                        <span class="email">{{$content->email ?? ''}}</span>
+                        <span class="email">{{ $content->email ?? '' }}</span>
                     </div>
                     <div>
                         <ul class="social_links">
                             @foreach ($socials as $social)
                             <li>
-                                <a target="_blank" href="{{$social->profile_link}}"><i class="{{$social->social_media}}"></i></a>
+                                <a target="_blank" href="{{ $social->profile_link }}"><i class="{{ $social->social_media }}"></i></a>
                             </li>
                             @endforeach
                         </ul>
