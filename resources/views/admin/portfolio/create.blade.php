@@ -236,24 +236,27 @@
 @section('script')
 <script>
     ClassicEditor
-        .create( document.querySelector( '#editor' ) )
-        .catch( error => {
-            console.error( error );
-        } );
+    .create( document.querySelector( '#editor' ) )
+    .catch( error => {
+        console.error( error );
+    } );
+
     ClassicEditor
-        .create( document.querySelector( '#editor5' ) )
-        .catch( error => {
-            console.error( error );
-        } );
+    .create( document.querySelector( '#editor5' ) )
+    .catch( error => {
+        console.error( error );
+    } );
+    
     ClassicEditor
-        .create( document.querySelector( '#editor2' ) )
-        .catch( error => {
-            console.error( error );
-        } );
+    .create( document.querySelector( '#editor2' ) )
+    .catch( error => {
+        console.error( error );
+    } );
 
     /* image 1 */
     $('#single_image_preview').hide();
     $('#reaset_multiple').hide();
+
     function readURL(input) {
       if (input.files && input.files[0]) {
         $('#single_image_preview').show();
@@ -279,14 +282,14 @@
         else{
             $(this).closest('.form-group').find('.form-control').attr("value",names);
         }
-       });
+    });
 
-// multiple image
-function preview_image() {
-    var total_file=document.getElementById("upload_file").files.length;
-    for(var i=0;i<total_file;i++){
-        $('#multiple_image_preview').append("<img class='my-2' src='"+URL.createObjectURL(event.target.files[i])+"'>&nbsp;&nbsp;");
+    // multiple image
+    function preview_image() {
+        var total_file=document.getElementById("upload_file").files.length;
+        for(var i=0;i<total_file;i++){
+            $('#multiple_image_preview').append("<img class='my-2' src='"+URL.createObjectURL(event.target.files[i])+"'>&nbsp;&nbsp;");
+        }
     }
-}
 </script>
 @endsection

@@ -9,7 +9,6 @@
 @endsection
 
 @section('content')
-
 <div class="loader-bg">
     <div class="loader-bar"></div>
 </div>
@@ -31,7 +30,8 @@
                         <li class="breadcrumb-item">
                             <a href="{{ route('dashboard.index') }}"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="{{ route('portfolio.index') }}">Portfolio</a>
+                        <li class="breadcrumb-item">
+                            <a href="{{ route('portfolio.index') }}">Portfolio</a>
                         </li>
                         <li class="breadcrumb-item">
                             <a href="javascript:void(0)">Edit Portfolio</a>
@@ -54,14 +54,16 @@
                                     <a href="{{ url()->previous() }}" class="btn btn-sm btn-primary float-right"><i class="fa fa-arrow-left"></i> Portfolio</a>
                                 </div>
                                 <div class="card-block">
-                                    <form id="main" method="POST" action="{{ route('portfolio.update', $portfolio->id) }}"enctype="multipart/form-data">
+                                    <form id="main" method="POST" action="{{ route('portfolio.update', $portfolio->id) }}" enctype="multipart/form-data">
                                         @method('PUT')
                                         @csrf
                                         <div class="row">
                                             <div class="col-6 offset-3">
                                                 @if ($errors->any())
                                                 <div class="alert alert-danger">
-                                                Please provide field required conditions!
+                                                    @foreach($errors->all() as $error)
+                                                        {{ $error }} 
+                                                    @endforeach
                                                 </div>
                                                 @endif
                                             </div>
@@ -96,14 +98,15 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Current Thumbnail Image</label><br>
-                                                  <img height="80px" width="150px" src="{{ asset($portfolio->image) }}" alt="">
+                                                    <img height="80px" width="150px" src="{{ asset($portfolio->image) }}" alt="">
+                                                    <input type="file" name="image" class="form-control-file">
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label>Multiple Image</label>
                                                     <img class="my-2" id="single_image_preview"/>
-                                                    <input onchange="readURL(this)" type="file" class="form-control" name="image" id="single_image">
+                                                    <input onchange="readURL(this)" type="file" class="form-control" name="images[]" id="single_image">
                                                 </div>
                                             </div>
                                         </div>
@@ -187,35 +190,31 @@
 
 @section('script')
 <script>
-    ClassicEditor
-        .create( document.querySelector( '#editor4' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-    ClassicEditor
-        .create( document.querySelector( '#editor2' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-    ClassicEditor
-        .create( document.querySelector( '#editor3' ) )
-        .catch( error => {
-            console.error( error );
-        } );
+    ClassicEditor.create( document.querySelector( '#editor4' ) ).catch( error => {
+        console.error( error );
+    });
+    
+    ClassicEditor.create( document.querySelector( '#editor2' ) ).catch( error => {
+        console.error( error );
+    });
+
+    ClassicEditor.create( document.querySelector( '#editor3' ) ).catch( error => {
+        console.error( error );
+    });
 
     /* image 1 */
+    // $('#single_image_preview').hide();
+    // $('#reaset_multiple').hide();
 
-    $('#single_image_preview').hide();
-    $('#reaset_multiple').hide();
-    function readURL(input) {
-      if (input.files && input.files[0]) {
-        $('#single_image_preview').show();
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            $('#single_image_preview').attr('src', e.target.result);
-        };
-        reader.readAsDataURL(input.files[0]);
-      }
-  }
+    // function readURL(input) {
+    //     if (input.files && input.files[0]) {
+    //         $('#single_image_preview').show();
+    //         var reader = new FileReader();
+    //         reader.onload = function (e) {
+    //             $('#single_image_preview').attr('src', e.target.result);
+    //         };
+    //         reader.readAsDataURL(input.files[0]);
+    //     }
+    // }
 </script>
 @endsection

@@ -98,7 +98,6 @@ class PortfolioController extends Controller
 
         session()->flash('success', 'Portfolio added Successfully!');
         return redirect()->route('portfolio.create');
-
     }
 
     public function show($id)
@@ -119,11 +118,11 @@ class PortfolioController extends Controller
 
     public function update(Request $request,$id)
     {
+        // dd($request->all());
         $request->validate([
             'title' => 'required',
             'description' => 'required',
             'live_link' => 'required|url',
-            'bahance_link' => 'required|url',
             'project_length' => 'required',
             'our_role' => 'required',
             'tool_used' => 'required',
@@ -133,7 +132,6 @@ class PortfolioController extends Controller
             'title.required' => 'Title field is required!',
             'description.required' => 'Description field is required!',
             'live_link.required' => 'Live link field is required!',
-            'bahance_link.required' => 'Bahance link field is required!',
             'live_link.required' => 'Live link must be link!',
             'bahance_link.required' => 'Bahance link  must be link!',
             'project_length.required' => 'Project length field is required!',
@@ -143,82 +141,58 @@ class PortfolioController extends Controller
             'client_email.required' => 'Client email field is required!',
         ]);
 
-        if($request->has('image')) {
+        $portfolio = Portfolio::findOrFail($id);
+        
+        $portfolio->update([
+            'title' => $request->title,
+            'title_slug' =>Str::slug($request->title),
+            'description' => $request->description,
+            'live_link' => $request->live_link,
+            'bahance_link' => $request->bahance_link,
+            'project_length' => $request->project_length,
+            'our_role' => $request->our_role,
+            'tool_used' => $request->tool_used,
+            'client_name' => $request->client_email,
+            'client_email' => $request->client_email,
+            'category_id' => $request->category_id,
+            'created_at' => Carbon::now()
+        ]);
 
+        if($request->has('image')) {
             $request->validate([
-                'image' => 'required|image|mimes:jpeg,png,jpg,svg,webp|size:3072'
+                'image' => 'required|image|mimes:jpeg,png,jpg,svg,webp|max:3072'
             ],[
                 'image.size' => 'Image must be 3 or less than 3 MB',
                 'image.mimes' => 'Image supported format jpeg, png, svg, webp',
                 'image.required' => 'image field is required!',
             ]);
 
-            $old_image = Portfolio::findOrFail($id);
-
-            if (file_exists($old_image->image)) {
-                unlink(base_path('public/'.$old_image->image));
+            if (file_exists($portfolio->image)) {
+                unlink(base_path('public/'.$portfolio->image));
             }
 
             $image = $request->image;
             $imageName = time() . '_' . uniqid() .'.'. $image->getClientOriginalExtension();
             Storage::putFileAs('/portfolio', $image, $imageName);
-            $image_address = 'storage/portfolio/'. $imageName;
-
-            Portfolio::findOrFail($id)->update([
-                'title' => $request->title,
-                'image' =>$image_address,
-                'title_slug' =>Str::slug($request->title),
-                'description' => $request->description,
-                'live_link' => $request->live_link,
-                'bahance_link' => $request->bahance_link,
-                'project_length' => $request->project_length,
-                'our_role' => $request->our_role,
-                'tool_used' => $request->tool_used,
-                'client_name' => $request->client_email,
-                'client_email' => $request->client_email,
-                'category_id' => $request->category_id,
-                'updated_at' => Carbon::now()
-            ]);
-
-            session()->flash('success', 'Portfolio Updated Successfully With Image!');
-            return redirect()->route('portfolio.index');
-        }else {
-
-            Portfolio::findOrFail($id)->update([
-                'title' => $request->title,
-                'title_slug' =>Str::slug($request->title),
-                'description' => $request->description,
-                'live_link' => $request->live_link,
-                'bahance_link' => $request->bahance_link,
-                'project_length' => $request->project_length,
-                'our_role' => $request->our_role,
-                'tool_used' => $request->tool_used,
-                'client_name' => $request->client_email,
-                'client_email' => $request->client_email,
-                'category_id' => $request->category_id,
-                'created_at' => Carbon::now()
-            ]);
-
-            session()->flash('success', 'Portfolio Updated Successfully Without Image!');
-            return redirect()->route('portfolio.index');
+            $portfolio->image = 'storage/portfolio/'. $imageName;
+            $portfolio->save();
         }
+
+        session()->flash('success', 'Portfolio Updated Successfully With Image!');
+        return redirect()->route('portfolio.index');
     }
 
     public function destroy($id)
     {
-        $old_image = Portfolio::findOrFail($id);
+        $portfolio = Portfolio::findOrFail($id);
 
-        if(file_exists($old_image->image)){
-            unlink(base_path('public/'.$old_image->image));
-            $old_image->delete();
-
-            session()->flash('success', 'Portfolio Deleted Successfully!');
-            return redirect()->route('portfolio.index');
-        }else{
-            $old_image->delete();
-
-            session()->flash('warning', 'Portfolio Deleted Successfully!');
-            return redirect()->route('portfolio.index');
+        if(file_exists($portfolio->image)){
+            unlink(public_path($portfolio->image));
         }
+
+        $portfolio->delete();
+
+        session()->flash('success', 'Portfolio Deleted Successfully!');
+        return redirect()->route('portfolio.index');
     }
 }
