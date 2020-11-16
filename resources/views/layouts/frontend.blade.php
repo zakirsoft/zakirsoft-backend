@@ -41,6 +41,11 @@
             box-shadow: 0 0 12px #999;
             color: #fff;
         }
+
+        #WE_Do .container .box_wrapper .card_box .face.back_part .box_title p {
+            line-height: 30px;
+            margin-bottom: 0;
+        }
     </style>
      {!! $content->head_content !!}
 </head>
