@@ -66,6 +66,10 @@
 
 @section('style') 
 <style>
+    #joinus-contact_area {
+        padding-bottom: 0px;
+    }
+    
     .contact-right .social_links {
         justify-content: flex-start;
     }
