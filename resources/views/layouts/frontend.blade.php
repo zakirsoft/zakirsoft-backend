@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/slick.css" />
     <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/style.css" />
     {{-- @livewireStyles --}}
-    @yield('website_style')
+    @yield('style')
 
     <style>
         #toast-container>:hover {
@@ -168,7 +168,7 @@
     <script src="{{ asset('frontend') }}/assets/js/slick.min.js"></script>
     <script src="{{ asset('frontend') }}/assets/js/jquery.magnific-popup.min.js"></script>
     <script src="{{ asset('frontend') }}/assets/js/app.js"></script>
-    @yield('website_script')
+    @yield('script')
 
     {!! $content->body_content !!}
 </body>

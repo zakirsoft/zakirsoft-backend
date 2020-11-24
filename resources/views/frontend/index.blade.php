@@ -208,3 +208,23 @@
   <!-- testimonial section end -->
 
 @endsection
+
+@section('style')
+<style>
+    @media(max-width: 767px){
+        #Project .container-fluid .project_slider .slide_item.slick-current.slick-active.slick-center .slide_info.ml {
+            padding-left: 0px;
+        }
+        #about .about_content_wrapper {
+            padding-left: 40px;
+        }
+        #about .about_content_wrapper p {
+            margin-right: 0;
+        }
+
+        #about_content_2 .about_content_2_img {
+            height: auto;
+        }
+    }
+</style>    
+@endsection
