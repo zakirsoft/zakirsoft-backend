@@ -55,17 +55,9 @@
                                     <h5>Add Testimonial</h5>
                                 </div>
                                 <div class="card-block">
-
                                     <form id="main"  method="POST" action="{{ route('testimonial.store') }}">
                                         @csrf
                                         <div class="row justify-content-center">
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 col-form-label">Purpose</label>
-                                                    <input type="text" class="form-control @error('purpose') is-invalid @enderror" name="purpose" id="name" placeholder="Enter purpose of testimonial">
-                                                    @error('purpose') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
-                                                </div>
-                                            </div>
                                             <div class="col-12">
                                                 <div class="form-group">
                                                     <label class="col-sm-2 col-form-label">Name</label>
@@ -90,7 +82,6 @@
                                         </div>
                                         <button type="submit" class="btn btn-primary  m-b-0"><i class="fas fa-plus"></i> Add</button>
                                     </form>
-
                                 </div>
                             </div>
 

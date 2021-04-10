@@ -62,7 +62,6 @@
                                                     <th>ID</th>
                                                     <th>Name</th>
                                                     <th>Position</th>
-                                                    <th>Purpose</th>
                                                     <th style="max-width: 300px">Testimonial Content</th>
                                                     <th class="text-center">Remove</th>
                                                 </tr>
@@ -73,7 +72,6 @@
                                                     <th scope="row">{{ $testimonials->firstItem() + $key }}</th>
                                                     <td>{{ $testimonial->name }}</td>
                                                     <td>{{ $testimonial->position }}</td>
-                                                    <td>{{ $testimonial->purpose }}</td>
                                                     <td style="max-width: 300px">{{ $testimonial->content }}</td>
                                                     @can('testimonial delete')
                                                     <td class="text-center">
