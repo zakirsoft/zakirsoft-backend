@@ -15,7 +15,7 @@
 
             <div class="pcoded-navigation-label">Admin</div>
             <ul class="pcoded-item pcoded-left-item">
-                <li class="@yield('team')">
+                <li class="@yield('about')">
                     <a href="{{ route('about.index') }}" class="waves-effect waves-dark">
                         <span class="pcoded-micon">
                             <i class="fas fa-file-alt"></i>

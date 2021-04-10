@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 
 @section('title')
-    Add Testimonial - ZakirSoft
+    About Us - ZakirSoft
 @endsection
 
-@section('testimonial')
+@section('about')
     active pcoded-trigger
 @endsection
 
