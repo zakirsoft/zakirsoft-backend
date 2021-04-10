@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Career;
 use App\Models\Footer;
 use App\Models\Team;
@@ -26,7 +27,9 @@ class WebsiteController extends Controller
         $team = Team::all();
         $content = Footer::get()->first();
         $socials = Social::all();
-        return view('frontend.about', compact('content', 'socials'))->with('teams', $team);
+        $about = About::first();
+
+        return view('frontend.about', compact('content', 'socials', 'about'))->with('teams', $team);
     }
 
     function work(){
