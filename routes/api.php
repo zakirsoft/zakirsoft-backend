@@ -33,4 +33,4 @@ Route::get('portfolio/categories', [ApiController::class, 'portfolioCategories']
 Route::get('portfolios', [ApiController::class, 'portfolios']);
 
 // about
-// Route::get('careers', [ApiController::class, 'careers']);
+Route::get('about', [ApiController::class, 'aboutus']);

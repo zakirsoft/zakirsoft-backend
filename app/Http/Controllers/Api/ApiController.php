@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\About;
 use App\Models\Career;
 use App\Models\Portfolio;
 use App\Models\PortfolioCategory;
@@ -58,6 +59,16 @@ class ApiController extends Controller
         return response()->json([
             'success' => true,
             'portfolios' => $portfolio_list,
+        ]);
+    }
+
+    // aboutus
+    public function aboutus(){
+        $about = About::first();
+
+        return response()->json([
+            'success' => true,
+            'about' => $about,
         ]);
     }
 }
