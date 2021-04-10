@@ -15,6 +15,14 @@
 
             <div class="pcoded-navigation-label">Admin</div>
             <ul class="pcoded-item pcoded-left-item">
+                <li class="@yield('team')">
+                    <a href="{{ route('about.index') }}" class="waves-effect waves-dark">
+                        <span class="pcoded-micon">
+                            <i class="fas fa-file-alt"></i>
+                        </span>
+                        <span class="pcoded-mtext">About</span>
+                    </a>
+                </li>
                 <li class="pcoded-hasmenu @yield('user')">
                     @can('user show')
                     <a href="javascript:void(0)" class="waves-effect waves-dark">

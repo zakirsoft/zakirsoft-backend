@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TeamController;
@@ -49,20 +50,31 @@ Route::middleware(['auth'])->prefix('portfolio')->group(function () {
 Route::middleware(['auth'])->prefix('panel')->group(function () {
     //Dashboard Route
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
+    // about
+    Route::get('about', [AboutController::class, 'index'])->name('about.index');
+    Route::put('about/update/{about}', [AboutController::class, 'update'])->name('about.update');
+
+
     //Career Route
     Route::resource('career', CareerController::class);
+
     //Testimonail Route
     Route::resource('testimonial', TestimonialController::class);
-    //Header
+
+    //Header & Footer
     // Route::resource('header', HeaderController::class);
-    //Footer
     Route::resource('footer', FooterController::class);
+
     //Social Route
     Route::resource('social', SocialController::class);
+
     //Team Route
     Route::resource('team', TeamController::class );
+
     // Profile/Settings Route
     Route::resource('profile', ProfileController::class );
+
     // Role Permissions Routes
     Route::get('role/permission/{id}', [RoleController::class, 'permission_assign'])->name('PermissionAssign');
     Route::post('role/permission/{role}', [RoleController::class, 'permission_assign_post'])->name('PermissionAssignPost');
@@ -72,6 +84,7 @@ Route::middleware(['auth'])->prefix('panel')->group(function () {
     Route::get('user/role-assign/{user}', [UserController::class, 'role_assign'])->name('RoleAssign');
     Route::post('user/role-assign/{user}', [UserController::class, 'role_assign_store'])->name('RoleAssignStore');
     Route::resource('user', UserController::class);
+
     // Contact Messages
     Route::get('contact/messages', [FooterController::class, 'contact_messages'])->name('contact.index');
 });
