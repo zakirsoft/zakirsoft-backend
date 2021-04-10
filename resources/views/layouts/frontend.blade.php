@@ -47,7 +47,9 @@
             margin-bottom: 0;
         }
     </style>
-     {!! $content->head_content !!}
+    @if (isset($content->head_content))
+        {!! $content->head_content !!}
+    @endif
 </head>
 
 <body>
@@ -170,7 +172,9 @@
     <script src="{{ asset('frontend') }}/assets/js/app.js"></script>
     @yield('script')
 
-    {!! $content->body_content !!}
+    @if (isset($content->body_content))
+        {!! $content->body_content !!}
+    @endif
 </body>
 
 </html>
