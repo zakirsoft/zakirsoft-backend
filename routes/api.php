@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\TestimonialController;
+use App\Http\Controllers\Api\ApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +19,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// testimonials api
-Route::get('testimonials', TestimonialController::class);
+// testimonials
+Route::get('testimonials', [ApiController::class, 'testimonials']);
+
+// team
+Route::get('teams', [ApiController::class, 'teams']);
+
+// careers
+Route::get('careers', [ApiController::class, 'careers']);
 
