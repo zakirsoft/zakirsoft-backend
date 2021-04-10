@@ -54,7 +54,7 @@ Route::middleware(['auth'])->prefix('panel')->group(function () {
     //Testimonail Route
     Route::resource('testimonial', TestimonialController::class);
     //Header
-    Route::resource('header', HeaderController::class);
+    // Route::resource('header', HeaderController::class);
     //Footer
     Route::resource('footer', FooterController::class);
     //Social Route
