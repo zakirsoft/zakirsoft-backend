@@ -41,3 +41,6 @@ Route::get('services', [ApiController::class, 'services']);
 // technology
 Route::get('technology/categories', [ApiController::class, 'technologyCategories']);
 Route::get('technologies', [ApiController::class, 'technologies']);
+
+// news
+Route::get('news', [ApiController::class, 'news']);

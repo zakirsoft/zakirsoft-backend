@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Career;
+use App\Models\News;
 use App\Models\Portfolio;
 use App\Models\PortfolioCategory;
 use App\Models\Service;
@@ -105,5 +106,13 @@ class ApiController extends Controller
         ]);
     }
 
+    // news
+    public function news(){
+        $news = News::latest()->get();
 
+        return response()->json([
+            'success' => true,
+            'news' => $news,
+        ]);
+    }
 }
