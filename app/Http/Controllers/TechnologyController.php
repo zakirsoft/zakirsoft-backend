@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Technology;
+use App\Models\TechnologyCategory;
 use Illuminate\Http\Request;
 
 class TechnologyController extends Controller
@@ -14,7 +15,7 @@ class TechnologyController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.technology.index');
     }
 
     /**
@@ -24,7 +25,8 @@ class TechnologyController extends Controller
      */
     public function create()
     {
-        //
+        $categories = TechnologyCategory::all();
+        return view('admin.technology.create', compact('categories'));
     }
 
     /**
@@ -35,7 +37,7 @@ class TechnologyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**
