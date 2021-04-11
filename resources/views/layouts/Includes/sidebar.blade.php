@@ -106,6 +106,14 @@
                 </ul>
                 @endcan
             </li>
+            <li class="@yield('services')">
+                <a href="{{ route('services.index') }}" class="waves-effect waves-dark">
+                    <span class="pcoded-micon">
+                        <i class="fas fa-briefcase"></i>
+                    </span>
+                    <span class="pcoded-mtext">Services</span>
+                </a>
+            </li>
             @can('career show')
             <li class="@yield('career')">
                 <a href="{{ route('career.index') }}" class="waves-effect waves-dark">

@@ -14,6 +14,7 @@ use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -55,6 +56,8 @@ Route::middleware(['auth'])->prefix('panel')->group(function () {
     Route::get('about', [AboutController::class, 'index'])->name('about.index');
     Route::put('about/update/{about}', [AboutController::class, 'update'])->name('about.update');
 
+    // service Route
+    Route::resource('services', ServiceController::class);
 
     //Career Route
     Route::resource('career', CareerController::class);
