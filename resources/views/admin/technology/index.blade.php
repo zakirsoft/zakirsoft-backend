@@ -58,6 +58,7 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Image</th>
+                                                    <th>Category</th>
                                                     <th>Name</th>
                                                     <th class="text-center">Action</th>
                                                 </tr>
@@ -69,12 +70,13 @@
                                                         <td>
                                                             <img width="80px" height="80px" class="img-fluid" src="{{ asset($technology->image) }}" alt="image">
                                                         </td>
+                                                        <td>{{ $technology->category->name }}</td>
                                                         <td>{{ $technology->name }}</td>
                                                         <td class="text-center">
                                                             <a href="{{ route('technology.edit', $technology->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit Role">
                                                                 <i class="far fa-edit"></i>
                                                             </a>
-                                                            <form class="d-inline-block" action="{{ route('technology.category.destroy', $technology->id) }}" method="POST">
+                                                            <form class="d-inline-block" action="{{ route('technology.destroy', $technology->id) }}" method="POST">
                                                                 @method('DELETE')
                                                                 @csrf
                                                                 <button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button>

@@ -16,7 +16,7 @@ class TechnologyController extends Controller
      */
     public function index()
     {
-        $technologies = Technology::latest()->paginate(10);
+        $technologies = Technology::with('category')->latest()->paginate(10);
         return view('admin.technology.index', compact('technologies'));
     }
 
@@ -93,7 +93,25 @@ class TechnologyController extends Controller
      */
     public function update(Request $request, Technology $technology)
     {
-        //
+        $this->validate($request, [
+            'category_id' => 'required',
+            'name' => 'required',
+        ],[
+            'category_id.required' => 'The category field is required.',
+        ]);
+
+        $technology->update($request->except('image'));
+
+        if($request->has('image')) {
+            $image = $request->image;
+            $imageName = time() . '_' . uniqid() .'.'. $image->getClientOriginalExtension();
+            Storage::putFileAs('/technology', $image, $imageName);
+            $technology->image = 'storage/technology/'. $imageName;
+            $technology->save();
+        }
+
+        session()->flash('success', 'Technology Updated Successfully!');
+        return redirect(route('technology.index'));
     }
 
     /**
@@ -104,6 +122,11 @@ class TechnologyController extends Controller
      */
     public function destroy(Technology $technology)
     {
-        //
+        if ($technology) {
+            $technology->delete();
+        }
+
+        session()->flash('success', 'Technology Deleted Successfully!');
+        return back();
     }
 }
