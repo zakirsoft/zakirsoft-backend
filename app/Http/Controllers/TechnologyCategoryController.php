@@ -14,7 +14,19 @@ class TechnologyCategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.technology.category');
+        $categories = TechnologyCategory::latest()->paginate(10);
+
+        return view('admin.technology.category.index', compact('categories'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('admin.technology.category.create');
     }
 
     /**
@@ -34,25 +46,14 @@ class TechnologyCategoryController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\TechnologyCategory  $technologyCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function show(TechnologyCategory $technologyCategory)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\TechnologyCategory  $technologyCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(TechnologyCategory $technologyCategory)
+    public function edit(TechnologyCategory $category)
     {
-        //
+        return view('admin.technology.category.edit', compact('category'));
     }
 
     /**
@@ -62,9 +63,14 @@ class TechnologyCategoryController extends Controller
      * @param  \App\Models\TechnologyCategory  $technologyCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TechnologyCategory $technologyCategory)
+    public function update(Request $request, TechnologyCategory $category)
     {
-        //
+        $this->validate($request,[ 'name' => 'required' ]);
+
+        $category->update($request->all());
+
+        session()->flash('success', 'Technology Updated Successfully!');
+        return redirect(route('technology.category.index'));
     }
 
     /**
@@ -73,8 +79,13 @@ class TechnologyCategoryController extends Controller
      * @param  \App\Models\TechnologyCategory  $technologyCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TechnologyCategory $technologyCategory)
+    public function destroy(TechnologyCategory $category)
     {
-        //
+        if ($category) {
+            $category->delete();
+        }
+
+        session()->flash('success', 'Technology Added Successfully!');
+        return back();
     }
 }

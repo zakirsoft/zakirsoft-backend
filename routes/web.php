@@ -74,10 +74,11 @@ Route::middleware(['auth'])->group(function () {
     // technology category and technology
     Route::prefix('technology')->group(function () {
         Route::get('category', [TechnologyCategoryController::class, 'index'])->name('technology.category.index');
+        Route::get('category/create', [TechnologyCategoryController::class, 'create'])->name('technology.category.create');
         Route::post('category', [TechnologyCategoryController::class, 'store'])->name('technology.category.store');
-        Route::get('category/edit/{technology}', [TechnologyCategoryController::class, 'edit'])->name('technology.category.edit');
-        Route::put('category/update/{technology}', [TechnologyCategoryController::class, 'update'])->name('technology.category.update');
-        Route::delete('category/destroy/{technology}', [TechnologyCategoryController::class, 'destroy'])->name('technology.category.destroy');
+        Route::get('category/edit/{category}', [TechnologyCategoryController::class, 'edit'])->name('technology.category.edit');
+        Route::put('category/update/{category}', [TechnologyCategoryController::class, 'update'])->name('technology.category.update');
+        Route::delete('category/destroy/{category}', [TechnologyCategoryController::class, 'destroy'])->name('technology.category.destroy');
     });
     Route::resource('technology', TechnologyController::class);
 

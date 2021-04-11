@@ -23,7 +23,6 @@
                     <i class="feather icon-credit-card bg-c-blue"></i>
                     <div class="d-inline">
                         <h5>Technology Category</h5>
-
                     </div>
                 </div>
             </div>
@@ -46,10 +45,11 @@
             <div class="page-wrapper">
                 <div class="page-body">
                     <div class="row">
-                        <div class="col-sm-8">
+                        <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Categories</h5>
+                                    <a href="{{ route('technology.category.create') }}"> <button class="btn btn-primary float-right"><i class="fas fa-plus"></i></button></a>
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive">
@@ -89,26 +89,6 @@
                                 </div>
                             </div>
 
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="card">
-                                <div class="card-header">Category Add</div>
-                                <div class="card-body">
-                                    <form  method="POST" action="{{ route('technology.category.store') }}">
-                                        @csrf
-                                        <div class="row justify-content-center">
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">Name</label>
-                                                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Enter name">
-                                                    @error('name') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary  m-b-0"><i class="fas fa-plus"></i> Add</button>
-                                    </form>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
