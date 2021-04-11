@@ -76,7 +76,7 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+        return view('admin.service.edit', compact('service'));
     }
 
     /**
@@ -88,7 +88,23 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+
+        $service->update($request->except('image'));
+
+        if($request->has('image')) {
+            $image = $request->image;
+            $imageName = time() . '_' . uniqid() .'.'. $image->getClientOriginalExtension();
+            Storage::putFileAs('/service', $image, $imageName);
+            $service->image = 'storage/service/'. $imageName;
+            $service->save();
+        }
+
+        session()->flash('success', 'Service Updated Successfully!');
+        return redirect(route('services.index'));
     }
 
     /**
