@@ -7,6 +7,7 @@ use App\Models\About;
 use App\Models\Career;
 use App\Models\Portfolio;
 use App\Models\PortfolioCategory;
+use App\Models\Service;
 use App\Models\Team;
 use App\Models\Testimonial;
 
@@ -69,6 +70,16 @@ class ApiController extends Controller
         return response()->json([
             'success' => true,
             'about' => $about,
+        ]);
+    }
+
+    // services
+    public function services(){
+        $services = Service::paginate(5);
+
+        return response()->json([
+            'success' => true,
+            'services' => $services,
         ]);
     }
 }

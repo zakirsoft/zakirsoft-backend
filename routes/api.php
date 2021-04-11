@@ -34,3 +34,6 @@ Route::get('portfolios', [ApiController::class, 'portfolios']);
 
 // about
 Route::get('about', [ApiController::class, 'aboutus']);
+
+// service
+Route::get('services', [ApiController::class, 'services']);
