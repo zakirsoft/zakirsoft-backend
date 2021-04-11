@@ -15,6 +15,8 @@ use App\Http\Controllers\FooterController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TechnologyCategoryController;
+use App\Http\Controllers\TechnologyController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -36,25 +38,48 @@ Auth::routes(['verify' => true]);
 // Route::redirect('home', 'dashboard', 302);
 
 
-// Portfolio & Portfolio Category Routes
-Route::resource('portfolio', PortfolioController::class);
-Route::middleware(['auth'])->prefix('portfolio')->group(function () {
-    Route::get('category/index', [PortfolioCategoryController::class, 'index'])->name('portfolio.category.index');
-    Route::post('category/create', [PortfolioCategoryController::class, 'create'])->name('portfolio.category.create');
-    Route::get('category/inactive/{id}', [PortfolioCategoryController::class, 'inactive'])->name('portfolio.category.inactive');
-    Route::get('category/active/{id}', [PortfolioCategoryController::class, 'active'])->name('portfolio.category.active');
-    Route::delete('category/destroy/{id}', [PortfolioCategoryController::class, 'destroy'])->name('portfolio.category.destroy');
-    Route::get('category/edit/{id}', [PortfolioCategoryController::class, 'edit'])->name('portfolio.category.edit');
-    Route::put('category/update/{id}', [PortfolioCategoryController::class, 'update'])->name('portfolio.category.update');
-});
 
-Route::middleware(['auth'])->prefix('panel')->group(function () {
+// Portfolio & Portfolio Category Routes
+// Route::resource('portfolio', PortfolioController::class);
+// Route::middleware(['auth'])->prefix('portfolio')->group(function () {
+//     Route::get('category/index', [PortfolioCategoryController::class, 'index'])->name('portfolio.category.index');
+//     Route::post('category/create', [PortfolioCategoryController::class, 'create'])->name('portfolio.category.create');
+//     Route::get('category/inactive/{id}', [PortfolioCategoryController::class, 'inactive'])->name('portfolio.category.inactive');
+//     Route::get('category/active/{id}', [PortfolioCategoryController::class, 'active'])->name('portfolio.category.active');
+//     Route::delete('category/destroy/{id}', [PortfolioCategoryController::class, 'destroy'])->name('portfolio.category.destroy');
+//     Route::get('category/edit/{id}', [PortfolioCategoryController::class, 'edit'])->name('portfolio.category.edit');
+//     Route::put('category/update/{id}', [PortfolioCategoryController::class, 'update'])->name('portfolio.category.update');
+// });
+
+Route::middleware(['auth'])->group(function () {
     //Dashboard Route
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
     // about
     Route::get('about', [AboutController::class, 'index'])->name('about.index');
     Route::put('about/update/{about}', [AboutController::class, 'update'])->name('about.update');
+
+    // Portfolio & Portfolio Category Routes
+    Route::resource('portfolio', PortfolioController::class);
+    Route::prefix('portfolio')->group(function () {
+        Route::get('category/index', [PortfolioCategoryController::class, 'index'])->name('portfolio.category.index');
+        Route::post('category/create', [PortfolioCategoryController::class, 'create'])->name('portfolio.category.create');
+        Route::get('category/inactive/{id}', [PortfolioCategoryController::class, 'inactive'])->name('portfolio.category.inactive');
+        Route::get('category/active/{id}', [PortfolioCategoryController::class, 'active'])->name('portfolio.category.active');
+        Route::delete('category/destroy/{id}', [PortfolioCategoryController::class, 'destroy'])->name('portfolio.category.destroy');
+        Route::get('category/edit/{id}', [PortfolioCategoryController::class, 'edit'])->name('portfolio.category.edit');
+        Route::put('category/update/{id}', [PortfolioCategoryController::class, 'update'])->name('portfolio.category.update');
+    });
+
+    // technology category and technology
+    Route::prefix('technology')->group(function () {
+        Route::get('category/index', [TechnologyCategoryController::class, 'index'])->name('technology.category.index');
+        Route::post('category/create', [TechnologyCategoryController::class, 'create'])->name('technology.category.create');
+        Route::get('category/edit/{technology}', [TechnologyCategoryController::class, 'edit'])->name('technology.category.edit');
+        Route::put('category/update/{technology}', [TechnologyCategoryController::class, 'update'])->name('technology.category.update');
+        Route::delete('category/destroy/{technology}', [TechnologyCategoryController::class, 'destroy'])->name('technology.category.destroy');
+    });
+    Route::resource('technology', TechnologyController::class);
 
     // service Route
     Route::resource('services', ServiceController::class);
