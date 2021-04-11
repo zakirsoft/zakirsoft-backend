@@ -140,6 +140,14 @@
                     <span class="pcoded-mtext">Technology</span>
                 </a>
             </li>
+            <li class="@yield('news')">
+                <a href="{{ route('news.index') }}" class="waves-effect waves-dark">
+                    <span class="pcoded-micon">
+                        <i class="fas fa-newspaper"></i>
+                    </span>
+                    <span class="pcoded-mtext">News</span>
+                </a>
+            </li>
             @can('career show')
             <li class="@yield('career')">
                 <a href="{{ route('career.index') }}" class="waves-effect waves-dark">

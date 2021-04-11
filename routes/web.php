@@ -12,6 +12,7 @@ use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\FooterController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
@@ -100,6 +101,9 @@ Route::middleware(['auth'])->prefix('panel')->group(function () {
 
     //Team Route
     Route::resource('team', TeamController::class );
+
+    //news Route
+    Route::resource('news', NewsController::class );
 
     // Profile/Settings Route
     Route::resource('profile', ProfileController::class );
