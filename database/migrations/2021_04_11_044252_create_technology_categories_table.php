@@ -15,6 +15,7 @@ class CreateTechnologyCategoriesTable extends Migration
     {
         Schema::create('technology_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestamps();
         });
     }
