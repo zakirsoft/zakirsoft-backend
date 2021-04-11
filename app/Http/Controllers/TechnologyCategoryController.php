@@ -14,17 +14,7 @@ class TechnologyCategoryController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view('admin.technology.category');
     }
 
     /**
@@ -35,7 +25,12 @@ class TechnologyCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[ 'name' => 'required' ]);
+
+        TechnologyCategory::create($request->all());
+
+        session()->flash('success', 'Technology Added Successfully!');
+        return back();
     }
 
     /**
