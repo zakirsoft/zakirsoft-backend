@@ -115,6 +115,14 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        if ($service) {
+            if(file_exists($service->image)){
+                unlink(public_path($service->image));
+            }
+            $service->delete();
+        }
+
+        session()->flash('success', 'Service Deleted Successfully!');
+        return back();
     }
 }
