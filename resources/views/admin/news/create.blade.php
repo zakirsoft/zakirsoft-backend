@@ -53,6 +53,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Add News</h5>
+                                    <a href="{{ route('news.index') }}"> <button class="btn btn-primary float-right"><i class="fas fa-arrow-left"></i> Back</button></a>
                                 </div>
                                 <div class="card-block">
                                     <form  method="POST" action="{{ route('news.store') }}" enctype="multipart/form-data">

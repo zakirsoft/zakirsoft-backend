@@ -58,25 +58,27 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Image</th>
-                                                    <th>Category</th>
-                                                    <th>Name</th>
+                                                    <th>Title</th>
+                                                    <th style="max-width: 300px">Description</th>
+                                                    <th>Link</th>
                                                     <th class="text-center">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {{-- @forelse ($technologies as $key => $technology)
+                                                @forelse ($news_list as $key => $news)
                                                     <tr>
-                                                        <td>{{ $technology->id }}</td>
+                                                        <td>{{ $news->id }}</td>
                                                         <td>
-                                                            <img width="80px" height="80px" class="img-fluid" src="{{ asset($technology->image) }}" alt="image">
+                                                            <img width="80px" height="80px" class="img-fluid" src="{{ asset($news->image) }}" alt="image">
                                                         </td>
-                                                        <td>{{ $technology->category->name }}</td>
-                                                        <td>{{ $technology->name }}</td>
+                                                        <td>{{ $news->title }}</td>
+                                                        <td style="max-width: 300px">{{ $news->description }}</td>
+                                                        <td>{{ $news->link }}</td>
                                                         <td class="text-center">
-                                                            <a href="{{ route('technology.edit', $technology->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit Role">
+                                                            <a href="{{ route('news.edit', $news->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit News">
                                                                 <i class="far fa-edit"></i>
                                                             </a>
-                                                            <form class="d-inline-block" action="{{ route('technology.destroy', $technology->id) }}" method="POST">
+                                                            <form class="d-inline-block" action="{{ route('news.destroy', $news->id) }}" method="POST">
                                                                 @method('DELETE')
                                                                 @csrf
                                                                 <button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button>
@@ -87,10 +89,10 @@
                                                     <tr>
                                                         <td colspan="6" class="text-center">No Data Found</td>
                                                     </tr>
-                                                @endforelse --}}
+                                                @endforelse
                                             </tbody>
                                         </table>
-                                        {{-- {{ $technologies->links()  }} --}}
+                                        {{ $news_list->links()  }}
                                     </div>
                                 </div>
                             </div>
