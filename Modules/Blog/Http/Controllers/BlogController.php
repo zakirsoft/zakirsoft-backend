@@ -2,19 +2,29 @@
 
 namespace Modules\Blog\Http\Controllers;
 
+use App\Actions\Blog\CreatePost;
+use App\Actions\Blog\DeletePost;
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Storage;
+use Modules\Blog\Entities\Post;
+use Modules\Blog\Http\Requests\PostFormRequest;
+use Modules\Category\Entities\Category;
+use Modules\Tag\Entities\Tag;
 
 class BlogController extends Controller
 {
+    use ValidatesRequests;
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
     public function index()
     {
-        return view('blog::index');
+        $posts = Post::with('tags')->get();
+        return view('blog::blog.index',compact('posts'));
     }
 
     /**
@@ -23,17 +33,27 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('blog::create');
+        $tags = Tag::all();
+
+        return view('blog::blog.create',compact('tags'));
     }
 
     /**
      * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
+     * @param PostFormRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(PostFormRequest $request)
     {
-        //
+        $post = CreatePost::create($request);
+
+        if ($post) {
+            flashSuccess('Post Created Successfully');
+            return back();
+        }else{
+            flashError();
+            return back();
+        }
     }
 
     /**
@@ -51,16 +71,19 @@ class BlogController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        return view('blog::edit');
+        $categories = Category::all();
+        $tags = Tag::all();
+
+        return view('blog::blog.edit', compact('categories', 'tags', 'post'));
     }
 
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Renderable
+     * @return void
      */
     public function update(Request $request, $id)
     {
@@ -69,11 +92,20 @@ class BlogController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     * @param int $id
+     * @param Post $post
      * @return Renderable
+     * @throws \Exception
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post = DeletePost::delete($post);
+
+        if ($post) {
+            flashSuccess('Post Deleted Successfully');
+            return back();
+        }else{
+            flashError();
+            return back();
+        }
     }
 }
