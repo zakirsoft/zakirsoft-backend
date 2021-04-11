@@ -51,7 +51,7 @@ Auth::routes(['verify' => true]);
 //     Route::put('category/update/{id}', [PortfolioCategoryController::class, 'update'])->name('portfolio.category.update');
 // });
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->prefix('panel')->group(function () {
     //Dashboard Route
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
