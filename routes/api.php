@@ -37,3 +37,7 @@ Route::get('about', [ApiController::class, 'aboutus']);
 
 // service
 Route::get('services', [ApiController::class, 'services']);
+
+// technology
+Route::get('technology/categories', [ApiController::class, 'technologyCategories']);
+Route::get('technologies', [ApiController::class, 'technologies']);

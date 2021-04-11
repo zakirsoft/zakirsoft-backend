@@ -9,6 +9,8 @@ use App\Models\Portfolio;
 use App\Models\PortfolioCategory;
 use App\Models\Service;
 use App\Models\Team;
+use App\Models\Technology;
+use App\Models\TechnologyCategory;
 use App\Models\Testimonial;
 
 class ApiController extends Controller
@@ -82,4 +84,26 @@ class ApiController extends Controller
             'services' => $services,
         ]);
     }
+
+    // technologies categories
+    public function technologyCategories(){
+        $categories = TechnologyCategory::paginate(5);
+
+        return response()->json([
+            'success' => true,
+            'categories' => $categories,
+        ]);
+    }
+
+    // technologies
+    public function technologies(){
+        $technologies = Technology::latest()->get();
+
+        return response()->json([
+            'success' => true,
+            'technologies' => $technologies,
+        ]);
+    }
+
+
 }
