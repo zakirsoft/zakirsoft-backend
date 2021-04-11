@@ -77,7 +77,7 @@ class NewsController extends Controller
      */
     public function edit(News $news)
     {
-        //
+        return view('admin.news.edit', compact('news'));
     }
 
     /**
@@ -89,7 +89,24 @@ class NewsController extends Controller
      */
     public function update(Request $request, News $news)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'link' => 'required',
+        ]);
+
+        $news->update($request->except('image'));
+
+        if($request->has('image')) {
+            $image = $request->image;
+            $imageName = time() . '_' . uniqid() .'.'. $image->getClientOriginalExtension();
+            Storage::putFileAs('/news', $image, $imageName);
+            $news->image = 'storage/news/'. $imageName;
+            $news->save();
+        }
+
+        session()->flash('success', 'News Updated Successfully!');
+        return redirect(route('news.index'));
     }
 
     /**
@@ -100,6 +117,11 @@ class NewsController extends Controller
      */
     public function destroy(News $news)
     {
-        //
+        if ($news) {
+            $news->delete();
+        }
+
+        session()->flash('success', 'News Deleted Successfully!');
+        return back();
     }
 }
