@@ -58,37 +58,40 @@
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Name</th>
-                                                    <th>Position</th>
-                                                    <th style="max-width: 300px">Testimonial Content</th>
-                                                    <th class="text-center">Remove</th>
+                                                    <th>Image</th>
+                                                    <th>Title</th>
+                                                    <th style="max-width: 300px">Description</th>
+                                                    <th class="text-center">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {{-- @forelse ($testimonials as $key => $testimonial)
+                                                @forelse ($services as $key => $service)
                                                 <tr>
-                                                    <th scope="row">{{ $testimonials->firstItem() + $key }}</th>
-                                                    <td>{{ $testimonial->name }}</td>
-                                                    <td>{{ $testimonial->position }}</td>
-                                                    <td style="max-width: 300px">{{ $testimonial->content }}</td>
-                                                    @can('testimonial delete')
+                                                    <th scope="row">{{ $service->id }}</th>
+                                                    <td>
+                                                        <img width="80px" height="80px" class="img-fluid" src="{{ asset($service->image) }}" alt="image">
+                                                    </td>
+                                                    <td>{{ $service->title }}</td>
+                                                    <td style="max-width: 300px">{{ $service->description }}</td>
                                                     <td class="text-center">
-                                                        <form action="{{ route('testimonial.destroy', $testimonial->id) }}" method="POST">
+                                                        <a href="{{ route('services.edit', $service->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit Role">
+                                                            <i class="far fa-edit"></i>
+                                                        </a>
+                                                        <form class="d-inline-block" action="{{ route('services.destroy', $service->id) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm btn-danger m-1"><i class="far fa-trash-alt pr-2"></i>Remove</button>
+                                                            <button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button>
                                                         </form>
                                                     </td>
-                                                    @endcan
                                                 </tr>
                                                 @empty
                                                 <tr>
                                                     <td colspan="6" class="text-center">No Data Found</td>
                                                 </tr>
-                                                @endforelse --}}
+                                                @endforelse
                                             </tbody>
                                         </table>
-                                        {{-- {{ $testimonials->links()  }} --}}
+                                        {{ $services->links()  }}
                                     </div>
                                 </div>
                             </div>

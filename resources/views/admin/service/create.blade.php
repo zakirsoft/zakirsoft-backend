@@ -32,7 +32,7 @@
                         <li class="breadcrumb-item">
                             <a href="{{ route('dashboard.index') }}"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="{{ route('testimonial.index') }}">Service</a>
+                        <li class="breadcrumb-item"><a href="{{ route('services.index') }}">Service</a>
                         </li>
                         <li class="breadcrumb-item">
                             <a href="javascript:void(0)">Add Service</a>
