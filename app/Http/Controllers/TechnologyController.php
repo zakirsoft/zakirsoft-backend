@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Technology;
 use App\Models\TechnologyCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TechnologyController extends Controller
 {
@@ -15,7 +16,8 @@ class TechnologyController extends Controller
      */
     public function index()
     {
-        return view('admin.technology.index');
+        $technologies = Technology::latest()->paginate(10);
+        return view('admin.technology.index', compact('technologies'));
     }
 
     /**
@@ -37,7 +39,26 @@ class TechnologyController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $this->validate($request, [
+            'category_id' => 'required',
+            'name' => 'required',
+            'image' => 'required',
+        ],[
+            'category_id.required' => 'The category field is required.',
+        ]);
+
+        $technology = Technology::create($request->except('image'));
+
+        if($request->has('image')) {
+            $image = $request->image;
+            $imageName = time() . '_' . uniqid() .'.'. $image->getClientOriginalExtension();
+            Storage::putFileAs('/technology', $image, $imageName);
+            $technology->image = 'storage/technology/'. $imageName;
+            $technology->save();
+        }
+
+        session()->flash('success', 'Technology Added Successfully!');
+        return back();
     }
 
     /**
@@ -59,7 +80,8 @@ class TechnologyController extends Controller
      */
     public function edit(Technology $technology)
     {
-        //
+        $categories = TechnologyCategory::all();
+        return view('admin.technology.edit', compact('categories','technology'));
     }
 
     /**

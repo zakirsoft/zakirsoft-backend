@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Add Technology - ZakirSoft
+    Edit Technology - ZakirSoft
 @endsection
 
 @section('technology')
@@ -22,7 +22,7 @@
                 <div class="page-header-title">
                     <i class="feather icon-clipboard bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>Add Technology</h5>
+                        <h5>Edit Technology</h5>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                         <li class="breadcrumb-item"><a href="{{ route('services.index') }}">Technology</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="javascript:void(0)">Add Technology</a>
+                            <a href="javascript:void(0)">Edit Technology</a>
                         </li>
                     </ul>
                 </div>
@@ -52,7 +52,7 @@
 
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Add Technology</h5>
+                                    <h5>Edit Technology</h5>
                                     <a href="{{ route('technology.index') }}"> <button class="btn btn-primary float-right"><i class="fas fa-arrow-left"></i> Back</button></a>
                                 </div>
                                 <div class="card-block">
