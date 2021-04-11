@@ -55,7 +55,7 @@
                                     <h5>Add Service</h5>
                                 </div>
                                 <div class="card-block">
-                                    <form  method="POST" action="{{ route('services.store') }}">
+                                    <form  method="POST" action="{{ route('services.store') }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="row justify-content-center">
                                             <div class="col-12">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ServiceController extends Controller
 {
@@ -35,7 +36,24 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'required',
+        ]);
+
+        $service = Service::create($request->except('image'));
+
+        if($request->has('image')) {
+            $image = $request->image;
+            $imageName = time() . '_' . uniqid() .'.'. $image->getClientOriginalExtension();
+            Storage::putFileAs('/service', $image, $imageName);
+            $service->image = 'storage/service/'. $imageName;
+            $service->save();
+        }
+
+        session()->flash('success', 'Service Added Successfully!');
+        return back();
     }
 
     /**

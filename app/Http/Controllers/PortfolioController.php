@@ -142,7 +142,7 @@ class PortfolioController extends Controller
         ]);
 
         $portfolio = Portfolio::findOrFail($id);
-        
+
         $portfolio->update([
             'title' => $request->title,
             'title_slug' =>Str::slug($request->title),
