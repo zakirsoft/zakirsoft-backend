@@ -106,6 +106,24 @@
                 </ul>
                 @endcan
             </li>
+            <li class="pcoded-hasmenu @yield('technology')">
+                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="fas fa-desktop"></i></span>
+                    <span class="pcoded-mtext">Technology</span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class="">
+                            <a href="{{ route('technology.category.index') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-mtext">Category List</span>
+                            </a>
+                        </li>
+                    <li class="">
+                        <a href="{{ route('technology.index') }}" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">Technology List</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
             <li class="@yield('services')">
                 <a href="{{ route('services.index') }}" class="waves-effect waves-dark">
                     <span class="pcoded-micon">
