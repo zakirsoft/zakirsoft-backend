@@ -148,10 +148,10 @@
                     <span class="pcoded-mtext">News</span>
                 </a>
             </li>
-            <li class="@yield('news')">
-                <a href="{{ route('news.index') }}" class="waves-effect waves-dark">
+            <li class="@yield('subcompany')">
+                <a href="{{ route('subcompany.index') }}" class="waves-effect waves-dark">
                     <span class="pcoded-micon">
-                        <i class="fas fa-newspaper"></i>
+                        <i class="fas fa-industry"></i>
                     </span>
                     <span class="pcoded-mtext">Subcompany</span>
                 </a>
