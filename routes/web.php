@@ -90,6 +90,7 @@ Route::middleware(['auth'])->prefix('panel')->group(function () {
 
     //Career Route
     Route::resource('career', CareerController::class);
+    Route::post('gallery/sorting', [GalleryController::class, 'sorting'])->name('gallery.sorting');
     Route::resource('gallery', GalleryController::class);
 
     //Testimonail Route

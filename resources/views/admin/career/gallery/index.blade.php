@@ -74,22 +74,21 @@
                                                     <th class="text-center">Action</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody id="sortable">
                                                 @forelse ($galleries as $gallery)
-                                                <tr>
+                                                <tr data-id="{{ $gallery->id }}">
                                                     <td class="text-center">{{ $loop->iteration }}</td>
                                                     <td class="text-center">
-                                                        <img height="50px" width="50px" src="{{ asset($gallery->image) }}" alt="">
+                                                        <img height="100px" width="100px" src="{{ asset($gallery->image) }}" alt="">
                                                     </td>
                                                     <td class="text-center">
-                                                        {{-- <a href="{{ route('career.edit', $gallery->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit Role">
-                                                            <i class="far fa-edit"></i>
-                                                        </a> --}}
                                                         <form action="{{ route('gallery.destroy', $gallery->id) }}" method="POST" class="d-inline">
                                                             @method('DELETE')
                                                             @csrf
                                                             <button onclick="return confirm('Are you sure you want to delete this item?');"  class="btn btn-danger text-light"><i class="far fa-trash-alt"></i></button>
                                                         </form>
+                                                        <div class="handle btn btn-success"><i class="fas fa-hand-rock"></i></div>
+
                                                     </td>
                                                 </tr>
                                                 @empty
@@ -101,7 +100,6 @@
                                                 @endforelse
                                             </tbody>
                                         </table>
-                                        {{-- {{ $career_list->links()  }} --}}
                                 </div>
                             </div>
                         </div>
@@ -169,5 +167,45 @@
                 toastr.success('Image upload failed','Success');
             }
         };
+
+         $(function() {
+            $("#sortable" ).sortable({
+                items: 'tr',
+                cursor: 'move',
+                opacity: 0.4,
+                scroll: false,
+                handle: '.handle',
+                dropOnEmpty: false,
+                update: function() {
+                    sendTaskOrderToServer('#sortable tr');
+                },
+                classes: {
+                    "ui-sortable": "highlight"
+                },
+            });
+            $("#sortable").disableSelection();
+            function sendTaskOrderToServer(selector) {
+                var order = [];
+                $(selector).each(function(index,element) {
+                    order.push({
+                        id: $(this).attr('data-id'),
+                        position: index+1
+                    });
+                });
+                console.log(order)
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: "{{ route('gallery.sorting') }}",
+                    data: {
+                        order:order,
+                        _token: "{{ csrf_token() }}",
+                    },
+                    success: function(response) {
+                        toastr.success(response.message,'Success');
+                    }
+                });
+            }
+        });
     </script>
 @endsection
