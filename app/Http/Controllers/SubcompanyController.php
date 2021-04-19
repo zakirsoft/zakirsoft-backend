@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\File\FileDelete;
 use App\Actions\File\FileUpload;
 use App\Http\Requests\SubcompanyFormRequest;
 use App\Models\Subcompany;
@@ -95,6 +96,14 @@ class SubcompanyController extends Controller
      */
     public function destroy(Subcompany $subcompany)
     {
-        //
+        if ($subcompany) {
+            FileDelete::delete($subcompany->logo);
+            FileDelete::delete($subcompany->banner);
+        }
+
+        $subcompany->delete();
+
+        session()->flash('success', 'Subcompany Added Successfully!');
+        return back();
     }
 }

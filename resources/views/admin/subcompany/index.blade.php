@@ -84,7 +84,7 @@
                                                         <a href="{{ route('portfolio.edit', $company->id) }}" class="btn btn-sm btn-warning" title="Edit Role">
                                                             <i class="far fa-edit"></i>
                                                         </a>
-                                                         <form action="{{ route('portfolio.destroy', $company->id) }}" method="POST" class="d-inline">
+                                                         <form action="{{ route('subcompany.destroy', $company->id) }}" method="POST" class="d-inline">
                                                             @method('DELETE')
                                                             @csrf
                                                             <button onclick="return confirm('Are you sure you want to delete this item?');"  class="btn btn-sm btn-danger text-light"><i class="far fa-trash-alt"></i></button>
