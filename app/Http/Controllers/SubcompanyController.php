@@ -17,7 +17,7 @@ class SubcompanyController extends Controller
      */
     public function index()
     {
-        $subcompanies = Subcompany::latest()->paginate(10);
+        $subcompanies = Subcompany::oldest('order')->paginate(10);
         return view('admin.subcompany.index', compact('subcompanies'));
     }
 
@@ -83,7 +83,7 @@ class SubcompanyController extends Controller
      * @param  \App\Models\Subcompany  $subcompany
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Subcompany $subcompany)
+    public function update(SubcompanyFormRequest $request, Subcompany $subcompany)
     {
         $subcompany->update($request->except(['logo', 'banner']));
 
@@ -119,5 +119,28 @@ class SubcompanyController extends Controller
 
         session()->flash('success', 'Subcompany Added Successfully!');
         return back();
+    }
+
+    /**
+     * List Sorting.
+     *
+     * @param  \App\Models\Subcompany  $subcompany
+     * @return \Illuminate\Http\Response
+     */
+    public function sorting(Request $request)
+    {
+        $tasks = Subcompany::all();
+        foreach ($tasks as $task) {
+            $task->timestamps = false; // To disable update_at field updation
+            $id = $task->id;
+
+            foreach ($request->order as $order) {
+                if ($order['id'] == $id) {
+                    $task->update(['order' => $order['position']]);
+                }
+            }
+        }
+
+        return response()->json(['message' => 'Subcompany Sorted Successfully!']);
     }
 }

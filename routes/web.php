@@ -107,6 +107,7 @@ Route::middleware(['auth'])->prefix('panel')->group(function () {
     Route::resource('news', NewsController::class );
 
     //subcompany Route
+    Route::post('subcompany/sorting', [SubcompanyController::class, 'sorting'])->name('subcompany.sorting');
     Route::resource('subcompany', SubcompanyController::class );
 
     // Profile/Settings Route

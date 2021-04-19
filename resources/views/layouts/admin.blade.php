@@ -44,7 +44,6 @@
         </div>
     </div>
 
-    @yield('script')
     {{-- Script File  Here--}}
     @include('layouts.Includes.script')
     {{-- Script File Here--}}

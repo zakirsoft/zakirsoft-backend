@@ -63,16 +63,16 @@
                                                     <th width="15%" class="text-center">Action</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody id="sortable">
                                                 @forelse ($subcompanies as $key => $company)
-                                                <tr>
+                                                <tr data-id="{{ $company->id }}">
                                                     <th scope="row">{{ $subcompanies->firstItem() + $key }}</th>
                                                     <td>{{ $company->title }}</td>
                                                     <td>
                                                         <img width="100px" height="100px" src="{{asset($company->logo) }}" alt="" class="img-fluid">
                                                     </td>
                                                     <td>
-                                                        <img width="200px" height="200px" src="{{asset($company->banner) }}" alt="" class="img-fluid">
+                                                        <img width="200px" height="100px" src="{{asset($company->banner) }}" alt="" class="img-fluid">
                                                     </td>
                                                     <td>
                                                         <p><strong>Total Downloads: </strong>{{ $company->downloads }}</p>
@@ -89,9 +89,7 @@
                                                             @csrf
                                                             <button onclick="return confirm('Are you sure you want to delete this item?');"  class="btn btn-sm btn-danger text-light"><i class="far fa-trash-alt"></i></button>
                                                         </form>
-                                                        <a href="{{ route('portfolio.show', $company->id) }}" class="btn btn-sm btn-info" title="Show Role">
-                                                            <i class="fa fa-eye"></i>
-                                                        </a>
+                                                        <div class="handle btn btn-success btn-sm"><i class="fas fa-hand-rock"></i></div>
                                                     </td>
                                                 </tr>
                                                 @empty
@@ -114,4 +112,48 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+     <script>
+        $(function() {
+            $("#sortable" ).sortable({
+                items: 'tr',
+                cursor: 'move',
+                opacity: 0.4,
+                scroll: false,
+                handle: '.handle',
+                dropOnEmpty: false,
+                update: function() {
+                    sendTaskOrderToServer('#sortable tr');
+                },
+                classes: {
+                    "ui-sortable": "highlight"
+                },
+            });
+            $("#sortable").disableSelection();
+            function sendTaskOrderToServer(selector) {
+                var order = [];
+                $(selector).each(function(index,element) {
+                    order.push({
+                        id: $(this).attr('data-id'),
+                        position: index+1
+                    });
+                });
+                console.log(order)
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: "{{ route('subcompany.sorting') }}",
+                    data: {
+                        order:order,
+                        _token: "{{ csrf_token() }}",
+                    },
+                    success: function(response) {
+                        toastr.success(response.message,'Success');
+                    }
+                });
+            }
+        });
+      </script>
 @endsection
