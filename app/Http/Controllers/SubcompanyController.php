@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\File\FileUpload;
+use App\Http\Requests\SubcompanyFormRequest;
 use App\Models\Subcompany;
 use Illuminate\Http\Request;
 
@@ -33,9 +35,21 @@ class SubcompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SubcompanyFormRequest $request)
     {
-        //
+        $company = Subcompany::create($request->except(['logo', 'banner']));
+
+        $logo = $request->logo;
+        $banner = $request->banner;
+
+        if ($logo && $banner) {
+            $logo_url = FileUpload::upload($logo, 'subcompany/logo');
+            $banner_url = FileUpload::upload($banner, 'subcompany/banner');
+            $company->update(['logo' => $logo_url, 'banner' => $banner_url]);
+        }
+
+        session()->flash('success', 'Subcompany Added Successfully!');
+        return back();
     }
 
     /**

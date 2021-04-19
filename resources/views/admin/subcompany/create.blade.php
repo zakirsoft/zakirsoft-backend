@@ -55,20 +55,21 @@
                                     <h5>Add Subcompany</h5>
                                 </div>
                                 <div class="card-block">
-                                    <form method="POST" action="{{ route('subcompany.store') }}">
+                                    <form method="POST" action="{{ route('subcompany.store') }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="row justify-content-center">
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="title" class="col-form-label">Title</label>
-                                                    <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title" placeholder="Enter name">
+                                                    <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title" placeholder="Enter title" value="{{ old('title') }}">
                                                      @error('title') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                    </div>
                                                 </div>
-                                            </div>
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="link" class="col-form-label">Link</label>
-                                                    <input type="text" class="form-control @error('link') is-invalid @enderror" name="link" id="link" placeholder="Enter Live Link">                                                     @error('content') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                    <input type="text" class="form-control @error('link') is-invalid @enderror" name="link" id="link" placeholder="Enter Live Link" value="{{ old('link') }}">
+                                                    @error('link') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -83,7 +84,8 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label class="col-form-label">Banner Image</label>
-                                                    <input type="file" class="form-control pl-0 border-0 @error('banner') is-invalid @enderror" name="banner">                                                     @error('content') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                    <input type="file" class="form-control pl-0 border-0 @error('banner') is-invalid @enderror" name="banner">
+                                                    @error('banner') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -91,14 +93,15 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="downloads" class="col-form-label">Total Downloads</label>
-                                                    <input type="text" class="form-control @error('downloads') is-invalid @enderror" name="downloads" id="downloads" placeholder="Total Downloads">
+                                                    <input type="text" class="form-control @error('downloads') is-invalid @enderror" name="downloads" id="downloads" placeholder="Total Downloads" value="{{ old('downloads') }}">
                                                      @error('downloads') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="views" class="col-form-label">Total Views</label>
-                                                    <input type="text" class="form-control @error('views') is-invalid @enderror" name="views" id="views" placeholder="Total Views">                                                     @error('content') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                    <input type="text" class="form-control @error('views') is-invalid @enderror" name="views" id="views" placeholder="Total Views" value="{{ old('views') }}">
+                                                    @error('views') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -107,7 +110,7 @@
                                                 <div class="form-group">
                                                     <label class="col-form-label">Description</label>
                                                     <textarea id="editor2" type="text" class="form-control" name="description" rows="5">{{ old('description') }}</textarea>
-                                                     @error('content') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                     @error('description') <span class="invalid-feedback d-block" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                         </div>

@@ -15,8 +15,18 @@ class CreateSubcompaniesTable extends Migration
     {
         Schema::create('subcompanies', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->longText('description');
+            $table->string('link');
+            $table->string('logo')->nullable();
+            $table->string('banner')->nullable();
+            $table->integer('downloads');
+            $table->integer('views');
+            $table->integer('order')->unsigned()->default(0);
             $table->timestamps();
         });
+
+
     }
 
     /**
