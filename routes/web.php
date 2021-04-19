@@ -16,6 +16,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SubcompanyController;
 use App\Http\Controllers\TechnologyCategoryController;
 use App\Http\Controllers\TechnologyController;
 use Illuminate\Support\Facades\Auth;
@@ -104,6 +105,9 @@ Route::middleware(['auth'])->prefix('panel')->group(function () {
 
     //news Route
     Route::resource('news', NewsController::class );
+
+    //subcompany Route
+    Route::resource('subcompany', SubcompanyController::class );
 
     // Profile/Settings Route
     Route::resource('profile', ProfileController::class );
