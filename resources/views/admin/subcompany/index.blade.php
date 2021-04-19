@@ -81,7 +81,7 @@
                                                     </td>
 
                                                     <td class="text-center">
-                                                        <a href="{{ route('portfolio.edit', $company->id) }}" class="btn btn-sm btn-warning" title="Edit Role">
+                                                        <a href="{{ route('subcompany.edit', $company->id) }}" class="btn btn-sm btn-warning" title="Edit Role">
                                                             <i class="far fa-edit"></i>
                                                         </a>
                                                          <form action="{{ route('subcompany.destroy', $company->id) }}" method="POST" class="d-inline">

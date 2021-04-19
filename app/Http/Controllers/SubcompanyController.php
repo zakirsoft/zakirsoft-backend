@@ -73,7 +73,7 @@ class SubcompanyController extends Controller
      */
     public function edit(Subcompany $subcompany)
     {
-        //
+        return view('admin.subcompany.edit', compact('subcompany'));
     }
 
     /**
@@ -85,7 +85,21 @@ class SubcompanyController extends Controller
      */
     public function update(Request $request, Subcompany $subcompany)
     {
-        //
+        $subcompany->update($request->except(['logo', 'banner']));
+
+        $logo = $request->logo;
+        $banner = $request->banner;
+
+        if ($logo && $banner) {
+            FileDelete::delete($subcompany->logo);
+            FileDelete::delete($subcompany->banner);
+            $logo_url = FileUpload::upload($logo, 'subcompany/logo');
+            $banner_url = FileUpload::upload($banner, 'subcompany/banner');
+            $subcompany->update(['logo' => $logo_url, 'banner' => $banner_url]);
+        }
+
+        session()->flash('success', 'Subcompany Updated Successfully!');
+        return redirect(route('subcompany.index'));
     }
 
     /**
