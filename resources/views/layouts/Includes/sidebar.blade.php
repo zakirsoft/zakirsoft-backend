@@ -157,13 +157,25 @@
                 </a>
             </li>
             @can('career show')
-            <li class="@yield('career')">
-                <a href="{{ route('career.index') }}" class="waves-effect waves-dark">
-                    <span class="pcoded-micon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </span>
+            <li class="pcoded-hasmenu @yield('testimonial')">
+                @can('testimonial show')
+                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="far fa-file-word"></i></span>
                     <span class="pcoded-mtext">Career</span>
                 </a>
+                <ul class="pcoded-submenu">
+                    <li class="">
+                        <a href="{{ route('career.index') }}" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">Career</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="{{ route('gallery.index') }}" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">Galleries</span>
+                        </a>
+                    </li>
+                </ul>
+                @endcan
             </li>
             @endcan
             @can('team show')

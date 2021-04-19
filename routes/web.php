@@ -12,6 +12,7 @@ use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\FooterController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\ProfileController;
@@ -89,6 +90,7 @@ Route::middleware(['auth'])->prefix('panel')->group(function () {
 
     //Career Route
     Route::resource('career', CareerController::class);
+    Route::resource('gallery', GalleryController::class);
 
     //Testimonail Route
     Route::resource('testimonial', TestimonialController::class);
