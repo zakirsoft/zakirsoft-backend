@@ -53,6 +53,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Add Subcompany</h5>
+                                    <a href="{{ route('subcompany.index') }}"> <button class="btn btn-primary float-right">Back</button></a>
                                 </div>
                                 <div class="card-block">
                                     <form method="POST" action="{{ route('subcompany.store') }}" enctype="multipart/form-data">

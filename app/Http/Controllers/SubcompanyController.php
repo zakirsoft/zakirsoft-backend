@@ -16,7 +16,8 @@ class SubcompanyController extends Controller
      */
     public function index()
     {
-        return view('admin.subcompany.index');
+        $subcompanies = Subcompany::latest()->paginate(10);
+        return view('admin.subcompany.index', compact('subcompanies'));
     }
 
     /**

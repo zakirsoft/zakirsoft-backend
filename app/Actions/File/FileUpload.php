@@ -7,7 +7,7 @@ class FileUpload
 {
     public static function upload($file, $path){
         $fileName = time().'_'. uniqid() .'.'. $file->getClientOriginalExtension();
-        Storage::putFileAs("public/$path", $file, $fileName);
+        Storage::putFileAs("$path", $file, $fileName);
 
         return "storage/$path/" . $fileName;
     }

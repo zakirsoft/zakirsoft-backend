@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Portfolio - ZakirSoft
+    Subcompany List - ZakirSoft
 @endsection
 
 @section('subcompany')
@@ -55,42 +55,43 @@
                                         <table class="table table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>Category Name</th>
-                                                    <th>Project Title</th>
-                                                    <th>Client Name</th>
-                                                    <th>Client Email</th>
-                                                    <th>Image</th>
-                                                    <th>Live Link</th>
-                                                    <th>Project Length</th>
-                                                    <th class="text-center">Action</th>
+                                                    <th width="5%">ID</th>
+                                                    <th width="15%">Title</th>
+                                                    <th width="10%">Logo</th>
+                                                    <th width="20%">Banner</th>
+                                                    <th width="35%">Details</th>
+                                                    <th width="15%" class="text-center">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {{-- @forelse ($portfolio_list as $key => $portfolio)
+                                                @forelse ($subcompanies as $key => $company)
                                                 <tr>
-                                                    <th scope="row">{{ $portfolio_list->firstItem() + $key }}</th>
-                                                    <td>{{ $portfolio->category->name }}</td>
-                                                    <td>{{ $portfolio->category->name }}</td>
-                                                    <td>{{ $portfolio->client_name }}</td>
-                                                    <td>{{ $portfolio->client_email }}</td>
+                                                    <th scope="row">{{ $subcompanies->firstItem() + $key }}</th>
+                                                    <td>{{ $company->title }}</td>
                                                     <td>
-                                                        <img width="50px" height="50px" src="{{asset($portfolio->image) }}" alt="" srcset="">
+                                                        <img width="100px" height="100px" src="{{asset($company->logo) }}" alt="" class="img-fluid">
                                                     </td>
-                                                    <td>{{ $portfolio->live_link }}</td>
-                                                    <td>{{ $portfolio->project_length }}</td>
+                                                    <td>
+                                                        <img width="200px" height="200px" src="{{asset($company->banner) }}" alt="" class="img-fluid">
+                                                    </td>
+                                                    <td>
+                                                        <p><strong>Total Downloads: </strong>{{ $company->downloads }}</p>
+                                                        <p><strong>Total Views: </strong>{{ $company->views }}</p>
+                                                        <strong>Description: </strong><span class="d-inline-block">{!! $company->description !!}</span>
+                                                    </td>
+
                                                     <td class="text-center">
-                                                        <a href="{{ route('portfolio.edit', $portfolio->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit Role">
+                                                        <a href="{{ route('portfolio.edit', $company->id) }}" class="btn btn-sm btn-warning" title="Edit Role">
                                                             <i class="far fa-edit"></i>
                                                         </a>
-                                                        <a href="{{ route('portfolio.show', $portfolio->id) }}" class="btn btn-sm btn-info mr-1" title="Show Role">
-                                                            <i class="fa fa-eye"></i>
-                                                        </a>
-                                                        <form action="{{ route('portfolio.destroy', $portfolio->id) }}" method="POST" class="d-inline">
+                                                         <form action="{{ route('portfolio.destroy', $company->id) }}" method="POST" class="d-inline">
                                                             @method('DELETE')
                                                             @csrf
                                                             <button onclick="return confirm('Are you sure you want to delete this item?');"  class="btn btn-sm btn-danger text-light"><i class="far fa-trash-alt"></i></button>
                                                         </form>
+                                                        <a href="{{ route('portfolio.show', $company->id) }}" class="btn btn-sm btn-info" title="Show Role">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
                                                     </td>
                                                 </tr>
                                                 @empty
@@ -99,10 +100,10 @@
                                                         <h5>No Data Found</h5>
                                                     </td>
                                                 </tr>
-                                                @endforelse --}}
+                                                @endforelse
                                             </tbody>
                                         </table>
-                                        {{-- {{ $portfolio_list->links()  }} --}}
+                                        {{ $subcompanies->links()  }}
                                     </div>
                                 </div>
                             </div>
