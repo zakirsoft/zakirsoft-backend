@@ -15,6 +15,7 @@
     {{-- Style File  Here--}}
     @include('layouts.Includes.style')
     <link rel="stylesheet" href="{{ asset('css') }}/style.css">
+    @yield('style')
 </head>
 <body>
     <div id="pcoded" class="pcoded">
@@ -43,6 +44,7 @@
         </div>
     </div>
 
+    @yield('script')
     {{-- Script File  Here--}}
     @include('layouts.Includes.script')
     {{-- Script File Here--}}
