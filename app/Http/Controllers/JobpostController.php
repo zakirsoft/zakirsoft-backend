@@ -49,9 +49,9 @@ class JobpostController extends Controller
      * @param  \App\Models\Jobpost  $jobpost
      * @return \Illuminate\Http\Response
      */
-    public function show(Jobpost $jobpost)
+    public function show(Jobpost $post)
     {
-        //
+        return view('admin.career.job.show', compact('post'));
     }
 
     /**
