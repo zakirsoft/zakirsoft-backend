@@ -208,7 +208,7 @@
             @endcan
             <hr class="text-light">
             <li class="">
-                <a href="{{ url('/') }}" class="h4 waves-effect waves-dark">
+                <a target="_blank" href="{{ url('/') }}" class="h4 waves-effect waves-dark">
                     <span class="pcoded-micon">
                         <i class="fa fa-globe"></i>
                     </span>
