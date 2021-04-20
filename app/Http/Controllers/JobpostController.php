@@ -83,8 +83,13 @@ class JobpostController extends Controller
      * @param  \App\Models\Jobpost  $jobpost
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Jobpost $jobpost)
+    public function destroy(Jobpost $post)
     {
-        //
+        if ($post) {
+            $post->delete();
+        }
+
+        session()->flash('success', 'Job Post Deleted Successfully!');
+        return back();
     }
 }
