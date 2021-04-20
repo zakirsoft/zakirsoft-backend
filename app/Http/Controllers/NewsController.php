@@ -40,7 +40,6 @@ class NewsController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'description' => 'required',
-            'link' => 'required',
             'image' => 'required',
         ]);
 

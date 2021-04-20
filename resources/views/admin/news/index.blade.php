@@ -73,7 +73,6 @@
                                                         </td>
                                                         <td>{{ $news->title }}</td>
                                                         <td style="max-width: 300px">{{ $news->description }}</td>
-                                                        <td>{{ $news->link }}</td>
                                                         <td class="text-center">
                                                             <a href="{{ route('news.edit', $news->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit News">
                                                                 <i class="far fa-edit"></i>

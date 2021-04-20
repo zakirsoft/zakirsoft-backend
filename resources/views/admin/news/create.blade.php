@@ -62,14 +62,14 @@
                                             <div class="col-12">
                                                 <div class="form-group">
                                                     <label class="col-form-label">Title</label>
-                                                    <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Enter title">
+                                                    <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Enter title" value="{{ old('title') }}">
                                                      @error('title') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-group">
                                                     <label class="col-form-label">Description</label>
-                                                    <textarea type="text" class="form-control @error('description') is-invalid @enderror" name="description" placeholder="Write description here.... " rows="5"></textarea>
+                                                    <textarea type="text" class="form-control @error('description') is-invalid @enderror" name="description" placeholder="Write description here.... " rows="5">{{ old('description') }}</textarea>
                                                     @error('description') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
@@ -80,23 +80,14 @@
                                                      @error('image') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">Link</label>
-                                                    <input type="text" class="form-control @error('link') is-invalid @enderror" name="link">
-                                                     @error('link') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
-                                                </div>
-                                            </div>
                                         </div>
                                         <button type="submit" class="btn btn-primary  m-b-0"><i class="fas fa-plus"></i> Add</button>
                                     </form>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

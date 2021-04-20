@@ -85,13 +85,6 @@
                                                      @error('image') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">Link</label>
-                                                    <input type="text" class="form-control @error('link') is-invalid @enderror" name="link" value="{{ $news->link }}">
-                                                     @error('link') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
-                                                </div>
-                                            </div>
                                         </div>
                                         <button type="submit" class="btn btn-primary  m-b-0"><i class="fas fa-plus"></i> Update</button>
                                     </form>
