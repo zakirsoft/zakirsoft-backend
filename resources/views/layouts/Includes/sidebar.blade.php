@@ -165,8 +165,8 @@
                 </a>
                 <ul class="pcoded-submenu">
                     <li class="">
-                        <a href="{{ route('career.index') }}" class="waves-effect waves-dark">
-                            <span class="pcoded-mtext">Career</span>
+                        <a href="{{ route('jobpost.index') }}" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">Job Posts</span>
                         </a>
                     </li>
                     <li class="">
