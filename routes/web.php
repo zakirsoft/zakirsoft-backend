@@ -32,7 +32,8 @@ Route::get('/works', [WebsiteController::class, 'work'])->name('work_website');
 Route::get('/works/{id}/details', [WebsiteController::class, 'workDetails'])->name('work_details_website');
 Route::get('/career', [WebsiteController::class, 'career'])->name('career_website');
 Route::get('/contact', [WebsiteController::class, 'contact'])->name('contact_website');
-
+Route::get('news/{slug}', [WebsiteController::class, 'news_details'])->name('news.details');
+Route::get('job/{slug}', [WebsiteController::class, 'job_details'])->name('job.details');
 
 /*-------------------------------------------------------------------------
  Backend Routes
@@ -119,5 +120,3 @@ Route::middleware(['auth'])->prefix('panel')->group(function () {
     Route::get('contact/messages', [FooterController::class, 'contact_messages'])->name('contact.index');
 });
 
-Route::get('news/{slug}', [WebsiteController::class, 'news_details'])->name('news.details');
-Route::get('job/{slug}', [WebsiteController::class, 'job_details'])->name('job.details');
