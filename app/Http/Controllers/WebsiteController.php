@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\Career;
 use App\Models\Footer;
+use App\Models\Gallery;
 use App\Models\Jobpost;
 use App\Models\News;
 use App\Models\Team;
@@ -66,8 +67,9 @@ class WebsiteController extends Controller
         $content = Footer::get()->first();
         $socials = Social::all();
         $posts = Jobpost::whereStatus(true)->oldest('order')->get();
+        $galleries = Gallery::oldest('order')->get();
 
-        return view('frontend.career', compact('career', 'content', 'socials','posts'));
+        return view('frontend.career', compact('career', 'content', 'socials','posts','galleries'));
     }
 
     function contact()

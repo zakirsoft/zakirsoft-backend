@@ -135,36 +135,13 @@
                 </div>
             </div>
             <div class="row gallery__itemContents">
-                <div class="col-md-4">
-                    <a class="gallery__item" href="{{ asset('frontend') }}/assets/images/gallery/demo-01.png">
-                        <img src="{{ asset('frontend') }}/assets/images/gallery/demo-01.png" alt="demo" class="img-fluid" />
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a class="gallery__item" href="{{ asset('frontend') }}/assets/images/gallery/demo-02.png">
-                        <img src="{{ asset('frontend') }}/assets/images/gallery/demo-02.png" alt="demo" class="img-fluid mt-20" />
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a class="gallery__item" href="{{ asset('frontend') }}/assets/images/gallery/demo-03.png">
-                        <img src="{{ asset('frontend') }}/assets/images/gallery/demo-03.png" alt="demo" class="img-fluid" />
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a class="gallery__item" href="{{ asset('frontend') }}/assets/images/gallery/demo-04.png">
-                        <img src="{{ asset('frontend') }}/assets/images/gallery/demo-04.png" alt="demo" class="img-fluid" />
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a class="gallery__item" href="{{ asset('frontend') }}/assets/images/gallery/demo-05.png">
-                        <img src="{{ asset('frontend') }}/assets/images/gallery/demo-05.png" alt="demo" class="img-fluid mt-20" />
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a class="gallery__item" href="{{ asset('frontend') }}/assets/images/gallery/demo-06.png">
-                        <img src="{{ asset('frontend') }}/assets/images/gallery/demo-06.png" alt="demo" class="img-fluid" />
-                    </a>
-                </div>
+                @foreach ($galleries as $gallery)
+                    <div class="col-md-4">
+                        <a class="gallery__item" href="{{ asset($gallery->image) }}">
+                            <img src="{{ asset($gallery->image) }}" alt="demo" class="img-fluid" />
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
