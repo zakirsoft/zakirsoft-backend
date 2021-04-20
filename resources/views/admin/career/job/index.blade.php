@@ -57,22 +57,29 @@
                                             <thead>
                                                 <tr>
                                                     <th class="text-center">SL</th>
-                                                    <th class="text-center">Career Title</th>
-                                                    <th class="text-center">Career Content</th>
+                                                    <th class="text-center">Title</th>
+                                                    <th class="text-center">Type</th>
+                                                    <th class="text-center">Salery</th>
+                                                    <th class="text-center">Deadline</th>
                                                     <th class="text-center">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {{-- @forelse ($career_list as $key => $career)
+                                                @forelse ($posts as $key => $post)
                                                 <tr>
-                                                    <th class="text-center" scope="row">{{ $career_list->firstItem() + $key }}</th>
-                                                    <td class="text-center">{{ $career->title }}</td>
-                                                    <td class="text-center">{{ $career->content }}</td>
+                                                    <th class="text-center" scope="row">{{ $posts->firstItem() + $key }}</th>
+                                                    <td class="text-center">{{ $post->title }}</td>
+                                                    <td class="text-center">{{ $post->type }}</td>
+                                                    <td class="text-center">{{ $post->salary }}</td>
+                                                    <td class="text-center">{{ $post->deadline }}</td>
                                                     <td class="text-center">
-                                                        <a href="{{ route('career.edit', $career->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit Role">
+                                                        <a href="{{ route('jobpost.show', $post->id) }}" class="btn btn-sm btn-info" title="Details Post">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                        <a href="{{ route('jobpost.edit', $post->id) }}" class="btn btn-sm btn-warning" title="Edit Post">
                                                             <i class="far fa-edit"></i>
                                                         </a>
-                                                        <form action="{{ route('career.destroy', $career->id) }}" method="POST" class="d-inline">
+                                                        <form action="{{ route('jobpost.destroy', $post->id) }}" method="POST" class="d-inline">
                                                             @method('DELETE')
                                                             @csrf
                                                             <button onclick="return confirm('Are you sure you want to delete this item?');"  class="btn btn-sm btn-danger text-light"><i class="far fa-trash-alt"></i></button>
@@ -85,7 +92,7 @@
                                                         <h5>No Data Found</h5>
                                                     </td>
                                                 </tr>
-                                                @endforelse --}}
+                                                @endforelse
                                             </tbody>
                                         </table>
                                         {{-- {{ $career_list->links()  }} --}}

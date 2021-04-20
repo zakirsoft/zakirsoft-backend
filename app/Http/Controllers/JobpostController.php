@@ -15,7 +15,8 @@ class JobpostController extends Controller
      */
     public function index()
     {
-        return view('admin.career.job.index');
+        $posts = Jobpost::oldest('order')->paginate(5);
+        return view('admin.career.job.index', compact('posts'));
     }
 
     /**
