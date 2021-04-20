@@ -91,7 +91,6 @@ class NewsController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'description' => 'required',
-            'link' => 'required',
         ]);
 
         $news->update($request->except('image'));

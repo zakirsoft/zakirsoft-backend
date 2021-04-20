@@ -60,7 +60,6 @@
                                                     <th>Image</th>
                                                     <th>Title</th>
                                                     <th style="max-width: 300px">Description</th>
-                                                    <th>Link</th>
                                                     <th class="text-center">Action</th>
                                                 </tr>
                                             </thead>
