@@ -208,203 +208,86 @@
   <!-- testimonial section end -->
   <!-- Projects Section Start -->
   <section class="p-0">
-    <div class="latestProject latestProject--one">
-      <div class="container latestProject__container">
-        <div class="row">
-          <div class="col-lg-6 order-2 order-lg-0">
-            <div class="latestProject__contentText">
-              <div class="latestProject__logo">
-                <img src="{{ asset('frontend') }}/assets/images/brandLogo/e.png " alt="brandLogo" />
-              </div>
-              <h5 class="latestProject__title">Echotemplate</h5>
-              <div class="latestProject__projectInfo">
-                <div class="latestProject__info">
-                  <h5>100+</h5>
-                  <p>Product Download</p>
-                </div>
-                <div class="latestProject__info">
-                  <h5>500+</h5>
-                  <p>Product view</p>
-                </div>
-              </div>
-              <p class="latestProject__brief">
-                Praesent porttitor quam lacus, quis rhoncus ligula iaculis
-                pharetra. Phasellus vitae tellus justo. Donec tellus eros,
-                feugiat vel augue vel, vehicula luctus ex. Vestibulum semper a
-                ante at maximus. In fringilla condimentum mauris, non
-                efficitur ex tincidunt non.
-              </p>
+      @foreach ($subcompanies as $company)
+        <div class="latestProject latestProject--one">
+            <div class="container latestProject__container">
+                <div class="row">
+                <div class="col-lg-6 order-2 order-lg-0">
+                    <div class="latestProject__contentText">
+                        <div class="latestProject__logo">
+                            <img src="{{ asset($company->logo) }}" alt="brandLogo" />
+                        </div>
+                        <h5 class="latestProject__title">{{ $company->title }}</h5>
+                        <div class="latestProject__projectInfo">
+                            <div class="latestProject__info">
+                            <h5>{{ $company->downloads }}+</h5>
+                            <p>Product Download</p>
+                            </div>
+                            <div class="latestProject__info">
+                            <h5>{{ $company->views }}+</h5>
+                            <p>Product view</p>
+                            </div>
+                        </div>
+                        <p class="latestProject__brief">{!! $company->description !!}</p>
 
-              <button class="zakirSoft__button">
-                <a href="#">
-                  Visit Echotemplate
-
-                  <span
-                    ><img src="{{ asset('frontend') }}/assets/images/icons/arrow.png" alt="arrow"
-                  /></span>
-                </a>
-              </button>
+                        <button class="zakirSoft__button">
+                            <a target="_blank" href="{{ $company->link }}">
+                            Visit {{ $company->title }}
+                            <span
+                                ><img src="{{ asset('frontend') }}/assets/images/icons/arrow.png" alt="arrow"
+                            /></span>
+                            </a>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-0">
+                    <div
+                    class="latestProject__imgContent latestProject__imgContent_one"
+                    >
+                    <img
+                        src="{{ asset($company->banner) }}"
+                        alt="echotemplate"
+                    />
+                    </div>
+                </div>
+                </div>
             </div>
-          </div>
-          <div class="col-lg-6 order-1 order-lg-0">
-            <div
-              class="latestProject__imgContent latestProject__imgContent_one"
-            >
-              <img
-                src="{{ asset('frontend') }}/assets/images/projects/echoTemplate.png"
-                alt="echotemplate"
-              />
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-
-    <div class="latestProject latestProject--two">
-      <div class="container latestProject__container">
-        <div class="row">
-          <div class="col-lg-6 order-2a order-lg-0">
-            <div
-              class="latestProject__imgContent latestProject__imgContent_two"
-            >
-              <img
-                src="{{ asset('frontend') }}/assets/images/projects/codeshiki.png"
-                alt="codeshiki"
-              />
-            </div>
-          </div>
-          <div class="col-lg-6 order-1 order-lg-0">
-            <div
-              class="latestProject__contentText latestProject__contentText_two"
-            >
-              <div class="latestProject__logo latestProject__logo_codeshikhi">
-                <img src="{{ asset('frontend') }}/assets/images/brandLogo/c.png " alt="brandLogo" />
-              </div>
-              <h5 class="latestProject__title">Codeshikhi</h5>
-              <div class="latestProject__projectInfo">
-                <div class="latestProject__info">
-                  <h5>100+</h5>
-                  <p>Product Download</p>
-                </div>
-                <div class="latestProject__info">
-                  <h5>500+</h5>
-                  <p>Product view</p>
-                </div>
-              </div>
-              <p class="latestProject__brief">
-                Praesent porttitor quam lacus, quis rhoncus ligula iaculis
-                pharetra. Phasellus vitae tellus justo. Donec tellus eros,
-                feugiat vel augue vel, vehicula luctus ex. Vestibulum semper a
-                ante at maximus. In fringilla condimentum mauris, non
-                efficitur ex tincidunt non.
-              </p>
-
-              <button class="zakirSoft__button">
-                <a href="#">
-                  Visit codeshikhi
-
-                  <span>
-                    <img src="{{ asset('frontend') }}/assets/images/icons/arrow.png" alt="arrow"/>
-                    </span>
-                </a>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    @endforeach
   </section>
   <!-- Projects Section End -->
 
   <!-- Article/Blog Section Start  -->
   <div class="articles">
-    <div class="container">
-      <div class="row">
-        <div class="section w-100">
-          <h2 class="section__title section__title_one text-center">
-            What’s coming next
-          </h2>
-        </div>
+      <div class="container">
+          <div class="row">
+              <div class="section w-100">
+                  <h2 class="section__title section__title_one text-center">
+                      What’s coming next
+                  </h2>
+              </div>
+          </div>
+          <div class="row">
+              @foreach ($news_list as $news)
+              <div class="col-lg-4 col-md-6">
+                  <a href="#">
+                      <div class="articles__contentBox card">
+                          <div class="articles__contentImg">
+                              <img src="{{ asset($news->image) }}" alt="artilce01" />
+                          </div>
+                          <div class="articles__contentText">
+                              <h5 class="articles__title"><a href="{{ route('news.details', ['slug' => $news->slug]) }}">{{ $news->title }}</a></h5>
+                              <p class="articles__brief">{!! $news->description !!}</p>
+                              <a href="#" class="articles__readMore">Read More
+                                  <span><img src="{{ asset('frontend') }}/assets/images/icons/arrow.png" alt="arrow" /></span>
+                              </a>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+              @endforeach
+          </div>
       </div>
-      <div class="row">
-        <div class="col-lg-4 col-md-6">
-        <a href="#">
-          <div class="articles__contentBox card">
-            <div class="articles__contentImg">
-              <img
-                src="{{ asset('frontend') }}/assets/images/Articles/demo-01.png "
-                alt="artilce01"
-              />
-            </div>
-            <div class="articles__contentText">
-              <h5 class="articles__title"><a href="{{ route('news.details', ['slug' => '1234']) }}">We are Hiring and it's aweomse, good luck with sales</a></h5>
-              <p class="articles__brief">
-                Curabitur mollis elit eu libero eleifend, a aliquet magna
-                consectetur. Fusce at accumsan quam. Ut maximus facilisis
-                libero sit amet viverra. Nullam eu rutrum ex.
-              </p>
-              <a href="#" class="articles__readMore"
-                >Read More
-                <span
-                  ><img src="{{ asset('frontend') }}/assets/images/icons/arrow.png" alt="arrow"
-                /></span>
-              </a>
-            </div>
-          </div>
-        </a>
-        </div>
-        <div class="col-lg-4 col-md-6">
-         <a href="#">
-          <div class="articles__contentBox card">
-            <div class="articles__contentImg">
-              <img src="{{ asset('frontend') }}/assets/images/Articles/demo-02.png "
-                alt="artilce01" />
-            </div>
-            <div class="articles__contentText">
-              <h5 class="articles__title"><a href="{{ route('news.details', ['slug' => '1234']) }}">We are Hiring</a></h5>
-              <p class="articles__brief">
-                Curabitur mollis elit eu libero eleifend, a aliquet magna
-                consectetur. Fusce at accumsan quam. Ut maximus facilisis
-                libero sit amet viverra. Nullam eu rutrum ex.
-              </p>
-              <a href="#" class="articles__readMore"
-                >Read More
-                <span
-                  ><img src="{{ asset('frontend') }}/assets/images/icons/arrow.png" alt="arrow"
-                /></span>
-              </a>
-            </div>
-          </div>
-         </a>
-        </div>
-        <div class="col-lg-4 col-md-6">
-         <a href="#">
-          <div class="articles__contentBox card">
-            <div class="articles__contentImg">
-              <img
-                src="{{ asset('frontend') }}/assets/images/Articles/demo-03.png "
-                alt="artilce01"
-              />
-            </div>
-            <div class="articles__contentText">
-              <h5 class="articles__title"><a href="{{ route('news.details', ['slug' => '1234']) }}">We are Hiring</a></h5>
-              <p class="articles__brief">
-                Curabitur mollis elit eu libero eleifend, a aliquet magna
-                consectetur. Fusce at accumsan quam. Ut maximus facilisis
-                libero sit amet viverra. Nullam eu rutrum ex.
-              </p>
-              <a href="#" class="articles__readMore"
-                >Read More
-                <span
-                  ><img src="{{ asset('frontend') }}/assets/images/icons/arrow.png" alt="arrow"
-                /></span>
-              </a>
-            </div>
-          </div>
-         </a>
-        </div>
-      </div>
-    </div>
   </div>
   <!-- Article/Blog Section End -->
 @endsection
@@ -426,5 +309,5 @@
             height: auto;
         }
     }
-</style>    
+</style>
 @endsection

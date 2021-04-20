@@ -17,31 +17,14 @@
     <div class="newsDetails__banner"></div>
     <div class="container">
         <div class="newsDetails__contentText">
-            <h5 class="newsDetails__title">
-                Curabitur mollis elit eu libero eleifend, a aliquet magna
-            </h5>
-            <p class="newsDetails__brief">
-                Curabitur mollis elit eu libero eleifend, a aliquet magna
-                consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit
-                amet viverra. Nullam eu rutrum ex. Nullam consectetur turpis mi, id
-                egestas urna mattis et. Curabitur mollis elit eu libero eleifend, a
-                aliquet magna consectetur. Fusce at accumsan quam. Ut maximus
-                facilisis libero sit amet viverra. Nullam eu rutrum ex. Nullam
-                consectetur turpis mi, id egestas urna mattis et.Curabitur mollis
-                elit eu libero eleifend, a aliquet magna consectetur. Fusce at
-                accumsan quam.
-                <br /><br />
-                Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.
-                Nullam consectetur turpis mi, id egestas urna mattis et.Curabitur
-                mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce
-                at accumsan quam. Ut maximus facilisis libero sit amet viverra.
-                Nullam eu rutrum ex. Nullam consectetur turpis.
-            </p>
+            <h5 class="newsDetails__title">{{ $news->title }}</h5>
+            <p class="newsDetails__brief">{!! $news->description !!}</p>
         </div>
     </div>
 </section>
 
 <!-- Article/Blog Section Start  -->
+@if ($news_list->count() != 0)
 <section class="articles">
     <div class="container">
         <div class="row">
@@ -52,19 +35,16 @@
             </div>
         </div>
         <div class="row">
+            @foreach ($news_list as $news)
             <div class="col-lg-4 col-md-6">
                 <a href="#">
                     <div class="articles__contentBox card">
                         <div class="articles__contentImg">
-                            <img src="{{ asset('frontend') }}/assets/images/Articles/demo-01.png " alt="artilce01" />
+                            <img src="{{ asset($news->image) }}" alt="artilce01" />
                         </div>
                         <div class="articles__contentText">
-                            <h5 class="articles__title"><a href="#">We are Hiring</a></h5>
-                            <p class="articles__brief">
-                                Curabitur mollis elit eu libero eleifend, a aliquet magna
-                                consectetur. Fusce at accumsan quam. Ut maximus facilisis
-                                libero sit amet viverra. Nullam eu rutrum ex.
-                            </p>
+                            <h5 class="articles__title"><a href="{{ route('news.details', ['slug' => $news->slug]) }}">{{ $news->title }}</a></h5>
+                            <p class="articles__brief">{!! $news->description !!}</p>
                             <a href="#" class="articles__readMore">Read More
                                 <span><img src="{{ asset('frontend') }}/assets/images/icons/arrow.png" alt="arrow" /></span>
                             </a>
@@ -72,52 +52,14 @@
                     </div>
                 </a>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <a href="#">
-                    <div class="articles__contentBox card">
-                        <div class="articles__contentImg">
-                            <img src="{{ asset('frontend') }}/assets/images/Articles/demo-02.png " alt="artilce01" />
-                        </div>
-                        <div class="articles__contentText">
-                            <h5 class="articles__title"><a href="#">We are Hiring</a></h5>
-                            <p class="articles__brief">
-                                Curabitur mollis elit eu libero eleifend, a aliquet magna
-                                consectetur. Fusce at accumsan quam. Ut maximus facilisis
-                                libero sit amet viverra. Nullam eu rutrum ex.
-                            </p>
-                            <a href="#" class="articles__readMore">Read More
-                                <span><img src="{{ asset('frontend') }}/assets/images/icons/arrow.png" alt="arrow" /></span>
-                            </a>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <a href="#">
-                    <div class="articles__contentBox card">
-                        <div class="articles__contentImg">
-                            <img src="{{ asset('frontend') }}/assets/images/Articles/demo-03.png " alt="artilce01" />
-                        </div>
-                        <div class="articles__contentText">
-                            <h5 class="articles__title"><a href="#">We are Hiring</a></h5>
-                            <p class="articles__brief">
-                                Curabitur mollis elit eu libero eleifend, a aliquet magna
-                                consectetur. Fusce at accumsan quam. Ut maximus facilisis
-                                libero sit amet viverra. Nullam eu rutrum ex.
-                            </p>
-                            <a href="#" class="articles__readMore">Read More
-                                <span><img src="{{ asset('frontend') }}/assets/images/icons/arrow.png" alt="arrow" /></span>
-                            </a>
-                        </div>
-                    </div>
-                </a>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
+@endif
 <!-- Article/Blog Section End -->
 @endsection
 
-@section('style') 
+@section('style')
 
 @endsection

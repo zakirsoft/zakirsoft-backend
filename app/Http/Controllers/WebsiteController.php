@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\Career;
 use App\Models\Footer;
+use App\Models\News;
 use App\Models\Team;
 use Illuminate\Http\Request;
 use App\Models\Portfolio;
 use App\Models\PortfolioCategory;
 use App\Models\PortfoiloImages;
 use App\Models\Social;
+use App\Models\Subcompany;
 use App\Models\Testimonial;
 
 class WebsiteController extends Controller
@@ -21,7 +23,10 @@ class WebsiteController extends Controller
         $testimonials = Testimonial::OrderBy('created_at', 'desc')->get();
         $content = Footer::get()->first();
         $socials = Social::all();
-        return view('frontend.index', compact('portfolio', 'testimonials', 'content', 'socials'));
+        $subcompanies = Subcompany::oldest('order')->get();
+        $news_list = News::latest()->limit(3)->get();
+
+        return view('frontend.index', compact('portfolio', 'testimonials', 'content', 'socials','subcompanies','news_list'));
     }
 
     function about()
@@ -69,11 +74,14 @@ class WebsiteController extends Controller
         return view('frontend.contact', compact('content', 'socials'));
     }
 
-    public function news_details()
+    public function news_details($slug)
     {
+        $news = News::whereSlug($slug)->first();
+        $news_list = News::where('id','!=',$news->id)->get();
         $content = Footer::get()->first();
         $socials = Social::all();
-        return view('frontend.news_details', compact('content', 'socials'));
+
+        return view('frontend.news_details', compact('content', 'socials','news','news_list'));
     }
 
     public function job_details()
