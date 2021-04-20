@@ -75,6 +75,7 @@ Route::middleware(['auth'])->prefix('panel')->group(function () {
     Route::resource('services', ServiceController::class);
 
     //Career Route
+    Route::post('jobpost/sorting', [JobpostController::class, 'sorting'])->name('jobpost.sorting');
     Route::get('job/post/active/{post}', [JobpostController::class, 'active'])->name('jobpost.active');
     Route::get('job/post/inactive/{post}', [JobpostController::class, 'inactive'])->name('jobpost.inactive');
     Route::post('gallery/sorting', [GalleryController::class, 'sorting'])->name('gallery.sorting');

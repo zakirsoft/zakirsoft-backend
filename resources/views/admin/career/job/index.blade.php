@@ -65,9 +65,9 @@
                                                     <th class="text-center">Action</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody id="sortable">
                                                 @forelse ($posts as $key => $post)
-                                                <tr>
+                                                <tr data-id="{{ $post->id }}">
                                                     <th class="text-center" scope="row">{{ $posts->firstItem() + $key }}</th>
                                                     <td class="text-center">{{ $post->title }}</td>
                                                     <td class="text-center">{{ $post->type }}</td>
@@ -101,6 +101,7 @@
                                                             @csrf
                                                             <button onclick="return confirm('Are you sure you want to delete this item?');"  class="btn btn-sm btn-danger text-light"><i class="far fa-trash-alt"></i></button>
                                                         </form>
+                                                        <div class="handle btn btn-success btn-sm"><i class="fas fa-hand-rock"></i></div>
                                                     </td>
                                                 </tr>
                                                 @empty
@@ -112,7 +113,7 @@
                                                 @endforelse
                                             </tbody>
                                         </table>
-                                        {{-- {{ $career_list->links()  }} --}}
+                                        {{ $posts->links()  }}
                                 </div>
                             </div>
                         </div>
@@ -123,4 +124,48 @@
       </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+    <script type="text/javascript">
+         $(function() {
+            $("#sortable" ).sortable({
+                items: 'tr',
+                cursor: 'move',
+                opacity: 0.4,
+                scroll: false,
+                handle: '.handle',
+                dropOnEmpty: false,
+                update: function() {
+                    sendTaskOrderToServer('#sortable tr');
+                },
+                classes: {
+                    "ui-sortable": "highlight"
+                },
+            });
+            $("#sortable").disableSelection();
+            function sendTaskOrderToServer(selector) {
+                var order = [];
+                $(selector).each(function(index,element) {
+                    order.push({
+                        id: $(this).attr('data-id'),
+                        position: index+1
+                    });
+                });
+                console.log(order)
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: "{{ route('jobpost.sorting') }}",
+                    data: {
+                        order:order,
+                        _token: "{{ csrf_token() }}",
+                    },
+                    success: function(response) {
+                        toastr.success(response.message,'Success');
+                    }
+                });
+            }
+        });
+    </script>
 @endsection
