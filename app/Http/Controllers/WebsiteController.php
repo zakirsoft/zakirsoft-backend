@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\Career;
 use App\Models\Footer;
+use App\Models\Jobpost;
 use App\Models\News;
 use App\Models\Team;
 use Illuminate\Http\Request;
@@ -64,7 +65,9 @@ class WebsiteController extends Controller
         $career = Career::latest()->get();
         $content = Footer::get()->first();
         $socials = Social::all();
-        return view('frontend.career', compact('career', 'content', 'socials'));
+        $posts = Jobpost::whereStatus(true)->oldest('order')->get();
+
+        return view('frontend.career', compact('career', 'content', 'socials','posts'));
     }
 
     function contact()
@@ -84,10 +87,12 @@ class WebsiteController extends Controller
         return view('frontend.news_details', compact('content', 'socials','news','news_list'));
     }
 
-    public function job_details()
+    public function job_details($slug)
     {
+        $post = Jobpost::whereSlug($slug)->first();
         $content = Footer::get()->first();
         $socials = Social::all();
-        return view('frontend.job_details', compact('content', 'socials'));
+
+        return view('frontend.job_details', compact('content', 'socials','post'));
     }
 }

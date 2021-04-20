@@ -278,7 +278,7 @@
                           <div class="articles__contentText">
                               <h5 class="articles__title"><a href="{{ route('news.details', ['slug' => $news->slug]) }}">{{ $news->title }}</a></h5>
                               <p class="articles__brief">{!! $news->description !!}</p>
-                              <a href="#" class="articles__readMore">Read More
+                              <a href="{{ route('news.details', ['slug' => $news->slug]) }}" class="articles__readMore">Read More
                                   <span><img src="{{ asset('frontend') }}/assets/images/icons/arrow.png" alt="arrow" /></span>
                               </a>
                           </div>

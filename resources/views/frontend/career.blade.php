@@ -186,71 +186,38 @@
             </div>
             <div class="row">
                 <div class="positions__item">
-                    <div class="positions__contentBox">
-                        <div class="postions__left">
-                            <h5 class="positions__title">UI/UX Designer</h5>
-                            <div class="positions__type">
-                                Job Type: <span class="type">Full Time</span>
-                                <span class="point"></span> Salary Range:
-                                <span class="range">50k to 70k</span>
+                    @foreach ($posts as $post)
+                        <div class="positions__contentBox">
+                            <div class="postions__left">
+                                <h5 class="positions__title">{{ $post->title }}</h5>
+                                <div class="positions__type">
+                                    Job Type: <span class="type">{{ $post->type }}</span>
+                                    <span class="point"></span> Salary Range:
+                                    <span class="range">{{ $post->salary }}</span>
+                                </div>
+                                <div class="positions__responsiblity">{!! $post->short_description !!}</div>
                             </div>
-                            <div class="positions__responsiblity">
-                                Website and mobile application Designer
-                            </div>
-                        </div>
-                        <div class="positions__right">
-                            <button class="zakirSoft__button">
-                                <a href="{{ route('job.details', ['slug' => '123412']) }}">
-                                    I want this position
+                            <div class="positions__right">
+                                <button class="zakirSoft__button">
+                                    @php
+                                        $expired = Carbon\Carbon::parse($post->deadline)->format('d/m/Y') > Carbon\Carbon::now()->isoFormat('d/m/Y');
+                                    @endphp
 
-                                    <span><i class="fas fa-arrow-right"></i></span>
-                                </a>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="positions__contentBox">
-                        <div class="postions__left">
-                            <h5 class="positions__title">php Developer</h5>
-                            <div class="positions__type">
-                                Job Type: <span class="type">Full Time</span>
-                                <span class="point"></span> Salary Range:
-                                <span class="range">50k to 70k</span>
-                            </div>
-                            <div class="positions__responsiblity">
-                                Website and mobile application Designer
+                                    @if ($expired)
+                                        <a href="{{ route('job.details', ['slug' => $post->slug]) }}">
+                                            I want this position
+                                            <span><i class="fas fa-arrow-right"></i></span>
+                                        </a>
+                                    @else
+                                        <a href="{{ route('job.details', ['slug' => $post->slug]) }}">
+                                            Post Deadline Expired
+                                            <span><i class="fas fa-arrow-right"></i></span>
+                                        </a>
+                                    @endif
+                                </button>
                             </div>
                         </div>
-                        <div class="positions__right">
-                            <button class="zakirSoft__button">
-                                <a href="{{ route('job.details', ['slug' => '123412']) }}">
-                                    I want this position
-                                    <span><i class="fas fa-arrow-right"></i></span>
-                                </a>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="positions__contentBox">
-                        <div class="postions__left">
-                            <h5 class="positions__title">Video Editor</h5>
-                            <div class="positions__type">
-                                Job Type: <span class="type">part Time</span>
-                                <span class="point"></span> Salary Range:
-                                <span class="range">50k to 70k</span>
-                            </div>
-                            <div class="positions__responsiblity">
-                                Website and mobile application Designer
-                            </div>
-                        </div>
-                        <div class="positions__right">
-                            <button class="zakirSoft__button">
-                                <a href="{{ route('job.details', ['slug' => '123412']) }}">
-                                    I want this position
-
-                                    <span><i class="fas fa-arrow-right"></i></span>
-                                </a>
-                            </button>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

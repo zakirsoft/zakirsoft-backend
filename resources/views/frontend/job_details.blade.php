@@ -18,108 +18,35 @@
     <div class="container careerDetails__container">
         <!-- Post Title -->
         <div class="careerDetails__postTitleBox">
-            <h2 class="careerDetails__title">Ui/UX Designer</h2>
+            <h2 class="careerDetails__title">{{ $post->title }}</h2>
             <div class="careerDetails__type">
-                Job Type: <span class="type">Full Time</span>
+                Job Type: <span class="type">{{ $post->type }}</span>
                 <span class="point"></span> Salary Range:
-                <span class="range">50k to 70k</span>
+                <span class="range">{{ $post->salary }}</span>
             </div>
         </div>
         <!-- Job Descriptions -->
         <div class="careerDetails__contentBox">
-            <h5 class="careerDetails__contentBox-title">Job Descriptions</h5>
-            <p class="careerDetails__contentBox-brief">
-                Aenean lacinia efficitur est. Nulla tellus leo, pharetra sit amet
-                dictum id, ultrices ac libero. Nam tempus nec nunc gravida dictum.
-                Vestibulum tempus finibus magna. Pellentesque a ligula varius,
-                tincidunt quam eget, porta ipsum. Donec eleifend vitae sem a
-                porttitor. Sed aliquet, nisl ut venenatis molestie, massa ex maximus
-                nulla, quis facilisis tortor libero eu purus. Nullam efficitur
-                lectus non magna lacinia, facilisis feugiat augue efficitur. Proin
-                maximus ultrices massa ultricies interdum.
-            </p>
+           {!! $post->long_description !!}
         </div>
-        <!-- Responsibilities -->
-        <div class="careerDetails__contentBox">
-            <h5 class="careerDetails__contentBox-title">Responsibilities</h5>
-            <ul class="careerDetails__contentBox-point">
-                <li>
-                    <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
-                </li>
-                <li>
-                    <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
-                </li>
-                <li>
-                    <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
-                </li>
-                <li>
-                    <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
-                </li>
-            </ul>
-        </div>
-        <!-- Requirements -->
-        <div class="careerDetails__contentBox">
-            <h5 class="careerDetails__contentBox-title">Requirements</h5>
-            <ul class="careerDetails__contentBox-point">
-                <li>
-                    <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
-                </li>
-                <li>
-                    <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
-                </li>
-                <li>
-                    <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
-                </li>
-                <li>
-                    <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
-                </li>
-            </ul>
-        </div>
-        <!-- Salary -->
-        <div class="careerDetails__contentBox">
-            <h5 class="careerDetails__contentBox-title">Salary Range</h5>
-            <span class="careerDetails__contentBox-salery">Gross BDT <b>70,000</b> to <b>1,00,000</b> Per Month</span>
-        </div>
-        <!-- Benefits -->
-        <div class="careerDetails__contentBox">
-            <h5 class="careerDetails__contentBox-title">
-                Other Benefits We Offer
-            </h5>
-            <ul class="careerDetails__contentBox-point">
-                <li>
-                    <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
-                </li>
-                <li>
-                    <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
-                </li>
-                <li>
-                    <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
-                </li>
-                <li>
-                    <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
-                </li>
-            </ul>
-        </div>
-        <!-- Jobs Location -->
-        <div class="careerDetails__contentBox">
-            <h5 class="careerDetails__contentBox-title">Job location</h5>
-            <span class="careerDetails__contentBox-location">Home# 1024/N, Road# 17/A, Adabor, Dhaka-1207</span>
-        </div>
-
-        <div class="careerDetails__go">
-            <button class="zakirSoft__button zakirSoft__button_primary">
-                <a href="#">
-                    Apply for this positions
-
-                    <span><img src="{{ asset('frontend') }}/assets/images/icons/whiteArrow.png" alt="arrow" /></span>
-                </a>
-            </button>
-        </div>
+        @php
+            $expired = Carbon\Carbon::parse($post->deadline)->format('d/m/Y') > Carbon\Carbon::now()->isoFormat('d/m/Y');
+        @endphp
+        @if ($expired)
+            <div class="careerDetails__go">
+                <button class="zakirSoft__button zakirSoft__button_primary">
+                    <a target="_blank" href="{{ $post->link }}">
+                        Apply for this positions
+                        <span><img src="{{ asset('frontend') }}/assets/images/icons/whiteArrow.png" alt="arrow" /></span>
+                    </a>
+                </button>
+            </div>
+        @endif
     </div>
 </section>
 <!-- Main Section end -->
 @endsection
 
-@section('style') 
+@section('style')
 
 @endsection
