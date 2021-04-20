@@ -46,11 +46,11 @@ class NewsController extends Controller
 
         $news = News::create($request->except('image'));
 
-        if($request->has('image')) {
+        if ($request->has('image')) {
             $image = $request->image;
-            $imageName = time() . '_' . uniqid() .'.'. $image->getClientOriginalExtension();
+            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
             Storage::putFileAs('/news', $image, $imageName);
-            $news->image = 'storage/news/'. $imageName;
+            $news->image = 'storage/news/' . $imageName;
             $news->save();
         }
 
@@ -97,11 +97,11 @@ class NewsController extends Controller
 
         $news->update($request->except('image'));
 
-        if($request->has('image')) {
+        if ($request->has('image')) {
             $image = $request->image;
-            $imageName = time() . '_' . uniqid() .'.'. $image->getClientOriginalExtension();
+            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
             Storage::putFileAs('/news', $image, $imageName);
-            $news->image = 'storage/news/'. $imageName;
+            $news->image = 'storage/news/' . $imageName;
             $news->save();
         }
 

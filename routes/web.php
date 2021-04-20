@@ -6,11 +6,9 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\PortfolioCategoryController;
-use App\Http\Controllers\CareerController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\JobpostController;
@@ -27,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 /*-------------------------------------------------------------------------
  Frontend Routes
 --------------------------------------------------------------------------*/
+
 Route::get('/', [WebsiteController::class, 'home'])->name('home_website');
 Route::get('/about', [WebsiteController::class, 'about'])->name('about_website');
 Route::get('/works', [WebsiteController::class, 'work'])->name('work_website');
@@ -91,22 +90,22 @@ Route::middleware(['auth'])->prefix('panel')->group(function () {
     Route::resource('social', SocialController::class);
 
     //Team Route
-    Route::resource('team', TeamController::class );
+    Route::resource('team', TeamController::class);
 
     //news Route
-    Route::resource('news', NewsController::class );
+    Route::resource('news', NewsController::class);
 
     //subcompany Route
     Route::post('subcompany/sorting', [SubcompanyController::class, 'sorting'])->name('subcompany.sorting');
-    Route::resource('subcompany', SubcompanyController::class );
+    Route::resource('subcompany', SubcompanyController::class);
 
     // Profile/Settings Route
-    Route::resource('profile', ProfileController::class );
+    Route::resource('profile', ProfileController::class);
 
     // Role Permissions Routes
     Route::get('role/permission/{id}', [RoleController::class, 'permission_assign'])->name('PermissionAssign');
     Route::post('role/permission/{role}', [RoleController::class, 'permission_assign_post'])->name('PermissionAssignPost');
-    Route::resource('role', RoleController::class );
+    Route::resource('role', RoleController::class);
 
     // Role Assign Routes
     Route::get('user/role-assign/{user}', [UserController::class, 'role_assign'])->name('RoleAssign');
@@ -116,3 +115,6 @@ Route::middleware(['auth'])->prefix('panel')->group(function () {
     // Contact Messages
     Route::get('contact/messages', [FooterController::class, 'contact_messages'])->name('contact.index');
 });
+
+Route::get('news/{slug}', [WebsiteController::class, 'news_details'])->name('news.details');
+Route::get('job/{slug}', [WebsiteController::class, 'job_details'])->name('job.details');

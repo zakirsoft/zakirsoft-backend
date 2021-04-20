@@ -107,7 +107,7 @@ $(document).ready(function () {
 
 	// magnificPopup video view
 	// @ts-ignore
-	$('.popup-video').magnificPopup({
-		type: 'iframe',
-	});
+	// $('.popup-video').magnificPopup({
+	// 	type: 'iframe',
+	// });
 });
