@@ -60,9 +60,9 @@ class JobpostController extends Controller
      * @param  \App\Models\Jobpost  $jobpost
      * @return \Illuminate\Http\Response
      */
-    public function edit(Jobpost $jobpost)
+    public function edit(Jobpost $post)
     {
-        //
+        return view('admin.career.job.edit', compact('post'));
     }
 
     /**
@@ -72,9 +72,12 @@ class JobpostController extends Controller
      * @param  \App\Models\Jobpost  $jobpost
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Jobpost $jobpost)
+    public function update(JobpostFormRequest $request, Jobpost $post)
     {
-        //
+        $post->update($request->all());
+
+        session()->flash('success', 'Job Post Updated Successfully!');
+        return redirect(route('jobpost.index'));
     }
 
     /**

@@ -23,13 +23,24 @@ class JobpostFormRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'title' => 'required|unique:jobposts,title',
-            'type' => 'required',
-            'short_description' => 'required',
-            'long_description' => 'required',
-            'link' => 'required',
-            'deadline' => 'required',
-        ];
+        if ($this->method() == "POST") {
+            return [
+                'title' => 'required|unique:jobposts,title',
+                'type' => 'required',
+                'short_description' => 'required',
+                'long_description' => 'required',
+                'link' => 'required',
+                'deadline' => 'required',
+            ];
+        }else{
+            return [
+                'title' => "required|unique:jobposts,title,{$this->post->id}",
+                'type' => 'required',
+                'short_description' => 'required',
+                'long_description' => 'required',
+                'link' => 'required',
+                'deadline' => 'required',
+            ];
+        }
     }
 }
