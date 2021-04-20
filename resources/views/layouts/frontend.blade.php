@@ -24,6 +24,13 @@
     @yield('style')
 
     <style>
+        .slick-dots li button,
+        #testimonial-area .testimonial_slider .slick-arrow.slick-prev,
+        #testimonial-area .testimonial_slider .slick-arrow.slick-next
+         {
+            display: none !important;
+        }
+        
         #toast-container>:hover {
             opacity: 1;
         }
