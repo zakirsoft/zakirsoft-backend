@@ -13,6 +13,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\JobpostController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\ProfileController;
@@ -39,20 +40,6 @@ Route::get('/contact', [WebsiteController::class, 'contact'])->name('contact_web
 --------------------------------------------------------------------------*/
 Auth::routes(['verify' => true]);
 // Route::redirect('home', 'dashboard', 302);
-
-
-
-// Portfolio & Portfolio Category Routes
-// Route::resource('portfolio', PortfolioController::class);
-// Route::middleware(['auth'])->prefix('portfolio')->group(function () {
-//     Route::get('category/index', [PortfolioCategoryController::class, 'index'])->name('portfolio.category.index');
-//     Route::post('category/create', [PortfolioCategoryController::class, 'create'])->name('portfolio.category.create');
-//     Route::get('category/inactive/{id}', [PortfolioCategoryController::class, 'inactive'])->name('portfolio.category.inactive');
-//     Route::get('category/active/{id}', [PortfolioCategoryController::class, 'active'])->name('portfolio.category.active');
-//     Route::delete('category/destroy/{id}', [PortfolioCategoryController::class, 'destroy'])->name('portfolio.category.destroy');
-//     Route::get('category/edit/{id}', [PortfolioCategoryController::class, 'edit'])->name('portfolio.category.edit');
-//     Route::put('category/update/{id}', [PortfolioCategoryController::class, 'update'])->name('portfolio.category.update');
-// });
 
 Route::middleware(['auth'])->prefix('panel')->group(function () {
     //Dashboard Route
@@ -89,7 +76,7 @@ Route::middleware(['auth'])->prefix('panel')->group(function () {
     Route::resource('services', ServiceController::class);
 
     //Career Route
-    Route::resource('career', CareerController::class);
+    Route::resource('job/post', JobpostController::class, ['names' => 'jobpost']);
     Route::post('gallery/sorting', [GalleryController::class, 'sorting'])->name('gallery.sorting');
     Route::resource('gallery', GalleryController::class);
 
