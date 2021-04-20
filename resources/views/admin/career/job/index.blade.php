@@ -61,6 +61,7 @@
                                                     <th class="text-center">Type</th>
                                                     <th class="text-center">Salery</th>
                                                     <th class="text-center">Deadline</th>
+                                                    <th class="text-center">Status</th>
                                                     <th class="text-center">Action</th>
                                                 </tr>
                                             </thead>
@@ -73,6 +74,22 @@
                                                     <td class="text-center">{{ $post->salary }}</td>
                                                     <td class="text-center">{{ $post->deadline }}</td>
                                                     <td class="text-center">
+                                                        @if ($post->status)
+                                                            <span class="badge badge-success">Active</span>
+                                                        @else
+                                                            <span class="badge badge-warning">Inactive</span>
+                                                        @endif
+                                                    </td>
+                                                    <td class="text-center">
+                                                        @if ($post->status)
+                                                            <a href="{{ route('jobpost.inactive', $post->id) }}" class="btn btn-sm btn-warning" title="Inactive Post">
+                                                                <i class="fa fa-arrow-down"></i>
+                                                            </a>
+                                                        @else
+                                                            <a href="{{ route('jobpost.active', $post->id) }}" class="btn btn-sm btn-success" title="Active Post">
+                                                                <i class="fa fa-arrow-up"></i>
+                                                            </a>
+                                                        @endif
                                                         <a href="{{ route('jobpost.show', $post->id) }}" class="btn btn-sm btn-info" title="Details Post">
                                                             <i class="fa fa-eye"></i>
                                                         </a>

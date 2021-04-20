@@ -95,4 +95,30 @@ class JobpostController extends Controller
         session()->flash('success', 'Job Post Deleted Successfully!');
         return back();
     }
+
+    /**
+     * status active.
+     */
+    public function active(Jobpost $post)
+    {
+        if ($post) {
+            $post->update(['status' => true]);
+        }
+
+        session()->flash('success', 'Job Post Activated Successfully!');
+        return back();
+    }
+
+    /**
+     * status inactive.
+     */
+    public function inactive(Jobpost $post)
+    {
+        if ($post) {
+            $post->update(['status' => false]);
+        }
+
+        session()->flash('success', 'Job Post Inactivated Successfully!');
+        return back();
+    }
 }
