@@ -70,6 +70,7 @@
                                                     <th>Name</th>
                                                     <th>Position</th>
                                                     <th>Image</th>
+                                                    <th>Status</th>
                                                     <th class="text-center">Action</th>
                                                 </tr>
                                             </thead>
@@ -78,18 +79,33 @@
                                                 <tr data-id="{{ $team->id }}">
                                                     <td class="text-center">{{ $team->name }}</td>
                                                     <td class="text-center">{{ $team->position }}</td>
-                                                <td class="text-center"><img width="100px" src="{{ asset($team->image) }}" alt=""></td>
-                                                <td class="text-center">
-                                                    <a href="{{ route('team.edit', $team->id) }}" class="btn btn-sm btn-warning " title="Edit Role">
-                                                        <i class="far fa-edit"></i>
-                                                    </a>
-                                                    <form action="{{ route('team.destroy', $team->id) }}" method="POST" class="d-inline">
-                                                        @method('DELETE')
-                                                        @csrf
-                                                        <button onclick="return confirm('Are you sure you want to delete this item?');"  class="btn btn-sm btn-danger text-light"><i class="far fa-trash-alt"></i></button>
-                                                    </form>
-                                                     <div class="handle btn btn-success btn-sm"><i class="fas fa-hand-rock"></i></div>
-                                                </td>
+                                                    <td class="text-center"><img width="100px" src="{{ asset($team->image) }}" alt=""></td>
+                                                    <td class="text-center">
+                                                        @if ($team->status)
+                                                            <span class="badge badge-success">Active</span>
+                                                        @else
+                                                            <span class="badge badge-warning">Inactive</span>
+                                                        @endif
+                                                    </td>
+                                                    <td class="text-center">
+                                                        @if ($team->status)
+                                                            <a href="{{ route('team.inactive', $team->id) }}" class="btn btn-sm btn-warning" title="Inactive Post">
+                                                                <i class="fa fa-arrow-down"></i>
+                                                            </a>
+                                                        @else
+                                                            <a href="{{ route('team.active', $team->id) }}" class="btn btn-sm btn-success" title="Active Post">
+                                                                <i class="fa fa-arrow-up"></i>
+                                                            </a>
+                                                        @endif
+                                                        <a href="{{ route('team.edit', $team->id) }}" class="btn btn-sm btn-warning " title="Edit Role">
+                                                            <i class="far fa-edit"></i>
+                                                        </a>
+                                                        <form action="{{ route('team.destroy', $team->id) }}" method="POST" class="d-inline">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button onclick="return confirm('Are you sure you want to delete this item?');"  class="btn btn-sm btn-danger text-light"><i class="far fa-trash-alt"></i></button>
+                                                        </form>
+                                                        <div class="handle btn btn-success btn-sm"><i class="fas fa-hand-rock"></i></div>
                                                     </td>
                                                 </tr>
                                                 @empty

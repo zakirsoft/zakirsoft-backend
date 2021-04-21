@@ -94,6 +94,8 @@ Route::middleware(['auth'])->prefix('panel')->group(function () {
     Route::resource('social', SocialController::class);
 
     //Team Route
+    Route::get('team/active/{team}', [TeamController::class, 'active'])->name('team.active');
+    Route::get('team/inactive/{team}', [TeamController::class, 'inactive'])->name('team.inactive');
     Route::post('team/sorting', [TeamController::class, 'sorting'])->name('team.sorting');
     Route::resource('team', TeamController::class);
 
