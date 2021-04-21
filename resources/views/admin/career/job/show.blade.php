@@ -4,7 +4,7 @@
     Job Details - ZakirSoft
 @endsection
 
-@section('subcompany')
+@section('career')
     active pcoded-trigger
 @endsection
 

@@ -4,7 +4,7 @@
     Job Post - ZakirSoft
 @endsection
 
-@section('jobpost')
+@section('career')
     active pcoded-trigger
 @endsection
 
@@ -59,7 +59,7 @@
                                                     <th class="text-center">SL</th>
                                                     <th class="text-center">Title</th>
                                                     <th class="text-center">Type</th>
-                                                    <th class="text-center">Salery</th>
+                                                    <th class="text-center">Salary</th>
                                                     <th class="text-center">Deadline</th>
                                                     <th class="text-center">Status</th>
                                                     <th class="text-center">Action</th>

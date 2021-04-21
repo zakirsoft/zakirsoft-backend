@@ -125,7 +125,7 @@
                 </ul>
             </li>
             @can('career show')
-            <li class="pcoded-hasmenu @yield('testimonial')">
+            <li class="pcoded-hasmenu @yield('career')">
                 @can('testimonial show')
                 <a href="javascript:void(0)" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="far fa-file-word"></i></span>
