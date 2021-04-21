@@ -17,7 +17,8 @@ class SubcompanyController extends Controller
      */
     public function index()
     {
-        $subcompanies = Subcompany::oldest('order')->paginate(10);
+        $subcompanies = Subcompany::oldest('order')->get();
+
         return view('admin.subcompany.index', compact('subcompanies'));
     }
 

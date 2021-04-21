@@ -92,17 +92,27 @@
                                         </div>
                                         <div class="row justify-content-center">
                                             <div class="col-6">
+                                                <div class="form-group mb-1">
+                                                    <label for="stats1_text" class="col-form-label"> Stat 1 Title </label>
+                                                    <input type="text" class="form-control @error('stats1_text') is-invalid @enderror" name="stats1_text" id="stats1_text" placeholder="Stat title" value="{{ old('stats1_text') }}">
+                                                    @error('stats1_text') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                </div>
                                                 <div class="form-group">
-                                                    <label for="downloads" class="col-form-label">Total Downloads</label>
-                                                    <input type="text" class="form-control @error('downloads') is-invalid @enderror" name="downloads" id="downloads" placeholder="Total Downloads" value="{{ old('downloads') }}">
-                                                     @error('downloads') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                    <label for="stats1_value" class="col-form-label"> Stat 1 Value </label>
+                                                    <input type="text" class="form-control @error('stats1_value') is-invalid @enderror" name="stats1_value" id="stats1_value" placeholder="Stat value" value="{{ old('stats1_value') }}">
+                                                    @error('stats1_value') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                             <div class="col-6">
+                                                <div class="form-group mb-1">
+                                                    <label for="stats2_text" class="col-form-label"> Stat 2 Title </label>
+                                                    <input type="text" class="form-control @error('stats2_text') is-invalid @enderror" name="stats2_text" id="stats2_text" placeholder="Stat title" value="{{ old('stats2_text') }}">
+                                                    @error('stats2_text') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                </div>
                                                 <div class="form-group">
-                                                    <label for="views" class="col-form-label">Total Views</label>
-                                                    <input type="text" class="form-control @error('views') is-invalid @enderror" name="views" id="views" placeholder="Total Views" value="{{ old('views') }}">
-                                                    @error('views') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                    <label for="stats2_value" class="col-form-label"> Stat 2 Value </label>
+                                                    <input type="text" class="form-control @error('stats2_value') is-invalid @enderror" name="stats2_value" id="stats2_value" placeholder="Stat value" value="{{ old('stats2_value') }}">
+                                                    @error('stats2_value') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                         </div>

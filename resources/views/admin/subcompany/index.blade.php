@@ -66,7 +66,7 @@
                                             <tbody id="sortable">
                                                 @forelse ($subcompanies as $key => $company)
                                                 <tr data-id="{{ $company->id }}">
-                                                    <th scope="row">{{ $subcompanies->firstItem() + $key }}</th>
+                                                    <th scope="row">{{ $company->id }}</th>
                                                     <td>{{ $company->title }}</td>
                                                     <td>
                                                         <img width="100px" height="100px" src="{{asset($company->logo) }}" alt="" class="img-fluid">
@@ -75,9 +75,8 @@
                                                         <img width="200px" height="100px" src="{{asset($company->banner) }}" alt="" class="img-fluid">
                                                     </td>
                                                     <td>
-                                                        <p><strong>Total Downloads: </strong>{{ $company->downloads }}</p>
-                                                        <p><strong>Total Views: </strong>{{ $company->views }}</p>
-                                                        <strong>Description: </strong><span class="d-inline-block">{!! $company->description !!}</span>
+                                                        <p><strong>{{ $company->stats1_text }}: </strong>{{ $company->stats1_value }}</p>
+                                                        <p><strong>{{ $company->stats2_text }}: </strong>{{ $company->stats2_value }}</p>
                                                     </td>
 
                                                     <td class="text-center">
@@ -101,7 +100,6 @@
                                                 @endforelse
                                             </tbody>
                                         </table>
-                                        {{ $subcompanies->links()  }}
                                     </div>
                                 </div>
                             </div>

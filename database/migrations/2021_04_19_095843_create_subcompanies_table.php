@@ -20,13 +20,13 @@ class CreateSubcompaniesTable extends Migration
             $table->string('link');
             $table->string('logo')->nullable();
             $table->string('banner')->nullable();
-            $table->integer('downloads');
-            $table->integer('views');
+            $table->integer('stats1_value')->default(0);
+            $table->string('stats1_text')->default('Stats 1 text');
+            $table->integer('stats2_value')->default(0);
+            $table->string('stats2_text')->default('Stats 2 text');
             $table->integer('order')->unsigned()->default(0);
             $table->timestamps();
         });
-
-
     }
 
     /**
