@@ -124,38 +124,6 @@
                     </li>
                 </ul>
             </li>
-            <li class="@yield('services')">
-                <a href="{{ route('services.index') }}" class="waves-effect waves-dark">
-                    <span class="pcoded-micon">
-                        <i class="fas fa-briefcase"></i>
-                    </span>
-                    <span class="pcoded-mtext">Services</span>
-                </a>
-            </li>
-            <li class="@yield('services')">
-                <a href="{{ route('services.index') }}" class="waves-effect waves-dark">
-                    <span class="pcoded-micon">
-                        <i class="fas fa-briefcase"></i>
-                    </span>
-                    <span class="pcoded-mtext">Technology</span>
-                </a>
-            </li>
-            <li class="@yield('news')">
-                <a href="{{ route('news.index') }}" class="waves-effect waves-dark">
-                    <span class="pcoded-micon">
-                        <i class="fas fa-newspaper"></i>
-                    </span>
-                    <span class="pcoded-mtext">News</span>
-                </a>
-            </li>
-            <li class="@yield('subcompany')">
-                <a href="{{ route('subcompany.index') }}" class="waves-effect waves-dark">
-                    <span class="pcoded-micon">
-                        <i class="fas fa-industry"></i>
-                    </span>
-                    <span class="pcoded-mtext">Subcompany</span>
-                </a>
-            </li>
             @can('career show')
             <li class="pcoded-hasmenu @yield('testimonial')">
                 @can('testimonial show')
@@ -178,6 +146,30 @@
                 @endcan
             </li>
             @endcan
+            <li class="@yield('services')">
+                <a href="{{ route('services.index') }}" class="waves-effect waves-dark">
+                    <span class="pcoded-micon">
+                        <i class="fas fa-briefcase"></i>
+                    </span>
+                    <span class="pcoded-mtext">Services</span>
+                </a>
+            </li>
+            <li class="@yield('news')">
+                <a href="{{ route('news.index') }}" class="waves-effect waves-dark">
+                    <span class="pcoded-micon">
+                        <i class="fas fa-newspaper"></i>
+                    </span>
+                    <span class="pcoded-mtext">News</span>
+                </a>
+            </li>
+            <li class="@yield('subcompany')">
+                <a href="{{ route('subcompany.index') }}" class="waves-effect waves-dark">
+                    <span class="pcoded-micon">
+                        <i class="fas fa-industry"></i>
+                    </span>
+                    <span class="pcoded-mtext">Subcompany</span>
+                </a>
+            </li>
             @can('team show')
             <li class="@yield('team')">
                 <a href="{{ route('team.index') }}" class="waves-effect waves-dark">
