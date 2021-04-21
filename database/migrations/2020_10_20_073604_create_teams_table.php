@@ -18,6 +18,7 @@ class CreateTeamsTable extends Migration
             $table->string('name');
             $table->string('position');
             $table->string('image')->nullable();
+            $table->integer('order')->unsigned()->default(0);
             $table->timestamps();
         });
     }

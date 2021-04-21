@@ -9,7 +9,5 @@ class Team extends Model
 {
     use HasFactory;
 
-    protected $fillable=[
-        'image','name','position',
-    ];
+    protected $guarded=[];
 }

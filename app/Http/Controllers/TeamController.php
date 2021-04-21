@@ -18,7 +18,7 @@ class TeamController extends Controller
 
     public function index()
     {
-        $team = Team::all();
+        $team = Team::oldest('order')->get();
         return view('admin.team.index')->with('teams', $team);
     }
 
@@ -120,5 +120,29 @@ class TeamController extends Controller
 
         session()->flash('success', 'Member Deleted Successfully!');
         return back();
+    }
+
+
+    /**
+     * List Sorting.
+     *
+     * @param  \App\Models\Subcompany  $subcompany
+     * @return \Illuminate\Http\Response
+     */
+    public function sorting(Request $request)
+    {
+        $tasks = Team::all();
+        foreach ($tasks as $task) {
+            $task->timestamps = false; // To disable update_at field updation
+            $id = $task->id;
+
+            foreach ($request->order as $order) {
+                if ($order['id'] == $id) {
+                    $task->update(['order' => $order['position']]);
+                }
+            }
+        }
+
+        return response()->json(['message' => 'Team Sorted Successfully!']);
     }
 }

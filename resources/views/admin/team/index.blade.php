@@ -73,14 +73,14 @@
                                                     <th class="text-center">Action</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody id="sortable">
                                                 @forelse ($teams as $team)
-                                                <tr>
+                                                <tr data-id="{{ $team->id }}">
                                                     <td class="text-center">{{ $team->name }}</td>
                                                     <td class="text-center">{{ $team->position }}</td>
                                                 <td class="text-center"><img width="100px" src="{{ asset($team->image) }}" alt=""></td>
                                                 <td class="text-center">
-                                                    <a href="{{ route('team.edit', $team->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit Role">
+                                                    <a href="{{ route('team.edit', $team->id) }}" class="btn btn-sm btn-warning " title="Edit Role">
                                                         <i class="far fa-edit"></i>
                                                     </a>
                                                     <form action="{{ route('team.destroy', $team->id) }}" method="POST" class="d-inline">
@@ -88,6 +88,7 @@
                                                         @csrf
                                                         <button onclick="return confirm('Are you sure you want to delete this item?');"  class="btn btn-sm btn-danger text-light"><i class="far fa-trash-alt"></i></button>
                                                     </form>
+                                                     <div class="handle btn btn-success btn-sm"><i class="fas fa-hand-rock"></i></div>
                                                 </td>
                                                     </td>
                                                 </tr>
@@ -160,7 +161,6 @@
 
 @section('script')
 <script>
-
     /* image 1 */
     $('#single_image_preview').hide();
     $('#reaset_multiple').hide();
@@ -173,6 +173,46 @@
         };
         reader.readAsDataURL(input.files[0]);
       }
-  }
+    }
+
+    $(function() {
+        $("#sortable" ).sortable({
+            items: 'tr',
+            cursor: 'move',
+            opacity: 0.4,
+            scroll: false,
+            handle: '.handle',
+            dropOnEmpty: false,
+            update: function() {
+                sendTaskOrderToServer('#sortable tr');
+            },
+            classes: {
+                "ui-sortable": "highlight"
+            },
+        });
+        $("#sortable").disableSelection();
+        function sendTaskOrderToServer(selector) {
+            var order = [];
+            $(selector).each(function(index,element) {
+                order.push({
+                    id: $(this).attr('data-id'),
+                    position: index+1
+                });
+            });
+            console.log(order)
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "{{ route('team.sorting') }}",
+                data: {
+                    order:order,
+                    _token: "{{ csrf_token() }}",
+                },
+                success: function(response) {
+                    toastr.success(response.message,'Success');
+                }
+            });
+        }
+    });
 </script>
 @endsection
