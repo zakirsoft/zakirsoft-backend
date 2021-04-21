@@ -30,7 +30,7 @@
            {!! $post->long_description !!}
         </div>
         @php
-            $expired = Carbon\Carbon::parse($post->deadline)->format('d/m/Y') > Carbon\Carbon::now()->isoFormat('d/m/Y');
+            $expired = Carbon\Carbon::parse($post->deadline)->format('Y-m-d') >= Carbon\Carbon::now()->toDateString();
         @endphp
         @if ($expired)
             <div class="careerDetails__go">

@@ -177,7 +177,7 @@
                             <div class="positions__right">
                                 <button class="zakirSoft__button">
                                     @php
-                                        $expired = Carbon\Carbon::parse($post->deadline)->format('d/m/Y') > Carbon\Carbon::now()->isoFormat('d/m/Y');
+                                        $expired = Carbon\Carbon::parse($post->deadline)->format('Y-m-d') >= Carbon\Carbon::now()->toDateString();
                                     @endphp
 
                                     @if ($expired)
@@ -187,7 +187,7 @@
                                         </a>
                                     @else
                                         <a href="{{ route('job.details', ['slug' => $post->slug]) }}">
-                                            Post Deadline Expired
+                                            Deadline Expired
                                             <span><i class="fas fa-arrow-right"></i></span>
                                         </a>
                                     @endif
