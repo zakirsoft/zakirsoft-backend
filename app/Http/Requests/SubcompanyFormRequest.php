@@ -27,10 +27,8 @@ class SubcompanyFormRequest extends FormRequest
             'title' => "required",
             'description' => 'required',
             'link' => 'required',
-            'logo' => 'required',
-            'banner' => 'required',
-            'downloads' => 'required|numeric',
-            'views' => 'required|numeric',
+            'logo' => 'required|image|max:1024',
+            'banner' => 'required|image|max:2048',
         ];
     }
 }
