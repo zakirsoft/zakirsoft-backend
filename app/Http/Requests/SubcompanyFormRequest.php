@@ -23,12 +23,20 @@ class SubcompanyFormRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'title' => "required",
-            'description' => 'required',
-            'link' => 'required',
-            'logo' => 'required|image|max:1024',
-            'banner' => 'required|image|max:2048',
-        ];
+        if ($this->method() == 'POST') {
+            return [
+                'title' => "required",
+                'description' => 'required',
+                'link' => 'required',
+                'logo' => 'required|image|max:1024',
+                'banner' => 'required|image|max:2048',
+            ];
+        }else{
+            return [
+                'title' => "required",
+                'description' => 'required',
+                'link' => 'required',
+            ];
+        }
     }
 }
