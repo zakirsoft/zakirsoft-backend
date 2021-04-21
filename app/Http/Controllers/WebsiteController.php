@@ -33,7 +33,7 @@ class WebsiteController extends Controller
 
     function about()
     {
-        $team = Team::all();
+        $team = Team::oldest('order')->get();
         $content = Footer::get()->first();
         $socials = Social::all();
         $about = About::first();
