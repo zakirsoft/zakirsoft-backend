@@ -72,7 +72,7 @@
                                                     <td class="text-center">{{ $post->title }}</td>
                                                     <td class="text-center">{{ $post->type }}</td>
                                                     <td class="text-center">{{ $post->salary }}</td>
-                                                    <td class="text-center">{{ $post->deadline }}</td>
+                                                    <td class="text-center">{{ \Carbon\Carbon::parse($post->deadline)->format('d M, Y') }}</td>
                                                     <td class="text-center">
                                                         @if ($post->status)
                                                             <span class="badge badge-success">Active</span>

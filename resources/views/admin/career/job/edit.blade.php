@@ -89,7 +89,7 @@
                                             <div class="col-3">
                                                 <div class="form-group">
                                                     <label for="deadline" class="col-form-label">Dead Line</label>
-                                                    <input type="date" class="form-control @error('deadline') is-invalid @enderror" name="deadline" id="deadline" value="{{ $post->deadline }}">
+                                                    <input type="date" class="form-control @error('deadline') is-invalid @enderror" name="deadline" id="deadline" value="{{ $post->dateFormate($post->deadline) }}">
                                                      @error('deadline') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>

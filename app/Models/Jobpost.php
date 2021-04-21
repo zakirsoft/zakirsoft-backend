@@ -36,4 +36,13 @@ class Jobpost extends Model
 
         $this->attributes['deadline'] = $date;
     }
+
+    /**
+     * Format the upcoming date
+     * format yyyy-mm-dd
+     */
+    public function dateFormate($value)
+    {
+       return \Carbon\Carbon::parse($value)->format('Y-m-d'); // 2015-10-28 19:18:44
+    }
 }
