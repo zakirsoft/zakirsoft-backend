@@ -68,13 +68,6 @@
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">Description</label>
-                                                    <textarea type="text" class="form-control @error('description') is-invalid @enderror" name="description" placeholder="Write description here.... " rows="5">{{ $news->description }}</textarea>
-                                                    @error('description') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
                                                 <label>Old Image</label> <br>
                                                 <img height="80px" height="80px" src="{{ asset($news->image) }}" alt="">
                                             </div>
@@ -85,12 +78,18 @@
                                                      @error('image') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label class="col-form-label">Description</label>
+                                                    <textarea id="editor2" type="text" class="form-control @error('description') is-invalid @enderror" name="description" rows="5">{{ $news->description }}</textarea>
+                                                    @error('description') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                </div>
+                                            </div>
                                         </div>
                                         <button type="submit" class="btn btn-primary  m-b-0"><i class="fas fa-plus"></i> Update</button>
                                     </form>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -99,4 +98,24 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('style')
+    <style>
+        .ck-editor__editable_inline {
+            min-height: 200px;
+        }
+    </style>
+@endsection
+
+@section('script')
+    <script src="{{ asset('admin') }}/js/ckeditor.js"></script>
+    <script>
+        //Initialize Select2 Elements
+        ClassicEditor
+            .create(document.querySelector('#editor2'))
+            .catch(error => {
+                console.error(error);
+        });
+    </script>
 @endsection

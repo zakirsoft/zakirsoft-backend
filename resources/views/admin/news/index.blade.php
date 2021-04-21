@@ -71,7 +71,7 @@
                                                             <img width="80px" height="80px" class="img-fluid" src="{{ asset($news->image) }}" alt="image">
                                                         </td>
                                                         <td>{{ $news->title }}</td>
-                                                        <td style="max-width: 300px">{{ $news->description }}</td>
+                                                        <td style="max-width: 300px">{!! $news->description !!}</td>
                                                         <td class="text-center">
                                                             <a href="{{ route('news.edit', $news->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit News">
                                                                 <i class="far fa-edit"></i>

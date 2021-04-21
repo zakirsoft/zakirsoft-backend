@@ -68,16 +68,16 @@
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-group">
-                                                    <label class="col-form-label">Description</label>
-                                                    <textarea type="text" class="form-control @error('description') is-invalid @enderror" name="description" placeholder="Write description here.... " rows="5">{{ old('description') }}</textarea>
-                                                    @error('description') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                    <label class="col-form-label">Image</label>
+                                                    <input type="file" class="p-0 border-0 form-control @error('image') is-invalid @enderror" name="image">
+                                                     @error('image') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-group">
-                                                    <label class="col-form-label">Image</label>
-                                                    <input type="file" class="p-0 border-0 form-control @error('image') is-invalid @enderror" name="image">
-                                                     @error('image') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                    <label class="col-form-label">Description</label>
+                                                    <textarea id="editor2" type="text" class="form-control @error('description') is-invalid @enderror" name="description" rows="5">{{ old('description') }}</textarea>
+                                                    @error('description') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -92,4 +92,24 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('style')
+    <style>
+        .ck-editor__editable_inline {
+            min-height: 200px;
+        }
+    </style>
+@endsection
+
+@section('script')
+    <script src="{{ asset('admin') }}/js/ckeditor.js"></script>
+    <script>
+        //Initialize Select2 Elements
+        ClassicEditor
+            .create(document.querySelector('#editor2'))
+            .catch(error => {
+                console.error(error);
+        });
+    </script>
 @endsection
