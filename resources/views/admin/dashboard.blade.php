@@ -10,9 +10,9 @@
 
 @section('content')
 
-    <div class="loader-bg">
-        <div class="loader-bar"></div>
-    </div>
+<div class="loader-bg">
+    <div class="loader-bar"></div>
+</div>
 
 <div class="pcoded-content">
     <div class="page-header card">

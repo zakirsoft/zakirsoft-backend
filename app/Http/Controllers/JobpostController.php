@@ -37,6 +37,10 @@ class JobpostController extends Controller
      */
     public function store(JobpostFormRequest $request)
     {
+        // dd($request->all());
+
+        $date = \Carbon\Carbon::parse($request->deadline)->format('d M, Y');
+        dd($date);
         Jobpost::create($request->all());
 
         session()->flash('success', 'Job Post Added Successfully!');

@@ -22,7 +22,7 @@ class CreateJobpostsTable extends Migration
             $table->text('short_description');
             $table->longText('long_description');
             $table->string('link');
-            $table->date('deadline');
+            $table->timestamp('deadline');
             $table->boolean('status')->default(true);
             $table->integer('order')->unsigned()->default(0);
             $table->timestamps();
