@@ -4,7 +4,7 @@
     Edit Service - ZakirSoft
 @endsection
 
-@section('service')
+@section('services')
     active pcoded-trigger
 @endsection
 
