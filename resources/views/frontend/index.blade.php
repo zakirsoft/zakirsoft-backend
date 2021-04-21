@@ -220,12 +220,12 @@
                         <h5 class="latestProject__title">{{ $company->title }}</h5>
                         <div class="latestProject__projectInfo">
                             <div class="latestProject__info">
-                            <h5>{{ $company->downloads }}+</h5>
-                            <p>Product Download</p>
+                            <h5>{{ $company->stats1_value }}+</h5>
+                            <p>{{ $company->stats1_text }}</p>
                             </div>
                             <div class="latestProject__info">
-                            <h5>{{ $company->views }}+</h5>
-                            <p>Product view</p>
+                                <h5>{{ $company->stats2_value }}+</h5>
+                                <p>{{ $company->stats2_text }}</p>
                             </div>
                         </div>
                         <p class="latestProject__brief">{!! $company->description !!}</p>
