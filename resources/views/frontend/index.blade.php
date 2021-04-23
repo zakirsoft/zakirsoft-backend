@@ -233,7 +233,7 @@
 
                                 <button class="zakirSoft__button">
                                     <a target="_blank" href="{{ $company->link }}">Launch {{ $company->title }}
-                                        <span><img src="assets/images/icons/arrow.png" alt="arrow"/></span>
+                                        <span><img src="{{ asset('frontend/assets/images/icons/arrow.png') }}" alt="arrow"/></span>
                                     </a>
                                 </button>
                                 </div>
@@ -275,7 +275,7 @@
 
                                     <button class="zakirSoft__button">
                                         <a target="_blank" href="{{ $company->link }}">Launch {{ $company->title }}
-                                            <span><img src="assets/images/icons/arrow.png" alt="arrow"/></span>
+                                            <span><img src="{{ asset('frontend/assets/images/icons/arrow.png') }}" alt="arrow"/></span>
                                         </a>
                                     </button>
                                 </div>
