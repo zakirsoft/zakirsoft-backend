@@ -207,54 +207,85 @@
   </section>
   <!-- testimonial section end -->
   <!-- Projects Section Start -->
-  <section class="p-0">
-      @foreach ($subcompanies as $company)
-        <div class="latestProject latestProject--one">
-            <div class="container latestProject__container">
-                <div class="row">
-                <div class="col-lg-6 order-2 order-lg-0">
-                    <div class="latestProject__contentText">
-                        <div class="latestProject__logo">
-                            <img src="{{ asset($company->logo) }}" alt="brandLogo" />
-                        </div>
-                        <h5 class="latestProject__title">{{ $company->title }}</h5>
-                        <div class="latestProject__projectInfo">
-                            <div class="latestProject__info">
-                            <h5>{{ $company->stats1_value }}+</h5>
-                            <p>{{ $company->stats1_text }}</p>
-                            </div>
-                            <div class="latestProject__info">
-                                <h5>{{ $company->stats2_value }}+</h5>
-                                <p>{{ $company->stats2_text }}</p>
-                            </div>
-                        </div>
-                        <p class="latestProject__brief">{!! $company->description !!}</p>
+    <section class="p-0">
+        @foreach ($subcompanies as $company)
+            @if($loop->iteration % 2 == 0)
+                <div class="latestProject latestProject--one">
+                    <div class="container latestProject__container">
+                        <div class="row">
+                            <div class="col-lg-6 order-2 order-lg-0">
+                                <div class="latestProject__contentText">
+                                <div class="latestProject__logo">
+                                    <img src="{{ asset($company->logo) }}" alt="brandLogo" />
+                                </div>
+                                <h5 class="latestProject__title">{{ $company->title }}</h5>
+                                <div class="latestProject__projectInfo">
+                                    <div class="latestProject__info">
+                                        <h5>{{ $company->stats1_value }}+</h5>
+                                        <p>{{ $company->stats1_text }}</p>
+                                    </div>
+                                    <div class="latestProject__info">
+                                        <h5>{{ $company->stats2_value }}+</h5>
+                                        <p>{{ $company->stats2_text }}</p>
+                                    </div>
+                                </div>
+                                <p class="latestProject__brief">{!! $company->description !!}</p>
 
-                        <button class="zakirSoft__button">
-                            <a target="_blank" href="{{ $company->link }}">
-                            Visit {{ $company->title }}
-                            <span
-                                ><img src="{{ asset('frontend') }}/assets/images/icons/arrow.png" alt="arrow"
-                            /></span>
-                            </a>
-                        </button>
+                                <button class="zakirSoft__button">
+                                    <a target="_blank" href="{{ $company->link }}">Launch {{ $company->title }}
+                                        <span><img src="assets/images/icons/arrow.png" alt="arrow"/></span>
+                                    </a>
+                                </button>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 order-1 order-lg-0">
+                                <div class="latestProject__imgContent latestProject__imgContent_one">
+                                    <img src="{{ asset($company->banner) }}" alt="echotemplate" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6 order-1 order-lg-0">
-                    <div
-                    class="latestProject__imgContent latestProject__imgContent_one"
-                    >
-                    <img
-                        src="{{ asset($company->banner) }}"
-                        alt="echotemplate"
-                    />
+            @else
+                <div class="latestProject latestProject--two">
+                    <div class="container latestProject__container">
+                        <div class="row">
+                            <div class="col-lg-6 order-2a order-lg-0">
+                                <div class="latestProject__imgContent latestProject__imgContent_two">
+                                    <img src="{{ asset($company->banner) }}" alt="codeshiki"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 order-1 order-lg-0">
+                                <div class="latestProject__contentText latestProject__contentText_two">
+                                    <div class="latestProject__logo latestProject__logo_codeshikhi">
+                                        <img src="{{ asset($company->logo) }}" alt="brandLogo" />
+                                    </div>
+                                    <h5 class="latestProject__title">{{ $company->title }}</h5>
+                                    <div class="latestProject__projectInfo">
+                                        <div class="latestProject__info">
+                                            <h5>{{ $company->stats1_value }}+</h5>
+                                            <p>{{ $company->stats1_text }}</p>
+                                        </div>
+                                        <div class="latestProject__info">
+                                            <h5>{{ $company->stats2_value }}+</h5>
+                                            <p>{{ $company->stats2_text }}</p>
+                                        </div>
+                                    </div>
+                                    <p class="latestProject__brief">{!! $company->description !!}</p>
+
+                                    <button class="zakirSoft__button">
+                                        <a target="_blank" href="{{ $company->link }}">Launch {{ $company->title }}
+                                            <span><img src="assets/images/icons/arrow.png" alt="arrow"/></span>
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-            </div>
-        </div>
-    @endforeach
-  </section>
+            @endif
+        @endforeach
+    </section>
   <!-- Projects Section End -->
 
   <!-- Article/Blog Section Start  -->
