@@ -146,29 +146,14 @@ class TeamController extends Controller
         return response()->json(['message' => 'Team Sorted Successfully!']);
     }
 
-    /**
-     * status active.
-     */
-    public function active(Team $team)
+    public function statusChange(Request $request)
     {
-        if ($team) {
-            $team->update(['status' => true]);
+       Team::find($request->id)->update(['status' => $request->status]);
+
+        if ($request->status) {
+            return response()->json(['message' => 'Team Activated Successfully']);
+        }else{
+            return response()->json(['message' => 'Team Inactivated Successfully']);
         }
-
-        session()->flash('success', 'Team Activated Successfully!');
-        return back();
-    }
-
-    /**
-     * status inactive.
-     */
-    public function inactive(Team $team)
-    {
-        if ($team) {
-            $team->update(['status' => false]);
-        }
-
-        session()->flash('success', 'Team Inactivated Successfully!');
-        return back();
     }
 }

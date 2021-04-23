@@ -80,23 +80,15 @@
                                                     <td class="text-center">{{ $team->name }}</td>
                                                     <td class="text-center">{{ $team->position }}</td>
                                                     <td class="text-center"><img width="100px" src="{{ asset($team->image) }}" alt=""></td>
-                                                    <td class="text-center">
-                                                        @if ($team->status)
-                                                            <span class="badge badge-success">Active</span>
-                                                        @else
-                                                            <span class="badge badge-warning">Inactive</span>
-                                                        @endif
+                                                     <td class="text-center">
+                                                        <div>
+                                                            <label class="switch ">
+                                                                <input data-id="{{ $team->id }}" type="checkbox" class="success toggle-switch" {{ $team->status == 1 ? 'checked':'' }}>
+                                                                <span class="slider round"></span>
+                                                            </label>
+                                                        </div>
                                                     </td>
                                                     <td class="text-center">
-                                                        @if ($team->status)
-                                                            <a href="{{ route('team.inactive', $team->id) }}" class="btn btn-sm btn-warning" title="Inactive Post">
-                                                                <i class="fa fa-arrow-down"></i>
-                                                            </a>
-                                                        @else
-                                                            <a href="{{ route('team.active', $team->id) }}" class="btn btn-sm btn-success" title="Active Post">
-                                                                <i class="fa fa-arrow-up"></i>
-                                                            </a>
-                                                        @endif
                                                         <a href="{{ route('team.edit', $team->id) }}" class="btn btn-sm btn-warning " title="Edit Role">
                                                             <i class="far fa-edit"></i>
                                                         </a>
@@ -172,6 +164,53 @@
     /* Image Style  */
     img{ max-width:80px; }
     input[type=file]{ padding:10px; }
+
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 35px;
+        height: 19px;
+    }
+    /* Hide default HTML checkbox */
+    .switch input {display:none;}
+        /* The slider */
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 15px;
+        width: 15px;
+        left: 3px;
+        bottom: 2px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+    input.success:checked + .slider {
+        background-color: #28a745;
+    }
+    input:checked + .slider:before {
+        -webkit-transform: translateX(15px);
+        -ms-transform: translateX(15px);
+        transform: translateX(15px);
+    }
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+    .slider.round:before {
+        border-radius: 50%;
+    }
 </style>
 @endsection
 
@@ -230,5 +269,19 @@
             });
         }
     });
+
+     $('.toggle-switch').change(function() {
+            var status = $(this).prop('checked') == true ? 1 : 0;
+            var id = $(this).data('id');
+            $.ajax({
+                type: "GET",
+                dataType: "json",
+                url: '{{ route("team.status.change") }}',
+                data: {'status': status, 'id': id},
+                success: function(response){
+                    toastr.success(response.message,'Success');
+                }
+            });
+        })
 </script>
 @endsection
