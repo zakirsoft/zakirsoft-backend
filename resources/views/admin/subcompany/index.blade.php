@@ -31,7 +31,7 @@
                         <li class="breadcrumb-item">
                             <a href="{{ route('dashboard.index') }}"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Portfolio</a>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Subcompanty</a>
                         </li>
                     </ul>
                 </div>
