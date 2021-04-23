@@ -106,46 +106,53 @@
                 </ul>
                 @endcan
             </li>
+            @can('technology show' || 'technology-category show')
             <li class="pcoded-hasmenu @yield('technology')">
                 <a href="javascript:void(0)" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="fas fa-desktop"></i></span>
                     <span class="pcoded-mtext">Technology</span>
                 </a>
                 <ul class="pcoded-submenu">
+                    @can('technology-category show')
                     <li class="">
-                            <a href="{{ route('technology.category.index') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Category List</span>
-                            </a>
-                        </li>
+                        <a href="{{ route('technology.category.index') }}" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">Category List</span>
+                        </a>
+                    </li>
+                    @endcan
+                    @can('technology show')
                     <li class="">
                         <a href="{{ route('technology.index') }}" class="waves-effect waves-dark">
                             <span class="pcoded-mtext">Technology List</span>
                         </a>
                     </li>
+                    @endcan
                 </ul>
             </li>
-            @can('career show')
+            @endcan
+            @can('jobpost show')
             <li class="pcoded-hasmenu @yield('career')">
                 @can('testimonial show')
-                <a href="javascript:void(0)" class="waves-effect waves-dark">
-                    <span class="pcoded-micon"><i class="far fa-file-word"></i></span>
-                    <span class="pcoded-mtext">Career</span>
-                </a>
-                <ul class="pcoded-submenu">
-                    <li class="">
-                        <a href="{{ route('jobpost.index') }}" class="waves-effect waves-dark">
-                            <span class="pcoded-mtext">Job Posts</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="{{ route('gallery.index') }}" class="waves-effect waves-dark">
-                            <span class="pcoded-mtext">Galleries</span>
-                        </a>
-                    </li>
-                </ul>
+                    <a href="javascript:void(0)" class="waves-effect waves-dark">
+                        <span class="pcoded-micon"><i class="far fa-file-word"></i></span>
+                        <span class="pcoded-mtext">Career</span>
+                    </a>
+                    <ul class="pcoded-submenu">
+                        <li class="">
+                            <a href="{{ route('jobpost.index') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-mtext">Job Posts</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="{{ route('gallery.index') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-mtext">Galleries</span>
+                            </a>
+                        </li>
+                    </ul>
                 @endcan
             </li>
             @endcan
+            @can('service show')
             <li class="@yield('services')">
                 <a href="{{ route('services.index') }}" class="waves-effect waves-dark">
                     <span class="pcoded-micon">
@@ -154,6 +161,8 @@
                     <span class="pcoded-mtext">Services</span>
                 </a>
             </li>
+            @endcan
+            @can('news show')
             <li class="@yield('news')">
                 <a href="{{ route('news.index') }}" class="waves-effect waves-dark">
                     <span class="pcoded-micon">
@@ -162,6 +171,8 @@
                     <span class="pcoded-mtext">News</span>
                 </a>
             </li>
+            @endcan
+            @can('subcompany show')
             <li class="@yield('subcompany')">
                 <a href="{{ route('subcompany.index') }}" class="waves-effect waves-dark">
                     <span class="pcoded-micon">
@@ -170,6 +181,7 @@
                     <span class="pcoded-mtext">Subcompany</span>
                 </a>
             </li>
+            @endcan
             @can('team show')
             <li class="@yield('team')">
                 <a href="{{ route('team.index') }}" class="waves-effect waves-dark">

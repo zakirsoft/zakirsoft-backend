@@ -49,7 +49,9 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Job Posts</h5>
+                                    @can('jobpost create')
                                     <a href="{{ route('jobpost.create') }}"> <button class="btn btn-primary float-right"><i class="fas fa-plus"></i></button></a>
+                                    @endcan
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive">
@@ -85,14 +87,18 @@
                                                         <a href="{{ route('jobpost.show', $post->id) }}" class="btn btn-sm btn-info" title="Details Post">
                                                             <i class="fa fa-eye"></i>
                                                         </a>
+                                                        @can('jobpost edit')
                                                         <a href="{{ route('jobpost.edit', $post->id) }}" class="btn btn-sm btn-warning" title="Edit Post">
                                                             <i class="far fa-edit"></i>
                                                         </a>
+                                                        @endcan
+                                                        @can('jobpost delete')
                                                         <form action="{{ route('jobpost.destroy', $post->id) }}" method="POST" class="d-inline">
                                                             @method('DELETE')
                                                             @csrf
                                                             <button onclick="return confirm('Are you sure you want to delete this item?');"  class="btn btn-sm btn-danger text-light"><i class="far fa-trash-alt"></i></button>
                                                         </form>
+                                                        @endcan
                                                         <div class="handle btn btn-success btn-sm"><i class="fas fa-hand-rock"></i></div>
                                                     </td>
                                                 </tr>

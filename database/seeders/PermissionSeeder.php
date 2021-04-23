@@ -50,11 +50,41 @@ class PermissionSeeder extends Seeder
         Permission::create([ 'name' => 'testimonial list' ]);
         Permission::create([ 'name' => 'testimonial delete' ]);
 
-        // career permission
-        Permission::create([ 'name' => 'career show' ]);
-        Permission::create([ 'name' => 'career create' ]);
-        Permission::create([ 'name' => 'career edit' ]);
-        Permission::create([ 'name' => 'career delete' ]);
+        // jobpost permission
+        Permission::create([ 'name' => 'jobpost show' ]);
+        Permission::create([ 'name' => 'jobpost create' ]);
+        Permission::create([ 'name' => 'jobpost edit' ]);
+        Permission::create([ 'name' => 'jobpost delete' ]);
+
+        // service permission
+        Permission::create([ 'name' => 'service show' ]);
+        Permission::create([ 'name' => 'service create' ]);
+        Permission::create([ 'name' => 'service edit' ]);
+        Permission::create([ 'name' => 'service delete' ]);
+
+        // news permission
+        Permission::create([ 'name' => 'news show' ]);
+        Permission::create([ 'name' => 'news create' ]);
+        Permission::create([ 'name' => 'news edit' ]);
+        Permission::create([ 'name' => 'news delete' ]);
+
+        // subcompany permission
+        Permission::create([ 'name' => 'subcompany show' ]);
+        Permission::create([ 'name' => 'subcompany create' ]);
+        Permission::create([ 'name' => 'subcompany edit' ]);
+        Permission::create([ 'name' => 'subcompany delete' ]);
+
+        // technology-category permission
+        Permission::create([ 'name' => 'technology-category show' ]);
+        Permission::create([ 'name' => 'technology-category create' ]);
+        Permission::create([ 'name' => 'technology-category edit' ]);
+        Permission::create([ 'name' => 'technology-category delete' ]);
+
+        // technology permission
+        Permission::create([ 'name' => 'technology show' ]);
+        Permission::create([ 'name' => 'technology create' ]);
+        Permission::create([ 'name' => 'technology edit' ]);
+        Permission::create([ 'name' => 'technology delete' ]);
 
         // team permission
         Permission::create([ 'name' => 'team show' ]);
