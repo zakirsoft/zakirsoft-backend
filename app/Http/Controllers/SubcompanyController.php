@@ -91,12 +91,16 @@ class SubcompanyController extends Controller
         $logo = $request->logo;
         $banner = $request->banner;
 
-        if ($logo && $banner) {
+        if ($logo) {
             FileDelete::delete($subcompany->logo);
-            FileDelete::delete($subcompany->banner);
             $logo_url = FileUpload::upload($logo, 'subcompany/logo');
+            $subcompany->update(['logo' => $logo_url]);
+        }
+
+        if($banner) {
+            FileDelete::delete($subcompany->banner);
             $banner_url = FileUpload::upload($banner, 'subcompany/banner');
-            $subcompany->update(['logo' => $logo_url, 'banner' => $banner_url]);
+            $subcompany->update(['banner' => $banner_url]);
         }
 
         session()->flash('success', 'Subcompany Updated Successfully!');
