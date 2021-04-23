@@ -72,7 +72,7 @@ active pcoded-trigger
                             <div class="card text-center">
                                 <div class="card-header align-items-center justify-content-between d-flex">
                                     <h5>Edit Team</h5>
-                                    <a href="{{ url()->previous() }}" class="btn btn-sm btn-primary"><i class="fa fa-arrow-left"></i> Team</a>
+                                    <a href="{{ url()->previous() }}" class="btn btn-sm btn-primary"><i class="fa fa-arrow-left"></i> Back</a>
                                 </div>
                                 <div class="card-block col-8 offset-2">
 
@@ -97,8 +97,7 @@ active pcoded-trigger
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Image </label>
                                             <div class="col-sm-10">
-                                                <img class="my-2" id="single_image_preview"/>
-                                                <input onchange="readURL(this)" type="file" class="form-control" name="image" id="position" id="single_image">
+                                                <input type="file" class="form-control" name="image" id="position" id="single_image">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -138,30 +137,5 @@ active pcoded-trigger
 
 @endsection
 
-@section('style')
-<style>
-    /* Image Style  */
-    img{ max-width:80px; }
-    input[type=file]{ padding:10px; }
-</style>
-@endsection
-
-@section('script')
-<script>
-    /* image 1 */
-    $('#single_image_preview').hide();
-    $('#reaset_multiple').hide();
-    function readURL(input) {
-      if (input.files && input.files[0]) {
-        $('#single_image_preview').show();
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            $('#single_image_preview').attr('src', e.target.result);
-        };
-        reader.readAsDataURL(input.files[0]);
-      }
-    }
-</script>
-@endsection
 
 
