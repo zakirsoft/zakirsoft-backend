@@ -56,11 +56,11 @@
                                         <table class="table table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>Image</th>
-                                                    <th>Title</th>
-                                                    <th style="max-width: 300px">Description</th>
-                                                    <th class="text-center">Action</th>
+                                                    <th width="5%">ID</th>
+                                                    <th width="10%">Image</th>
+                                                    <th width="30%">Title</th>
+                                                    <th width="40%" style="max-width: 300px">Short Description</th>
+                                                    <th width="15%" class="text-center">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -71,7 +71,7 @@
                                                             <img width="80px" height="80px" class="img-fluid" src="{{ asset($news->image) }}" alt="image">
                                                         </td>
                                                         <td>{{ $news->title }}</td>
-                                                        <td style="max-width: 300px">{!! $news->description !!}</td>
+                                                        <td style="max-width: 300px">{!! $news->short_description !!}</td>
                                                         <td class="text-center">
                                                             <a href="{{ route('news.edit', $news->id) }}" class="btn btn-sm btn-warning mr-1" title="Edit News">
                                                                 <i class="far fa-edit"></i>
