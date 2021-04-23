@@ -1,16 +1,17 @@
 @extends('layouts.frontend')
 
-@section('title') Contact Us @endsection
+
+@section('title') Job Details @endsection
 @section('meta')
-<meta name="author" content="Zakir Soft">
-<meta name="keywords" content="web design, web development, web development agency, agency, web, design, development, pwa, spa, web application development, website, website design, ecommerce website">
-<meta name="description" content="We are engertic team of designers and developers. We work with Python, PHP, Laravel, PostgreSQL, MYSQL, React.js, Vue.js, Nuxt.js, Next.js, Cloud Server. We are open to application, join us.">
-<meta property="og:title" content="Career - Zakir Soft" />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="{{ asset('frontend') }}/assets/images/preview.jpg" />
+    <meta name="author" content="Zakir Soft">
+    <meta name="keywords" content="web design, web development, web development agency, agency, web, design, development, pwa, spa, web application development, website, website design, ecommerce website">
+    <meta name="description" content="We are engertic team of designers and developers. We work with Python, PHP, Laravel, PostgreSQL, MYSQL, React.js, Vue.js, Nuxt.js, Next.js, Cloud Server. We are open to application, join us.">
+    <meta property="og:title" content="Career - Zakir Soft" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="{{ asset('frontend') }}/assets/images/preview.jpg" />
 @endsection
-@section('contact') active @endsection
-@section('contact_footer') active @endsection
+@section('career') active @endsection
+@section('career_footer') active @endsection
 
 @section('content')
 <!-- Main Section Start -->

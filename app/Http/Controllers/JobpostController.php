@@ -144,4 +144,15 @@ class JobpostController extends Controller
 
         return response()->json(['message' => 'Job Post Sorted Successfully!']);
     }
+
+    public function statusChange(Request $request)
+    {
+        Jobpost::find($request->id)->update(['status' => $request->status]);
+
+        if ($request->status) {
+            return response()->json(['message' => 'Jobpost Activated Successfully']);
+        } else {
+            return response()->json(['message' => 'Jobpost Inactivated Successfully']);
+        }
+    }
 }

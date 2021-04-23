@@ -77,8 +77,7 @@ Route::middleware(['auth'])->prefix('panel')->group(function () {
 
     //Career Route
     Route::post('jobpost/sorting', [JobpostController::class, 'sorting'])->name('jobpost.sorting');
-    Route::get('job/post/active/{post}', [JobpostController::class, 'active'])->name('jobpost.active');
-    Route::get('job/post/inactive/{post}', [JobpostController::class, 'inactive'])->name('jobpost.inactive');
+    Route::get('jobpost/status', [JobpostController::class, 'statusChange'])->name('jobpost.status.change');
     Route::post('gallery/sorting', [GalleryController::class, 'sorting'])->name('gallery.sorting');
     Route::resource('job/post', JobpostController::class, ['names' => 'jobpost']);
     Route::resource('gallery', GalleryController::class);
@@ -95,8 +94,6 @@ Route::middleware(['auth'])->prefix('panel')->group(function () {
 
     //Team Route
     Route::get('team/status', [TeamController::class, 'statusChange'])->name('team.status.change');
-    Route::get('team/active/{team}', [TeamController::class, 'active'])->name('team.active');
-    Route::get('team/inactive/{team}', [TeamController::class, 'inactive'])->name('team.inactive');
     Route::post('team/sorting', [TeamController::class, 'sorting'])->name('team.sorting');
     Route::resource('team', TeamController::class);
 
