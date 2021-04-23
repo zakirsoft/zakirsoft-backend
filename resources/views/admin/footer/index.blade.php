@@ -31,8 +31,7 @@ active pcoded-trigger
                         <li class="breadcrumb-item">
                             <a href="{{ route('dashboard.index') }}"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Footer</a>
-                        </li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Footer</a></li>
                     </ul>
                 </div>
             </div>
@@ -45,14 +44,13 @@ active pcoded-trigger
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
-
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Footer Content</h5>
                                     @can('footer create')
-                                    @if ($ContentCount < 1)
-                                        <button type="button"class="btn btn-primary waves-effect float-right" data-toggle="modal" data-target="#add_content"><i class="fas fa-plus"></i></button>
-                                    @endif
+                                        @if ($ContentCount < 1)
+                                            <button type="button"  class="btn btn-primary waves-effect float-right" data-toggle="modal" data-target="#add_content"><i class="fas fa-plus"></i></button>
+                                        @endif
                                     @endcan
                                 </div>
                                 <div class="card-block">
@@ -76,77 +74,52 @@ active pcoded-trigger
                                                     <td>{{$footer->content}}</td>
                                                     <td class="d-flex">
                                                         @can('footer edit')
-                                                        <a href="#" class="btn btn-sm btn-warning mr-1"
-                                                            data-toggle="modal"
-                                                            data-target="#edit_content{{$footer->id}}"
-                                                            title="Edit User"><i class="far fa-edit"></i></a>
+                                                            <a href="#" class="btn btn-sm btn-warning mr-1" data-toggle="modal" data-target="#edit_content{{$footer->id}}" title="Edit User"><i class="far fa-edit"></i></a>
                                                         @endcan
                                                         @can('footer delete')
-                                                        <form action="{{ route('footer.destroy', $footer->id) }}"
-                                                            method="POST">
-                                                            @method('DELETE')
-                                                            @csrf
-                                                            <button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm btn-danger far fa-trash-alt"><i></i></button>
-                                                        </form>
+                                                            <form action="{{ route('footer.destroy', $footer->id) }}" method="POST">
+                                                                @method('DELETE')
+                                                                @csrf
+                                                                <button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm btn-danger far fa-trash-alt"><i></i></button>
+                                                            </form>
                                                         @endcan
                                                     </td>
                                                 </tr>
                                                 {{-- Footer Content Edit --}}
-                                                <div class="modal fade" id="edit_content{{$footer->id}}" tabindex="-1"
-                                                    role="dialog" aria-labelledby="exampleModal3Label"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
+                                                <div class="modal fade" id="edit_content{{$footer->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModal3Label">Update
-                                                                    Content</h5>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
+                                                                <h5 class="modal-title" id="exampleModal3Label">Update Content</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
-                                                            <form action="{{ route('footer.update', $footer->id) }}"
-                                                                method="POST">
+                                                            <form action="{{ route('footer.update', $footer->id) }}"  method="POST">
                                                                 @method('PUT')
                                                                 @csrf
-                                                                <input type="hidden" value="{{$footer->id}}"
-                                                                    name="footer_id">
+                                                                <input type="hidden" value="{{$footer->id}}" name="footer_id">
                                                                 <div class="modal-body">
                                                                     <div class="form-group">
                                                                         <label for="email">E-Mail</label>
-                                                                        <input
-                                                                            value="{{ $footer->email ?? old('email') }}"
-                                                                            required name="email" type="text"
-                                                                            class="form-control" id="email"
-                                                                            placeholder="Enter E-mail address">
+                                                                        <input value="{{ $footer->email ?? old('email') }}" required name="email" type="text" class="form-control" id="email" placeholder="Enter E-mail address">
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label for="content">Header Meta Script/Style</label>
-                                                                        <textarea required name="head_content" type="text"
-                                                                            class="form-control" id="content"
-                                                                            placeholder="Enter Content of Footer"
-                                                                            rows="8">{{ $footer->head_content ?? old('head_content') }}</textarea>
+                                                                        <textarea required name="head_content" type="text" class="form-control" id="content"placeholder="Enter Content of Footer"rows="8">{{ $footer->head_content ?? old('head_content') }}</textarea>
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label for="content">Body Meta Script/Style</label>
-                                                                        <textarea required name="body_content" type="text"
-                                                                            class="form-control" id="content"
-                                                                            placeholder="Enter Content of Footer"
-                                                                            rows="8">{{ $footer->body_content ?? old('body_content') }}</textarea>
+                                                                        <textarea required name="body_content"type="text" class="form-control" id="content"placeholder="Enter Content of Footer"rows="8">{{ $footer->body_content ?? old('body_content') }}</textarea>
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label for="content">Footer Content</label>
-                                                                        <textarea required name="content" type="text"
-                                                                            class="form-control" id="content"
-                                                                            placeholder="Enter Content of Footer"
-                                                                            rows="8">{{ $footer->content ?? old('content') }}</textarea>
+                                                                        <textarea required name="content" type="text" class="form-control" id="content" placeholder="Enter Content of Footer" rows="8">{{ $footer->content ?? old('content') }}</textarea>
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
-                                                                    <button type="submit"
-                                                                        class="btn btn-primary">Save</button>
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">Cancle</button>
+                                                                    <button type="submit" class="btn btn-primary">Save</button>
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -155,7 +128,7 @@ active pcoded-trigger
                                                 {{-- Footer Content Edit --}}
                                                 @empty
                                                 <tr>
-                                                    <td class="text-center" colspan="4">Content not Found</td>
+                                                    <td class="text-center" colspan="6">Content not Found</td>
                                                 </tr>
                                                 @endforelse
                                             </tbody>
@@ -167,8 +140,7 @@ active pcoded-trigger
                                 <div class="card-header">
                                     <h5>Social Profile's</h5>
                                     @can('footer create')
-                                    <button type="button" class="btn btn-primary waves-effect float-right mr-2"
-                                        data-toggle="modal" data-target="#add_social"><i class="fas fa-plus"></i></button>
+                                        <button type="button" class="btn btn-primary waves-effect float-right mr-2" data-toggle="modal" data-target="#add_social"><i class="fas fa-plus"></i></button>
                                     @endcan
                                 </div>
                                 <div class="card-block">
@@ -185,26 +157,18 @@ active pcoded-trigger
                                             <tbody>
                                                 @forelse ($socials as $social)
                                                 <tr>
-                                                    <td><i
-                                                            class="{{ $social->social_media }} pr-2"></i>{{ $social->social_media }}
-                                                    </td>
+                                                    <td><i class="{{ $social->social_media }} pr-2"></i>{{ $social->social_media }}</td>
                                                     <td>{{ $social->profile_name }}</td>
                                                     <td>{{ $social->profile_link }}</td>
                                                     <td class="d-flex">
                                                         @can('footer edit')
-                                                        <a href="" class="btn btn-sm btn-warning mr-1" title="Edit User"
-                                                            data-toggle="modal"
-                                                            data-target="#edit_social{{$social->id}}"><i
-                                                                class="far fa-edit"></i></a>
+                                                        <a href="" class="btn btn-sm btn-warning mr-1" title="Edit User" data-toggle="modal" data-target="#edit_social{{$social->id}}"><i class="far fa-edit"></i></a>
                                                         @endcan
                                                         @can('footer delete')
                                                         <form action="{{ route('social.destroy', $social->id) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <button
-                                                                onclick="return confirm('Are you sure you want to delete this item?');"
-                                                                class="btn btn-sm btn-danger"><i
-                                                                    class="far fa-trash-alt"></i></button>
+                                                            <button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button>
                                                         </form>
                                                         @endcan
                                                     </td>
@@ -216,10 +180,8 @@ active pcoded-trigger
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModal3Label">Add
-                                                                    Social Media</h5>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
+                                                                <h5 class="modal-title" id="exampleModal3Label">Add Social Media</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
@@ -231,48 +193,29 @@ active pcoded-trigger
                                                                     name="social_id">
                                                                 <div class="modal-body">
                                                                     <div class="form-group">
-                                                                        <select class="form-control" id="social_name"
-                                                                            value="{{ $social->social_name ?? old('social_name') }}"
-                                                                            required name="social_name">
+                                                                        <select class="form-control" id="social_name" value="{{ $social->social_name ?? old('social_name') }}" required name="social_name">
                                                                             <option value="">Social Media</option>
-                                                                            <option value="fab fa-behance">Behance
-                                                                            </option>
-                                                                            <option value="fab fa-dribbble">Dribbble
-                                                                            </option>
-                                                                            <option value="fab fa-github">Github
-                                                                            </option>
-                                                                            <option value="fab fa-facebook-f">Facebook
-                                                                            </option>
-                                                                            <option value="fab fa-twitter">Twitter
-                                                                            </option>
-                                                                            <option value="fab fa-instagram">Instagram
-                                                                            </option>
-                                                                            <option value="fab fa-linkedin-in">Linkedin
-                                                                            </option>
+                                                                            <option value="fab fa-behance">Behance</option>
+                                                                            <option value="fab fa-dribbble">Dribbble</option>
+                                                                            <option value="fab fa-github">Github</option>
+                                                                            <option value="fab fa-facebook-f">Facebook </option>
+                                                                            <option value="fab fa-twitter">Twitter</option>
+                                                                            <option value="fab fa-instagram">Instagram</option>
+                                                                            <option value="fab fa-linkedin-in">Linkedin</option>
                                                                         </select>
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label for="profile_name">Profile Name</label>
-                                                                        <input
-                                                                            value="{{ $social->profile_name ?? old('profile_name') }}"
-                                                                            required name="profile_name" type="text"
-                                                                            class="form-control" id="profile_name"
-                                                                            placeholder="Zakir Soft">
+                                                                        <input value="{{ $social->profile_name ?? old('profile_name') }}" required name="profile_name" type="text" class="form-control" id="profile_name" placeholder="Zakir Soft">
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label for="social_link">Social Link</label>
-                                                                        <input
-                                                                            value="{{ $social->social_link ?? old('social_link') }}"
-                                                                            required name="social_link" type="text"
-                                                                            class="form-control" id="social_link"
-                                                                            placeholder="http://127.0.0.1/me">
+                                                                        <input value="{{ $social->social_link ?? old('social_link') }}" required name="social_link" type="text" class="form-control" id="social_link" placeholder="http://127.0.0.1/me">
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">Close</button>
-                                                                    <button type="submit"
-                                                                        class="btn btn-primary">Save</button>
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    <button type="submit" class="btn btn-primary">Save</button>
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -280,19 +223,17 @@ active pcoded-trigger
                                                 </div>
                                                 {{-- Social Profile Update --}}
                                                 @empty
-                                                <tr>
-                                                    <td class="text-center" colspan="5">Social profile not Found</td>
-                                                </tr>
+                                                    <tr>
+                                                        <td class="text-center" colspan="5">Social profile not Found</td>
+                                                    </tr>
                                                 @endforelse
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -302,7 +243,7 @@ active pcoded-trigger
 {{-- Footer Content Modal --}}
 <div class="modal fade" id="add_content" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label"
     aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModal3Label">Add Content</h5>
@@ -325,13 +266,13 @@ active pcoded-trigger
                     </div>
                     <div class="form-group">
                         <label for="content">Header Meta Script/Style</label>
-                        <textarea value="{{ old('head_content') }}" required name="head_content" type="text" class="form-control"
-                            id="content" placeholder="Enter Content of Body" rows="8"></textarea>
+                        <textarea value="{{ old('head_content') }}" required name="head_content" type="text"
+                            class="form-control" id="content" placeholder="Enter Content of Body" rows="8"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="content">Body Meta Script/Style</label>
-                        <textarea value="{{ old('body_content') }}" required name="body_content" type="text" class="form-control"
-                            id="content" placeholder="Enter Content of Body" rows="8"></textarea>
+                        <textarea value="{{ old('body_content') }}" required name="body_content" type="text"
+                            class="form-control" id="content" placeholder="Enter Content of Body" rows="8"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
