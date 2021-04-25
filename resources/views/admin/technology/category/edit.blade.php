@@ -48,27 +48,31 @@
             <div class="page-wrapper">
                 <div class="page-body">
                     <div class="row justify-content-center">
-                        <div class="col-sm-8">
+                        <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Edit Category</h5>
                                     <a href="{{ route('technology.category.index') }}"> <button class="btn btn-primary float-right"><i class="fas fa-arrow-left"></i> Back</button></a>
                                 </div>
                                 <div class="card-block">
-                                    <form  method="POST" action="{{ route('technology.category.update', $category->id) }}">
-                                        @method('PUT')
-                                        @csrf
-                                        <div class="row justify-content-center">
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">Name</label>
-                                                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Enter name" value="{{ $category->name }}">
-                                                    @error('name') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                    <div class="row justify-content-center">
+                                        <div class="col-6">
+                                            <form  method="POST" action="{{ route('technology.category.update', $category->id) }}">
+                                                @method('PUT')
+                                                @csrf
+                                                <div class="row justify-content-center">
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <label class="col-form-label">Name</label>
+                                                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Enter name" value="{{ $category->name }}">
+                                                            @error('name') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                                <button type="submit" class="btn btn-primary  m-b-0"><i class="fas fa-plus"></i> Update</button>
+                                            </form>
                                         </div>
-                                        <button type="submit" class="btn btn-primary  m-b-0"><i class="fas fa-plus"></i> Update</button>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
