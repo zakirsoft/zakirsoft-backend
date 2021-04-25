@@ -301,7 +301,7 @@
           <div class="row">
               @foreach ($news_list as $news)
               <div class="col-lg-4 col-md-6">
-                  <a href="#">
+                  <a href="{{ route('news.details', ['slug' => $news->slug]) }}">
                       <div class="articles__contentBox card">
                           <div class="articles__contentImg">
                               <img src="{{ asset($news->image) }}" alt="artilce01" />
