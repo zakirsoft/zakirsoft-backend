@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title') Contact Us @endsection
+@section('title') News Details @endsection
 @section('meta')
 <meta name="author" content="Zakir Soft">
 <meta name="keywords" content="web design, web development, web development agency, agency, web, design, development, pwa, spa, web application development, website, website design, ecommerce website">
