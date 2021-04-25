@@ -42,5 +42,12 @@ Route::get('services', [ApiController::class, 'services']);
 Route::get('technology/categories', [ApiController::class, 'technologyCategories']);
 Route::get('technologies', [ApiController::class, 'technologies']);
 
+// jobposts
+Route::get('jobposts', [ApiController::class, 'jobposts']);
+Route::get('galleries', [ApiController::class, 'galleries']);
+
+// subcompany
+Route::get('subcompanies', [ApiController::class, 'subcompanies']);
+
 // news
 Route::get('news', [ApiController::class, 'news']);
