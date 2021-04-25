@@ -54,7 +54,7 @@
                             mi, id egestas urna mattis et.
                         </p>
                         <button class="zakirSoft__button px-4">
-                            <a href="career.html#positions"> view all position </a>
+                            <a href="#positions"> view all position </a>
                         </button>
                     </div>
                 </div>
