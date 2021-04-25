@@ -53,23 +53,18 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="col-12">
-                    <div class="contact_form text-center">
-                        @livewire('contact')
-                    </div>
-                </div> --}}
             </div>
         </div>
     </section>
     <!-- joinus section end -->
 @endsection
 
-@section('style') 
+@section('style')
 <style>
     #joinus-contact_area {
         padding-bottom: 0px;
     }
-    
+
     .contact-right .social_links {
         justify-content: flex-start;
     }
@@ -85,10 +80,10 @@
     .social_links li:hover {
         border-color: #007bff;
     }
-    
+
     .social_links li a i{
         font-size: 16px;
-        transition: all 0.6s ease-in-out; 
+        transition: all 0.6s ease-in-out;
     }
     .social_links li::after {
         content: '';
@@ -103,4 +98,3 @@
     }
 </style>
 @endsection
-@section('script') @livewireScripts @endsection
