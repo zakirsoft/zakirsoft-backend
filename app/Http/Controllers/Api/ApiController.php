@@ -41,7 +41,7 @@ class ApiController extends Controller
 
     // portfolio category
     public function portfolioCategories(){
-        $portfolioCategories = PortfolioCategory::latest()->paginate(5);
+        $portfolioCategories = PortfolioCategory::select('id','name','status')->latest()->paginate(5);
 
         return response()->json([
             'success' => true,
@@ -51,7 +51,7 @@ class ApiController extends Controller
 
     // portfolio
     public function portfolios(){
-        $portfolio_list = Portfolio::paginate(5);
+        $portfolio_list = Portfolio::select('id','category_id','title','title_slug','image','description','live_link','bahance_link','project_length','our_role','tool_used','client_name','client_email')->paginate(5);
 
         return response()->json([
             'success' => true,
@@ -71,7 +71,7 @@ class ApiController extends Controller
 
     // services
     public function services(){
-        $services = Service::paginate(5);
+        $services = Service::select('id','title','image','description')->paginate(5);
 
         return response()->json([
             'success' => true,
@@ -81,7 +81,7 @@ class ApiController extends Controller
 
     // technologies categories
     public function technologyCategories(){
-        $categories = TechnologyCategory::paginate(5);
+        $categories = TechnologyCategory::select('id','name')->paginate(5);
 
         return response()->json([
             'success' => true,
@@ -91,7 +91,7 @@ class ApiController extends Controller
 
     // technologies
     public function technologies(){
-        $technologies = Technology::latest()->get();
+        $technologies = Technology::select('id','category_id','name','image')->latest()->get();
 
         return response()->json([
             'success' => true,
@@ -101,7 +101,7 @@ class ApiController extends Controller
 
     // jobposts
     public function jobposts(){
-        $posts = Jobpost::oldest('order')->get();
+        $posts = Jobpost::select('id','title','slug','type','salary','short_description','long_description','link','deadline','status','order')->oldest('order')->get();
 
         return response()->json([
             'success' => true,
@@ -111,7 +111,7 @@ class ApiController extends Controller
 
     // news
     public function news(){
-        $news = News::latest()->get();
+        $news = News::select('id','title','slug','image','short_description','description')->get();
 
         return response()->json([
             'success' => true,
@@ -121,7 +121,7 @@ class ApiController extends Controller
 
     // galleries
     public function galleries(){
-        $galleries = Gallery::oldest('order')->get();
+        $galleries = Gallery::select('id','image','order')->oldest('order')->get();
 
         return response()->json([
             'success' => true,
@@ -131,7 +131,7 @@ class ApiController extends Controller
 
     // subcompanies
     public function subcompanies(){
-        $subcompanies = Subcompany::oldest('order')->get();
+        $subcompanies = Subcompany::select('id','title','description','link','logo','banner','stats1_text','stats1_value','stats2_text','stats2_value','order')->oldest('order')->get();
 
         return response()->json([
             'success' => true,
