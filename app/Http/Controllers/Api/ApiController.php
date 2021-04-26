@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Career;
+use App\Models\Gallery;
+use App\Models\Jobpost;
 use App\Models\News;
 use App\Models\Portfolio;
 use App\Models\PortfolioCategory;
 use App\Models\Service;
+use App\Models\Subcompany;
 use App\Models\Team;
 use App\Models\Technology;
 use App\Models\TechnologyCategory;
@@ -18,7 +21,7 @@ class ApiController extends Controller
 {
     // testimonial
     public function testimonials(){
-        $testimonials = Testimonial::paginate(5);
+        $testimonials = Testimonial::select('id','name','position','content')->paginate(5);
 
         return response()->json([
             'success' => true,
@@ -68,7 +71,7 @@ class ApiController extends Controller
 
     // aboutus
     public function aboutus(){
-        $about = About::first();
+        $about = About::select('content')->first();
 
         return response()->json([
             'success' => true,
@@ -106,6 +109,16 @@ class ApiController extends Controller
         ]);
     }
 
+    // jobposts
+    public function jobposts(){
+        $posts = Jobpost::oldest('order')->get();
+
+        return response()->json([
+            'success' => true,
+            'posts' => $posts,
+        ]);
+    }
+
     // news
     public function news(){
         $news = News::latest()->get();
@@ -113,6 +126,26 @@ class ApiController extends Controller
         return response()->json([
             'success' => true,
             'news' => $news,
+        ]);
+    }
+
+    // galleries
+    public function galleries(){
+        $galleries = Gallery::oldest('order')->get();
+
+        return response()->json([
+            'success' => true,
+            'galleries' => $galleries,
+        ]);
+    }
+
+    // subcompanies
+    public function subcompanies(){
+        $subcompanies = Subcompany::oldest('order')->get();
+
+        return response()->json([
+            'success' => true,
+            'subcompanies' => $subcompanies,
         ]);
     }
 }

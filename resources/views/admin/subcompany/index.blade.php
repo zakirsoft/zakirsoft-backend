@@ -48,9 +48,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Subcompany List</h5>
-                                    {{-- @can('subcompany show') --}}
                                     <a href="{{ route('subcompany.create') }}"> <button class="btn btn-primary float-right"><i class="fas fa-plus"></i></button></a>
-                                    {{-- @endcan --}}
                                 </div>
                                 <div class="card-block">
                                     <div class="table-responsive">
@@ -82,18 +80,14 @@
                                                     </td>
 
                                                     <td class="text-center">
-                                                        {{-- @can('subcompany edit') --}}
                                                         <a href="{{ route('subcompany.edit', $company->id) }}" class="btn btn-sm btn-warning" title="Edit Role">
                                                             <i class="far fa-edit"></i>
                                                         </a>
-                                                        {{-- @endcan --}}
-                                                        {{-- @can('subcompany delete') --}}
                                                          <form action="{{ route('subcompany.destroy', $company->id) }}" method="POST" class="d-inline">
                                                             @method('DELETE')
                                                             @csrf
                                                             <button onclick="return confirm('Are you sure you want to delete this item?');"  class="btn btn-sm btn-danger text-light"><i class="far fa-trash-alt"></i></button>
                                                         </form>
-                                                        {{-- @endcan --}}
                                                         <div class="handle btn btn-success btn-sm"><i class="fas fa-hand-rock"></i></div>
                                                     </td>
                                                 </tr>

@@ -1,0 +1,1140 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Laravel Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="docs/css/style.css" media="screen" />
+        <link rel="stylesheet" href="css/print.css" media="print" />
+        <script src="js/all.js"></script>
+
+        <link rel="stylesheet" href="css/highlight-darcula.css" media="" />
+        <script src="js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body class="" data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+<a href="#" id="nav-button">
+      <span>
+        NAV
+            <img src="images/navbar.png" alt="-image" class=""/>
+      </span>
+</a>
+<div class="tocify-wrapper">
+                <div class="lang-selector">
+                            <a href="#" data-language-name="bash">bash</a>
+                            <a href="#" data-language-name="javascript">javascript</a>
+                    </div>
+        <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+    <ul class="search-results"></ul>
+
+    <ul id="toc">
+    </ul>
+
+            <ul class="toc-footer" id="toc-footer">
+                <li><a href="#form-GETapi-testimonials">Testimonials</a></li>
+                <li><a href="#form-GETapi-teams">Teams</a></li>
+                <li><a href="#form-GETapi-careers">Careers</a></li>
+                <li><a href="#form-GETapi-portfolio-categories">Portfolio Category</a></li>
+                <li><a href="#form-GETapi-portfolios">Portfolios</a></li>
+                <li><a href="#form-GETapi-about">About</a></li>
+                <li><a href="#form-GETapi-services">Services</a></li>
+                <li><a href="#form-GETapi-technology-categories">Technology Category</a></li>
+                <li><a href="#form-GETapi-technologies">Technology</a></li>
+                <li><a href="#form-GETapi-jobposts">Jobpost</a></li>
+                <li><a href="#form-GETapi-galleries">Galleries</a></li>
+                <li><a href="#form-GETapi-subcompanies">Subcompany</a></li>
+                <li><a href="#form-GETapi-news">News</a></li>
+
+            </ul>
+</div>
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1>Introduction</h1>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+<script>
+    var baseUrl = "http://127.0.0.1:8000";
+</script>
+<script src="js/tryitout-2.5.3.js"></script>
+
+<h2>api/testimonials</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/testimonials" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/testimonials"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "testimonials": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1,
+                "name": "Sawyer Wooten",
+                "position": "Tempora voluptatem",
+                "content": "Nisi ullam voluptas",
+                "created_at": "2021-04-25T08:19:50.000000Z",
+                "updated_at": null
+            },
+            {
+                "id": 2,
+                "name": "Byron Reeves",
+                "position": "Ut culpa labore Nam",
+                "content": "Sed omnis aperiam ei",
+                "created_at": "2021-04-25T08:19:52.000000Z",
+                "updated_at": null
+            },
+            {
+                "id": 3,
+                "name": "Tatum Robertson",
+                "position": "Ut sed rem hic illo",
+                "content": "Ab enim laudantium",
+                "created_at": "2021-04-25T08:19:54.000000Z",
+                "updated_at": null
+            }
+        ],
+        "first_page_url": "http:\/\/localhost\/api\/testimonials?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http:\/\/localhost\/api\/testimonials?page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "&amp;laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/localhost\/api\/testimonials?page=1",
+                "label": 1,
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &amp;raquo;",
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "http:\/\/localhost\/api\/testimonials",
+        "per_page": 5,
+        "prev_page_url": null,
+        "to": 3,
+        "total": 3
+    }
+}</code></pre>
+<div id="execution-results-GETapi-testimonials" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-testimonials"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-testimonials"></code></pre>
+</div>
+<div id="execution-error-GETapi-testimonials" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-testimonials"></code></pre>
+</div>
+<form id="form-GETapi-testimonials" data-method="GET" data-path="api/testimonials" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-testimonials', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-testimonials" onclick="cancelTryOut('GETapi-testimonials');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-testimonials" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/testimonials</code></b>
+</p>
+</form>
+<h2>api/teams</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/teams" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/teams"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "teams": [
+        {
+            "id": 1,
+            "name": "Amal Hubbard",
+            "position": "Consequatur ea et il",
+            "image": "storage\/team\/1619338550_608525368ba8f.png",
+            "order": 2,
+            "status": 1,
+            "created_at": "2021-04-25T08:15:50.000000Z",
+            "updated_at": "2021-04-25T08:34:31.000000Z"
+        },
+        {
+            "id": 2,
+            "name": "Mary Black",
+            "position": "Minima commodi irure",
+            "image": "storage\/team\/1619338557_6085253d1ba8d.png",
+            "order": 1,
+            "status": 1,
+            "created_at": "2021-04-25T08:15:57.000000Z",
+            "updated_at": "2021-04-25T08:34:30.000000Z"
+        }
+    ]
+}</code></pre>
+<div id="execution-results-GETapi-teams" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-teams"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-teams"></code></pre>
+</div>
+<div id="execution-error-GETapi-teams" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-teams"></code></pre>
+</div>
+<form id="form-GETapi-teams" data-method="GET" data-path="api/teams" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-teams', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-teams" onclick="cancelTryOut('GETapi-teams');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-teams" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/teams</code></b>
+</p>
+</form>
+<h2>api/careers</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/careers" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/careers"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "careers": {
+        "current_page": 1,
+        "data": [],
+        "first_page_url": "http:\/\/localhost\/api\/careers?page=1",
+        "from": null,
+        "last_page": 1,
+        "last_page_url": "http:\/\/localhost\/api\/careers?page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "&amp;laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/localhost\/api\/careers?page=1",
+                "label": 1,
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &amp;raquo;",
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "http:\/\/localhost\/api\/careers",
+        "per_page": 5,
+        "prev_page_url": null,
+        "to": null,
+        "total": 0
+    }
+}</code></pre>
+<div id="execution-results-GETapi-careers" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-careers"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-careers"></code></pre>
+</div>
+<div id="execution-error-GETapi-careers" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-careers"></code></pre>
+</div>
+<form id="form-GETapi-careers" data-method="GET" data-path="api/careers" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-careers', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-careers" onclick="cancelTryOut('GETapi-careers');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-careers" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/careers</code></b>
+</p>
+</form>
+<h2>api/portfolio/categories</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/portfolio/categories" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/portfolio/categories"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "categories": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 2,
+                "name": "Brennan Hood",
+                "status": 1,
+                "created_at": "2021-04-25T08:23:51.000000Z",
+                "updated_at": "2021-04-25T08:23:51.000000Z"
+            },
+            {
+                "id": 1,
+                "name": "Donna Mccarthy",
+                "status": 1,
+                "created_at": "2021-04-25T08:23:47.000000Z",
+                "updated_at": "2021-04-25T08:23:47.000000Z"
+            }
+        ],
+        "first_page_url": "http:\/\/localhost\/api\/portfolio\/categories?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http:\/\/localhost\/api\/portfolio\/categories?page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "&amp;laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/localhost\/api\/portfolio\/categories?page=1",
+                "label": 1,
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &amp;raquo;",
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "http:\/\/localhost\/api\/portfolio\/categories",
+        "per_page": 5,
+        "prev_page_url": null,
+        "to": 2,
+        "total": 2
+    }
+}</code></pre>
+<div id="execution-results-GETapi-portfolio-categories" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-portfolio-categories"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-portfolio-categories"></code></pre>
+</div>
+<div id="execution-error-GETapi-portfolio-categories" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-portfolio-categories"></code></pre>
+</div>
+<form id="form-GETapi-portfolio-categories" data-method="GET" data-path="api/portfolio/categories" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-portfolio-categories', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-portfolio-categories" onclick="cancelTryOut('GETapi-portfolio-categories');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-portfolio-categories" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/portfolio/categories</code></b>
+</p>
+</form>
+<h2>api/portfolios</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/portfolios" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/portfolios"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "portfolios": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1,
+                "category_id": 2,
+                "title": "Voluptas ratione nob",
+                "title_slug": "voluptas-ratione-nob",
+                "image": "storage\/portfolio\/1619339071_6085273fb633f.jpeg",
+                "description": "&lt;p&gt;asdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sdsasdasda sda sds&lt;\/p&gt;",
+                "live_link": "https:\/\/example.com",
+                "bahance_link": "https:\/\/example.com",
+                "project_length": "Laborum Qui maiores",
+                "our_role": "&lt;ol&gt;&lt;li&gt;asdasasdasd&lt;\/li&gt;&lt;li&gt;as&lt;\/li&gt;&lt;li&gt;da&lt;\/li&gt;&lt;li&gt;sd&lt;\/li&gt;&lt;li&gt;as&lt;\/li&gt;&lt;li&gt;d&lt;\/li&gt;&lt;li&gt;&amp;nbsp;&lt;\/li&gt;&lt;\/ol&gt;",
+                "tool_used": "&lt;ol&gt;&lt;li&gt;asda&lt;\/li&gt;&lt;li&gt;sd&lt;\/li&gt;&lt;li&gt;a&lt;\/li&gt;&lt;li&gt;sd&lt;\/li&gt;&lt;li&gt;as&lt;\/li&gt;&lt;li&gt;d&lt;\/li&gt;&lt;li&gt;&amp;nbsp;&lt;\/li&gt;&lt;\/ol&gt;",
+                "client_name": "qemaqaj@mailinator.com",
+                "client_email": "qemaqaj@mailinator.com",
+                "created_at": "2021-04-25T08:24:31.000000Z",
+                "updated_at": "2021-04-25T08:24:31.000000Z"
+            },
+            {
+                "id": 2,
+                "category_id": 1,
+                "title": "Qui officia iste dol",
+                "title_slug": "qui-officia-iste-dol",
+                "image": "storage\/portfolio\/1619339111_60852767b1c28.jpeg",
+                "description": "&lt;p&gt;asdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdadsasdasd asd asasdasdasdads&lt;\/p&gt;",
+                "live_link": "https:\/\/example.com",
+                "bahance_link": "https:\/\/example.com",
+                "project_length": "1 Month",
+                "our_role": "&lt;ol&gt;&lt;li&gt;asdasdadsa&lt;\/li&gt;&lt;li&gt;sd&lt;\/li&gt;&lt;li&gt;asd&lt;\/li&gt;&lt;li&gt;as&lt;\/li&gt;&lt;li&gt;d&lt;\/li&gt;&lt;li&gt;asd&lt;\/li&gt;&lt;li&gt;a&lt;\/li&gt;&lt;\/ol&gt;",
+                "tool_used": "&lt;ol&gt;&lt;li&gt;asdas&lt;\/li&gt;&lt;li&gt;da&lt;\/li&gt;&lt;li&gt;sd&lt;\/li&gt;&lt;li&gt;asd&lt;\/li&gt;&lt;\/ol&gt;&lt;p&gt;das&lt;\/p&gt;&lt;p&gt;d&lt;\/p&gt;",
+                "client_name": "tutufus@mailinator.com",
+                "client_email": "tutufus@mailinator.com",
+                "created_at": "2021-04-25T08:25:11.000000Z",
+                "updated_at": "2021-04-25T08:25:11.000000Z"
+            }
+        ],
+        "first_page_url": "http:\/\/localhost\/api\/portfolios?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http:\/\/localhost\/api\/portfolios?page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "&amp;laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/localhost\/api\/portfolios?page=1",
+                "label": 1,
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &amp;raquo;",
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "http:\/\/localhost\/api\/portfolios",
+        "per_page": 5,
+        "prev_page_url": null,
+        "to": 2,
+        "total": 2
+    }
+}</code></pre>
+<div id="execution-results-GETapi-portfolios" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-portfolios"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-portfolios"></code></pre>
+</div>
+<div id="execution-error-GETapi-portfolios" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-portfolios"></code></pre>
+</div>
+<form id="form-GETapi-portfolios" data-method="GET" data-path="api/portfolios" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-portfolios', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-portfolios" onclick="cancelTryOut('GETapi-portfolios');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-portfolios" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/portfolios</code></b>
+</p>
+</form>
+<h2>api/about</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/about" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/about"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "about": {
+        "id": 1,
+        "content": "Zakir Soft is a Software company and Software Development Training Institute. We develop Softwares for your business and we also provide quality software training in Adabor Since 2020. We have passionate teams like Full Stack Laravel Developer, Android Developer, UI\/UX Designer. We have management system softwares for the local market.\n            we also have eCommerce systems for your online business.",
+        "created_at": "2021-04-25T08:11:40.000000Z",
+        "updated_at": "2021-04-25T08:11:40.000000Z"
+    }
+}</code></pre>
+<div id="execution-results-GETapi-about" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-about"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-about"></code></pre>
+</div>
+<div id="execution-error-GETapi-about" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-about"></code></pre>
+</div>
+<form id="form-GETapi-about" data-method="GET" data-path="api/about" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-about', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-about" onclick="cancelTryOut('GETapi-about');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-about" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/about</code></b>
+</p>
+</form>
+<h2>api/services</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/services" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/services"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "services": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1,
+                "title": "Qui officia iste dol",
+                "image": "storage\/service\/1619338736_608525f0a5c01.jpeg",
+                "description": "Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.\r\n\r\nCurabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.",
+                "created_at": "2021-04-25T08:18:56.000000Z",
+                "updated_at": "2021-04-25T08:18:56.000000Z"
+            }
+        ],
+        "first_page_url": "http:\/\/localhost\/api\/services?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http:\/\/localhost\/api\/services?page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "&amp;laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/localhost\/api\/services?page=1",
+                "label": 1,
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &amp;raquo;",
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "http:\/\/localhost\/api\/services",
+        "per_page": 5,
+        "prev_page_url": null,
+        "to": 1,
+        "total": 1
+    }
+}</code></pre>
+<div id="execution-results-GETapi-services" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-services"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-services"></code></pre>
+</div>
+<div id="execution-error-GETapi-services" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-services"></code></pre>
+</div>
+<form id="form-GETapi-services" data-method="GET" data-path="api/services" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-services', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-services" onclick="cancelTryOut('GETapi-services');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-services" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/services</code></b>
+</p>
+</form>
+<h2>api/technology/categories</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/technology/categories" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/technology/categories"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "categories": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1,
+                "name": "Leslie Wynn",
+                "created_at": "2021-04-25T08:19:15.000000Z",
+                "updated_at": "2021-04-25T08:19:15.000000Z"
+            },
+            {
+                "id": 2,
+                "name": "Brock Larson",
+                "created_at": "2021-04-25T08:19:17.000000Z",
+                "updated_at": "2021-04-25T08:19:17.000000Z"
+            }
+        ],
+        "first_page_url": "http:\/\/localhost\/api\/technology\/categories?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http:\/\/localhost\/api\/technology\/categories?page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "&amp;laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/localhost\/api\/technology\/categories?page=1",
+                "label": 1,
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &amp;raquo;",
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "http:\/\/localhost\/api\/technology\/categories",
+        "per_page": 5,
+        "prev_page_url": null,
+        "to": 3,
+        "total": 3
+    }
+}</code></pre>
+<div id="execution-results-GETapi-technology-categories" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-technology-categories"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-technology-categories"></code></pre>
+</div>
+<div id="execution-error-GETapi-technology-categories" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-technology-categories"></code></pre>
+</div>
+<form id="form-GETapi-technology-categories" data-method="GET" data-path="api/technology/categories" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-technology-categories', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-technology-categories" onclick="cancelTryOut('GETapi-technology-categories');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-technology-categories" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/technology/categories</code></b>
+</p>
+</form>
+<h2>api/technologies</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/technologies" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/technologies"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "technologies": [
+        {
+            "id": 2,
+            "category_id": 1,
+            "name": "Cyrus Roberson",
+            "image": "storage\/technology\/1619338775_6085261714ad1.jpg",
+            "created_at": "2021-04-25T08:19:35.000000Z",
+            "updated_at": "2021-04-25T08:19:35.000000Z"
+        },
+        {
+            "id": 1,
+            "category_id": 3,
+            "name": "Brenna Sweeney",
+            "image": "storage\/technology\/1619338771_6085261336cc0.jpeg",
+            "created_at": "2021-04-25T08:19:31.000000Z",
+            "updated_at": "2021-04-25T08:19:31.000000Z"
+        }
+    ]
+}</code></pre>
+<div id="execution-results-GETapi-technologies" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-technologies"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-technologies"></code></pre>
+</div>
+<div id="execution-error-GETapi-technologies" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-technologies"></code></pre>
+</div>
+<form id="form-GETapi-technologies" data-method="GET" data-path="api/technologies" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-technologies', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-technologies" onclick="cancelTryOut('GETapi-technologies');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-technologies" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/technologies</code></b>
+</p>
+</form>
+<h2>api/jobposts</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/jobposts" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/jobposts"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "posts": [
+        {
+            "id": 1,
+            "title": "Laravel Developer",
+            "slug": "laravel-developer",
+            "type": "Full Type",
+            "salary": "40k to 50k",
+            "short_description": "&lt;p&gt;asd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sda&lt;\/p&gt;",
+            "long_description": "&lt;p&gt;asd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sdaasd ada sda&lt;\/p&gt;",
+            "link": "Qui aut voluptatibus",
+            "deadline": "2009-06-11 00:00:00",
+            "status": 1,
+            "order": 0,
+            "created_at": "2021-04-25T08:25:48.000000Z",
+            "updated_at": "2021-04-25T08:25:48.000000Z"
+        }
+    ]
+}</code></pre>
+<div id="execution-results-GETapi-jobposts" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-jobposts"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-jobposts"></code></pre>
+</div>
+<div id="execution-error-GETapi-jobposts" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-jobposts"></code></pre>
+</div>
+<form id="form-GETapi-jobposts" data-method="GET" data-path="api/jobposts" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-jobposts', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-jobposts" onclick="cancelTryOut('GETapi-jobposts');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-jobposts" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/jobposts</code></b>
+</p>
+</form>
+<h2>api/galleries</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/galleries" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/galleries"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "galleries": [
+        {
+            "id": 1,
+            "image": "storage\/gallery\/1619338745_608525f96208b.png",
+            "order": 0,
+            "created_at": "2021-04-25T08:19:05.000000Z",
+            "updated_at": "2021-04-25T08:19:05.000000Z"
+        },
+        {
+            "id": 2,
+            "image": "storage\/gallery\/1619338745_608525f985963.jpg",
+            "order": 0,
+            "created_at": "2021-04-25T08:19:05.000000Z",
+            "updated_at": "2021-04-25T08:19:05.000000Z"
+        },
+        {
+            "id": 3,
+            "image": "storage\/gallery\/1619338745_608525f98d947.jpeg",
+            "order": 0,
+            "created_at": "2021-04-25T08:19:05.000000Z",
+            "updated_at": "2021-04-25T08:19:05.000000Z"
+        },
+        {
+            "id": 4,
+            "image": "storage\/gallery\/1619338745_608525f9a2896.jpeg",
+            "order": 0,
+            "created_at": "2021-04-25T08:19:05.000000Z",
+            "updated_at": "2021-04-25T08:19:05.000000Z"
+        },
+        {
+            "id": 5,
+            "image": "storage\/gallery\/1619338745_608525f9ad82b.jpg",
+            "order": 0,
+            "created_at": "2021-04-25T08:19:05.000000Z",
+            "updated_at": "2021-04-25T08:19:05.000000Z"
+        },
+        {
+            "id": 6,
+            "image": "storage\/gallery\/1619338745_608525f9c10ac.jpg",
+            "order": 0,
+            "created_at": "2021-04-25T08:19:05.000000Z",
+            "updated_at": "2021-04-25T08:19:05.000000Z"
+        },
+        {
+            "id": 7,
+            "image": "storage\/gallery\/1619338745_608525f9c9246.png",
+            "order": 0,
+            "created_at": "2021-04-25T08:19:05.000000Z",
+            "updated_at": "2021-04-25T08:19:05.000000Z"
+        },
+        {
+            "id": 8,
+            "image": "storage\/gallery\/1619338745_608525f9e42c3.png",
+            "order": 0,
+            "created_at": "2021-04-25T08:19:05.000000Z",
+            "updated_at": "2021-04-25T08:19:05.000000Z"
+        },
+        {
+            "id": 9,
+            "image": "storage\/gallery\/1619338745_608525f9e9712.jpg",
+            "order": 0,
+            "created_at": "2021-04-25T08:19:05.000000Z",
+            "updated_at": "2021-04-25T08:19:05.000000Z"
+        }
+    ]
+}</code></pre>
+<div id="execution-results-GETapi-galleries" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-galleries"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-galleries"></code></pre>
+</div>
+<div id="execution-error-GETapi-galleries" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-galleries"></code></pre>
+</div>
+<form id="form-GETapi-galleries" data-method="GET" data-path="api/galleries" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-galleries', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-galleries" onclick="cancelTryOut('GETapi-galleries');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-galleries" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/galleries</code></b>
+</p>
+</form>
+<h2>api/subcompanies</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/subcompanies" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/subcompanies"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "subcompanies": [
+        {
+            "id": 1,
+            "title": "Echotemplate",
+            "description": "&lt;p&gt;Praesent porttitor quam lacus, quis rhoncus ligula iaculis pharetra. Phasellus vitae tellus justo. Donec tellus eros, feugiat vel augue vel, vehicula luctus ex. Vestibulum semper a ante at maximus. In fringilla condimentum mauris, non efficitur ex tincidunt non.&lt;\/p&gt;",
+            "link": "https:\/\/echotemplate.com\/",
+            "logo": "storage\/subcompany\/logo\/1619338636_6085258ce3a3e.png",
+            "banner": "storage\/subcompany\/banner\/1619338636_6085258ce40b0.png",
+            "stats1_value": 500,
+            "stats1_text": "Product Download",
+            "stats2_value": 200,
+            "stats2_text": "Product view",
+            "order": 0,
+            "created_at": "2021-04-25T08:17:16.000000Z",
+            "updated_at": "2021-04-25T08:17:16.000000Z"
+        },
+        {
+            "id": 2,
+            "title": "Codeshikhi",
+            "description": "&lt;p&gt;Praesent porttitor quam lacus, quis rhoncus ligula iaculis pharetra. Phasellus vitae tellus justo. Donec tellus eros, feugiat vel augue vel, vehicula luctus ex. Vestibulum semper a ante at maximus. In fringilla condimentum mauris, non efficitur ex tincidunt non.&lt;\/p&gt;",
+            "link": "https:\/\/codeshikhi.io\/",
+            "logo": "storage\/subcompany\/logo\/1619338670_608525ae7418d.png",
+            "banner": "storage\/subcompany\/banner\/1619338670_608525ae74362.png",
+            "stats1_value": 500,
+            "stats1_text": "Product Download",
+            "stats2_value": 100,
+            "stats2_text": "Product view",
+            "order": 0,
+            "created_at": "2021-04-25T08:17:50.000000Z",
+            "updated_at": "2021-04-25T08:17:50.000000Z"
+        }
+    ]
+}</code></pre>
+<div id="execution-results-GETapi-subcompanies" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-subcompanies"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-subcompanies"></code></pre>
+</div>
+<div id="execution-error-GETapi-subcompanies" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-subcompanies"></code></pre>
+</div>
+<form id="form-GETapi-subcompanies" data-method="GET" data-path="api/subcompanies" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-subcompanies', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-subcompanies" onclick="cancelTryOut('GETapi-subcompanies');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-subcompanies" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/subcompanies</code></b>
+</p>
+</form>
+<h2>api/news</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/news" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/news"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "news": [
+        {
+            "id": 1,
+            "title": "We Are Hiring",
+            "slug": "we-are-hiring",
+            "image": "storage\/news\/1619338707_608525d33200f.png",
+            "short_description": "Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.",
+            "description": "&lt;p&gt;Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.Curabitur mollis elit eu libero eleifend, a aliquet magna consectetur. Fusce at accumsan quam. Ut maximus facilisis libero sit amet viverra. Nullam eu rutrum ex.&lt;\/p&gt;",
+            "created_at": "2021-04-25T08:18:27.000000Z",
+            "updated_at": "2021-04-25T08:18:27.000000Z"
+        }
+    ]
+}</code></pre>
+<div id="execution-results-GETapi-news" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-news"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-news"></code></pre>
+</div>
+<div id="execution-error-GETapi-news" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-news"></code></pre>
+</div>
+<form id="form-GETapi-news" data-method="GET" data-path="api/news" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-news', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-news" onclick="cancelTryOut('GETapi-news');" hidden>Cancel</button>&nbsp;&nbsp;
+        <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-news" hidden>Send Request 💥</button>
+    </h3>
+    <p>
+        <small class="badge badge-green">GET</small>
+        <b><code>api/news</code></b>
+    </p>
+</form>
+
+    </div>
+    <div class="dark-box">
+        <div class="lang-selector">
+            <a href="#" data-language-name="bash">bash</a>
+            <a href="#" data-language-name="javascript">javascript</a>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        var languages = ["bash","javascript"];
+        setupLanguages(languages);
+    });
+</script>
+</body>
+</html>
