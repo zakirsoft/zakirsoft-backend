@@ -31,21 +31,11 @@ class ApiController extends Controller
 
     // team
     public function teams(){
-        $teams = Team::all();
+        $teams = Team::select('id','name','position','image','order','status')->get();
 
         return response()->json([
             'success' => true,
             'teams' => $teams
-        ]);
-    }
-
-    // career
-    public function careers(){
-        $careers = Career::latest()->paginate(5);
-
-        return response()->json([
-            'success' => true,
-            'careers' => $careers,
         ]);
     }
 

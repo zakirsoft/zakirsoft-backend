@@ -25,9 +25,6 @@ Route::get('testimonials', [ApiController::class, 'testimonials']);
 // team
 Route::get('teams', [ApiController::class, 'teams']);
 
-// careers
-Route::get('careers', [ApiController::class, 'careers']);
-
 // portfolio
 Route::get('portfolio/categories', [ApiController::class, 'portfolioCategories']);
 Route::get('portfolios', [ApiController::class, 'portfolios']);
