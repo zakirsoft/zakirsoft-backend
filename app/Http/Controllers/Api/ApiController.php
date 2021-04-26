@@ -21,7 +21,7 @@ class ApiController extends Controller
 {
     // testimonial
     public function testimonials(){
-        $testimonials = Testimonial::paginate(5);
+        $testimonials = Testimonial::select('id','name','position','content')->paginate(5);
 
         return response()->json([
             'success' => true,
@@ -71,7 +71,7 @@ class ApiController extends Controller
 
     // aboutus
     public function aboutus(){
-        $about = About::first();
+        $about = About::select('content')->first();
 
         return response()->json([
             'success' => true,
