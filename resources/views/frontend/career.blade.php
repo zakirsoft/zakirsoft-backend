@@ -103,7 +103,7 @@
             <div class="row gallery__itemContents">
                 @foreach ($galleries as $gallery)
                     <div class="col-md-4">
-                        <a class="gallery__item" href="{{ asset($gallery->image) }}">
+                        <a class="gallery__item" style="display: inline-block;margin-bottom: 30px;" href="{{ asset($gallery->image) }}">
                             <img src="{{ asset($gallery->image) }}" alt="demo" class="img-fluid" />
                         </a>
                     </div>
