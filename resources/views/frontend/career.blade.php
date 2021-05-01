@@ -16,7 +16,7 @@
     <!-- joinus section end -->
     <section class="careerTeam">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-lg-6 order-2 order-lg-0">
                     <div class="careerTeam__contentText">
                         <h5 class="careerTeam__title">Join Our Team</h5>
@@ -92,7 +92,7 @@
     <!-- Gallery Section Start -->
     <section class="gallery">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="section">
                     <h5 class="section__title section__title_two">Our Gallery</h5>
                     <p class="section__brief">
@@ -115,7 +115,7 @@
 
     <section class="positions" id="positions">
         <div class="container positions__container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="section">
                     <h5 class="section__title section__title_two">
                         All open positions
