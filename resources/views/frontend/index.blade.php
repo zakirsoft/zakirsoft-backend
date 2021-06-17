@@ -208,6 +208,9 @@
   <!-- testimonial section end -->
   <!-- Projects Section Start -->
     <section class="p-0">
+        <div class="row section_title pt-5">
+            <h2 class="pb-0 pt-4">Our Sub Brands</h2>
+        </div>
         @foreach ($subcompanies as $company)
             @if($loop->iteration % 2 == 0)
                 <div class="latestProject latestProject--one">

@@ -4,7 +4,7 @@
 @section('meta')
     <meta name="author" content="Zakir Soft">
     <meta name="keywords" content="web design, web development, web development agency, agency, web, design, development, pwa, spa, web application development, website, website design, ecommerce website">
-    <meta name="description" content="We are engertic team of designers and developers. We work with Python, PHP, Laravel, PostgreSQL, MYSQL, React.js, Vue.js, Nuxt.js, Next.js, Cloud Server. We are open to application, join us.">
+    <meta name="description" content="Learn more about company and our team. Check our latest opening jobs, you might be interested in.">
     <meta property="og:title" content="Career - Zakir Soft" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="{{ asset('frontend') }}/assets/images/preview.jpg" />
@@ -13,48 +13,18 @@
 @section('career_footer') active @endsection
 
 @section('content')
-    <!-- joinus section start -->
-    {{-- <section id="joinus-area" class="none ">
-        <div class="container">
-            <div class="row section_title">
-                <h2>Join us</h2>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    @foreach ($career as $item)
-                    <div class="row join_team">
-                        <div class="col-lg-6 col-12">
-                            <div class="join-designer">
-                                <h2>{{ $item->title }}</h2>
-                                <p>{{ $item->content }}</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-12">
-                            <div class="join-designer-button text-lg-right">
-                                <a target="_blank" class="button" href="{{ route('contact_website') }}">I want this position</a>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </section> --}}
     <!-- joinus section end -->
     <section class="careerTeam">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-lg-6 order-2 order-lg-0">
                     <div class="careerTeam__contentText">
                         <h5 class="careerTeam__title">Join Our Team</h5>
                         <p class="careerTeam__brief">
-                            Curabitur mollis elit eu libero eleifend, a aliquet magna
-                            consectetur. Fusce at accumsan quam. Ut maximus facilisis libero
-                            sit amet viverra. Nullam eu rutrum ex. Nullam consectetur turpis
-                            mi, id egestas urna mattis et.
+                            Zakir Soft is growing Company with a 4 team ready to make the impossible possible. We work together in a friendly envrionment where the magic happens. We believe, Our team is our comapany's best assets and we take care of it. 
                         </p>
                         <button class="zakirSoft__button px-4">
-                            <a href="#positions"> view all position </a>
+                            <a href="#positions"> View all position </a>
                         </button>
                     </div>
                 </div>
@@ -69,13 +39,11 @@
 
     <section class="perks">
         <div class="container perks__container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="section">
                     <h5 class="section__title section__title_two">Perks & Benefits</h5>
                     <p class="section__brief">
-                        Aenean vitae interdum leo. Donec luctus nulla eget leo fringilla
-                        sollicitudin. Phasellus imperdiet nisl ut auctor ultricies. Morbi
-                        vehicula, lorem ac consectetur accumsa
+                        Check out what Zakir Soft provides to individual team member and how we support our team member. 
                     </p>
                 </div>
             </div>
@@ -124,13 +92,11 @@
     <!-- Gallery Section Start -->
     <section class="gallery">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="section">
                     <h5 class="section__title section__title_two">Our Gallery</h5>
                     <p class="section__brief">
-                        Aenean vitae interdum leo. Donec luctus nulla eget leo fringilla
-                        sollicitudin. Phasellus imperdiet nisl ut auctor ultricies. Morbi
-                        vehicula, lorem ac consectetur accumsa
+                        Take a peek in our gallery consisting of where we work, how do we work and what do we do. 
                     </p>
                 </div>
             </div>
@@ -149,15 +115,13 @@
 
     <section class="positions" id="positions">
         <div class="container positions__container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="section">
                     <h5 class="section__title section__title_two">
                         All open positions
                     </h5>
                     <p class="section__brief">
-                        Aenean vitae interdum leo. Donec luctus nulla eget leo fringilla
-                        sollicitudin. Phasellus imperdiet nisl ut auctor ultricies. Morbi
-                        vehicula, lorem ac consectetur accumsa
+                        We are very excited to have you in our team. Check our open position. If you don't find yourself a position that fits your skills <a href="https://forms.gle/CzUE6PDwN5zGyayA7" target="_blank"> Apply here </a>
                     </p>
                 </div>
             </div>
