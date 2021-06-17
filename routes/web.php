@@ -50,6 +50,7 @@ Route::middleware(['auth'])->prefix('panel')->group(function () {
     Route::put('about/update/{about}', [AboutController::class, 'update'])->name('about.update');
 
     // Portfolio & Portfolio Category Routes
+    Route::post('/portfoilo/sorting', [PortfolioController::class, 'sorting'])->name('portfolio.sort');
     Route::resource('portfolio', PortfolioController::class);
     Route::prefix('portfolio')->group(function () {
         Route::get('category/index', [PortfolioCategoryController::class, 'index'])->name('portfolio.category.index');
@@ -120,4 +121,3 @@ Route::middleware(['auth'])->prefix('panel')->group(function () {
     // Contact Messages
     Route::get('contact/messages', [FooterController::class, 'contact_messages'])->name('contact.index');
 });
-

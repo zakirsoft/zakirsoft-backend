@@ -9,7 +9,7 @@ class Portfolio extends Model
 {
     use HasFactory;
 
-    protected $fillable=[
+    protected $fillable = [
         'title',
         'title_slug',
         'image',
@@ -22,9 +22,11 @@ class Portfolio extends Model
         'client_name',
         'client_email',
         'category_id',
+        'order'
     ];
 
-    public function category(){
-        return $this->belongsTo(PortfolioCategory::class,'category_id');
+    public function category()
+    {
+        return $this->belongsTo(PortfolioCategory::class, 'category_id');
     }
 }

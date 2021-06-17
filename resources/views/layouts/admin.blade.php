@@ -8,15 +8,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="Admindek Bootstrap admin template made using Bootstrap 4 and it has huge amount of ready made feature, UI components, pages which completely fulfills any dashboard needs." />
-    <meta name="keywords" content="flat ui, admin Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+    <meta name="description"
+        content="Admindek Bootstrap admin template made using Bootstrap 4 and it has huge amount of ready made feature, UI components, pages which completely fulfills any dashboard needs." />
+    <meta name="keywords"
+        content="flat ui, admin Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="colorlib" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {{-- Style File  Here--}}
+
+    {{-- Style File  Here --}}
     @include('layouts.Includes.style')
     <link rel="stylesheet" href="{{ asset('css') }}/style.css">
     @yield('style')
 </head>
+
 <body>
     <div id="pcoded" class="pcoded">
         <div class="pcoded-overlay-box"></div>
@@ -29,8 +34,8 @@
             <div class="pcoded-main-container">
                 <div class="pcoded-wrapper">
 
-                   {{-- Sidebar Here--}}
-                   @include('layouts.Includes.sidebar')
+                    {{-- Sidebar Here --}}
+                    @include('layouts.Includes.sidebar')
                     {{-- Sidebar Here --}}
 
                     {{-- Body Text Here --}}
@@ -44,8 +49,9 @@
         </div>
     </div>
 
-    {{-- Script File  Here--}}
+    {{-- Script File  Here --}}
     @include('layouts.Includes.script')
-    {{-- Script File Here--}}
+    {{-- Script File Here --}}
 </body>
+
 </html>

@@ -29,6 +29,7 @@ class CreatePortfoliosTable extends Migration
             $table->text('tool_used');
             $table->string('client_name');
             $table->string('client_email');
+            $table->integer('order')->unsigned()->default(0);
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('portfolio_categories')->onDelete('cascade');

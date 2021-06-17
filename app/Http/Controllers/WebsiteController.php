@@ -43,7 +43,7 @@ class WebsiteController extends Controller
 
     function work()
     {
-        $portfolio = Portfolio::with('category')->latest()->get();
+        $portfolio = Portfolio::with('category')->oldest('order')->get();
         $category_list = PortfolioCategory::with('portfolios.category')->where('status', 1)->get();
         $content = Footer::get()->first();
         $socials = Social::all();

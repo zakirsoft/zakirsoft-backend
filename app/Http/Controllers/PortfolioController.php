@@ -20,14 +20,14 @@ class PortfolioController extends Controller
 
     public function index()
     {
-        $portfolio_list = Portfolio::SimplePaginate(10);
-        return view('admin.portfolio.index',compact('portfolio_list'));
+        $portfolio_list = Portfolio::oldest('order')->SimplePaginate(10);
+        return view('admin.portfolio.index', compact('portfolio_list'));
     }
 
     public function create()
     {
-        $category_list = PortfolioCategory::where('status',1)->get();
-        return view('admin.portfolio.create',compact('category_list'));
+        $category_list = PortfolioCategory::where('status', 1)->get();
+        return view('admin.portfolio.create', compact('category_list'));
     }
 
     public function store(Request $request)
@@ -43,7 +43,7 @@ class PortfolioController extends Controller
             'client_email' => 'required',
             'category_id' => 'required',
             'image' => 'required|image|max:3072',
-        ],[
+        ], [
             'title.required' => 'Title field is required!',
             'description.required' => 'Description field is required!',
             'live_link.required' => 'Live link field is required!',
@@ -61,7 +61,7 @@ class PortfolioController extends Controller
         $portfolio = Portfolio::create([
             'title' => $request->title,
             'image' => 'image',
-            'title_slug' =>Str::slug($request->title),
+            'title_slug' => Str::slug($request->title),
             'description' => $request->description,
             'live_link' => $request->live_link,
             'bahance_link' => $request->bahance_link,
@@ -74,21 +74,21 @@ class PortfolioController extends Controller
             'created_at' => Carbon::now(),
         ]);
 
-        if($request->has('image')) {
+        if ($request->has('image')) {
             $image = $request->image;
-            $imageName = time() . '_' . uniqid() .'.'. $image->getClientOriginalExtension();
+            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
 
             Storage::putFileAs('portfolio', $image, $imageName);
-            $portfolio->image = 'storage/portfolio/'. $imageName;
+            $portfolio->image = 'storage/portfolio/' . $imageName;
             $portfolio->save();
         }
 
         $multiple_image = $request->file('m_image');
         if ($multiple_image) {
             foreach ($multiple_image as $multi_img) {
-                $imageName = time() . '_' . uniqid() .'.'. $multi_img->getClientOriginalExtension();
+                $imageName = time() . '_' . uniqid() . '.' . $multi_img->getClientOriginalExtension();
                 Storage::putFileAs('portfolio/multiple', $multi_img, $imageName);
-                $db_image_name = 'storage/portfolio/multiple/'. $imageName;
+                $db_image_name = 'storage/portfolio/multiple/' . $imageName;
                 PortfoiloImages::create([
                     'portfolio_id' => $portfolio->id,
                     'm_image' =>  $db_image_name,
@@ -103,20 +103,20 @@ class PortfolioController extends Controller
     public function show($id)
     {
         $portfolio = Portfolio::findOrFail($id);
-        $category_list = PortfolioCategory::where('status',1)->get();
-        $m_portfolio_image = PortfoiloImages::where('portfolio_id',$portfolio->id)->get();
+        $category_list = PortfolioCategory::where('status', 1)->get();
+        $m_portfolio_image = PortfoiloImages::where('portfolio_id', $portfolio->id)->get();
 
-        return view('admin.portfolio.show',compact('portfolio','category_list','m_portfolio_image'));
+        return view('admin.portfolio.show', compact('portfolio', 'category_list', 'm_portfolio_image'));
     }
 
     public function edit($id)
     {
         $portfolio = Portfolio::findOrFail($id);
-        $category_list = PortfolioCategory::where('status',1)->get();
-        return view('admin.portfolio.edit',compact('portfolio','category_list'));
+        $category_list = PortfolioCategory::where('status', 1)->get();
+        return view('admin.portfolio.edit', compact('portfolio', 'category_list'));
     }
 
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         // dd($request->all());
         $request->validate([
@@ -128,7 +128,7 @@ class PortfolioController extends Controller
             'tool_used' => 'required',
             'client_name' => 'required',
             'client_email' => 'required',
-        ],[
+        ], [
             'title.required' => 'Title field is required!',
             'description.required' => 'Description field is required!',
             'live_link.required' => 'Live link field is required!',
@@ -145,7 +145,7 @@ class PortfolioController extends Controller
 
         $portfolio->update([
             'title' => $request->title,
-            'title_slug' =>Str::slug($request->title),
+            'title_slug' => Str::slug($request->title),
             'description' => $request->description,
             'live_link' => $request->live_link,
             'bahance_link' => $request->bahance_link,
@@ -158,23 +158,23 @@ class PortfolioController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        if($request->has('image')) {
+        if ($request->has('image')) {
             $request->validate([
                 'image' => 'required|image|mimes:jpeg,png,jpg,svg,webp|max:3072'
-            ],[
+            ], [
                 'image.size' => 'Image must be 3 or less than 3 MB',
                 'image.mimes' => 'Image supported format jpeg, png, svg, webp',
                 'image.required' => 'image field is required!',
             ]);
 
             if (file_exists($portfolio->image)) {
-                unlink(base_path('public/'.$portfolio->image));
+                unlink(base_path('public/' . $portfolio->image));
             }
 
             $image = $request->image;
-            $imageName = time() . '_' . uniqid() .'.'. $image->getClientOriginalExtension();
+            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
             Storage::putFileAs('/portfolio', $image, $imageName);
-            $portfolio->image = 'storage/portfolio/'. $imageName;
+            $portfolio->image = 'storage/portfolio/' . $imageName;
             $portfolio->save();
         }
 
@@ -186,7 +186,7 @@ class PortfolioController extends Controller
     {
         $portfolio = Portfolio::findOrFail($id);
 
-        if(file_exists($portfolio->image)){
+        if (file_exists($portfolio->image)) {
             unlink(public_path($portfolio->image));
         }
 
@@ -194,5 +194,25 @@ class PortfolioController extends Controller
 
         session()->flash('success', 'Portfolio Deleted Successfully!');
         return redirect()->route('portfolio.index');
+    }
+
+
+    public function sorting(Request $request)
+    {
+        $data = $request->order;
+        $tasks = Portfolio::all();
+
+        foreach ($tasks as $task) {
+            $task->timestamps = false;
+            $id = $task->id;
+
+            foreach ($data as $order) {
+                if ($order['id'] == $id) {
+                    $task->update(['order' => $order['position']]);
+                }
+            }
+        }
+
+        return response()->json(['message' => 'Portfolio Sorted Successfully!']);
     }
 }
