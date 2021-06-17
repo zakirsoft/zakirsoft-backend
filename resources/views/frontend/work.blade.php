@@ -63,7 +63,7 @@
                                             <span class="p_type">{{ $portfolio_item->category->name }}</span>
                                             <h3 class="project_name">{{ $portfolio_item->title }}</h3>
                                             <a target="_blank"
-                                                href="{{ route('work_details_website', $portfolio_item->id) }}"
+                                                href="{{ route('work_details_website', $portfolio_item->title_slug) }}"
                                                 class="v_project">
                                                 view more
                                                 <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png"
@@ -92,7 +92,8 @@
                                             <div class="project_info">
                                                 <span class="p_type">{{ $item->category->name }}</span>
                                                 <h3 class="project_name">{{ $item->title }}</h3>
-                                                <a target="_blank" href="{{ route('work_details_website', $item->id) }}"
+                                                <a target="_blank"
+                                                    href="{{ route('work_details_website', $item->title_slug) }}"
                                                     class="v_project">
                                                     view more
                                                     <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png"

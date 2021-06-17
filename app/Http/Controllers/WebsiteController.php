@@ -50,13 +50,13 @@ class WebsiteController extends Controller
         return view('frontend.work', compact('portfolio', 'category_list', 'content', 'socials'));
     }
 
-    function workDetails($id)
+    function workDetails($slug)
     {
-        $work_details_content = Portfolio::findOrFail($id);
-        $portfolio = Portfolio::where('id', '!=', $id)->latest()->get();
+        $work_details_content = Portfolio::where('title_slug', $slug)->firstOrFail();
+        $portfolio = Portfolio::where('id', '!=', $work_details_content->id)->latest()->get()->take(2);
         $content = Footer::get()->first();
         $socials = Social::all();
-        $work_details_imgages = PortfoiloImages::where('portfolio_id', $id)->get();
+        $work_details_imgages = PortfoiloImages::where('portfolio_id', $work_details_content->id)->get();
 
         return view('frontend.work_details', compact('portfolio', 'work_details_content', 'work_details_imgages', 'content', 'socials'));
     }
