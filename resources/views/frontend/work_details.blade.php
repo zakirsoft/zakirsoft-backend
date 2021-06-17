@@ -99,7 +99,8 @@
                             <p>Previous Projects</p>
                             <span class="p_type">{{ $item->category->name }}</span>
                             <h3 class="project_name">{{ $item->title }}</h3>
-                            <a target="_blank" href="{{ route('work_details_website', $item->id) }}" class="v_project">
+                            <a target="_blank" href="{{ route('work_details_website', $item->title_slug) }}"
+                                class="v_project">
                                 view more
                                 <img src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="arrow_icon">
                             </a>
