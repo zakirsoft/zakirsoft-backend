@@ -9,8 +9,13 @@ class PortfolioCategory extends Model
 {
     use HasFactory;
 
-    protected $fillable=[
+    protected $fillable = [
         'name',
         'status',
     ];
+
+    public function portfolios()
+    {
+        return $this->hasMany(Portfolio::class, 'category_id');
+    }
 }

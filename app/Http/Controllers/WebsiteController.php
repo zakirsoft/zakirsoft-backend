@@ -28,7 +28,7 @@ class WebsiteController extends Controller
         $subcompanies = Subcompany::oldest('order')->get();
         $news_list = News::latest()->limit(3)->get();
 
-        return view('frontend.index', compact('portfolio', 'testimonials', 'content', 'socials','subcompanies','news_list'));
+        return view('frontend.index', compact('portfolio', 'testimonials', 'content', 'socials', 'subcompanies', 'news_list'));
     }
 
     function about()
@@ -43,8 +43,8 @@ class WebsiteController extends Controller
 
     function work()
     {
-        $portfolio = Portfolio::latest()->get();
-        $category_list = PortfolioCategory::where('status', 1)->get();
+        $portfolio = Portfolio::with('category')->latest()->get();
+        $category_list = PortfolioCategory::with('portfolios.category')->where('status', 1)->get();
         $content = Footer::get()->first();
         $socials = Social::all();
         return view('frontend.work', compact('portfolio', 'category_list', 'content', 'socials'));
@@ -69,7 +69,7 @@ class WebsiteController extends Controller
         $posts = Jobpost::whereStatus(true)->oldest('order')->get();
         $galleries = Gallery::oldest('order')->get();
 
-        return view('frontend.career', compact('career', 'content', 'socials','posts','galleries'));
+        return view('frontend.career', compact('career', 'content', 'socials', 'posts', 'galleries'));
     }
 
     function contact()
@@ -82,11 +82,11 @@ class WebsiteController extends Controller
     public function news_details($slug)
     {
         $news = News::whereSlug($slug)->first();
-        $news_list = News::where('id','!=',$news->id)->get();
+        $news_list = News::where('id', '!=', $news->id)->get();
         $content = Footer::get()->first();
         $socials = Social::all();
 
-        return view('frontend.news_details', compact('content', 'socials','news','news_list'));
+        return view('frontend.news_details', compact('content', 'socials', 'news', 'news_list'));
     }
 
     public function job_details($slug)
@@ -95,6 +95,6 @@ class WebsiteController extends Controller
         $content = Footer::get()->first();
         $socials = Social::all();
 
-        return view('frontend.job_details', compact('content', 'socials','post'));
+        return view('frontend.job_details', compact('content', 'socials', 'post'));
     }
 }
