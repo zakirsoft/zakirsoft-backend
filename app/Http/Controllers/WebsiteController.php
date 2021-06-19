@@ -21,7 +21,7 @@ class WebsiteController extends Controller
 {
     function home()
     {
-        $portfolio = Portfolio::latest()->get();
+        $portfolio = Portfolio::latest()->get()->take(5);
         $testimonials = Testimonial::OrderBy('created_at', 'desc')->get();
         $content = Footer::get()->first();
         $socials = Social::all();
