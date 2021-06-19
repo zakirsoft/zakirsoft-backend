@@ -224,9 +224,12 @@
     </section>
     <!-- testimonial section end -->
     <!-- Projects Section Start -->
+    @if($subcompanies->count() > 0)
     <section class="p-0">
-        <div class="row section_title pt-5">
-            <h2 class="pb-0 pt-4">Our Sub Brands</h2>
+        <div class="container">
+          <div class="section_title tex-center pt-5">
+              <h2 class="pb-0 pt-4">Our Sub Brands</h2>
+          </div>
         </div>
         @foreach ($subcompanies as $company)
             @if ($loop->iteration % 2 == 0)
@@ -308,9 +311,11 @@
             @endif
         @endforeach
     </section>
+    @endif
     <!-- Projects Section End -->
 
     <!-- Article/Blog Section Start  -->
+  @if($news_list->count() > 0)
     <div class="articles">
         <div class="container">
             <div class="row">
@@ -346,6 +351,7 @@
             </div>
         </div>
     </div>
+    @endif
     <!-- Article/Blog Section End -->
 @endsection
 
