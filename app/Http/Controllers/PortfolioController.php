@@ -20,7 +20,7 @@ class PortfolioController extends Controller
 
     public function index()
     {
-        $portfolio_list = Portfolio::oldest('order')->SimplePaginate(10);
+        $portfolio_list = Portfolio::oldest('order')->get();
         return view('admin.portfolio.index', compact('portfolio_list'));
     }
 
