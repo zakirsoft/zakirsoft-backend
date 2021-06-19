@@ -63,29 +63,26 @@
                                             <table class="table table-bordered table-hover">
                                                 <thead>
                                                     <tr>
-                                                        <th>ID</th>
-                                                        <th>Category Name</th>
-                                                        <th>Project Title</th>
-                                                        <th>Client Name</th>
-                                                        <th>Client Email</th>
-                                                        <th>Image</th>
-                                                        <th>Live Link</th>
-                                                        <th>Project Length</th>
-                                                        <th class="text-center">Action</th>
+                                                        <th width="5%">ID</th>
+                                                        <th width="10%">Image</th>
+                                                        <th width="25%">Title</th>
+                                                        <th width="15%">Category Name</th>
+                                                        <th width="15%">Live Link</th>
+                                                        <th width="10%">Project Length</th>
+                                                        <th width="20%" class="text-center">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="sortable">
                                                     @forelse ($portfolio_list as $key => $portfolio)
                                                         <tr data-id="{{ $portfolio->id }}">
                                                             <th scope="row">{{ $portfolio_list->firstItem() + $key }}</th>
-                                                            <td>{{ $portfolio->category->name }}</td>
-                                                            <td>{{ $portfolio->title }}</td>
-                                                            <td>{{ $portfolio->client_name }}</td>
-                                                            <td>{{ $portfolio->client_email }}</td>
                                                             <td>
                                                                 <img width="50px" height="50px"
                                                                     src="{{ asset($portfolio->image) }}" alt="" srcset="">
                                                             </td>
+                                                            <td>{{ $portfolio->title }}</td>
+                                                            <td>{{ $portfolio->category->name }}</td>
+
                                                             <td>{{ $portfolio->live_link }}</td>
                                                             <td>{{ $portfolio->project_length }}</td>
                                                             <td class="text-center">
