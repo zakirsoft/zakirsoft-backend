@@ -34,8 +34,6 @@ class PortfolioController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'description' => 'required',
-            'live_link' => 'required|url',
             'project_length' => 'required',
             'our_role' => 'required',
             'tool_used' => 'required',
@@ -45,8 +43,6 @@ class PortfolioController extends Controller
             'image' => 'required|image|max:3072',
         ], [
             'title.required' => 'Title field is required!',
-            'description.required' => 'Description field is required!',
-            'live_link.required' => 'Live link field is required!',
             'project_length.required' => 'Project length field is required!',
             'our_role.required' => 'Our role field is required!',
             'tool_used.required' => 'Tool used field is required!',
@@ -121,8 +117,6 @@ class PortfolioController extends Controller
         // dd($request->all());
         $request->validate([
             'title' => 'required',
-            'description' => 'required',
-            'live_link' => 'required|url',
             'project_length' => 'required',
             'our_role' => 'required',
             'tool_used' => 'required',
@@ -131,9 +125,6 @@ class PortfolioController extends Controller
         ], [
             'title.required' => 'Title field is required!',
             'description.required' => 'Description field is required!',
-            'live_link.required' => 'Live link field is required!',
-            'live_link.required' => 'Live link must be link!',
-            'bahance_link.required' => 'Bahance link  must be link!',
             'project_length.required' => 'Project length field is required!',
             'our_role.required' => 'Our role field is required!',
             'tool_used.required' => 'Tool used field is required!',

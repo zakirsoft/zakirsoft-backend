@@ -51,11 +51,17 @@
                             <p>{!! $work_details_content->description !!}.</p>
                         </div>
                         <div class="project_button">
-                            <a target="_blank" class="button" href="{{ $work_details_content->live_link }}">View Project
-                                on live</a>
-                            <a target="_blank" href="{{ $work_details_content->bahance_link }}"
-                                class="button border-0">View Behance on live <img
-                                    src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="arrow_icon"></a>
+                            @if ($work_details_content->live_link)
+                                <a target="_blank" class="button" href="{{ $work_details_content->live_link }}">View
+                                    Project
+                                    on live</a>
+                            @endif
+                            @if ($work_details_content->bahance_link)
+
+                                <a target="_blank" href="{{ $work_details_content->bahance_link }}"
+                                    class="button border-0">View Behance on live <img
+                                        src="{{ asset('frontend') }}/assets/images/Arrow-icon.png" alt="arrow_icon"></a>
+                            @endif
                         </div>
                     </div>
                 </div>
