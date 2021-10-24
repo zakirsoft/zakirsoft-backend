@@ -2,10 +2,10 @@
 
 @section('title') Career @endsection
 @section('meta')
-    <meta name="author" content="Zakir Soft">
+    <meta name="author" content="Zakirsoft">
     <meta name="keywords" content="web design, web development, web development agency, agency, web, design, development, pwa, spa, web application development, website, website design, ecommerce website">
     <meta name="description" content="Learn more about company and our team. Check our latest opening jobs, you might be interested in.">
-    <meta property="og:title" content="Career - Zakir Soft" />
+    <meta property="og:title" content="Career - Zakirsoft" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="{{ asset('frontend') }}/assets/images/preview.jpg" />
 @endsection
@@ -21,7 +21,7 @@
                     <div class="careerTeam__contentText">
                         <h5 class="careerTeam__title">Join Our Team</h5>
                         <p class="careerTeam__brief">
-                            Zakir Soft is growing Company with a 4 team ready to make the impossible possible. We work together in a friendly envrionment where the magic happens. We believe, Our team is our comapany's best assets and we take care of it. 
+                            Zakirsoft is growing Company with a 4 team ready to make the impossible possible. We work together in a friendly envrionment where the magic happens. We believe, Our team is our comapany's best assets and we take care of it. 
                         </p>
                         <button class="zakirSoft__button px-4">
                             <a href="#positions"> View all position </a>
@@ -43,7 +43,7 @@
                 <div class="section">
                     <h5 class="section__title section__title_two">Perks & Benefits</h5>
                     <p class="section__brief">
-                        Check out what Zakir Soft provides to individual team member and how we support our team member. 
+                        Check out what Zakirsoft provides to individual team member and how we support our team member. 
                     </p>
                 </div>
             </div>

@@ -206,7 +206,7 @@ active pcoded-trigger
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label for="profile_name">Profile Name</label>
-                                                                        <input value="{{ $social->profile_name ?? old('profile_name') }}" required name="profile_name" type="text" class="form-control" id="profile_name" placeholder="Zakir Soft">
+                                                                        <input value="{{ $social->profile_name ?? old('profile_name') }}" required name="profile_name" type="text" class="form-control" id="profile_name" placeholder="Zakirsoft">
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label for="social_link">Social Link</label>
@@ -315,7 +315,7 @@ active pcoded-trigger
                     <div class="form-group">
                         <label for="profile_name">Profile Name</label>
                         <input value="{{ old('profile_name') }}" required name="profile_name" type="text"
-                            class="form-control" id="profile_name" placeholder="Zakir Soft">
+                            class="form-control" id="profile_name" placeholder="Zakirsoft">
                     </div>
                     <div class="form-group">
                         <label for="social_link">Social Link</label>

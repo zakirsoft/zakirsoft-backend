@@ -2,10 +2,10 @@
 
 @section('title') About Us @endsection
 @section('meta')
-    <meta name="author" content="Zakir Soft">
+    <meta name="author" content="Zakirsoft">
     <meta name="keywords" content="web design, web development, web development agency, agency, web, design, development, pwa, spa, web application development, website, website design, ecommerce website">
-    <meta name="description" content="Zakir Soft, A team of young designer and developers. We have frontend, backend, mobile application and UI/UX Design team. We provide complete web solution to any company.">
-    <meta property="og:title" content="About Us - Zakir Soft" />
+    <meta name="description" content="Zakirsoft, A team of young designer and developers. We have frontend, backend, mobile application and UI/UX Design team. We provide complete web solution to any company.">
+    <meta property="og:title" content="About Us - Zakirsoft" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="{{ asset('frontend') }}/assets/images/preview.jpg" />
 @endsection
@@ -46,7 +46,7 @@
           <div class="about_content_wrapper">
             <h3>Who We are</h3>
             <p>{!! $about->content !!}</p>
-            {{-- <p>Zakir Soft is a Software company and Software Development Training Institute. We develop Softwares for your business and we also provide quality software training in Adabor Since 2020. We have passionate teams like Full Stack Laravel Developer, Android Developer, UI/UX Designer. We have management system softwares for the local market.
+            {{-- <p>Zakirsoft is a Software company and Software Development Training Institute. We develop Softwares for your business and we also provide quality software training in Adabor Since 2020. We have passionate teams like Full Stack Laravel Developer, Android Developer, UI/UX Designer. We have management system softwares for the local market.
               <br /><br />
               we also have eCommerce systems for your online business. </p> --}}
           </div>

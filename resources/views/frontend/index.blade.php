@@ -2,12 +2,12 @@
 
 @section('title') A Innovative Software Company @endsection
 @section('meta')
-    <meta name="author" content="Zakir Soft">
+    <meta name="author" content="Zakirsoft">
     <meta name="keywords"
         content="web design, web development, web development agency, agency, web, design, development, pwa, spa, web application development, website, website design, ecommerce website">
     <meta name="description"
         content="We are a web design & development agency in Dhaka, Bangladesh. We provide web design, web development, SPA, SSR & web application, development services.">
-    <meta property="og:title" content="Zakir Soft - Website Design and Development Company in Dhaka, Bangladesh" />
+    <meta property="og:title" content="Zakirsoft - Website Design and Development Company in Dhaka, Bangladesh" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="{{ asset('frontend') }}/assets/images/preview.jpg" />
 @endsection

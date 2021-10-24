@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>@yield('title') - Zakir Soft</title>
+    <title>@yield('title') - Zakirsoft</title>
 
     <!-- =========== SEO Tags ============ -->
     @yield('meta')
@@ -64,7 +64,7 @@
         <div class="container">
             <nav class="head_content">
                 <a href="{{ url('/') }}" class="logo">
-                    <img src="{{ asset('frontend') }}/assets/images/logo/1.png" alt="Zakir Soft">
+                    <img src="{{ asset('frontend') }}/assets/images/logo/1.png" alt="Zakirsoft">
                 </a>
                 <div class="menu">
                     <ul class="m_bar">

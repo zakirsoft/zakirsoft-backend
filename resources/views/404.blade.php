@@ -10,11 +10,11 @@
   <link rel="icon" type="image/png" sizes="64x64" href="assets/images/logo/64x64.png">
 
   <!-- =========== SEO Tags ============ -->
-  <title> 404 Not Found - Zakir Soft </title>
-  <meta name="author" content="Zakir Soft">
+  <title> 404 Not Found - Zakirsoft </title>
+  <meta name="author" content="Zakirsoft">
   <meta name="keywords" content="web design, web development, web development agency, agency, web, design, development, pwa, spa, web application development, website, website design, ecommerce website">
   <meta name="description" content="We are a web design & development company in Dhaka, Bangladesh. We provide web design, web development, SPA, SSR & web application, development services.">
-  <meta property="og:title" content="404 Not Found - Zakir Soft" />
+  <meta property="og:title" content="404 Not Found - Zakirsoft" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/images/preview.jpg" />
 
@@ -32,7 +32,7 @@
     <div class="container">
       <nav class="head_content">
         <a href="{{ url('/') }}" class="logo">
-          <img src="{{ asset('frontend/assets/images/logo/1.png') }}" alt="Zakir Soft">
+          <img src="{{ asset('frontend/assets/images/logo/1.png') }}" alt="Zakirsoft">
         </a>
         <div class="menu">
           <ul class="m_bar">
