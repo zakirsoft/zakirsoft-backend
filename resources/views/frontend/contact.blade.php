@@ -41,7 +41,7 @@
                                 <Strong>Email: </Strong> zakirsoft20@gmail.com
                             </p>
                             <p>
-                                <strong>Address: </strong> Home# 1024/N, Road# 17/A, Adabor, Dhaka-1207
+                                <strong>Address: </strong> 14/4A, Block - B, Babor Road, Dhaka - 1207
                             </p>
                             <ul class="social_links">
                                 @foreach ($socials as $social)
